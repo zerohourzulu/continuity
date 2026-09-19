@@ -7,3 +7,5 @@ Use pull requests for bounded changes. Explain the problem, changed behavior and
 Report exploitable vulnerabilities through the repository Security tab’s private reporting option. Do not disclose sensitive exploit details in a public issue. No response-time commitment or bug bounty is offered.
 
 Maintainers may use AI assistance to triage or draft responses; decisions must be grounded in the repository and evidence. A pull request is not automatically merged just because it passes a check.
+
+[Package maintenance and manifest updates](docs/MAINTENANCE.md).
