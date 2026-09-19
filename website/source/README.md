@@ -1,6 +1,6 @@
 # Continuity Core 0.2 — agents change; responsibility remains
 
-**Public evaluation edition 2 · local reference software · not yet published**
+**Public evaluation edition 3 · local reference software · Apache 2.0**
 
 An agent investigating a suspicious document may disappear, be replaced, or lose permission. What may its replacement do? What happens to the unfinished investigation? Can the old agent still act?
 
@@ -21,7 +21,7 @@ Continuity records authority, actions and unfinished duties in a replayable hist
 
 Use **macOS or Linux, Node.js 24.x and pnpm 11.19.0**. Check `node --version` and `pnpm --version`. Standard Node installations include npm; if needed, install the selected package manager with `npm install --global pnpm@11.19.0`. See [setup and troubleshooting](docs/TROUBLESHOOTING.md).
 
-Until publication, extract the supplied source archive or clone the supplied private staging checkout. Once this exact candidate is published, its intended repository is `https://github.com/zerohourzulu/continuity`. That public repository is not asserted to contain this candidate yet.
+Extract the source archive or clone `https://github.com/zerohourzulu/continuity`.
 
 From the directory containing this README:
 

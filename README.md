@@ -5,7 +5,7 @@
 
 **[Explore the interactive demo →](https://zerohourzulu.github.io/continuity/)** · [Start here](docs/START-HERE.md) · [Developer guide](docs/DEVELOPER.md) · [Security and limits](SECURITY.md)
 
-**Staged release candidate.** The GitHub Pages address above is the intended destination; it becomes available after publication is approved and Pages is enabled. [Release status](RELEASE-STATUS.md).
+**Public evaluation release · Apache 2.0.** [Release status](RELEASE-STATUS.md).
 
 A process supervisor can start Agent B. Continuity records which role B occupies, which powers it has, what happened before, and which unfinished duties survive the change. A replacement receives its explicitly granted powers; an unfinished duty does not silently grant more authority.
 
@@ -13,7 +13,7 @@ The demonstration follows a security investigation interrupted by an agent repla
 
 ## Run the tutorial
 
-Use **Node.js 24.x and pnpm 11.19.0** on macOS or Linux. Extract the supplied package (or, after publication, clone this repository), then run:
+Use **Node.js 24.x and pnpm 11.19.0** on macOS or Linux. Extract the supplied package (or, clone this repository), then run:
 
 ```sh
 pnpm install --frozen-lockfile --ignore-scripts
@@ -41,7 +41,7 @@ Developers and operators can choose a blockchain-backed deployment to make selec
 
 | Your next step | Where to go |
 |---|---|
-| See the idea and recorded comparison | [Interactive demo](https://zerohourzulu.github.io/continuity/) — available after publication |
+| See the idea and recorded comparison | [Interactive demo](https://zerohourzulu.github.io/continuity/) |
 | Inspect recorded Linux evidence | [Operator guide](docs/OPERATOR.md) |
 | Integrate an authority check | [Developer guide](docs/DEVELOPER.md) · [Executable example](examples/check-authority.mjs) |
 | Try optional native enforcement mechanics | [Disposable Linux lab](docs/LINUX-LAB.md) |
@@ -58,6 +58,6 @@ Read the [Constitution and plain-language introduction](docs/constitution/README
 
 Core 0.2.2 is local reference software. It is not a hostile-agent sandbox, production credential system or autonomous cyber defender. The website selects recorded results; the downloaded tutorial executes Core. Real integrations must mediate every consequential operation through a protected executor. [Security boundaries](SECURITY.md).
 
-The source, tutorial and website are included here. The website’s download retains the accepted licensing-corrected evaluation R2 archive; this repository adds the latest presentation around that same unchanged runtime. [Package overview](docs/PACKAGE-OVERVIEW.md) · [Presentation provenance](PRESENTATION-PROVENANCE.json).
+The source, tutorial and website are included here. The website’s download retains the accepted public evaluation R3 archive; this repository adds the latest presentation around that same unchanged runtime. [Package overview](docs/PACKAGE-OVERVIEW.md) · [Presentation provenance](PRESENTATION-PROVENANCE.json).
 
 [Release status and licensing](RELEASE-STATUS.md) · [Apache 2.0 license](LICENSE) · [Third-party notices](THIRD-PARTY-NOTICES.md)

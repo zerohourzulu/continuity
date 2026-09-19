@@ -13,6 +13,6 @@ Checks completed locally:
 
 The initial check found links in standalone website Markdown that depended on files only in the archive. These now resolve into the licensing-corrected evaluation source snapshot in `website/source/`. The original failing check is preserved in private development records.
 
-This is a bounded packaging review, not a guarantee that every security defect is absent. Public Pages deployment, remote link availability and its workflow execution await publication approval. Pages destination links are explicitly labeled planned. The Sites link is explicitly owner-private. The separate private VM delivery receipt binds the final archive and clean Git commit; it is not included here because it contains local deployment details.
+This is a bounded packaging review, not a guarantee that every security defect is absent. Public deployment results are recorded separately by the release maintainer. The Sites link is explicitly owner-private. The separate private VM delivery receipt binds the final archive and clean Git commit; it is not included here because it contains local deployment details.
 
 R2 licensing check: Apache 2.0 license text and scope applied to root and nested source, metadata updated, website downloads rebuilt, and obsolete proposed-license links removed. Third-party originals and governing Constitution bytes remain unchanged.

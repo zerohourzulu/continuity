@@ -8,7 +8,7 @@ Public development summary, 19 September 2026. This is a readable history and di
 | Core 0.1 — foundation | Demonstrated deterministic decisions, retained history, receipts, replacement and enduring duties in a controlled reference environment. | Founder accepted; the selected foundation roadmap is closed. |
 | Core 0.2 — integration learning | Security-review experiments exposed the need for explicit executor acknowledgments and one common engine. | Core 0.2.2 and approved executor profiles implemented and demonstrated locally. |
 | Core 0.2 — operator workflow | Added saved progress, bounded handover, current revocations, source verification, reporting-key replacement and local recovery. | Selected reference-development roadmap complete; evidence remains scoped to its tested environment. |
-| Evaluation and presentation | Curated a runnable synthetic tutorial, permission comparison, developer example and recorded Linux guide; added the visual demonstration. | Accepted presentation; this complete GitHub/Pages package is privately staged for publication review. |
+| Evaluation and presentation | Curated a runnable synthetic tutorial, permission comparison, developer example and recorded Linux guide; added the visual demonstration. | Accepted presentation; the first public evaluation release is authorized. |
 
 ## What you can inspect in this package
 

@@ -10,13 +10,13 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 Open `http://127.0.0.1:8000/website/`. Stop with Ctrl-C. Only use this root preview on trusted local files; Pages uploads `website/` exclusively.
 
-## GitHub Pages — after founder publication approval
+## GitHub Pages maintenance
 
 Intended repository: https://github.com/zerohourzulu/continuity
 
 Intended public site: https://zerohourzulu.github.io/continuity/
 
-Push only the approved staged commit under the adopted Apache 2.0 terms. Select GitHub Actions as the repository’s Pages source, retain the github-pages environment restricted to the default branch, and manually run **Publish Continuity demo** on that branch. The workflow has no push or pull-request trigger. Official actions are pinned to exact commits, checkout credentials are not persisted, and only the deployment job receives Pages/OIDC write permissions. No project secrets are required. This workflow is prepared and statically checked; it has not been run on GitHub before publication approval.
+Push only the approved staged commit under the adopted Apache 2.0 terms. Select GitHub Actions as the repository’s Pages source, retain the github-pages environment restricted to the default branch, and manually run **Publish Continuity demo** on that branch. The workflow deploys on main-branch pushes affecting website files or the workflow itself, and can also be launched manually; pull requests do not deploy. Official actions are pinned to exact commits, checkout credentials are not persisted, and only the deployment job receives Pages/OIDC write permissions. No project secrets are required. Only the website directory is deployed. See GitHub Actions for the deployment result.
 
 Set the repository About website to the Pages address after successful deployment. The README banner links there. Confirm the resulting URL, default view, navigation, downloads and tutorial checksum after publication.
 

@@ -33,13 +33,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 4676,
-      "sha256": "a908c12c4722c73d857d222371050d68e73548ebcdab228791195f95a3b9146d"
+      "bytes": 4465,
+      "sha256": "b0a5581e31c523fdb41da46ded4c342524f1305f42352b225ea79b946b44851e"
     },
     {
       "path": "RELEASE-STATUS.md",
-      "bytes": 865,
-      "sha256": "5c524dc0e3d06c393bd2e629df1bda01ee885cf689d0de22f0bf81bacde6aed9"
+      "bytes": 756,
+      "sha256": "f8559874f3594562dc80e17370191fae3555b72bcbc22fc1a7ca61bc6109c5f2"
     },
     {
       "path": "SECURITY.md",
@@ -594,7 +594,7 @@
     {
       "path": "package.json",
       "bytes": 425,
-      "sha256": "97959b26a4e63aea77024f09ddf529a9319e2d181bf1f204feffb9c9c105ad91"
+      "sha256": "0d6607d45186ab5dcc132f764d6f9516ea64e5ae6afca4d185114b9adc44d139"
     },
     {
       "path": "packages/core/package.json",

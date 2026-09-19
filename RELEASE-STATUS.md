@@ -1,7 +1,7 @@
-# Release staging status
+# Public evaluation release
 
-Apache 2.0 licensing has been adopted for Continuity-authored material in this corrected edition, including code, Constitution, specifications and documentation. Third-party rights remain unchanged. [License](LICENSE) · [Scope](LICENSING.md).
+Continuity Core 0.2.2 is released as local reference/evaluation software under Apache 2.0 for Continuity-authored material. Third-party terms remain unchanged. [License](LICENSE) · [Scope](LICENSING.md).
 
-The package is complete for private staging and founder review. GitHub/Pages publication remains pending explicit approval of the identified staged commit. No npm publication is selected (`private: true`). This is local reference/evaluation software, not a production service or hostile-agent sandbox.
+This first public evaluation release includes the security-review tutorial, retained evidence, visual demonstration, governing Constitution and developer documentation. It is not production software or a hostile-agent sandbox. No npm publication is selected.
 
-The earlier MIT proposal was inconsistent with the Constitution's Apache 2.0 recommendation and was never adopted. Prior immutable packages are preserved outside this new edition. This edition changes licensing and packaging references, not Core behavior or the governing Constitution text.
+The founder approved GitHub/Pages publication on 19 September 2026. The earlier unadopted MIT proposal was corrected before publication. Runtime behavior and governing Constitution wording are unchanged. Historical staging editions retain their own identities.

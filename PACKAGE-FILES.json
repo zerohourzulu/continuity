@@ -2,9 +2,19 @@
   "schemaVersion": "continuity-evaluation-files/1",
   "files": [
     {
+      "path": ".github/ISSUE_TEMPLATE/bug.md",
+      "bytes": 295,
+      "sha256": "b0f6dd58cb160c7bd5a2ee9e56ca3e763060253667cfbcb18e6399c0088189ae"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/question.md",
+      "bytes": 294,
+      "sha256": "f4cfe95b99e060c7eb2f6677838ef6a4e9e7fef0848093ce6df646dd81ceb9ff"
+    },
+    {
       "path": ".github/workflows/pages.yml",
-      "bytes": 974,
-      "sha256": "4b204fe20f283def20fc26a4718fe4e2d005710d42403b7b0b98d614d2ddbaf3"
+      "bytes": 1060,
+      "sha256": "ecdafcbcc887a243a142b4bac893bf01cd87be1631a03220a43c0af0ecdfb607"
     },
     {
       "path": ".gitignore",
@@ -20,6 +30,11 @@
       "path": "CHANGELOG.md",
       "bytes": 1218,
       "sha256": "9aaa913c9357ded71ef5acbfd18ade89d9c1818f1d3f752d296d2b2d34573d77"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 1213,
+      "sha256": "fb98831945830609adc9a4a9f7b9064e97a21e5fe37634e2c45ad867413711a0"
     },
     {
       "path": "LICENSE",
@@ -38,23 +53,23 @@
     },
     {
       "path": "PRESENTATION-PROVENANCE.json",
-      "bytes": 1180,
-      "sha256": "ed31ca1dd2c37b0b0918a6a0bbdb72288a229fdde9d2f8d90a549f5660b49d89"
+      "bytes": 1290,
+      "sha256": "0baaf12d887900418cf6e7bc53868cb227db486f5e996d6d64d798f9872704ee"
     },
     {
       "path": "README.md",
-      "bytes": 4700,
-      "sha256": "6abe57e5217dc8b536634eb5768e5d80614d2e02151d184fea16719dfbf912f0"
+      "bytes": 4518,
+      "sha256": "6ca891a9cb8eafc083cb9fd511614ab74b9ac3f931648b09e177e710658d0b16"
     },
     {
       "path": "RELEASE-STATUS.md",
-      "bytes": 865,
-      "sha256": "5c524dc0e3d06c393bd2e629df1bda01ee885cf689d0de22f0bf81bacde6aed9"
+      "bytes": 756,
+      "sha256": "f8559874f3594562dc80e17370191fae3555b72bcbc22fc1a7ca61bc6109c5f2"
     },
     {
       "path": "SECURITY.md",
-      "bytes": 2085,
-      "sha256": "fca7b9d9b66c95fce686c8c3d4afdc530860c166a8e1c327baef2592fa316be5"
+      "bytes": 2357,
+      "sha256": "468b4583d7432fe32c3357ea49dcb9841b25e1e97c9a8900959854c368516ddf"
     },
     {
       "path": "SOURCE-PROVENANCE.json",
@@ -83,8 +98,8 @@
     },
     {
       "path": "docs/DEVELOPMENT-HISTORY.md",
-      "bytes": 2578,
-      "sha256": "e486020b305a8c3efb8820cdcbb6e6b0a93f62476cc9fbd052ba099a6c83bf37"
+      "bytes": 2550,
+      "sha256": "58f2b235b02e26c199b26a900397c090dbfe3f85cc4be1655023e1cfcc956d3b"
     },
     {
       "path": "docs/LINUX-LAB.md",
@@ -103,8 +118,8 @@
     },
     {
       "path": "docs/PRESENTATION-VALIDATION.md",
-      "bytes": 2533,
-      "sha256": "b487fa0bb835942154cfedd19e222d47c8879a4680b8dc0260aa9e84abe2d5f3"
+      "bytes": 2449,
+      "sha256": "2b9ea8385439275739c894bdf72703cb67a20e8db7c8ca05e01f44529a44dafd"
     },
     {
       "path": "docs/START-HERE.md",
@@ -123,8 +138,8 @@
     },
     {
       "path": "docs/WEBSITE.md",
-      "bytes": 2907,
-      "sha256": "25dea81793e24a41c4ba10ce2dcfdcc530c4cc748d89533bb5023ecccabb6bc3"
+      "bytes": 2962,
+      "sha256": "f7535f9fc3df9baf4c1e7a5625bed19e389bc04ace3343548afa9a9a1b6fe5be"
     },
     {
       "path": "docs/constitution/CONTINUITY-Constitution-v0.1-as-amended-001-002-003-004-golden.txt",
@@ -802,6 +817,11 @@
       "sha256": "b379483d4293500af8e9d3e8d83b4b5a2ad1e844911cd7be7f7e274e4bb80666"
     },
     {
+      "path": "tools/update-package-index.py",
+      "bytes": 659,
+      "sha256": "368db10a7b53b3ce0b609a6fc7c48e8b544e9e953bd7ee8d4511a83305e879d2"
+    },
+    {
       "path": "tools/verify-package.mjs",
       "bytes": 1873,
       "sha256": "367ea31f3762184d363404ce2826cef12081033af0b9d6cfa5a8eedbed5c4bfd"
@@ -878,8 +898,8 @@
     },
     {
       "path": "website/downloads/RELEASE-STATUS.md",
-      "bytes": 885,
-      "sha256": "fbd3d6a51ac51f9cbaf5ccc75470a1366207b683a52c2ca9500b7ddae2a2d535"
+      "bytes": 776,
+      "sha256": "9cde4e1af3add1b6521f4aaaedf161bcd8b2031e232c5eed348f9d23684877fb"
     },
     {
       "path": "website/downloads/SECURITY.md",
@@ -897,14 +917,14 @@
       "sha256": "7344eaaf409397374c2208537a7b7896a9943530e957421aa0d7bb6736a48576"
     },
     {
-      "path": "website/downloads/continuity-core-0.2-evaluation-2026-09-19-r2.tar.gz",
-      "bytes": 288674,
-      "sha256": "16c48377c6f12965881ea687cdc47829df42125255191eea69969e3e9557fa7f"
+      "path": "website/downloads/continuity-core-0.2-evaluation-2026-09-19-r3.tar.gz",
+      "bytes": 288183,
+      "sha256": "98d6e1a797ff402f6ca4b8bccfe64ebd4c476123a01242883a079eff5d9adb8d"
     },
     {
-      "path": "website/downloads/continuity-core-0.2-evaluation-2026-09-19-r2.tar.gz.sha256",
+      "path": "website/downloads/continuity-core-0.2-evaluation-2026-09-19-r3.tar.gz.sha256",
       "bytes": 118,
-      "sha256": "a27af1c73ae56823a4f5bc7793e781e9aebf530904d2293cbf309f2cd646f991"
+      "sha256": "7e64e48b7114df9549eccdf72a68e9632c1985af10d43ef2b23058a797cba11a"
     },
     {
       "path": "website/evidence/simulated-allow/authority-after.json",
@@ -1313,8 +1333,8 @@
     },
     {
       "path": "website/index.html",
-      "bytes": 11615,
-      "sha256": "638348bab52217b1baf3d027a5542337ed21886de28280be2e7ba99a6a3c0496"
+      "bytes": 11748,
+      "sha256": "9c71eccb13aedc49c52ebb3fae513b4aa9e6e1572062e83792c99fba2e9942c3"
     },
     {
       "path": "website/source/.gitignore",
@@ -1349,17 +1369,17 @@
     {
       "path": "website/source/PACKAGE-FILES.json",
       "bytes": 26258,
-      "sha256": "2a7a123fdf8a706013b2055ec5f566a58c13ebaa6bcee62cca58d3d2f04a8003"
+      "sha256": "4659cab4ce7cac045d6f2ad0ae1a56095bd6c753b47eb7aafedb36e8ba91d645"
     },
     {
       "path": "website/source/README.md",
-      "bytes": 4676,
-      "sha256": "a908c12c4722c73d857d222371050d68e73548ebcdab228791195f95a3b9146d"
+      "bytes": 4465,
+      "sha256": "b0a5581e31c523fdb41da46ded4c342524f1305f42352b225ea79b946b44851e"
     },
     {
       "path": "website/source/RELEASE-STATUS.md",
-      "bytes": 865,
-      "sha256": "5c524dc0e3d06c393bd2e629df1bda01ee885cf689d0de22f0bf81bacde6aed9"
+      "bytes": 756,
+      "sha256": "f8559874f3594562dc80e17370191fae3555b72bcbc22fc1a7ca61bc6109c5f2"
     },
     {
       "path": "website/source/SECURITY.md",
@@ -1914,7 +1934,7 @@
     {
       "path": "website/source/package.json",
       "bytes": 425,
-      "sha256": "97959b26a4e63aea77024f09ddf529a9319e2d181bf1f204feffb9c9c105ad91"
+      "sha256": "0d6607d45186ab5dcc132f764d6f9516ea64e5ae6afca4d185114b9adc44d139"
     },
     {
       "path": "website/source/packages/core/package.json",
