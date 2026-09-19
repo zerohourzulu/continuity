@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'">
+  <title>Continuity · Security operator guide</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#stage-title">Skip to selected stage</a>
+  <header class="masthead">
+    <div class="wordmark">Continuity <span>/ Operator guide</span></div>
+    <p class="mode">Recorded Linux and component demonstrations • read only</p>
+  </header>
+  <div class="page">
+    <section class="intro" aria-labelledby="guide-title">
+      <p class="eyebrow">Security, with an evidence trail</p>
+      <h1 id="guide-title">Security operator guide</h1>
+      <p id="guide-subtitle" class="subtitle">Explore the recorded operator workflow and the limits of each demonstration.</p>
+      <div id="walkthrough-control" class="walkthrough-control" hidden>
+        <label for="walkthrough-select">Choose a walkthrough</label>
+        <select id="walkthrough-select" aria-describedby="walkthrough-notice" aria-controls="guide-layout"></select>
+      </div>
+      <p id="active-walkthrough" class="active-walkthrough" aria-live="polite" aria-atomic="true"></p>
+      <p id="walkthrough-notice" class="episode-notice">Each walkthrough keeps its own evidence and limits. The native case and earlier component demonstrations are separate records, not one continuous run.</p>
+    </section>
+    <div id="guide-layout" class="layout" hidden>
+      <aside class="rail">
+        <p class="eyebrow">Explore the workflow</p>
+        <nav aria-label="Walkthrough stages"><ol id="stage-list"></ol></nav>
+        <p class="rail-note">Read a stage, inspect its evidence, and distinguish the observation from what it establishes.</p>
+      </aside>
+      <main id="stage-panel" class="panel" aria-labelledby="stage-title">
+        <div class="stage-heading">
+          <p id="stage-position" class="eyebrow" aria-live="polite" aria-atomic="true"></p>
+          <h2 id="stage-title" tabindex="-1"></h2>
+          <p class="demonstration"><span>Recorded demonstration</span><strong id="demonstration"></strong></p>
+        </div>
+        <div class="narrative">
+          <section aria-labelledby="task-label"><h3 id="task-label">The operator task</h3><p id="operator-task"></p></section>
+          <section aria-labelledby="observed-label"><h3 id="observed-label">What was observed</h3><p id="observed"></p></section>
+          <section aria-labelledby="meaning-label"><h3 id="meaning-label">What it means</h3><p id="meaning"></p></section>
+          <section class="boundary" aria-labelledby="boundary-label"><h3 id="boundary-label">Boundary of this evidence</h3><p id="boundary"></p></section>
+        </div>
+        <section id="facts-section" class="support" aria-labelledby="facts-title"><h3 id="facts-title">Recorded facts</h3><table><caption class="sr-only">Facts from the selected demonstration</caption><tbody id="facts"></tbody></table></section>
+        <section class="support" aria-labelledby="evidence-title"><div class="section-heading"><h3 id="evidence-title">Inspect the evidence</h3><span>Local retained files</span></div><p class="support-note">Hashes identify the retained files; they do not establish correctness. Links open individual evidence files.</p><ul id="evidence" class="evidence-list"></ul></section>
+        <section id="commands-section" class="support" aria-labelledby="commands-title"><h3 id="commands-title">Command examples</h3><p class="support-note">Reference text only. This guide does not execute commands. Examples belong to their original demonstration and prerequisites.</p><div id="commands"></div></section>
+        <nav class="stage-controls" aria-label="Move between stages"><button id="previous" type="button">← Previous stage</button><button id="next" type="button">Next stage →</button></nav>
+      </main>
+    </div>
+    <p id="load-status" role="status">Loading the local guide…</p>
+    <noscript><p>This walkthrough requires JavaScript to display its local data. No server or network connection is needed.</p></noscript>
+    <footer><span>Continuity · Recorded operator reference</span><span id="generated-at"></span></footer>
+  </div>
+</body>
+</html>

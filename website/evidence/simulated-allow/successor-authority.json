@@ -1,0 +1,84 @@
+{
+  "consequential": false,
+  "decision": "ALLOW",
+  "operationVersion": "continuity-authorization/0.2",
+  "proof": {
+    "authorityEvidence": [
+      {
+        "authorityId": "progress-b-authority:simulated-allow",
+        "grantEventId": "simulated-allow:progress-b-authority",
+        "grantEventPosition": 12
+      }
+    ],
+    "checkedProhibitionIds": [],
+    "consequential": false,
+    "controllingAuthorityIds": [
+      "progress-b-authority:simulated-allow"
+    ],
+    "domain": {
+      "chainId": "31337",
+      "deploymentId": "core-0.2-reference:simulated-allow",
+      "protocol": "continuity",
+      "verifyingContract": "0x0000000000000000000000000000000000003002",
+      "version": "0.2"
+    },
+    "effectiveConstraints": {
+      "actions": [
+        "record-review-progress"
+      ],
+      "expiresAt": 1000,
+      "maxDelegationDepth": 0,
+      "quantitative": false,
+      "requiredIntersectionIds": [],
+      "resources": [
+        "obligation:simulated-allow"
+      ]
+    },
+    "evaluationTime": 25,
+    "historyHead": {
+      "canonicalTime": 25,
+      "hash": "0xdbee1a4b8836ead3e3e46885324917396e86fffaa5025075b4116bb8b60aa133",
+      "position": 25
+    },
+    "intersections": [],
+    "permissionPath": [
+      {
+        "authorityId": "progress-b-authority:simulated-allow",
+        "constraints": {
+          "actions": [
+            "record-review-progress"
+          ],
+          "expiresAt": 1000,
+          "maxDelegationDepth": 0,
+          "quantitative": false,
+          "requiredIntersectionIds": [],
+          "resources": [
+            "obligation:simulated-allow"
+          ]
+        },
+        "granteeId": "b:simulated-allow",
+        "grantorId": "principal:simulated-allow",
+        "independent": true,
+        "kind": "PERMISSION",
+        "rootAuthorityId": "progress-b-authority:simulated-allow"
+      }
+    ],
+    "policyVersion": "local-evidence-intake-policy:simulated-allow/0.2",
+    "proofVersion": "continuity-authorization-proof/0.2",
+    "recognizedRoot": {
+      "principalId": "principal:simulated-allow",
+      "principalRecognitionEventId": "simulated-allow:principal",
+      "rootAuthorityId": "progress-b-authority:simulated-allow",
+      "rootGrantEventId": "simulated-allow:progress-b-authority"
+    },
+    "request": {
+      "action": "record-review-progress",
+      "actorId": "b:simulated-allow",
+      "claimedAt": 25,
+      "resource": "obligation:simulated-allow"
+    },
+    "rootRecognitionPolicy": "declared-principal-root/0.2",
+    "usageSnapshot": []
+  },
+  "scopeAssurance": "REPLAY_VERIFIED"
+}

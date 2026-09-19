@@ -1,0 +1,19 @@
+{
+  "name": "continuity-core-evaluation",
+  "version": "0.2.0-evaluation.2",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "packageManager": "pnpm@11.19.0",
+  "scripts": {
+    "demo": "node tutorial/cli.mjs run",
+    "inspect": "node tutorial/cli.mjs inspect",
+    "verify": "node tools/verify-package.mjs"
+  },
+  "dependencies": {
+    "viem": "2.55.19"
+  },
+  "license": "Apache-2.0"
+}

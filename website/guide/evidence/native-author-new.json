@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "continuity-incident-authoring-result/1",
+  "status": "ATTESTATION_AUTHORED",
+  "selection": {
+    "caseId": "incident-004",
+    "reportId": "report:incident-004",
+    "expectedIncidentSha256": "859ac0a268befab26ac4fb3ab96c01626c0a973e5717494c98103708becad3a4",
+    "expectedDocumentSha256": "db506c08cc1e9491d699400d07b5bd60b14fc13e182ae1bf9792ce67171a589c",
+    "expectedPolicySha256": "e4c7efc518670697ed0890943badb37e564dd9e9b1976fae8f86ff4727287de2",
+    "validForMs": 3600000
+  },
+  "inputs": {
+    "incident": {
+      "bytes": 481,
+      "sha256": "859ac0a268befab26ac4fb3ab96c01626c0a973e5717494c98103708becad3a4"
+    },
+    "document": {
+      "bytes": 62,
+      "sha256": "db506c08cc1e9491d699400d07b5bd60b14fc13e182ae1bf9792ce67171a589c"
+    },
+    "policy": {
+      "bytes": 396,
+      "sha256": "e4c7efc518670697ed0890943badb37e564dd9e9b1976fae8f86ff4727287de2"
+    },
+    "attestation": {
+      "bytes": 700,
+      "sha256": "f25ef2a6081190d0df160a47dfb0c7f7e6fe899e1cc76f0d89368ca73fa8a572"
+    }
+  },
+  "signer": {
+    "sourceId": "source:fictional-reporter",
+    "keyId": "key:new-public-fixture",
+    "publicKeySha256": "39f713d0a644253f04529421b9f51b9b08979d08295959c4f3990ee617f5139f",
+    "credentialClass": "PUBLIC_DEVELOPMENT_FIXTURE"
+  },
+  "selectionCheckedAt": 1789790971001,
+  "issuedAt": 1789790971003,
+  "expiresAt": 1789794571003,
+  "verifiedAt": 1789790971004,
+  "claims": {
+    "sourceSignature": "MATCHES_SELECTED_POLICY",
+    "policyFreshness": "NOT_ESTABLISHED",
+    "institutionIdentity": "NOT_VERIFIED",
+    "incidentTruth": "NOT_VERIFIED",
+    "signingTime": "NOT_WITNESSED",
+    "coreAuthority": "NOT_EVALUATED",
+    "caseInclusion": "NOT_EVALUATED"
+  },
+  "recordInterpretation": "LOCAL_RECORD_REQUIRES_SUCCESSFUL_COMMAND_COMPLETION"
+}

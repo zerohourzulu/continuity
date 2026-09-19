@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "continuity-incident-authoring-result/1",
+  "status": "ATTESTATION_AUTHORED",
+  "selection": {
+    "caseId": "incident-005",
+    "reportId": "report:onboarding-handoff",
+    "expectedIncidentSha256": "4a288e932312f9e47bcebab932244b2ff426b481a4398a9319a53a3b2a11f64c",
+    "expectedDocumentSha256": "42fbd539f9c4b3ce440a9af4586a9cdb8600f6db8ef889f695a2eed80ba55b2f",
+    "expectedPolicySha256": "2bc3e843e04816b04e2620d6e947a4966298d2101c0922f172b2b62e91df57fc",
+    "validForMs": 5000
+  },
+  "inputs": {
+    "incident": {
+      "bytes": 427,
+      "sha256": "4a288e932312f9e47bcebab932244b2ff426b481a4398a9319a53a3b2a11f64c"
+    },
+    "document": {
+      "bytes": 53,
+      "sha256": "42fbd539f9c4b3ce440a9af4586a9cdb8600f6db8ef889f695a2eed80ba55b2f"
+    },
+    "policy": {
+      "bytes": 418,
+      "sha256": "2bc3e843e04816b04e2620d6e947a4966298d2101c0922f172b2b62e91df57fc"
+    },
+    "attestation": {
+      "bytes": 692,
+      "sha256": "8f903c9bb3c7778fd23416a6c4cff4dd54144e8005c679c2d09dd07408c4cfd6"
+    }
+  },
+  "signer": {
+    "sourceId": "source:local-onboarding",
+    "keyId": "key:local-onboarding",
+    "publicKeySha256": "f5d9ebbb8185001f73f66aa12642293b1919d0a7c13e0d3480ef994090345fef",
+    "credentialClass": "LOCALLY_DECLARED_SOURCE"
+  },
+  "selectionCheckedAt": 1800000000000,
+  "issuedAt": 1800000000000,
+  "expiresAt": 1800000005000,
+  "verifiedAt": 1800000000000,
+  "claims": {
+    "sourceSignature": "MATCHES_SELECTED_POLICY",
+    "policyFreshness": "NOT_ESTABLISHED",
+    "institutionIdentity": "NOT_VERIFIED",
+    "incidentTruth": "NOT_VERIFIED",
+    "signingTime": "NOT_WITNESSED",
+    "coreAuthority": "NOT_EVALUATED",
+    "caseInclusion": "NOT_EVALUATED"
+  },
+  "recordInterpretation": "LOCAL_RECORD_REQUIRES_SUCCESSFUL_COMMAND_COMPLETION"
+}

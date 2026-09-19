@@ -1,0 +1,97 @@
+{
+  "enrollmentCandidate": "NOT_APPLIED",
+  "authoring": "ATTESTATION_AUTHORED",
+  "independentVerifier": {
+    "schemaVersion": "continuity-incident-source-result/1",
+    "status": "SOURCE_SIGNATURE_VERIFIED",
+    "evaluatedAt": 1800000000001,
+    "selection": {
+      "caseId": "incident-005",
+      "expectedPolicySha256": "2bc3e843e04816b04e2620d6e947a4966298d2101c0922f172b2b62e91df57fc"
+    },
+    "inputs": {
+      "incident": {
+        "bytes": 427,
+        "sha256": "4a288e932312f9e47bcebab932244b2ff426b481a4398a9319a53a3b2a11f64c"
+      },
+      "document": {
+        "bytes": 53,
+        "sha256": "42fbd539f9c4b3ce440a9af4586a9cdb8600f6db8ef889f695a2eed80ba55b2f"
+      },
+      "policy": {
+        "bytes": 418,
+        "sha256": "2bc3e843e04816b04e2620d6e947a4966298d2101c0922f172b2b62e91df57fc"
+      },
+      "attestation": {
+        "bytes": 692,
+        "sha256": "8f903c9bb3c7778fd23416a6c4cff4dd54144e8005c679c2d09dd07408c4cfd6"
+      }
+    },
+    "verifiedStatement": {
+      "audience": "intake:onboarding",
+      "sourceId": "source:local-onboarding",
+      "keyId": "key:local-onboarding",
+      "reportId": "report:onboarding-handoff",
+      "caseId": "incident-005",
+      "issuedAt": 1800000000000,
+      "expiresAt": 1800000005000,
+      "credentialClass": "LOCALLY_DECLARED_SOURCE"
+    },
+    "claims": {
+      "sourceSignature": "MATCHES_SELECTED_POLICY",
+      "policyFreshness": "NOT_ESTABLISHED",
+      "institutionIdentity": "NOT_VERIFIED",
+      "incidentTruth": "NOT_VERIFIED",
+      "signingTime": "NOT_WITNESSED",
+      "coreAuthority": "NOT_EVALUATED",
+      "caseInclusion": "NOT_EVALUATED"
+    },
+    "refusalCode": null
+  },
+  "preparedStatus": "PREPARED_NOT_INSTALLED",
+  "preparedConfig": "continuity-document-broker-config/5",
+  "selectedRevision": 1,
+  "revokedRevision": 2,
+  "independentRevocation": {
+    "schemaVersion": "continuity-incident-source-result/1",
+    "status": "SOURCE_VERIFICATION_REFUSED",
+    "evaluatedAt": 1800000000002,
+    "selection": {
+      "caseId": "incident-005",
+      "expectedPolicySha256": "57abe0d0d54dc54b4e7e7d987cb37d134c3a5af689b8183982c764a53ff1776c"
+    },
+    "inputs": {
+      "incident": {
+        "bytes": 427,
+        "sha256": "4a288e932312f9e47bcebab932244b2ff426b481a4398a9319a53a3b2a11f64c"
+      },
+      "document": {
+        "bytes": 53,
+        "sha256": "42fbd539f9c4b3ce440a9af4586a9cdb8600f6db8ef889f695a2eed80ba55b2f"
+      },
+      "policy": {
+        "bytes": 418,
+        "sha256": "57abe0d0d54dc54b4e7e7d987cb37d134c3a5af689b8183982c764a53ff1776c"
+      },
+      "attestation": {
+        "bytes": 692,
+        "sha256": "8f903c9bb3c7778fd23416a6c4cff4dd54144e8005c679c2d09dd07408c4cfd6"
+      }
+    },
+    "verifiedStatement": null,
+    "claims": {
+      "sourceSignature": "NOT_ESTABLISHED",
+      "policyFreshness": "NOT_ESTABLISHED",
+      "institutionIdentity": "NOT_VERIFIED",
+      "incidentTruth": "NOT_VERIFIED",
+      "signingTime": "NOT_WITNESSED",
+      "coreAuthority": "NOT_EVALUATED",
+      "caseInclusion": "NOT_EVALUATED"
+    },
+    "refusalCode": "SOURCE_POLICY_DISABLED"
+  },
+  "revokedPreparationExit": 1,
+  "coreHistories": 0,
+  "setupInvocations": 0,
+  "documentEffects": 0
+}

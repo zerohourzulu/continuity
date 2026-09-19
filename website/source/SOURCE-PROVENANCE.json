@@ -1,0 +1,561 @@
+{
+  "schemaVersion": "continuity-public-evaluation-provenance/1",
+  "sources": [
+    {
+      "path": "integrations/agent-gateway/src/evidence.mjs",
+      "sha256": "9a9255adff3a0bd1f1d0d9fced53bb79abc87b0083627bfb6306aa08ddbc37ca",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/agent-gateway/src/review-snapshot-bytes.mjs",
+      "sha256": "ab586c0e5d7a8cc06c1c5948ed041dfa4698353cd01cedda7aaa071782820951",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/agent-work-proposal/src/proposal.mjs",
+      "sha256": "904acefa7b37f9dd46d28ef80351fcba88d01800b7a7f085621ab5cb7712c0d7",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/core-0.2-reference/src/application.mjs",
+      "sha256": "783d9f05d84980c8ff43a6c3597b279115f04167111fb8aeb9ad668f7097e5e6",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/core-0.2-reference/src/cli.mjs",
+      "sha256": "e0e8bf6ed999a8a6fab814edaf4fc2d0b697ac953e080351d188a060232ee5fd",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/core-0.2-reference/src/handover-plan.mjs",
+      "sha256": "f78de353422f9d4277160f8b2609c80f41ab34e8ff7071c67a3d5eaf992e4418",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/core-0.2-reference/src/io.mjs",
+      "sha256": "4d79fb3eeb7a92a58ba6dca336f31e996208bdef614d810b02afb0e218567e0b",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/core-0.2-reference/src/packet-executor.mjs",
+      "sha256": "cb8394cd3febc47f0fc46efa886349acb1135fd9dbab963203d9a40da421e1d2",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/core-0.2-reference/src/review-progress.mjs",
+      "sha256": "f2b9aec42ea575d12e5472caaaf517cb99e26bb0cd950623b1525233b8e2558e",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/core-0.2-reference/src/review-snapshot-location.mjs",
+      "sha256": "96b4da24719a10850e1c169c1e4f9c11a5eb9e5b4c0a65cefdced918a64e01f1",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/core-0.2-reference/src/review-supplement-format.mjs",
+      "sha256": "c7c9cb9feb517aa51feb3625e0ede0db368fd118c9c27696a4223e026a0f6263",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/core-0.2-reference/src/review-supplement-storage.mjs",
+      "sha256": "2f4106bb02005bd29cf3323e48eaa6cbf4987dc7433eddc867e7da87d7797889",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/core-0.2-reference/src/reviewed-case-version.mjs",
+      "sha256": "7839be2c98d63d6305bf9b4cc02ff44bbdadb30c61cac51bbd7298a42c489a07",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/core-0.2-reference/src/signed-reviewed-context.mjs",
+      "sha256": "c0048139e3c3be77893066a3c59435e11718e92035f96e4b44cf4f892ca85fa0",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/retained-evidence-mcp/src/strict-json.mjs",
+      "sha256": "d306bccf25f4804da67843466ec9235db62d28df0eb035feceb34f91d70b051c",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/adapters/index.ts",
+      "sha256": "b9c01ad6c0cad60719d2a471d95f59059db69a01f9afda0413873d28b0d5eaf9",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/adapters/simulated-adapter.ts",
+      "sha256": "cc6398de41121fb54cf988de77f969488b9077f3517b188f5050f54c24a6f53e",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/administration/index.ts",
+      "sha256": "59d37537ac341bd4b5ef1a5ca13590abc74276e75b9daa1a1c3603441e1e2a72",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/canonical.ts",
+      "sha256": "06ce5f6b978e1b9641e4736e6a3c9de16ee6d2bf560fd4715f76c2dafd99b0f8",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/event-schema.ts",
+      "sha256": "7c5d7f3bf3cb4b62f48e723d54e2ef8ad0b29843530819212025e37da1d3f7e8",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/host-intrinsics.ts",
+      "sha256": "a432ca94a0881643ee865fa3c22175d88a43d2976714ca2e34d10101a0538d33",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/index.ts",
+      "sha256": "1a420d59ebccc297947402a3ac4100c2f0c731b667d8d52910d1376d160a5ce5",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-adapter-engine.ts",
+      "sha256": "80802b8727bb1f480d749feb738cc2c6b8feebf2f70077fe39211d6354018487",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-administration-codec.ts",
+      "sha256": "35db0f282c04fbddbcc084efc70b94958fee32022902e5cd25853be2b762b2db",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-admission.ts",
+      "sha256": "d5dbd0b80d3ef3fda668c9d53157e20fdd34de400da8cbacb5a5846fb82f45ef",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-authority-engine.ts",
+      "sha256": "a9c0087fc41a2bce8b3cee1ed755b7976b370fd1e03b69f539393e566e498e47",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-authority.ts",
+      "sha256": "9478f2fe9952a85e24c626bff0269f35d769888a4c890e0c071c657a98f63f75",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-integration.ts",
+      "sha256": "bab2c6453b2903d9f59db549e5b9753cf499cb7dcbdc37d40899396d04364d28",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-queries.ts",
+      "sha256": "52862413c0dc0db6fa7e910aa8d0b320937bc58d3d24b014930ff65051905221",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-query-capture.ts",
+      "sha256": "fb81ca59cb98e2cb9dffbbcd6e8ad6969b842ba259633892b4403b7f2fb0b64d",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-query-codec.ts",
+      "sha256": "9324cebf1992881247be9f13a3d576bab16fc8fd3dbc8575093710ccb67f0e62",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-query-conflicts.ts",
+      "sha256": "998980fbe71765b588838e71f0c3d00be0f782c9d64b07832c2305b816afe5df",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-query-output.ts",
+      "sha256": "83bd8eda2e10789e152ae8685796cf77a9a6a585f2d7b4cdd65151ef8ac1a347",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-query-responsibility.ts",
+      "sha256": "ff47c7371955883db51496b3db12c1ddf42fa15d7f04cfe12c345447b34443f6",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-query-survives.ts",
+      "sha256": "64999541aeaa3b6c0490995700d728c2aa56b7b8e0869c2e19f6e61b4e39d476",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-receipt-capture.ts",
+      "sha256": "af58c735f91052e9f70ed8f666b551ba3d00225fd39af25d445f19384c3a857a",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-receipt-codec.ts",
+      "sha256": "de1b0d30050350ba78fafa71a826ddf5cce260dfb2ed38db13c332d7940b7c26",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-receipts.ts",
+      "sha256": "0f6704ac05049ae4f739d77dff8a61467bee34a2496daece4893acc6dea4b372",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/portable-replay.ts",
+      "sha256": "ed2588cc6f608d7940e9ede5059302206ae53bca86a566167aa4606bb8e23ecd",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/core/reference-output-budget.ts",
+      "sha256": "db9f189f531214b837a1fe614aa5ea3aff34c1074d12d1e256ecb05f0a6894c5",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/indexer/portable-file-event-store.ts",
+      "sha256": "b37c20b61c7bab2f32089becd78afbf92131432a61425483cd7d89f51c8abb04",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/sdk/durable-admission.ts",
+      "sha256": "6612269cd6900173c2b7d549c81d4ea31ffdf430b3b0e4f9958f5fdf57df25c4",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/src/sdk/durable-receipt.ts",
+      "sha256": "12d3de7b45e772b6710e2e0b40eb59e939c932bb63b35b025d77620d8346e8b3",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core/package.json",
+      "sha256": "e537a2baae26db4679e0b037c97d5bad6c6a893dfb37c43018c6c398079317cf",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "packages/core-0.2/package.json",
+      "sha256": "4391b15d0bb9ef10b9e5e9e0623f8a78416ed71d20e5f48e9f8145bb889bae3e",
+      "origin": "accepted development source"
+    },
+    {
+      "path": "integrations/document-release-native/build.sh",
+      "sha256": "dab28376c2a3e704f55a121d50a03e59558510180e81390bb20636b08223a7e9",
+      "origin": "accepted native source; optional lab"
+    },
+    {
+      "path": "integrations/document-release-native/index.cjs",
+      "sha256": "9d2f75367159f4e0880891da621a75a4bcc3a9bb7a3013fc1159f63045025606",
+      "origin": "accepted native source; optional lab"
+    },
+    {
+      "path": "integrations/document-release-native/linux-check.cjs",
+      "sha256": "62b50bfdec2e7bb82642bebeb1dafedd219fbaec12a678512034f7f6a855ee43",
+      "origin": "accepted native source; optional lab"
+    },
+    {
+      "path": "integrations/document-release-native/native.cc",
+      "sha256": "9df0f6fe37277f6e9c865fdd963f40fd5cc8794a3e473ec4b6a520ca9b1fa013",
+      "origin": "accepted native source; optional lab"
+    },
+    {
+      "path": "guide/index.html",
+      "origin": "guide R2 with public-evaluation presentation labels; evidence unchanged",
+      "originalSha256": "98db09fff78ae87d8ab4b61b1f98ad63a27cf91b502f426ab3169536c8c45392",
+      "sha256": "dc8d65e2b673edffa969825d940f9eba569a8be19b38fc0c5c9d4939f85ac985"
+    },
+    {
+      "path": "guide/data.json",
+      "sha256": "024fcb35b8845653b5551ba46581dcd17d421cc85d7a9d97cbcb1361f53ae028",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence-sources.json",
+      "sha256": "94a8f74889fcc384bf7f0af4b92769d5416b00a708af534a9bea5f45fdb9368b",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/data.js",
+      "sha256": "a227f8aa15aeaefa57ca1e4d54671251f24115aef933768339bcb6f1dc31ed9c",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/style.css",
+      "sha256": "630448a30a46f6a631945b1012cf6ba7e84006ed10baf290a60878b6be66aaca",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/app.js",
+      "sha256": "58803a512e52adf83d8d69bf958aae0cd08c20364410a9d1571dc912fb8642a9",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/enrollment-stdout.txt",
+      "sha256": "5379068e2f299606ec493f0f59df9068091b0f9421425e4ae9712fca2aac52a2",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-refusal.txt",
+      "sha256": "336b0bdd63ee7132b1e838f315350cb49b00f37488f5774847a9cb8c7bca7fb8",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-copy-entry-3.json",
+      "sha256": "beaf6bd947582eda75ca5773f1bc82e00d92c5cab224d9d835ee8c0ece56467b",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/recovery-source-entry-3.json",
+      "sha256": "139bd2a6cf3752c63a9ee886017ae8ef60f14f4f342d6c1b9e39d1343886da83",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-intake.json",
+      "sha256": "2187c1ad39eebd8869e57f6424f9b50cbb51823d8eb642ee4edd70e763ec3085",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/attestation.json",
+      "sha256": "8f903c9bb3c7778fd23416a6c4cff4dd54144e8005c679c2d09dd07408c4cfd6",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/recovery-copy-entry-3.json",
+      "sha256": "139bd2a6cf3752c63a9ee886017ae8ef60f14f4f342d6c1b9e39d1343886da83",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/recovery-copy-entry-2.json",
+      "sha256": "e1bf7a4e9cb233a787f482b0ec7c3d5d4febba4138bb52c0d6cc10f6d20e816e",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/case-baseline.json",
+      "sha256": "e6d45b3539f0bfaf83dcba8f6d28149aef0545a52061b1b92222dbd6f193bc14",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/recovery-source-entry-2.json",
+      "sha256": "e1bf7a4e9cb233a787f482b0ec7c3d5d4febba4138bb52c0d6cc10f6d20e816e",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-copy-entry-2.json",
+      "sha256": "1184619235c007cad6b7190e3f943f74141add15d800828951e3176c9efc938f",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/recovery-copy-header.json",
+      "sha256": "880827426cbb567bab1e34e4dce350b6c8f55cefd49e0a6b257226704bbdece2",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-prepare-second-exit.json",
+      "sha256": "75ed50954ebadb874ea17528d432dc8929033b4f56dae6e552a002f01c1c93b5",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/recovery-lost-ack.json",
+      "sha256": "efebe09ac8b7a632e25bc16a66ca9043d46a233c9f033787f0e176f4860cbf01",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/recovery-results.txt",
+      "sha256": "56e1509e3171eaea9f3e75b1e2b32ca1f6cbcd0a8a540bee2dc95495b0b39518",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/enrollment.json",
+      "sha256": "93a9a79a0caf99e024248f783438228f9a7aec6cd90e113218be465eb8b9f7b7",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-setup-exit.json",
+      "sha256": "c61829ef4de962c3fb01e2744ff343261e1b99ea81e95bebe488458772d5eee5",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-inspection.json",
+      "sha256": "56fa9615d417647b80f05bc1566695c7925c6aee8fcd7c3572225763ca31b65d",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-source-entry-3.json",
+      "sha256": "beaf6bd947582eda75ca5773f1bc82e00d92c5cab224d9d835ee8c0ece56467b",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-revoke-source.json",
+      "sha256": "4359117ad814b562c89f699501572c4469562466d739ee644cc31394952d9318",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-source-entry-2.json",
+      "sha256": "1184619235c007cad6b7190e3f943f74141add15d800828951e3176c9efc938f",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-controller-identity.json",
+      "sha256": "444bd9c78388cf0456deb2fb9956bf9c547e08e24e48dbd8cf049afdbb3c9182",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-receiver-identity.json",
+      "sha256": "fd4652437870ad4e5dfd78fef7ca22d114b5e4b75005cb1fb0d6491572261790",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-replacement.json",
+      "sha256": "15f36b76877d0fe8d43f98dc852035a8625cbc2207819cca898b22dc9d89218c",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/authoring.json",
+      "sha256": "c11feea4ad8a21dd71c023852ab006cc9b51c2aa20f4e6fbe6e1fafa0dbe478c",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/comparison.json",
+      "sha256": "ccf280b040631e15aa867a3c8f88de8b4b26ffd47136baac7641382c14458d95",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/recovery-source-header.json",
+      "sha256": "880827426cbb567bab1e34e4dce350b6c8f55cefd49e0a6b257226704bbdece2",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-source-entry-1.json",
+      "sha256": "60a149ac232c477b9969f115ea6c0ece0b521489982d117380a74dee9c16cff4",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-prepared-003.json",
+      "sha256": "175f6eb115325710d20ba78a5e6af1dfd0a8b62e5e9ee457ea59e31cd7df5f5e",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-author-new.json",
+      "sha256": "896f99583184686152ee78e7e8c77dda90ffbd73d27bb021c75de0fa24d2f257",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-setup-identity.json",
+      "sha256": "abb5b94f0626ccbdfa42e0c855ab556110b7b28625da395ca5c70a46744f7137",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/case-final.json",
+      "sha256": "04e7712d737c8607f0c023761210b34e8f6df6b3666d54cdd3e2aad72632236a",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-recovery.json",
+      "sha256": "4f527d7a4a56410eb40190add66d80b011a4f4cf8b5d45960c25e361a58ad2cd",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-fixture.json",
+      "sha256": "5501c706baaba90f3ee1fddf5a91f2403ec645fcd91169857f5c36e2acef01e7",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-reporter-identity.json",
+      "sha256": "3ab15ee4dbf7e9da3c6a5116a34761db284f451ec3caa0451909d8f29229c4b4",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-source-header.json",
+      "sha256": "9eaaa191a601161d780129ba89ebb50b1c0fe7c8398119a8d1fd0f9206558d4e",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/verification.json",
+      "sha256": "82b5f56a955615af5c119cdd29c497f321dfa26a7c56757d93ceede5bd8963c0",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-revoke-agent.json",
+      "sha256": "9748e08c1d5ef28caf2d4921d3a3b1649da23190f28544f46e68f5adda37b52c",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-recovery-exit.json",
+      "sha256": "4240e8553a23f93ccf4db1d06cdfd12d990a5d39f09d35903b9857634b9ebf3e",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/receiver.json",
+      "sha256": "ba4d3bded3d94c91537890980c01564a37acf7065509fd3b8eafca98ca7a8292",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-enrollment.json",
+      "sha256": "d449a36239a8948cc99db78aa78178b0854b4d754f19517c0ce4f12014e370a8",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-author-old.json",
+      "sha256": "006f284305c0a30c886a841a4764023cc65ba39a97a422677dc6da2a2dc9dfd2",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/enrollment-exit.json",
+      "sha256": "fa4623477a1cade15d28a6b814ad59318e350ef24e9f9247c010e17f5d484f73",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/recovery-copy-entry-1.json",
+      "sha256": "b25f5728439938fb6c327e8a9fda94b5801d2730b69b74e48ac0ae4e730583ae",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-copy-header.json",
+      "sha256": "9eaaa191a601161d780129ba89ebb50b1c0fe7c8398119a8d1fd0f9206558d4e",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/recovery-source-entry-1.json",
+      "sha256": "b25f5728439938fb6c327e8a9fda94b5801d2730b69b74e48ac0ae4e730583ae",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/inspection.json",
+      "sha256": "de708d221d9e260873bb01342fe3b23746ece042db95d869477115143824b1d5",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-copy-entry-1.json",
+      "sha256": "60a149ac232c477b9969f115ea6c0ece0b521489982d117380a74dee9c16cff4",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/recovery.json",
+      "sha256": "a16297d753db17011a0d42c94f1a8172258c832b314ac9053b8e6814693b8f99",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-author-old-exit.json",
+      "sha256": "bddf83ee1b1c43bfbcb1f0bd34d7a3211b94a272e7c99a7d3319ae08a62b5f46",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-preserved-case.json",
+      "sha256": "dedb0be03a2a926a1c73fbfb560004b6596fb8d6c40faf26dd441649df51fb2f",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-revoke-agent-exit.json",
+      "sha256": "610564c1858b73a568231835e7cc43e64e1f8963bb30a425fbd697d85fdb9929",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-refusal-exit.json",
+      "sha256": "403cd0aee01addf09080764f744cc1543cd1acb6635f6772edc1ebeba7e2066b",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/replacement-results.txt",
+      "sha256": "e2db06333ddb6f56f62162a200a17ae02b3cf5ae651ef043a180898f5e579a3d",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "guide/evidence/native-prepared-004.json",
+      "sha256": "65886f158e5cc1049bb06556efcb70c5a731cda8cf473aedc4c307ecd2fb96f8",
+      "origin": "accepted read-only guide R2"
+    },
+    {
+      "path": "integrations/document-release-native/README.md",
+      "sha256": "03b7ed1091bab76cd8f88bc009401c8ec408d03d0e325c1ca6dccabc69445d8f",
+      "origin": "accepted native source documentation"
+    }
+  ]
+}

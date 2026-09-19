@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "continuity-local-source-policy-entry/1",
+  "storeId": "store:native-source-demo",
+  "headerSha256": "9eaaa191a601161d780129ba89ebb50b1c0fe7c8398119a8d1fd0f9206558d4e",
+  "revision": 1,
+  "previousEntrySha256": null,
+  "selectedAt": 1789790965833,
+  "policySha256": "e784797e73c65ec4dfd57067203510b057750af16b5d396dd5f2159c7e2fdec9",
+  "policyUtf8": "{\"schemaVersion\":\"continuity-incident-source-policy/1\",\"audience\":\"audience:native-source-demo\",\"sourceId\":\"source:fictional-reporter\",\"keyId\":\"key:old-public-fixture\",\"publicKeyHex\":\"d75a980182b10ab7d54bfed3c964073a0ee172f3daa62325af021a68f707511a\",\"keyStatus\":\"ENABLED\",\"notBefore\":1789790965733,\"notAfter\":1789877365733,\"maxReportAgeMs\":3600000,\"credentialClass\":\"PUBLIC_DEVELOPMENT_FIXTURE\"}\n"
+}

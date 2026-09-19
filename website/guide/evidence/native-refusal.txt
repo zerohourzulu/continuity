@@ -1,0 +1,1 @@
+PREPARATION_FAILED: SOURCE_POLICY_DISABLED. Partial files may remain at /var/lib/continuity-native-source-20260918-r1/work/receiver/refused-old. A nonzero exit overrides positive partial files; do not reuse that directory. Nothing was installed.

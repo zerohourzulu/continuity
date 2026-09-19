@@ -1,0 +1,213 @@
+{
+  "code": "ACTION_NOT_ALLOWED",
+  "consequential": false,
+  "decision": "DENY",
+  "failures": [
+    {
+      "authorityPathIds": [
+        "progress-b-authority:simulated-allow"
+      ],
+      "code": "ACTION_NOT_ALLOWED",
+      "evidence": [
+        {
+          "eventId": "simulated-allow:a",
+          "eventType": "AGENT_CREATED",
+          "historyHash": "0xa5e05bea007f19b2e9a92dc6102cfd4247f09f040ad14d7a93dc72b0684362fd",
+          "kind": "EVENT",
+          "position": 2
+        },
+        {
+          "eventId": "simulated-allow:admission",
+          "eventType": "TRANSACTION_INTENT_ADMITTED",
+          "historyHash": "0xcfe9ba7df3cfb3f5319594027501ff2c7c4f54a203172af0de97e4b23eb53cb9",
+          "kind": "EVENT",
+          "position": 14
+        },
+        {
+          "eventId": "simulated-allow:b",
+          "eventType": "AGENT_CREATED",
+          "historyHash": "0xad5dbb3451467553fde2362c3c78ae0e55dc9a8518d9ef2c1ccd52ea42f0423d",
+          "kind": "EVENT",
+          "position": 3
+        },
+        {
+          "eventId": "simulated-allow:collect-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0x4156483fb4168f376ad81e1d2a866dc4bacf5352c067270216d8916a7b28a7e3",
+          "kind": "EVENT",
+          "position": 8
+        },
+        {
+          "eventId": "simulated-allow:genesis",
+          "eventType": "DEPLOYMENT_INITIALIZED",
+          "historyHash": "0xe62f812ac3644a5f535ae4fa62169178b1d5cc6fcc266fdb5a8877231ac361ab",
+          "kind": "EVENT",
+          "position": 0
+        },
+        {
+          "eventId": "simulated-allow:obligate-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0x04dc685ba04f3561d0b6962b28824d67906dda0bf64df864df340c52ce9a795b",
+          "kind": "EVENT",
+          "position": 9
+        },
+        {
+          "eventId": "simulated-allow:principal",
+          "eventType": "PRINCIPAL_CREATED",
+          "historyHash": "0x91f6e158887296fc1f7386c07197d8625b6fb827ba80eaa9a63461ab38234783",
+          "kind": "EVENT",
+          "position": 1
+        },
+        {
+          "eventId": "simulated-allow:progress-a-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0x8ca035f322cf6bb53e2e5d57befbbe6a9a9619078cad8550c09c523f1c86e144",
+          "kind": "EVENT",
+          "position": 11
+        },
+        {
+          "eventId": "simulated-allow:progress-b-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0xbefdae39a38746b4a41b56c4fd4c8d14ceb1fb0d2a820870d46f0524f858ac8a",
+          "kind": "EVENT",
+          "position": 12
+        },
+        {
+          "eventId": "simulated-allow:review-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0xf483a4c4ae314089e5d63bddb9c22ed6b67205f1c5e7623b0c545f842e1ba8e2",
+          "kind": "EVENT",
+          "position": 10
+        },
+        {
+          "eventId": "simulated-allow:stale-declared",
+          "eventType": "TRANSACTION_INTENT_DECLARED",
+          "historyHash": "0xdbee1a4b8836ead3e3e46885324917396e86fffaa5025075b4116bb8b60aa133",
+          "kind": "EVENT",
+          "position": 25
+        },
+        {
+          "eventId": "simulated-allow:terminated",
+          "eventType": "AGENT_TERMINATED",
+          "historyHash": "0x5df1adc743a898b41dbaa3bc407ce8fd8f047e141de11f743a39ff5b0bdfc17c",
+          "kind": "EVENT",
+          "position": 20
+        },
+        {
+          "eventId": "simulated-allow:tutorial-revoke-a",
+          "eventType": "AUTHORITY_REVOKED",
+          "historyHash": "0xc16feb87ed5c53a2f69aee09c9ff79913cffcddc275d9c6dd3567a73954e024e",
+          "kind": "EVENT",
+          "position": 24
+        }
+      ],
+      "failingAuthorityId": "progress-b-authority:simulated-allow",
+      "rootAuthorityId": "progress-b-authority:simulated-allow",
+      "terminalAuthorityId": "progress-b-authority:simulated-allow"
+    },
+    {
+      "authorityPathIds": [
+        "review-authority:simulated-allow"
+      ],
+      "code": "ACTION_NOT_ALLOWED",
+      "evidence": [
+        {
+          "eventId": "simulated-allow:a",
+          "eventType": "AGENT_CREATED",
+          "historyHash": "0xa5e05bea007f19b2e9a92dc6102cfd4247f09f040ad14d7a93dc72b0684362fd",
+          "kind": "EVENT",
+          "position": 2
+        },
+        {
+          "eventId": "simulated-allow:admission",
+          "eventType": "TRANSACTION_INTENT_ADMITTED",
+          "historyHash": "0xcfe9ba7df3cfb3f5319594027501ff2c7c4f54a203172af0de97e4b23eb53cb9",
+          "kind": "EVENT",
+          "position": 14
+        },
+        {
+          "eventId": "simulated-allow:b",
+          "eventType": "AGENT_CREATED",
+          "historyHash": "0xad5dbb3451467553fde2362c3c78ae0e55dc9a8518d9ef2c1ccd52ea42f0423d",
+          "kind": "EVENT",
+          "position": 3
+        },
+        {
+          "eventId": "simulated-allow:collect-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0x4156483fb4168f376ad81e1d2a866dc4bacf5352c067270216d8916a7b28a7e3",
+          "kind": "EVENT",
+          "position": 8
+        },
+        {
+          "eventId": "simulated-allow:genesis",
+          "eventType": "DEPLOYMENT_INITIALIZED",
+          "historyHash": "0xe62f812ac3644a5f535ae4fa62169178b1d5cc6fcc266fdb5a8877231ac361ab",
+          "kind": "EVENT",
+          "position": 0
+        },
+        {
+          "eventId": "simulated-allow:obligate-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0x04dc685ba04f3561d0b6962b28824d67906dda0bf64df864df340c52ce9a795b",
+          "kind": "EVENT",
+          "position": 9
+        },
+        {
+          "eventId": "simulated-allow:principal",
+          "eventType": "PRINCIPAL_CREATED",
+          "historyHash": "0x91f6e158887296fc1f7386c07197d8625b6fb827ba80eaa9a63461ab38234783",
+          "kind": "EVENT",
+          "position": 1
+        },
+        {
+          "eventId": "simulated-allow:progress-a-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0x8ca035f322cf6bb53e2e5d57befbbe6a9a9619078cad8550c09c523f1c86e144",
+          "kind": "EVENT",
+          "position": 11
+        },
+        {
+          "eventId": "simulated-allow:progress-b-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0xbefdae39a38746b4a41b56c4fd4c8d14ceb1fb0d2a820870d46f0524f858ac8a",
+          "kind": "EVENT",
+          "position": 12
+        },
+        {
+          "eventId": "simulated-allow:review-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0xf483a4c4ae314089e5d63bddb9c22ed6b67205f1c5e7623b0c545f842e1ba8e2",
+          "kind": "EVENT",
+          "position": 10
+        },
+        {
+          "eventId": "simulated-allow:stale-declared",
+          "eventType": "TRANSACTION_INTENT_DECLARED",
+          "historyHash": "0xdbee1a4b8836ead3e3e46885324917396e86fffaa5025075b4116bb8b60aa133",
+          "kind": "EVENT",
+          "position": 25
+        },
+        {
+          "eventId": "simulated-allow:terminated",
+          "eventType": "AGENT_TERMINATED",
+          "historyHash": "0x5df1adc743a898b41dbaa3bc407ce8fd8f047e141de11f743a39ff5b0bdfc17c",
+          "kind": "EVENT",
+          "position": 20
+        },
+        {
+          "eventId": "simulated-allow:tutorial-revoke-a",
+          "eventType": "AUTHORITY_REVOKED",
+          "historyHash": "0xc16feb87ed5c53a2f69aee09c9ff79913cffcddc275d9c6dd3567a73954e024e",
+          "kind": "EVENT",
+          "position": 24
+        }
+      ],
+      "failingAuthorityId": "review-authority:simulated-allow",
+      "rootAuthorityId": "review-authority:simulated-allow",
+      "terminalAuthorityId": "review-authority:simulated-allow"
+    }
+  ],
+  "operationVersion": "continuity-authorization/0.2",
+  "scopeAssurance": "REPLAY_VERIFIED"
+}

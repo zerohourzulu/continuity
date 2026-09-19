@@ -1,0 +1,84 @@
+{
+  "consequential": false,
+  "decision": "ALLOW",
+  "operationVersion": "continuity-authorization/0.2",
+  "proof": {
+    "authorityEvidence": [
+      {
+        "authorityId": "collect-authority:simulated-deny",
+        "grantEventId": "simulated-deny:collect-authority",
+        "grantEventPosition": 8
+      }
+    ],
+    "checkedProhibitionIds": [],
+    "consequential": false,
+    "controllingAuthorityIds": [
+      "collect-authority:simulated-deny"
+    ],
+    "domain": {
+      "chainId": "31337",
+      "deploymentId": "core-0.2-reference:simulated-deny",
+      "protocol": "continuity",
+      "verifyingContract": "0x0000000000000000000000000000000000003002",
+      "version": "0.2"
+    },
+    "effectiveConstraints": {
+      "actions": [
+        "collect-evidence-packet"
+      ],
+      "expiresAt": 1000,
+      "maxDelegationDepth": 0,
+      "quantitative": false,
+      "requiredIntersectionIds": [],
+      "resources": [
+        "resource:simulated-deny"
+      ]
+    },
+    "evaluationTime": 12,
+    "historyHead": {
+      "canonicalTime": 12,
+      "hash": "0xf43ff0654e4d96d6baf6e29ebfd19b7621cd677369ae509bb66a877dec397c2a",
+      "position": 12
+    },
+    "intersections": [],
+    "permissionPath": [
+      {
+        "authorityId": "collect-authority:simulated-deny",
+        "constraints": {
+          "actions": [
+            "collect-evidence-packet"
+          ],
+          "expiresAt": 1000,
+          "maxDelegationDepth": 0,
+          "quantitative": false,
+          "requiredIntersectionIds": [],
+          "resources": [
+            "resource:simulated-deny"
+          ]
+        },
+        "granteeId": "a:simulated-deny",
+        "grantorId": "principal:simulated-deny",
+        "independent": true,
+        "kind": "PERMISSION",
+        "rootAuthorityId": "collect-authority:simulated-deny"
+      }
+    ],
+    "policyVersion": "local-evidence-intake-policy:simulated-deny/0.2",
+    "proofVersion": "continuity-authorization-proof/0.2",
+    "recognizedRoot": {
+      "principalId": "principal:simulated-deny",
+      "principalRecognitionEventId": "simulated-deny:principal",
+      "rootAuthorityId": "collect-authority:simulated-deny",
+      "rootGrantEventId": "simulated-deny:collect-authority"
+    },
+    "request": {
+      "action": "collect-evidence-packet",
+      "actorId": "a:simulated-deny",
+      "claimedAt": 12,
+      "resource": "resource:simulated-deny"
+    },
+    "rootRecognitionPolicy": "declared-principal-root/0.2",
+    "usageSnapshot": []
+  },
+  "scopeAssurance": "REPLAY_VERIFIED"
+}

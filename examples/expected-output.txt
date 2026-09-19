@@ -1,0 +1,10 @@
+1. A may collect the selected synthetic evidence: ALLOW
+2. Intake acknowledged; investigation duty created: OPEN
+3. Handover advances control epoch and replaces A: HANDOVER_COMPLETE
+4. Operator revokes A collection permission: DENY
+5. Old signed worker request reaches admission and is refused: DENIED
+6. B inherits the unfinished duty: OPEN
+7. B review permission is checked separately from its duty: ALLOW
+PASS — duty remains OPEN; B has no collection power.
+Evidence: runs/simulated-allow/result.json
+Replay: node tutorial/cli.mjs inspect simulated-allow

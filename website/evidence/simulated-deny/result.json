@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "continuity-evaluation-result/1",
+  "caseId": "simulated-deny",
+  "mode": "simulated",
+  "successorReview": "deny",
+  "status": "PASS",
+  "checkpoints": [
+    {
+      "label": "A may collect the selected synthetic evidence",
+      "decision": "ALLOW"
+    },
+    {
+      "label": "Intake acknowledged; investigation duty created",
+      "status": "OPEN",
+      "executor": "SIMULATOR",
+      "packet": "SIMULATED_ACKNOWLEDGMENT_RECORDED"
+    },
+    {
+      "label": "Handover advances control epoch and replaces A",
+      "status": "HANDOVER_COMPLETE"
+    },
+    {
+      "label": "Operator revokes A collection permission",
+      "decision": "DENY"
+    },
+    {
+      "label": "Old signed worker request reaches admission and is refused",
+      "caseId": "simulated-deny",
+      "status": "DENIED",
+      "executorInvoked": false
+    },
+    {
+      "label": "B inherits the unfinished duty",
+      "status": "OPEN",
+      "performer": "b:simulated-deny"
+    },
+    {
+      "label": "B review permission is checked separately from its duty",
+      "decision": "DENY",
+      "collectionDecision": "DENY"
+    }
+  ],
+  "head": {
+    "hash": "0xa472a1b900892fb0f8fbc1f1eef56328cb63283f9180dbe72bc0cf5cdc99af2a",
+    "position": 26,
+    "canonicalTime": 26
+  },
+  "evidence": [
+    {
+      "path": "case.json",
+      "sha256": "0dd31667c16504c6d3fdb8c542bab1178a8d9030e67b6241e625a7cfca5f0dc6"
+    },
+    {
+      "path": "history.jsonl",
+      "sha256": "3fd1ecd0f27ba8d758c0e67e47c1e065d98fe914bc1b3427f5fd9e371fa69fa3"
+    },
+    {
+      "path": "receipt.json",
+      "sha256": "558009fff1d2a938a4ed5d26c22c8fb752e532a3db214c262e72048b5dc8a926"
+    },
+    {
+      "path": "stale-request.json",
+      "sha256": "07cb4f9914e01a3fde3aea91cef84cc9b7267d95f068844aeef2da4928519cf3"
+    },
+    {
+      "path": "export/history.json",
+      "sha256": "6958ef70aae8b126dbe501319410941df9b066ec459dcd163c4aed45621e2091"
+    },
+    {
+      "path": "export/summary.json",
+      "sha256": "22cde6a3148cb76d6fc9791bba25e7f6517490b2f3e7f62272d6868bfbf588b0"
+    }
+  ],
+  "scope": {
+    "synthetic": true,
+    "signing": "PUBLIC_TEST_KEYS",
+    "execution": "TRUSTED_LOCAL_REFERENCE",
+    "blockchain": "NONE",
+    "aiModel": "NONE",
+    "hostileHostContainment": false
+  },
+  "next": "Run inspect in a fresh process; open the JSON evidence and the recorded Linux guide."
+}

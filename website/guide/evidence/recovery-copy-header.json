@@ -1,0 +1,8 @@
+ 
+{
+   "schemaVersion": "continuity-local-source-policy-store/1",
+   "storeId": "store:recovery-public-fixture",
+   "audience": "intake:source-bound",
+   "sourceId": "source:rfc8032-fixture"
+}
+	

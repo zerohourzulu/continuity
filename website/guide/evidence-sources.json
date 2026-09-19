@@ -1,0 +1,390 @@
+{
+  "scope": "Explicit public-record allowlist; native case and earlier component demonstrations remain separate; no private-file metadata, keys or account records",
+  "sources": [
+    {
+      "label": "Enrollment stdout",
+      "path": "evidence/enrollment-stdout.txt",
+      "sha256": "5379068e2f299606ec493f0f59df9068091b0f9421425e4ae9712fca2aac52a2",
+      "bytes": 71,
+      "source": "docs/development/CORE-0.2-SOURCE-ONBOARDING-REPAIR-2026-09-18/evidence/fixtures-original/io-01-public-inputs-and-logs/cli-prepare-success.stdout.txt"
+    },
+    {
+      "label": "Enrollment exit",
+      "path": "evidence/enrollment-exit.json",
+      "sha256": "fa4623477a1cade15d28a6b814ad59318e350ef24e9f9247c010e17f5d484f73",
+      "bytes": 256,
+      "source": "docs/development/CORE-0.2-SOURCE-ONBOARDING-REPAIR-2026-09-18/evidence/fixtures-original/io-01-public-inputs-and-logs/cli-prepare-success.exit.json"
+    },
+    {
+      "label": "Enrollment",
+      "path": "evidence/enrollment.json",
+      "sha256": "93a9a79a0caf99e024248f783438228f9a7aec6cd90e113218be465eb8b9f7b7",
+      "bytes": 714,
+      "source": "docs/development/CORE-0.2-SOURCE-ONBOARDING-REPAIR-2026-09-18/evidence/fixtures-original/io-04-actual-cli-public-outputs/prepared/enrollment.json"
+    },
+    {
+      "label": "Authoring",
+      "path": "evidence/authoring.json",
+      "sha256": "c11feea4ad8a21dd71c023852ab006cc9b51c2aa20f4e6fbe6e1fafa0dbe478c",
+      "bytes": 1793,
+      "source": "docs/development/CORE-0.2-SOURCE-ONBOARDING-REPAIR-2026-09-18/evidence/fixtures-original/io-06-receiver-public-outputs/authored/authoring.json"
+    },
+    {
+      "label": "Verification",
+      "path": "evidence/verification.json",
+      "sha256": "82b5f56a955615af5c119cdd29c497f321dfa26a7c56757d93ceede5bd8963c0",
+      "bytes": 1470,
+      "source": "docs/development/CORE-0.2-SOURCE-ONBOARDING-REPAIR-2026-09-18/evidence/fixtures-original/io-06-receiver-public-outputs/authored/verification.json"
+    },
+    {
+      "label": "Attestation",
+      "path": "evidence/attestation.json",
+      "sha256": "8f903c9bb3c7778fd23416a6c4cff4dd54144e8005c679c2d09dd07408c4cfd6",
+      "bytes": 692,
+      "source": "docs/development/CORE-0.2-SOURCE-ONBOARDING-REPAIR-2026-09-18/evidence/fixtures-original/io-06-receiver-public-outputs/authored/attestation.json"
+    },
+    {
+      "label": "Receiver",
+      "path": "evidence/receiver.json",
+      "sha256": "ba4d3bded3d94c91537890980c01564a37acf7065509fd3b8eafca98ca7a8292",
+      "bytes": 3207,
+      "source": "docs/development/CORE-0.2-SOURCE-ONBOARDING-REPAIR-2026-09-18/evidence/fixtures-original/io-01-public-inputs-and-logs/independent-receiver-observation.json"
+    },
+    {
+      "label": "Comparison",
+      "path": "evidence/comparison.json",
+      "sha256": "ccf280b040631e15aa867a3c8f88de8b4b26ffd47136baac7641382c14458d95",
+      "bytes": 4131,
+      "source": "docs/development/CORE-0.2-SOURCE-KEY-REPLACEMENT-2026-09-18/evidence/fixtures-original/storeIo-01-retained-evidence/operator-comparison.json"
+    },
+    {
+      "label": "Case baseline",
+      "path": "evidence/case-baseline.json",
+      "sha256": "e6d45b3539f0bfaf83dcba8f6d28149aef0545a52061b1b92222dbd6f193bc14",
+      "bytes": 12192,
+      "source": "docs/development/CORE-0.2-SOURCE-KEY-REPLACEMENT-2026-09-18/evidence/fixtures-original/storeIo-01-retained-evidence/case-baseline-after-agent-a-revocation.json"
+    },
+    {
+      "label": "Case final",
+      "path": "evidence/case-final.json",
+      "sha256": "04e7712d737c8607f0c023761210b34e8f6df6b3666d54cdd3e2aad72632236a",
+      "bytes": 12174,
+      "source": "docs/development/CORE-0.2-SOURCE-KEY-REPLACEMENT-2026-09-18/evidence/fixtures-original/storeIo-01-retained-evidence/case-final-unchanged.json"
+    },
+    {
+      "label": "Replacement results",
+      "path": "evidence/replacement-results.txt",
+      "sha256": "e2db06333ddb6f56f62162a200a17ae02b3cf5ae651ef043a180898f5e579a3d",
+      "bytes": 5194,
+      "source": "docs/development/CORE-0.2-SOURCE-KEY-REPLACEMENT-2026-09-18/RESULTS.md"
+    },
+    {
+      "label": "Inspection",
+      "path": "evidence/inspection.json",
+      "sha256": "de708d221d9e260873bb01342fe3b23746ece042db95d869477115143824b1d5",
+      "bytes": 916,
+      "source": "docs/development/CORE-0.2-STORE-RECOVERY-2026-09-18/evidence/fixtures-recovery/inspect-locked.stdout.txt"
+    },
+    {
+      "label": "Recovery",
+      "path": "evidence/recovery.json",
+      "sha256": "a16297d753db17011a0d42c94f1a8172258c832b314ac9053b8e6814693b8f99",
+      "bytes": 1044,
+      "source": "docs/development/CORE-0.2-STORE-RECOVERY-2026-09-18/evidence/fixtures-recovery/recover-success.stdout.txt"
+    },
+    {
+      "label": "Recovery lost ack",
+      "path": "evidence/recovery-lost-ack.json",
+      "sha256": "efebe09ac8b7a632e25bc16a66ca9043d46a233c9f033787f0e176f4860cbf01",
+      "bytes": 117,
+      "source": "docs/development/CORE-0.2-STORE-RECOVERY-2026-09-18/evidence/fixtures-recovery/recover-lost-stdout.exit.json"
+    },
+    {
+      "label": "Recovery results",
+      "path": "evidence/recovery-results.txt",
+      "sha256": "56e1509e3171eaea9f3e75b1e2b32ca1f6cbcd0a8a540bee2dc95495b0b39518",
+      "bytes": 3223,
+      "source": "docs/development/CORE-0.2-STORE-RECOVERY-2026-09-18/RESULTS.md"
+    },
+    {
+      "label": "Recovery source header",
+      "path": "evidence/recovery-source-header.json",
+      "sha256": "880827426cbb567bab1e34e4dce350b6c8f55cefd49e0a6b257226704bbdece2",
+      "bytes": 194,
+      "source": "docs/development/CORE-0.2-STORE-RECOVERY-2026-09-18/evidence/fixtures-recovery/01-revoked-source/store.json"
+    },
+    {
+      "label": "Recovery source entry 1",
+      "path": "evidence/recovery-source-entry-1.json",
+      "sha256": "b25f5728439938fb6c327e8a9fda94b5801d2730b69b74e48ac0ae4e730583ae",
+      "bytes": 856,
+      "source": "docs/development/CORE-0.2-STORE-RECOVERY-2026-09-18/evidence/fixtures-recovery/01-revoked-source/entries/00000001.json"
+    },
+    {
+      "label": "Recovery source entry 2",
+      "path": "evidence/recovery-source-entry-2.json",
+      "sha256": "e1bf7a4e9cb233a787f482b0ec7c3d5d4febba4138bb52c0d6cc10f6d20e816e",
+      "bytes": 918,
+      "source": "docs/development/CORE-0.2-STORE-RECOVERY-2026-09-18/evidence/fixtures-recovery/01-revoked-source/entries/00000002.json"
+    },
+    {
+      "label": "Recovery source entry 3",
+      "path": "evidence/recovery-source-entry-3.json",
+      "sha256": "139bd2a6cf3752c63a9ee886017ae8ef60f14f4f342d6c1b9e39d1343886da83",
+      "bytes": 918,
+      "source": "docs/development/CORE-0.2-STORE-RECOVERY-2026-09-18/evidence/fixtures-recovery/01-revoked-source/entries/00000003.json"
+    },
+    {
+      "label": "Recovery copy header",
+      "path": "evidence/recovery-copy-header.json",
+      "sha256": "880827426cbb567bab1e34e4dce350b6c8f55cefd49e0a6b257226704bbdece2",
+      "bytes": 194,
+      "source": "docs/development/CORE-0.2-STORE-RECOVERY-2026-09-18/evidence/fixtures-recovery/02-exact-copy/store.json"
+    },
+    {
+      "label": "Recovery copy entry 1",
+      "path": "evidence/recovery-copy-entry-1.json",
+      "sha256": "b25f5728439938fb6c327e8a9fda94b5801d2730b69b74e48ac0ae4e730583ae",
+      "bytes": 856,
+      "source": "docs/development/CORE-0.2-STORE-RECOVERY-2026-09-18/evidence/fixtures-recovery/02-exact-copy/entries/00000001.json"
+    },
+    {
+      "label": "Recovery copy entry 2",
+      "path": "evidence/recovery-copy-entry-2.json",
+      "sha256": "e1bf7a4e9cb233a787f482b0ec7c3d5d4febba4138bb52c0d6cc10f6d20e816e",
+      "bytes": 918,
+      "source": "docs/development/CORE-0.2-STORE-RECOVERY-2026-09-18/evidence/fixtures-recovery/02-exact-copy/entries/00000002.json"
+    },
+    {
+      "label": "Recovery copy entry 3",
+      "path": "evidence/recovery-copy-entry-3.json",
+      "sha256": "139bd2a6cf3752c63a9ee886017ae8ef60f14f4f342d6c1b9e39d1343886da83",
+      "bytes": 918,
+      "source": "docs/development/CORE-0.2-STORE-RECOVERY-2026-09-18/evidence/fixtures-recovery/02-exact-copy/entries/00000003.json"
+    },
+    {
+      "label": "Native fixture",
+      "path": "evidence/native-fixture.json",
+      "sha256": "5501c706baaba90f3ee1fddf5a91f2403ec645fcd91169857f5c36e2acef01e7",
+      "bytes": 385,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/fixture-public-description.json"
+    },
+    {
+      "label": "Native reporter identity",
+      "path": "evidence/native-reporter-identity.json",
+      "sha256": "3ab15ee4dbf7e9da3c6a5116a34761db284f451ec3caa0451909d8f29229c4b4",
+      "bytes": 387,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/author-old-identity.json"
+    },
+    {
+      "label": "Native receiver identity",
+      "path": "evidence/native-receiver-identity.json",
+      "sha256": "fd4652437870ad4e5dfd78fef7ca22d114b5e4b75005cb1fb0d6491572261790",
+      "bytes": 387,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/enroll-identity.json"
+    },
+    {
+      "label": "Native setup identity",
+      "path": "evidence/native-setup-identity.json",
+      "sha256": "abb5b94f0626ccbdfa42e0c855ab556110b7b28625da395ca5c70a46744f7137",
+      "bytes": 387,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/setup-identity.json"
+    },
+    {
+      "label": "Native controller identity",
+      "path": "evidence/native-controller-identity.json",
+      "sha256": "444bd9c78388cf0456deb2fb9956bf9c547e08e24e48dbd8cf049afdbb3c9182",
+      "bytes": 387,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/revoke-a-identity.json"
+    },
+    {
+      "label": "Native author old",
+      "path": "evidence/native-author-old.json",
+      "sha256": "006f284305c0a30c886a841a4764023cc65ba39a97a422677dc6da2a2dc9dfd2",
+      "bytes": 1797,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/export-author-old/authoring.json"
+    },
+    {
+      "label": "Native author old exit",
+      "path": "evidence/native-author-old-exit.json",
+      "sha256": "bddf83ee1b1c43bfbcb1f0bd34d7a3211b94a272e7c99a7d3319ae08a62b5f46",
+      "bytes": 73,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/author-old-exit.json"
+    },
+    {
+      "label": "Native enrollment",
+      "path": "evidence/native-enrollment.json",
+      "sha256": "d449a36239a8948cc99db78aa78178b0854b4d754f19517c0ce4f12014e370a8",
+      "bytes": 804,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/enroll-observation.json"
+    },
+    {
+      "label": "Native prepared 003",
+      "path": "evidence/native-prepared-003.json",
+      "sha256": "175f6eb115325710d20ba78a5e6af1dfd0a8b62e5e9ee457ea59e31cd7df5f5e",
+      "bytes": 3573,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/export-prepared-003/MANIFEST.json"
+    },
+    {
+      "label": "Native intake",
+      "path": "evidence/native-intake.json",
+      "sha256": "2187c1ad39eebd8869e57f6424f9b50cbb51823d8eb642ee4edd70e763ec3085",
+      "bytes": 1241,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/intake-after-setup.json"
+    },
+    {
+      "label": "Native setup exit",
+      "path": "evidence/native-setup-exit.json",
+      "sha256": "c61829ef4de962c3fb01e2744ff343261e1b99ea81e95bebe488458772d5eee5",
+      "bytes": 73,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/setup-exit.json"
+    },
+    {
+      "label": "Native revoke agent",
+      "path": "evidence/native-revoke-agent.json",
+      "sha256": "9748e08c1d5ef28caf2d4921d3a3b1649da23190f28544f46e68f5adda37b52c",
+      "bytes": 1901,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/export-controller-revoke-a/report.json"
+    },
+    {
+      "label": "Native revoke agent exit",
+      "path": "evidence/native-revoke-agent-exit.json",
+      "sha256": "610564c1858b73a568231835e7cc43e64e1f8963bb30a425fbd697d85fdb9929",
+      "bytes": 73,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/revoke-a-exit.json"
+    },
+    {
+      "label": "Native revoke source",
+      "path": "evidence/native-revoke-source.json",
+      "sha256": "4359117ad814b562c89f699501572c4469562466d739ee644cc31394952d9318",
+      "bytes": 809,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/revoke-source-observation.json"
+    },
+    {
+      "label": "Native refusal exit",
+      "path": "evidence/native-refusal-exit.json",
+      "sha256": "403cd0aee01addf09080764f744cc1543cd1acb6635f6772edc1ebeba7e2066b",
+      "bytes": 73,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/refuse-old-exit.json"
+    },
+    {
+      "label": "Native refusal",
+      "path": "evidence/native-refusal.txt",
+      "sha256": "336b0bdd63ee7132b1e838f315350cb49b00f37488f5774847a9cb8c7bca7fb8",
+      "bytes": 246,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/refuse-old.stderr"
+    },
+    {
+      "label": "Native replacement",
+      "path": "evidence/native-replacement.json",
+      "sha256": "15f36b76877d0fe8d43f98dc852035a8625cbc2207819cca898b22dc9d89218c",
+      "bytes": 816,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/replace-source-observation.json"
+    },
+    {
+      "label": "Native author new",
+      "path": "evidence/native-author-new.json",
+      "sha256": "896f99583184686152ee78e7e8c77dda90ffbd73d27bb021c75de0fa24d2f257",
+      "bytes": 1797,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/export-author-new/authoring.json"
+    },
+    {
+      "label": "Native prepared 004",
+      "path": "evidence/native-prepared-004.json",
+      "sha256": "65886f158e5cc1049bb06556efcb70c5a731cda8cf473aedc4c307ecd2fb96f8",
+      "bytes": 3573,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/export-prepared-004/MANIFEST.json"
+    },
+    {
+      "label": "Native prepare second exit",
+      "path": "evidence/native-prepare-second-exit.json",
+      "sha256": "75ed50954ebadb874ea17528d432dc8929033b4f56dae6e552a002f01c1c93b5",
+      "bytes": 73,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/prepare-second-exit.json"
+    },
+    {
+      "label": "Native inspection",
+      "path": "evidence/native-inspection.json",
+      "sha256": "56fa9615d417647b80f05bc1566695c7925c6aee8fcd7c3572225763ca31b65d",
+      "bytes": 943,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/inspect-observation.json"
+    },
+    {
+      "label": "Native recovery",
+      "path": "evidence/native-recovery.json",
+      "sha256": "4f527d7a4a56410eb40190add66d80b011a4f4cf8b5d45960c25e361a58ad2cd",
+      "bytes": 1071,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/recover-observation.json"
+    },
+    {
+      "label": "Native recovery exit",
+      "path": "evidence/native-recovery-exit.json",
+      "sha256": "4240e8553a23f93ccf4db1d06cdfd12d990a5d39f09d35903b9857634b9ebf3e",
+      "bytes": 73,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/recover-exit.json"
+    },
+    {
+      "label": "Native preserved case",
+      "path": "evidence/native-preserved-case.json",
+      "sha256": "dedb0be03a2a926a1c73fbfb560004b6596fb8d6c40faf26dd441649df51fb2f",
+      "bytes": 1726,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/original-case-preserved.json"
+    },
+    {
+      "label": "Native source header",
+      "path": "evidence/native-source-header.json",
+      "sha256": "9eaaa191a601161d780129ba89ebb50b1c0fe7c8398119a8d1fd0f9206558d4e",
+      "bytes": 193,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/export-store-original/store.json"
+    },
+    {
+      "label": "Native source entry 1",
+      "path": "evidence/native-source-entry-1.json",
+      "sha256": "60a149ac232c477b9969f115ea6c0ece0b521489982d117380a74dee9c16cff4",
+      "bytes": 807,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/export-store-original/entries/00000001.json"
+    },
+    {
+      "label": "Native source entry 2",
+      "path": "evidence/native-source-entry-2.json",
+      "sha256": "1184619235c007cad6b7190e3f943f74141add15d800828951e3176c9efc938f",
+      "bytes": 869,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/export-store-original/entries/00000002.json"
+    },
+    {
+      "label": "Native source entry 3",
+      "path": "evidence/native-source-entry-3.json",
+      "sha256": "beaf6bd947582eda75ca5773f1bc82e00d92c5cab224d9d835ee8c0ece56467b",
+      "bytes": 869,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/export-store-original/entries/00000003.json"
+    },
+    {
+      "label": "Native copy header",
+      "path": "evidence/native-copy-header.json",
+      "sha256": "9eaaa191a601161d780129ba89ebb50b1c0fe7c8398119a8d1fd0f9206558d4e",
+      "bytes": 193,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/export-store-recovered/store.json"
+    },
+    {
+      "label": "Native copy entry 1",
+      "path": "evidence/native-copy-entry-1.json",
+      "sha256": "60a149ac232c477b9969f115ea6c0ece0b521489982d117380a74dee9c16cff4",
+      "bytes": 807,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/export-store-recovered/entries/00000001.json"
+    },
+    {
+      "label": "Native copy entry 2",
+      "path": "evidence/native-copy-entry-2.json",
+      "sha256": "1184619235c007cad6b7190e3f943f74141add15d800828951e3176c9efc938f",
+      "bytes": 869,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/export-store-recovered/entries/00000002.json"
+    },
+    {
+      "label": "Native copy entry 3",
+      "path": "evidence/native-copy-entry-3.json",
+      "sha256": "beaf6bd947582eda75ca5773f1bc82e00d92c5cab224d9d835ee8c0ece56467b",
+      "bytes": 869,
+      "source": "docs/development/CORE-0.2-NATIVE-SOURCE-WORKFLOW-2026-09-18/evidence/export-store-recovered/entries/00000003.json"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "continuity-local-source-policy-entry/1",
+  "storeId": "store:native-source-demo",
+  "headerSha256": "9eaaa191a601161d780129ba89ebb50b1c0fe7c8398119a8d1fd0f9206558d4e",
+  "revision": 2,
+  "previousEntrySha256": "60a149ac232c477b9969f115ea6c0ece0b521489982d117380a74dee9c16cff4",
+  "selectedAt": 1789790970858,
+  "policySha256": "891813fc384716828961efbeb81d09296da034d6d98da4b4e346308f316eb7bb",
+  "policyUtf8": "{\"schemaVersion\":\"continuity-incident-source-policy/1\",\"audience\":\"audience:native-source-demo\",\"sourceId\":\"source:fictional-reporter\",\"keyId\":\"key:old-public-fixture\",\"publicKeyHex\":\"d75a980182b10ab7d54bfed3c964073a0ee172f3daa62325af021a68f707511a\",\"keyStatus\":\"REVOKED\",\"notBefore\":1789790965733,\"notAfter\":1789877365733,\"maxReportAgeMs\":3600000,\"credentialClass\":\"PUBLIC_DEVELOPMENT_FIXTURE\"}\n"
+}

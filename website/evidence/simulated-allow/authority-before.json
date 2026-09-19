@@ -1,0 +1,84 @@
+{
+  "consequential": false,
+  "decision": "ALLOW",
+  "operationVersion": "continuity-authorization/0.2",
+  "proof": {
+    "authorityEvidence": [
+      {
+        "authorityId": "collect-authority:simulated-allow",
+        "grantEventId": "simulated-allow:collect-authority",
+        "grantEventPosition": 8
+      }
+    ],
+    "checkedProhibitionIds": [],
+    "consequential": false,
+    "controllingAuthorityIds": [
+      "collect-authority:simulated-allow"
+    ],
+    "domain": {
+      "chainId": "31337",
+      "deploymentId": "core-0.2-reference:simulated-allow",
+      "protocol": "continuity",
+      "verifyingContract": "0x0000000000000000000000000000000000003002",
+      "version": "0.2"
+    },
+    "effectiveConstraints": {
+      "actions": [
+        "collect-evidence-packet"
+      ],
+      "expiresAt": 1000,
+      "maxDelegationDepth": 0,
+      "quantitative": false,
+      "requiredIntersectionIds": [],
+      "resources": [
+        "resource:simulated-allow"
+      ]
+    },
+    "evaluationTime": 12,
+    "historyHead": {
+      "canonicalTime": 12,
+      "hash": "0xbefdae39a38746b4a41b56c4fd4c8d14ceb1fb0d2a820870d46f0524f858ac8a",
+      "position": 12
+    },
+    "intersections": [],
+    "permissionPath": [
+      {
+        "authorityId": "collect-authority:simulated-allow",
+        "constraints": {
+          "actions": [
+            "collect-evidence-packet"
+          ],
+          "expiresAt": 1000,
+          "maxDelegationDepth": 0,
+          "quantitative": false,
+          "requiredIntersectionIds": [],
+          "resources": [
+            "resource:simulated-allow"
+          ]
+        },
+        "granteeId": "a:simulated-allow",
+        "grantorId": "principal:simulated-allow",
+        "independent": true,
+        "kind": "PERMISSION",
+        "rootAuthorityId": "collect-authority:simulated-allow"
+      }
+    ],
+    "policyVersion": "local-evidence-intake-policy:simulated-allow/0.2",
+    "proofVersion": "continuity-authorization-proof/0.2",
+    "recognizedRoot": {
+      "principalId": "principal:simulated-allow",
+      "principalRecognitionEventId": "simulated-allow:principal",
+      "rootAuthorityId": "collect-authority:simulated-allow",
+      "rootGrantEventId": "simulated-allow:collect-authority"
+    },
+    "request": {
+      "action": "collect-evidence-packet",
+      "actorId": "a:simulated-allow",
+      "claimedAt": 12,
+      "resource": "resource:simulated-allow"
+    },
+    "rootRecognitionPolicy": "declared-principal-root/0.2",
+    "usageSnapshot": []
+  },
+  "scopeAssurance": "REPLAY_VERIFIED"
+}

@@ -1,0 +1,12 @@
+ 
+{
+   "schemaVersion": "continuity-local-source-policy-entry/1",
+   "storeId": "store:recovery-public-fixture",
+   "headerSha256": "880827426cbb567bab1e34e4dce350b6c8f55cefd49e0a6b257226704bbdece2",
+   "revision": 2,
+   "previousEntrySha256": "b25f5728439938fb6c327e8a9fda94b5801d2730b69b74e48ac0ae4e730583ae",
+   "selectedAt": 2002,
+   "policySha256": "766a82314fda901f84e6f96a5be4be36884b3a77fbc25e189e513b5fb1772807",
+   "policyUtf8": " \n{\n   \"schemaVersion\": \"continuity-incident-source-policy/1\",\n   \"audience\": \"intake:source-bound\",\n   \"sourceId\": \"source:rfc8032-fixture\",\n   \"keyId\": \"key:public-rfc8032\",\n   \"publicKeyHex\": \"d75a980182b10ab7d54bfed3c964073a0ee172f3daa62325af021a68f707511a\",\n   \"keyStatus\": \"ENABLED\",\n   \"notBefore\": 1000,\n   \"notAfter\": 9999999999999,\n   \"maxReportAgeMs\": 100002,\n   \"credentialClass\": \"PUBLIC_DEVELOPMENT_FIXTURE\"\n}\n\t"
+}
+	

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "continuity-presentation-provenance/1",
+  "evaluationArchiveSha256": "16c48377c6f12965881ea687cdc47829df42125255191eea69969e3e9557fa7f",
+  "acceptedSitesVersion": 4,
+  "siteSourceCommit": "6c5d60b81d922004edcc27e722871d259a503c8d",
+  "runtimeChanged": false,
+  "websiteCopy": "Accepted corrected presentation with resolved source links and Apache2.0 licensing/download updates.",
+  "workflowActionPins": {
+    "checkout": {
+      "tag": "v6",
+      "sha": "d23441a48e516b6c34aea4fa41551a30e30af803"
+    },
+    "configure-pages": {
+      "tag": "v5",
+      "sha": "983d7736d9b0ae728b81ab479565c72886d7745b"
+    },
+    "upload-pages-artifact": {
+      "tag": "v4",
+      "sha": "7b1f4a764d45c48632c6b24a0339c27f5614fb0b"
+    },
+    "deploy-pages": {
+      "tag": "v4",
+      "sha": "d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e"
+    }
+  },
+  "correctedSitesVersion": 5,
+  "correctedSiteSourceCommit": "056526bfa2753595e8e927761263673703588af1",
+  "constitutionSha256": "6d80880dc272c8938a57bca352e7dd8cfb4693414c15060a72e0a444464e1dbc",
+  "evaluationEdition": 2,
+  "license": "Apache-2.0",
+  "predecessorStagingCommit": "ecdd15ed1dc0cf437fd30a910e498d3833232f21"
+}

@@ -1,0 +1,106 @@
+[
+  {
+    "name": "@adraffy/ens-normalize",
+    "version": "1.11.1",
+    "license": "MIT",
+    "files": [
+      "licenses/@adraffy__ens-normalize-1.11.1/LICENSE"
+    ]
+  },
+  {
+    "name": "@noble/ciphers",
+    "version": "1.3.0",
+    "license": "MIT",
+    "files": [
+      "licenses/@noble__ciphers-1.3.0/LICENSE"
+    ]
+  },
+  {
+    "name": "@noble/curves",
+    "version": "1.9.1",
+    "license": "MIT",
+    "files": [
+      "licenses/@noble__curves-1.9.1/LICENSE"
+    ]
+  },
+  {
+    "name": "@noble/hashes",
+    "version": "1.8.0",
+    "license": "MIT",
+    "files": [
+      "licenses/@noble__hashes-1.8.0/LICENSE"
+    ]
+  },
+  {
+    "name": "@scure/base",
+    "version": "1.2.6",
+    "license": "MIT",
+    "files": [
+      "licenses/@scure__base-1.2.6/LICENSE"
+    ]
+  },
+  {
+    "name": "@scure/bip32",
+    "version": "1.7.0",
+    "license": "MIT",
+    "files": [
+      "licenses/@scure__bip32-1.7.0/LICENSE"
+    ]
+  },
+  {
+    "name": "@scure/bip39",
+    "version": "1.6.0",
+    "license": "MIT",
+    "files": [
+      "licenses/@scure__bip39-1.6.0/LICENSE"
+    ]
+  },
+  {
+    "name": "abitype",
+    "version": "1.2.3",
+    "license": "MIT",
+    "files": [
+      "licenses/abitype-1.2.3/LICENSE"
+    ]
+  },
+  {
+    "name": "eventemitter3",
+    "version": "5.0.1",
+    "license": "MIT",
+    "files": [
+      "licenses/eventemitter3-5.0.1/LICENSE"
+    ]
+  },
+  {
+    "name": "isows",
+    "version": "1.0.7",
+    "license": "MIT",
+    "files": [
+      "licenses/isows-1.0.7/LICENSE"
+    ]
+  },
+  {
+    "name": "ox",
+    "version": "0.14.34",
+    "license": "MIT",
+    "files": [
+      "licenses/ox-0.14.34/LICENSE"
+    ]
+  },
+  {
+    "name": "viem",
+    "version": "2.55.19",
+    "license": "MIT",
+    "files": [
+      "licenses/viem-2.55.19/LICENSE"
+    ]
+  },
+  {
+    "name": "ws",
+    "version": "8.21.0",
+    "license": "MIT",
+    "files": [
+      "licenses/ws-8.21.0/LICENSE"
+    ]
+  }
+]

@@ -1,0 +1,4 @@
+{
+  "assertionUtf8": "{\"schemaVersion\":\"continuity-incident-source-assertion/1\",\"audience\":\"intake:onboarding\",\"sourceId\":\"source:local-onboarding\",\"keyId\":\"key:local-onboarding\",\"reportId\":\"report:onboarding-handoff\",\"caseId\":\"incident-005\",\"incident\":{\"bytes\":427,\"sha256\":\"4a288e932312f9e47bcebab932244b2ff426b481a4398a9319a53a3b2a11f64c\"},\"document\":{\"bytes\":53,\"sha256\":\"42fbd539f9c4b3ce440a9af4586a9cdb8600f6db8ef889f695a2eed80ba55b2f\"},\"issuedAt\":1800000000000,\"expiresAt\":1800000005000}",
+  "signatureHex": "54606a5e1601e4961d5c085ba4705ece9e2d2d36b9c84e2533c4f726462fb2f515c10bc774036ba25107b8aa95de49e2d7b504080c628511fa3665bfffa4f207"
+}

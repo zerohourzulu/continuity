@@ -1,0 +1,37 @@
+{
+  "code": "AGENT_INACTIVE",
+  "consequential": false,
+  "decision": "DENY",
+  "failures": [
+    {
+      "authorityPathIds": [],
+      "code": "AGENT_INACTIVE",
+      "evidence": [
+        {
+          "eventId": "simulated-allow:a",
+          "eventType": "AGENT_CREATED",
+          "historyHash": "0xa5e05bea007f19b2e9a92dc6102cfd4247f09f040ad14d7a93dc72b0684362fd",
+          "kind": "EVENT",
+          "position": 2
+        },
+        {
+          "eventId": "simulated-allow:terminated",
+          "eventType": "AGENT_TERMINATED",
+          "historyHash": "0x5df1adc743a898b41dbaa3bc407ce8fd8f047e141de11f743a39ff5b0bdfc17c",
+          "kind": "EVENT",
+          "position": 20
+        },
+        {
+          "eventId": "simulated-allow:tutorial-revoke-a",
+          "eventType": "AUTHORITY_REVOKED",
+          "historyHash": "0xc16feb87ed5c53a2f69aee09c9ff79913cffcddc275d9c6dd3567a73954e024e",
+          "kind": "EVENT",
+          "position": 24
+        }
+      ],
+      "subjectId": "a:simulated-allow"
+    }
+  ],
+  "operationVersion": "continuity-authorization/0.2",
+  "scopeAssurance": "REPLAY_VERIFIED"
+}

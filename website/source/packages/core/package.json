@@ -1,0 +1,13 @@
+{
+  "name": "@continuity/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@noble/curves": "^1.9.1",
+    "viem": "^2.55.19"
+  }
+}

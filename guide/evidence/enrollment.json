@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "continuity-source-enrollment-preparation/1",
+  "status": "SOURCE_ENROLLMENT_PREPARED",
+  "enrollment": "NOT_APPLIED",
+  "sourceId": "source:local-onboarding",
+  "keyId": "key:local-onboarding",
+  "audience": "intake:onboarding",
+  "publicKeySha256": "f5d9ebbb8185001f73f66aa12642293b1919d0a7c13e0d3480ef994090345fef",
+  "policy": {
+    "bytes": 418,
+    "sha256": "2bc3e843e04816b04e2620d6e947a4966298d2101c0922f172b2b62e91df57fc"
+  },
+  "createdAt": 1800000000000,
+  "claims": {
+    "institutionIdentity": "NOT_VERIFIED",
+    "operationalCustody": "NOT_ESTABLISHED",
+    "coreAuthority": "NOT_EVALUATED"
+  },
+  "recordInterpretation": "LOCAL_RECORD_REQUIRES_SUCCESSFUL_COMMAND_COMPLETION"
+}

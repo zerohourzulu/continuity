@@ -1,0 +1,9 @@
+ 
+{
+   "label": "recover-lost-stdout",
+   "status": 2,
+   "signal": null,
+   "error": null,
+   "lostStdout": true
+}
+	

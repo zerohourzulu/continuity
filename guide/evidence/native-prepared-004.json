@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "continuity-document-preparation/3",
+  "status": "PREPARED_NOT_INSTALLED",
+  "caseId": "incident-004",
+  "recipientId": "recipient:internal-review",
+  "outputDirectory": "/var/lib/continuity-native-source-20260918-r1/work/receiver/prepared-004",
+  "recordedAtUtc": "2026-09-19T04:09:31.062Z",
+  "recordInterpretation": "NONZERO_EXIT_OR_FAILURE_JSON_OVERRIDES_POSITIVE_FILES; FILES_ALONE_DO_NOT_PROVE_DURABILITY",
+  "sourceMeaning": "SIGNATURE_MATCHES_SELECTED_SOURCE_POLICY_AT_PREPARATION_TIME_ONLY; POLICY_FRESHNESS_NOT_ESTABLISHED; INCIDENT_TRUTH_NOT_VERIFIED; CASE_INCLUSION_NOT_EVALUATED",
+  "targetVerification": "NOT_PERFORMED",
+  "futureSetup": "NOT_RUN; FRESH_SOURCE_CHECKS_FOUR_ORIGINAL_PACKET_SIGNED_RECEIPT_AND_SEPARATELY_AUTHORIZED_DUTY_REQUIRED",
+  "files": [
+    {
+      "path": "document.bin",
+      "bytes": 62,
+      "sha256": "db506c08cc1e9491d699400d07b5bd60b14fc13e182ae1bf9792ce67171a589c"
+    },
+    {
+      "path": "resource-policy.bin",
+      "bytes": 60,
+      "sha256": "567ff30468ed89cb1ba9330407a7dbde509d07b13ae9dcdb5928b45f04819cd7"
+    },
+    {
+      "path": "profile.json",
+      "bytes": 797,
+      "sha256": "fb143512bb46922c34fbfec7a50039b6b47c1980f55b7102e7e948712ceaaa25"
+    },
+    {
+      "path": "catalog.json",
+      "bytes": 400,
+      "sha256": "3aac4ee81c607a0163084e61d28ca02d146b5a179e0eb32643d53b502273ab39"
+    },
+    {
+      "path": "broker.json",
+      "bytes": 1685,
+      "sha256": "1f9ca10e7c1e8accc041834ef1f60126564ad40259bb016523d4becb80c1b341"
+    },
+    {
+      "path": "operator.json",
+      "bytes": 806,
+      "sha256": "6e234241de6a2035f18ce5b7e5d54eac0eefd0d27d57c896c60a1abc95fa5fef"
+    },
+    {
+      "path": "desk-transport.json",
+      "bytes": 211,
+      "sha256": "4e9191abed22c6182b945ca2d509f055957c3c7c48c641f960f3b2af244db213"
+    },
+    {
+      "path": "controller-transport.json",
+      "bytes": 223,
+      "sha256": "d127a8c1c294b63096813b767e91cd86aeab7563c4c245cd9401e7d2b9c8759a"
+    },
+    {
+      "path": "installation-layout.json",
+      "bytes": 5308,
+      "sha256": "43cd772c47b904326a8303a6e926cec812bbc8ac8c6ae80c0334369bf6b9d8aa"
+    },
+    {
+      "path": "selection.json",
+      "bytes": 4616,
+      "sha256": "5ce53fe2b2363011021ab83e2559f96028cac0543733190592981d5e5a9ccfd9"
+    },
+    {
+      "path": "summary.txt",
+      "bytes": 1283,
+      "sha256": "8afeb6df90db5c617ad5cd945d67460781b06594ca662d0823abe383af11ca54"
+    },
+    {
+      "path": "source-policy-selection.json",
+      "bytes": 869,
+      "sha256": "beaf6bd947582eda75ca5773f1bc82e00d92c5cab224d9d835ee8c0ece56467b"
+    },
+    {
+      "path": "incident.json",
+      "bytes": 481,
+      "sha256": "859ac0a268befab26ac4fb3ab96c01626c0a973e5717494c98103708becad3a4"
+    },
+    {
+      "path": "source-policy.json",
+      "bytes": 396,
+      "sha256": "e4c7efc518670697ed0890943badb37e564dd9e9b1976fae8f86ff4727287de2"
+    },
+    {
+      "path": "attestation.json",
+      "bytes": 700,
+      "sha256": "f25ef2a6081190d0df160a47dfb0c7f7e6fe899e1cc76f0d89368ca73fa8a572"
+    }
+  ],
+  "selfExclusions": [
+    "MANIFEST.json",
+    "failure.json"
+  ],
+  "initializationMode": "RECORDED_LOCAL_INCIDENT_INTAKE",
+  "sourcePolicyStore": {
+    "directory": "/var/lib/continuity-native-source-20260918-r1/work/receiver/source-store",
+    "storeId": "store:native-source-demo",
+    "revision": 3,
+    "selectionSha256": "beaf6bd947582eda75ca5773f1bc82e00d92c5cab224d9d835ee8c0ece56467b"
+  },
+  "localPolicySelection": "MATCHED_SELECTED_LOCAL_STORE_WHILE_PREPARATION_LOCK_HELD; NOT_CURRENT_SETUP_AUTHORITY"
+}

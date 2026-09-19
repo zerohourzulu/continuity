@@ -1,0 +1,227 @@
+{
+  "code": "REVOKED",
+  "consequential": false,
+  "decision": "DENY",
+  "failures": [
+    {
+      "authorityPathIds": [
+        "progress-b-authority:simulated-deny"
+      ],
+      "code": "REVOKED",
+      "evidence": [
+        {
+          "eventId": "simulated-deny:a",
+          "eventType": "AGENT_CREATED",
+          "historyHash": "0x8e00b70c641382ed901318dbfb0e53a2bf436d63d423566a655d00a1d45c2d50",
+          "kind": "EVENT",
+          "position": 2
+        },
+        {
+          "eventId": "simulated-deny:admission",
+          "eventType": "TRANSACTION_INTENT_ADMITTED",
+          "historyHash": "0x2b6a4e040aca3ae51ff6c35cd48379ae2a5e4b96dc920248133a46319a903bfb",
+          "kind": "EVENT",
+          "position": 14
+        },
+        {
+          "eventId": "simulated-deny:b",
+          "eventType": "AGENT_CREATED",
+          "historyHash": "0x6c12baf6c554c731465b25413c312a2ff5a81435a9e70b957080649cbc13cd26",
+          "kind": "EVENT",
+          "position": 3
+        },
+        {
+          "eventId": "simulated-deny:collect-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0x17463e3fcc337b6103aee557b5c875b3331651b377d7ef43c8b25affc8f0fd64",
+          "kind": "EVENT",
+          "position": 8
+        },
+        {
+          "eventId": "simulated-deny:genesis",
+          "eventType": "DEPLOYMENT_INITIALIZED",
+          "historyHash": "0x6c57a8e524ea4b07624b01964a96478a8366209c3846344dd08dbf0c7c6de7e2",
+          "kind": "EVENT",
+          "position": 0
+        },
+        {
+          "eventId": "simulated-deny:obligate-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0xb423780be3167a4e99445b5d2a44458b33ae6c9a4680e7a812d24ef3ab11dbf8",
+          "kind": "EVENT",
+          "position": 9
+        },
+        {
+          "eventId": "simulated-deny:principal",
+          "eventType": "PRINCIPAL_CREATED",
+          "historyHash": "0x81ce3bd8d1c73f0cbd6a014bc5a588f771e88034e3210af4f0de4273da3a10f9",
+          "kind": "EVENT",
+          "position": 1
+        },
+        {
+          "eventId": "simulated-deny:progress-a-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0x825fa2cc16e04f11f4f9b3406083af6de78ad8177beb651b0ea9677923a8ae0a",
+          "kind": "EVENT",
+          "position": 11
+        },
+        {
+          "eventId": "simulated-deny:progress-b-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0xf43ff0654e4d96d6baf6e29ebfd19b7621cd677369ae509bb66a877dec397c2a",
+          "kind": "EVENT",
+          "position": 12
+        },
+        {
+          "eventId": "simulated-deny:review-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0xa2dda536e067d7fc34125f0e6f32236c5cd6f74581edd227364c61b77387c357",
+          "kind": "EVENT",
+          "position": 10
+        },
+        {
+          "eventId": "simulated-deny:stale-declared",
+          "eventType": "TRANSACTION_INTENT_DECLARED",
+          "historyHash": "0xa472a1b900892fb0f8fbc1f1eef56328cb63283f9180dbe72bc0cf5cdc99af2a",
+          "kind": "EVENT",
+          "position": 26
+        },
+        {
+          "eventId": "simulated-deny:terminated",
+          "eventType": "AGENT_TERMINATED",
+          "historyHash": "0x3e24dec8fe3bd7df105960f183d65bccf5f8765c1b0dd1047bd36fdc52c842fe",
+          "kind": "EVENT",
+          "position": 20
+        },
+        {
+          "eventId": "simulated-deny:tutorial-revoke-a",
+          "eventType": "AUTHORITY_REVOKED",
+          "historyHash": "0x3f58a5156c19ad593ca31a766edad3ab742d0b26a88f051be5eab71c816e8a71",
+          "kind": "EVENT",
+          "position": 24
+        },
+        {
+          "eventId": "simulated-deny:tutorial-revoke-b-review",
+          "eventType": "AUTHORITY_REVOKED",
+          "historyHash": "0x86a2b99feac1e4f8ea5a14ee95965814d1273b4c8f657bcd9a2e501aafa8242e",
+          "kind": "EVENT",
+          "position": 25
+        }
+      ],
+      "failingAuthorityId": "progress-b-authority:simulated-deny",
+      "rootAuthorityId": "progress-b-authority:simulated-deny",
+      "terminalAuthorityId": "progress-b-authority:simulated-deny"
+    },
+    {
+      "authorityPathIds": [
+        "review-authority:simulated-deny"
+      ],
+      "code": "ACTION_NOT_ALLOWED",
+      "evidence": [
+        {
+          "eventId": "simulated-deny:a",
+          "eventType": "AGENT_CREATED",
+          "historyHash": "0x8e00b70c641382ed901318dbfb0e53a2bf436d63d423566a655d00a1d45c2d50",
+          "kind": "EVENT",
+          "position": 2
+        },
+        {
+          "eventId": "simulated-deny:admission",
+          "eventType": "TRANSACTION_INTENT_ADMITTED",
+          "historyHash": "0x2b6a4e040aca3ae51ff6c35cd48379ae2a5e4b96dc920248133a46319a903bfb",
+          "kind": "EVENT",
+          "position": 14
+        },
+        {
+          "eventId": "simulated-deny:b",
+          "eventType": "AGENT_CREATED",
+          "historyHash": "0x6c12baf6c554c731465b25413c312a2ff5a81435a9e70b957080649cbc13cd26",
+          "kind": "EVENT",
+          "position": 3
+        },
+        {
+          "eventId": "simulated-deny:collect-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0x17463e3fcc337b6103aee557b5c875b3331651b377d7ef43c8b25affc8f0fd64",
+          "kind": "EVENT",
+          "position": 8
+        },
+        {
+          "eventId": "simulated-deny:genesis",
+          "eventType": "DEPLOYMENT_INITIALIZED",
+          "historyHash": "0x6c57a8e524ea4b07624b01964a96478a8366209c3846344dd08dbf0c7c6de7e2",
+          "kind": "EVENT",
+          "position": 0
+        },
+        {
+          "eventId": "simulated-deny:obligate-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0xb423780be3167a4e99445b5d2a44458b33ae6c9a4680e7a812d24ef3ab11dbf8",
+          "kind": "EVENT",
+          "position": 9
+        },
+        {
+          "eventId": "simulated-deny:principal",
+          "eventType": "PRINCIPAL_CREATED",
+          "historyHash": "0x81ce3bd8d1c73f0cbd6a014bc5a588f771e88034e3210af4f0de4273da3a10f9",
+          "kind": "EVENT",
+          "position": 1
+        },
+        {
+          "eventId": "simulated-deny:progress-a-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0x825fa2cc16e04f11f4f9b3406083af6de78ad8177beb651b0ea9677923a8ae0a",
+          "kind": "EVENT",
+          "position": 11
+        },
+        {
+          "eventId": "simulated-deny:progress-b-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0xf43ff0654e4d96d6baf6e29ebfd19b7621cd677369ae509bb66a877dec397c2a",
+          "kind": "EVENT",
+          "position": 12
+        },
+        {
+          "eventId": "simulated-deny:review-authority",
+          "eventType": "AUTHORITY_GRANTED",
+          "historyHash": "0xa2dda536e067d7fc34125f0e6f32236c5cd6f74581edd227364c61b77387c357",
+          "kind": "EVENT",
+          "position": 10
+        },
+        {
+          "eventId": "simulated-deny:stale-declared",
+          "eventType": "TRANSACTION_INTENT_DECLARED",
+          "historyHash": "0xa472a1b900892fb0f8fbc1f1eef56328cb63283f9180dbe72bc0cf5cdc99af2a",
+          "kind": "EVENT",
+          "position": 26
+        },
+        {
+          "eventId": "simulated-deny:terminated",
+          "eventType": "AGENT_TERMINATED",
+          "historyHash": "0x3e24dec8fe3bd7df105960f183d65bccf5f8765c1b0dd1047bd36fdc52c842fe",
+          "kind": "EVENT",
+          "position": 20
+        },
+        {
+          "eventId": "simulated-deny:tutorial-revoke-a",
+          "eventType": "AUTHORITY_REVOKED",
+          "historyHash": "0x3f58a5156c19ad593ca31a766edad3ab742d0b26a88f051be5eab71c816e8a71",
+          "kind": "EVENT",
+          "position": 24
+        },
+        {
+          "eventId": "simulated-deny:tutorial-revoke-b-review",
+          "eventType": "AUTHORITY_REVOKED",
+          "historyHash": "0x86a2b99feac1e4f8ea5a14ee95965814d1273b4c8f657bcd9a2e501aafa8242e",
+          "kind": "EVENT",
+          "position": 25
+        }
+      ],
+      "failingAuthorityId": "review-authority:simulated-deny",
+      "rootAuthorityId": "review-authority:simulated-deny",
+      "terminalAuthorityId": "review-authority:simulated-deny"
+    }
+  ],
+  "operationVersion": "continuity-authorization/0.2",
+  "scopeAssurance": "REPLAY_VERIFIED"
+}
