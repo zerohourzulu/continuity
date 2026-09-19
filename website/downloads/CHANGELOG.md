@@ -1,3 +1,7 @@
+# Public evaluation release
+
+This download is now published under Apache 2.0. The dated candidate notes below preserve the earlier development status; see [current release status](RELEASE-STATUS.md).
+
 # Licensing correction — evaluation R2
 
 Apache 2.0 adopted for Continuity-authored material; explicit scope and notices added. Runtime, lockfile and evidence unchanged.

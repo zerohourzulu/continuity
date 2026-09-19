@@ -1,3 +1,9 @@
+# First public evaluation — 19 September 2026
+
+Apache 2.0 release authorized and published with visual README, GitHub Pages, tutorial download, Constitution and developer guidance. Runtime remains Core 0.2.2.
+
+## Historical candidate notes
+
 # Public evaluation candidate 1
 
 This candidate makes Continuity Core 0.2 inspectable and runnable from a single source tree. It adds a short security-review tutorial, a successor-permission comparison, fresh-process inspection, a developer example, a locked dependency install and selected recorded Linux evidence.

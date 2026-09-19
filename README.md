@@ -13,7 +13,7 @@ The demonstration follows a security investigation interrupted by an agent repla
 
 ## Run the tutorial
 
-Use **Node.js 24.x and pnpm 11.19.0** on macOS or Linux. Extract the supplied package (or, clone this repository), then run:
+Use **Node.js 24.x and pnpm 11.19.0** on macOS or Linux. Extract the supplied package (or clone this repository), then run:
 
 ```sh
 pnpm install --frozen-lockfile --ignore-scripts
@@ -48,7 +48,7 @@ Developers and operators can choose a blockchain-backed deployment to make selec
 | Review source provenance and validation | [Validation](VALIDATION.md) · [Presentation checks](docs/PRESENTATION-VALIDATION.md) · [Provenance](SOURCE-PROVENANCE.json) |
 | Extend the presentation | [Website maintenance](docs/WEBSITE.md) |
 
-The [evolving Sites edition](https://continuity-core-demo.zero-hour-zulu.chatgpt.site/) is currently private to its owner and may develop independently. GitHub Pages is the planned public walkthrough; no Sites account will be needed to use Pages or the local tutorial.
+The [evolving Sites edition](https://continuity-core-demo.zero-hour-zulu.chatgpt.site/) is currently private to its owner and may develop independently. GitHub Pages is the public walkthrough; no Sites account is needed to use Pages or the local tutorial.
 
 ## Principles and development
 

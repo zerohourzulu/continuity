@@ -28,8 +28,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 1218,
-      "sha256": "9aaa913c9357ded71ef5acbfd18ade89d9c1818f1d3f752d296d2b2d34573d77"
+      "bytes": 1461,
+      "sha256": "4846aaf460c3a01450c42b151323e2d7a38078895842f5ef492e9e2385256565"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -58,8 +58,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4518,
-      "sha256": "6ca891a9cb8eafc083cb9fd511614ab74b9ac3f931648b09e177e710658d0b16"
+      "bytes": 4504,
+      "sha256": "8c35a64fcf590b1502dd3c3551f8ac76ba2661e8d31aa66e837ae0f207afc909"
     },
     {
       "path": "RELEASE-STATUS.md",
@@ -118,8 +118,8 @@
     },
     {
       "path": "docs/PACKAGE-OVERVIEW.md",
-      "bytes": 4645,
-      "sha256": "5c7989c7e7724439ce5ab846a813ac168a5397512fc0541d67ca95e684d6673f"
+      "bytes": 4424,
+      "sha256": "6e8e3572cbb1b7f33fec011f50226f5e97226fcef35dbad06ff8d5bf09f13ca7"
     },
     {
       "path": "docs/PRESENTATION-VALIDATION.md",
@@ -878,8 +878,8 @@
     },
     {
       "path": "website/downloads/CHANGELOG.md",
-      "bytes": 1400,
-      "sha256": "0669b6bba2b770863e03d1d302c20b0cd77eb8bd024515396226ffbfaa6b8944"
+      "bytes": 1601,
+      "sha256": "1ab74895cc14457248d597a990ec8ec946f9082d7f26c1b4de80f796416bb7c6"
     },
     {
       "path": "website/downloads/LICENSE",
@@ -898,8 +898,8 @@
     },
     {
       "path": "website/downloads/README.md",
-      "bytes": 4816,
-      "sha256": "a5d6699ecfacc99a2c1104c098e32550e5e8f2c4330d244f0a364c1f1a42a280"
+      "bytes": 4605,
+      "sha256": "2b2bf9e9569dcc916fb330de7eab242b3052b4cc40e9cd7f36551e69e0b34f9b"
     },
     {
       "path": "website/downloads/RELEASE-STATUS.md",
