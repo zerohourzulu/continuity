@@ -17,3 +17,6 @@ body[data-view="understand"]{background:#fff}
 @media(max-width:740px){.opening-message{margin-bottom:34px}.night-question{padding:6px 0 22px}.continuity-answer{display:block;padding:25px}.answer-line{margin-top:17px;max-width:none}}
 
 .answer-line>p{margin:0 0 15px;line-height:1.5}.answer-line .brand{width:fit-content}.answer-line{padding-top:3px}
+
+/* Quiet umbrella attribution beneath the Continuity masthead. */
+.masthead{display:flex;flex-direction:column;gap:2px;flex-shrink:0}.project-owner{padding-left:46px;color:var(--green);font-size:12px;font-weight:500;letter-spacing:.06em;line-height:1.4}

@@ -1338,8 +1338,8 @@
     },
     {
       "path": "website/index.html",
-      "bytes": 11732,
-      "sha256": "70630a4b0a15f57905b3cb21be21782a13f674f8460a1201cc1acd6d41bdb1ff"
+      "bytes": 11805,
+      "sha256": "6d965705c9ddd50d9fcffdbb34990698a34dfe26c6626b909a03228f2ec1519e"
     },
     {
       "path": "website/source/.gitignore",
@@ -2113,8 +2113,8 @@
     },
     {
       "path": "website/style.css",
-      "bytes": 10616,
-      "sha256": "47f27ef6bd20475ae6067865277ff0372ec2bb04869c9991bfa8ea262a1341ce"
+      "bytes": 10871,
+      "sha256": "67904637031a6fc62e8d6cd240e4121c0d9647b1f5f7ceb638eb7c70f1df4178"
     }
   ]
 }
