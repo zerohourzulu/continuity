@@ -1,6 +1,6 @@
 # Website and publication
 
-The static `website/` directory contains the accepted presentation: default Understand view, original black-on-white graffiti, green wordmarks, optional blockchain explanation, recorded case comparison, developer path, evidence and licensing-corrected evaluation R2 download. Paths are relative for hosting under `/continuity/`. No build, backend, forms, analytics, remote fonts or runtime credentials are needed.
+The static `website/` directory contains the accepted presentation: default Understand view, original black-on-white graffiti, green wordmarks, optional chain explanation, recorded case comparison, developer path, evidence and licensing-corrected evaluation R2 download. Paths are relative for hosting under `/continuity/`. No build, backend, forms, analytics, remote fonts or runtime credentials are needed.
 
 For a local preview, from the repository root:
 

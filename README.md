@@ -1,5 +1,5 @@
 [![it is 2 a.m. do you know what your agent is doing?](website/images/agent-at-2am.png)](https://zerohourzulu.github.io/continuity/)
-[![Security. Control. Inheritance. Durable survival of powers and responsibilities. Blockchain code is law. This is your agent’s brain on Continuity.](assets/continuity-statement.svg)](https://zerohourzulu.github.io/continuity/)
+[![Security. Control. Inheritance. Durable survival of powers and responsibilities. Record durably, locally or on chain. This is your agent’s brain on Continuity.](assets/continuity-statement.svg)](https://zerohourzulu.github.io/continuity/)
 
 # Continuity — agents change; responsibility remains
 
@@ -22,7 +22,7 @@ node tutorial/cli.mjs run --case first-look
 node tutorial/cli.mjs inspect first-look
 ```
 
-Expected result: **PASS — duty remains OPEN; B has no collection power.** No wallet, AI subscription, blockchain node or background service is needed. Installation downloads locked dependencies; the tutorial then runs locally using synthetic data and declared public test keys.
+Expected result: **PASS — duty remains OPEN; B has no collection power.** No wallet, AI subscription, chain node or background service is needed. Installation downloads locked dependencies; the tutorial then runs locally using synthetic data and declared public test keys.
 
 Change one permission:
 
@@ -33,9 +33,9 @@ node tutorial/cli.mjs inspect no-review-power
 
 B still receives the duty, but its permission to review changes to DENY. [Full tutorial and expected output](docs/TUTORIAL.md) · [Setup help](docs/TROUBLESHOOTING.md).
 
-## Blockchain, when you choose it
+## Choose your holder of record.
 
-Developers and operators can choose a blockchain-backed deployment to make selected history publicly verifiable, or publish cryptographic commitments that let authorized reviewers check private records. This tutorial runs locally; blockchain integration is a separate deployment choice, with its own privacy, availability and finality requirements.
+Keep records locally, or choose a chain-backed deployment to make selected history publicly verifiable. Cryptographic commitments can let authorized reviewers check private records without publishing their contents. This tutorial runs locally; each deployment has its own privacy, availability and finality requirements.
 
 ## Explore and build
 

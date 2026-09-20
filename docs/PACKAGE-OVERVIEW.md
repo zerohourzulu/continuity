@@ -4,7 +4,7 @@
 
 An agent investigating a suspicious document may disappear, be replaced, or lose permission. What may its replacement do? What happens to the unfinished investigation? Can the old agent still act?
 
-Continuity records authority, actions and unfinished duties in a replayable history. This tutorial lets you **run those decisions**, inspect the evidence, and change one permission to see a different result. It uses the same Core 0.2.2 engine as the retained security reference. No AI subscription, wallet, blockchain node or cloud service is needed.
+Continuity records authority, actions and unfinished duties in a replayable history. This tutorial lets you **run those decisions**, inspect the evidence, and change one permission to see a different result. It uses the same Core 0.2.2 engine as the retained security reference. No AI subscription, wallet, chain node or cloud service is needed.
 
 ## Choose your starting point
 

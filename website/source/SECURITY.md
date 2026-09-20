@@ -2,7 +2,7 @@
 
 This is a trusted local reference evaluation, using synthetic data and publicly known signing scalars 1001 and 1003. They are visible in the reference source by design. They must never hold funds, identify a real operator or authorize an operational resource.
 
-The tutorial executes deterministic Core authorization, durable local admission, typed acknowledgment and replay. Its default external outcome is simulated. Packet mode really copies two local synthetic files; its signed note records a statement, not incident resolution. No blockchain transaction, AI model, external recipient, institution authentication, production secret or network service participates.
+The tutorial executes deterministic Core authorization, durable local admission, typed acknowledgment and replay. Its default external outcome is simulated. Packet mode really copies two local synthetic files; its signed note records a statement, not incident resolution. No chain transaction, AI model, external recipient, institution authentication, production secret or network service participates.
 
 Agents A and B are protocol identities driven in one trusted process, not adversarial programs in separate sandboxes. Protocol termination does not terminate an OS process. Epoch/session fencing denies obsolete requests only at the mediated boundary. Host administrators can alter the local history and fixture keys; local hashes do not resist coordinated malicious replacement or establish a fresh global head. The Linux guide reports a different, recorded native lab scope.
 
