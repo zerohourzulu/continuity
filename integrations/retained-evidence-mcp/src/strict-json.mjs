@@ -4,12 +4,14 @@ export class StrictJsonError extends Error {
   constructor(code) { super(code); this.name = 'StrictJsonError'; this.code = code; }
 }
 
-export function parseStrictJson(bytes) {
+export function parseStrictJson(bytes, { maxBytes = 2 * 1024 * 1024, maxDepth = 64, maxNodes = 100000 } = {}) {
+  if (bytes.byteLength > maxBytes) throw new StrictJsonError('JSON_BYTES_EXCEEDED');
   let source;
   try { source = new TextDecoder('utf-8', { fatal: true, ignoreBOM: true }).decode(bytes); }
   catch { throw new StrictJsonError('INVALID_UTF8'); }
   let at = 0;
   const stack = [];
+  let nodes = 0;
   const bad = () => { throw new StrictJsonError('INVALID_JSON'); };
   const space = () => { while (/[\x20\t\r\n]/.test(source[at] ?? '\0')) at++; };
   const string = () => {
@@ -31,6 +33,7 @@ export function parseStrictJson(bytes) {
     bad();
   };
   const value = () => {
+    if (++nodes > maxNodes) throw new StrictJsonError('JSON_NODES_EXCEEDED');
     space();
     const c = source[at];
     if (c === '{') { at++; stack.push({ kind: 'object', state: 'keyOrEnd', keys: new Set() }); }
@@ -41,6 +44,7 @@ export function parseStrictJson(bytes) {
       if (!token) bad();
       at += token[0].length;
     }
+    if (stack.length > maxDepth) throw new StrictJsonError('JSON_DEPTH_EXCEEDED');
   };
   value();
   while (stack.length) {
@@ -70,5 +74,10 @@ export function parseStrictJson(bytes) {
   }
   space();
   if (at !== source.length) bad();
-  try { return JSON.parse(source); } catch { bad(); }
+  try {
+    return JSON.parse(source, (_key, item) => {
+      if (typeof item === 'number' && !Number.isFinite(item)) throw new StrictJsonError('INVALID_JSON_NUMBER');
+      return item;
+    });
+  } catch (error) { if (error instanceof StrictJsonError) throw error; bad(); }
 }

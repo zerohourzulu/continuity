@@ -1,6 +1,24 @@
 # Walkthrough: replace a security reviewer without losing its duty
 
-Run the commands in the [README](../README.md). Budget roughly ten minutes for installation and reading; execution timing depends on the host. No claim of a benchmark or universal latency bound is made.
+From a terminal in this complete package directory, check `node --version` (24.x) and `pnpm --version` (11.19.0). See [setup help](TROUBLESHOOTING.md) if either is missing. Then:
+
+```sh
+pnpm install --frozen-lockfile --ignore-scripts
+node tools/verify-package.mjs
+node tutorial/cli.mjs run --case first-look
+node tutorial/cli.mjs inspect first-look
+```
+
+Expect `PASS — duty remains OPEN; B has no collection power.`, then a fresh-process `VERIFIED first-look`, `Duty: OPEN; performer b:first-look` and `Old request: DENIED; executor invoked: false`. Installation may need registry access. Runtime is local. Execution timing depends on the host; no universal latency bound is claimed.
+
+Change one policy input in a new synthetic case:
+
+```sh
+node tutorial/cli.mjs run --case no-review-power --successor-review deny
+node tutorial/cli.mjs inspect no-review-power
+```
+
+Both runs retain an OPEN duty. First-look permits B to review; no-review-power refuses it. The latter is an intentional decision, not a broken installation. [The short answer key](READ-THE-RESULT.md) explains what this does and does not establish.
 
 ## Read the seven checkpoints
 
@@ -48,4 +66,4 @@ Raw application evidence lives under `integrations/core-0.2-reference/cases/firs
 
 A successful run has no background service. Stop reading whenever you wish; its local files remain. Run `inspect` later to reconstruct it. To repeat, choose another case name. To clean up, manually delete only the matching `runs/CASE` and `integrations/core-0.2-reference/cases/CASE` directories after retaining anything you want. Deletion removes that tutorial's evidence. There is no automatic repair, resend or cleanup of a partial failure.
 
-[Developer example](DEVELOPER.md) · [Troubleshooting](TROUBLESHOOTING.md)
+[Inspect with WHY / RESPONSIBLE / SURVIVES](OPERATOR.md) · [Developer example](DEVELOPER.md) · [Troubleshooting](TROUBLESHOOTING.md)

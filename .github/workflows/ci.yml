@@ -1,0 +1,45 @@
+name: Public verification
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: continuity-verification-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    name: ${{ matrix.os }} / Node24
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: pnpm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Locked dependencies, no install scripts
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Verify package identity
+        run: node tools/verify-package.mjs
+      - name: Public regression and actual conformance controls
+        run: node tools/test.mjs
+      - name: Existing tutorial and fresh inspection
+        run: |
+          node tutorial/cli.mjs run --case ci-verification
+          node tutorial/cli.mjs inspect ci-verification
+      - name: Ensure checks did not change packaged files
+        run: node tools/verify-package.mjs

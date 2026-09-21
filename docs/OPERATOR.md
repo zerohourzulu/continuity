@@ -2,6 +2,37 @@
 
 Start with the [local tutorial](TUTORIAL.md). Its two policy variants answer a practical question: does replacing an investigator accidentally give its successor more power? Both retain an OPEN duty; the selected review permission changes independently.
 
+## Ask the run you just created
+
+Run these from the package directory after the [tutorial](TUTORIAL.md). These commands read the generated `first-look` history, not the separately committed demo fixture:
+
+```sh
+node bin/continuity.mjs handover_report --file integrations/core-0.2-reference/cases/first-look/history.jsonl --json
+node bin/continuity.mjs why --file integrations/core-0.2-reference/cases/first-look/history.jsonl --actor b:first-look --action record-review-progress --resource obligation:first-look --json
+node bin/continuity.mjs responsible --file integrations/core-0.2-reference/cases/first-look/history.jsonl --actor b:first-look --action record-review-progress --resource obligation:first-look --json
+node bin/continuity.mjs survives --file integrations/core-0.2-reference/cases/first-look/history.jsonl --agent a:first-look --json
+```
+
+| Read this field | Expected meaning |
+|---|---|
+| `head`, `evaluationTime`, `source` | The supplied history and time this response actually used. Default time is the observed head time, not the current wall clock. |
+| WHY `result.answer.authorization.decision` | ALLOW for B's review grant in first-look; this is not an execution capability. |
+| RESPONSIBLE `result.answer.attributions` | Typed actor/principal/authority and related evidence where established; no legal judgment. |
+| SURVIVES `result.answer.obligations` | The continuing OPEN duty. |
+| SURVIVES `result.answer.currentPerformanceAssignments` | B is assigned performance under the named succession rule. |
+| Any query's `result.epistemicStatus` | Check that the answer is ESTABLISHED; an unavailable/non-established answer is not permission. |
+
+`handover_report` captures one context for all agents. Separate commands capture separately and can observe different heads if a writer changes the file. The tutorial's successful runs leave no background writer. The [reader contract](READER.md) explains exact scope and error codes.
+
+For a compact two-decision view:
+
+```sh
+node examples/read-investigation.mjs first-look
+node examples/read-investigation.mjs no-review-power
+```
+
+Expect review ALLOW / collection DENY for first-look, then DENY / DENY for no-review-power. Every line identifies its own head/time. Both duties remain OPEN: inspect their tutorial summaries or SURVIVES results. The example does not act on either decision.
+
 ## Recorded Linux walkthrough
 
 The included visual guide opens an already recorded native Linux episode. It is evidence inspection, not a live dashboard or command executor. From the package root:

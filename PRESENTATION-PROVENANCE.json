@@ -30,5 +30,18 @@
   "license": "Apache-2.0",
   "predecessorStagingCommit": "ecdd15ed1dc0cf437fd30a910e498d3833232f21",
   "releaseTag": "v0.2.2-evaluation.1",
-  "approvedStagingCommit": "12cdf9a068e6f745c240e91401ef666023f32a79"
+  "approvedStagingCommit": "12cdf9a068e6f745c240e91401ef666023f32a79",
+  "maintenanceCandidate": {
+    "version": "0.2.2-evaluation.2",
+    "presentationChange": "Original tutorial download explicitly labeled; layout, branding, original source snapshot and archive bytes preserved.",
+    "published": false
+  },
+  "maintenanceRelease": {
+    "version": "0.2.2-evaluation.2",
+    "runtimeAcceptanceArchiveSha256": "e2c59281dd2640167e284c48495eda55217e6874f65b1d520a6c68d67648122e",
+    "sourceBaselineCommit": "8196c5a19efb1f7b872da67aa6f4409e054d0b16",
+    "changes": "Current complete download and documentation alignment; visual assets, stylesheets, original tutorial archive and historical source snapshot preserved.",
+    "releaseUrl": "https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.2",
+    "hostedEvidence": "See GitHub Actions for the exact published commit; local acceptance alone is not a hosted result."
+  }
 }

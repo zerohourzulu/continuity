@@ -20,6 +20,11 @@ Use a real local directory, not a symlinked checkout. On macOS, `pwd -P` shows t
 | Evidence changed / history rejected | Preserve the directory and compare the changed files. Do not replace the saved hashes to claim a pass. |
 | Missing package file | Re-extract the supplied candidate or obtain its complete Git tree; old private component archives are not required. |
 | Port already occupied | Choose another port for the optional guide server. |
+| Reader check returns DENY (CLI exit3) | This is an observed policy decision. Read the code and scope; no-review-power deliberately produces it. Do not retry through another effect path. |
+| Reader SOURCE_DENIED / OPERATION_DENIED | Check the configured source name and permitted operation; a filesystem path is not an MCP source name. |
+| Reader DISCLOSURE_DENIED | Summary mode withholds that evidence. Only the local administrator can select a different exposure policy. |
+| MCP example seems to wait | Stdio waits for newline-delimited requests. Use the complete initialize/initialized example, or end input with Ctrl-D. It is not a web server. |
+| Reader SOURCE_CHANGED / READER_TIMEOUT | Retain the error, let a cooperative writer settle, and inspect limits. The answer is unavailable, not ALLOW. |
 | Native Linux error | Check the native contract, filesystem, UID, permissions and headers. Do not disable enforcement. |
 
 A tutorial error exits nonzero. It does not automatically repair, retry or delete a partially created case. After diagnosing the cause, choose a new case name. No running daemon is left behind by the CLI.

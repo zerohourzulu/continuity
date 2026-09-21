@@ -73,8 +73,9 @@
     },
     {
       "path": "integrations/retained-evidence-mcp/src/strict-json.mjs",
-      "sha256": "d306bccf25f4804da67843466ec9235db62d28df0eb035feceb34f91d70b051c",
-      "origin": "accepted development source"
+      "sha256": "fc531135a4bddb2057bd2b5afe456da200b9a0335b37411f388417584a18d64c",
+      "origin": "R2 adaptation of accepted duplicate-key parser; bounded bytes/depth/nodes/finite numbers",
+      "baselineSha256": "d306bccf25f4804da67843466ec9235db62d28df0eb035feceb34f91d70b051c"
     },
     {
       "path": "packages/core-0.2/src/adapters/index.ts",

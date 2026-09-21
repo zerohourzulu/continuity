@@ -1,6 +1,8 @@
 # Continuity Core 0.2 — agents change; responsibility remains
 
-**Public evaluation · local reference software · Apache 2.0**
+**Maintenance evaluation 2 · local reference software · Apache 2.0**
+
+For the connected novice, operator and developer paths, start at the [root README](../README.md#choose-your-path). The complete maintenance download includes this tutorial, the reader and runnable verification.
 
 An agent investigating a suspicious document may disappear, be replaced, or lose permission. What may its replacement do? What happens to the unfinished investigation? Can the old agent still act?
 
@@ -13,7 +15,7 @@ Continuity records authority, actions and unfinished duties in a replayable hist
 | Understand the idea without installing anything | [Five-minute explanation](START-HERE.md) |
 | Run it and see the result | The commands below, then [the walkthrough](TUTORIAL.md) |
 | Inspect recorded Linux enforcement evidence | [Operator guide](OPERATOR.md) |
-| Integrate a deterministic authority check | [Developer guide](DEVELOPER.md) and [working example](../examples/check-authority.mjs) |
+| Integrate a deterministic authority check | [Developer guide](DEVELOPER.md) and [reader example](../examples/read-investigation.mjs) |
 | Try native Linux boundary mechanics | [Optional disposable Linux lab](LINUX-LAB.md) |
 | Assess suitability or limitations | [Security and scope](../SECURITY.md), [release notes](../CHANGELOG.md) |
 
@@ -21,7 +23,7 @@ Continuity records authority, actions and unfinished duties in a replayable hist
 
 Use **macOS or Linux, Node.js 24.x and pnpm 11.19.0**. Check `node --version` and `pnpm --version`. Standard Node installations include npm; if needed, install the selected package manager with `npm install --global pnpm@11.19.0`. See [setup and troubleshooting](TROUBLESHOOTING.md).
 
-Extract the source archive or clone `https://github.com/zerohourzulu/continuity`.
+Extract the complete maintenance source archive or clone `https://github.com/zerohourzulu/continuity`. Use evaluation.2 or later for the reader paths.
 
 From the repository root:
 
@@ -69,4 +71,4 @@ The included Linux guide shows previously recorded enforcement observations. The
 
 All tutorial sources, selected evidence and documentation travel in this Git tree. Generated cases and installed dependencies are ignored. `PACKAGE-FILES.json` identifies the immutable distribution; `SOURCE-PROVENANCE.json` identifies reused source and evidence. The 48 private historical archives are intentionally not needed.
 
-[Candidate status and publication decision](../RELEASE-STATUS.md) · [Apache 2.0 license](../LICENSE) · [Third-party notices](../THIRD-PARTY-NOTICES.md)
+[Release status](../RELEASE-STATUS.md) · [Apache 2.0 license](../LICENSE) · [Third-party notices](../THIRD-PARTY-NOTICES.md)

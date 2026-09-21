@@ -1,4 +1,8 @@
-# Candidate validation
+# Validation scope
+
+The current maintenance runtime passed 183 Node tests, 15 Python harness tests and 16 walkthrough invocations on each of macOS ARM64 and Linux ARM64. See [release evidence and limits](RELEASE-NOTES.md#evidence-and-limits), [Testing](docs/TESTING.md) and [Reader](docs/READER.md). Actual hosted results appear in GitHub Actions. The dated results below remain the **19 September public baseline**; they are preserved history, not the evidence for the new reader.
+
+## Public baseline validation
 
 Recorded 19 September 2026. Tests exercise this tutorial and its selected source closure, not all historical Core development campaigns.
 

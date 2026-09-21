@@ -16,4 +16,4 @@ The agents here are identifiers and signed requests driven by a small program. Y
 
 **Three different facts:** a valid signature identifies the fixture signer; an authorization decision says what the declared rules allow; an acknowledgment records the executor's stated result. None proves the investigation was completed or the incident allegation was true.
 
-[Run it](../README.md#run-the-tutorial) · [See the stages](TUTORIAL.md) · [Inspect the implementation](DEVELOPER.md)
+[Read the result and answer key](READ-THE-RESULT.md) · [Run it](../README.md#run-the-tutorial) · [See the stages](TUTORIAL.md) · [Inspect the implementation](DEVELOPER.md)

@@ -1,0 +1,11 @@
+{
+  "version": "continuity-reader-config/1",
+  "root": "../../tests/fixtures",
+  "sources": {
+    "demo": {
+      "file": "handover-history.jsonl",
+      "disclosure": "evidence",
+      "operations": ["verify", "status", "check", "why", "responsible", "survives", "handover_report"]
+    }
+  }
+}

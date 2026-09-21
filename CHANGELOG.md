@@ -1,3 +1,18 @@
+# Maintenance evaluation — v0.2.2-evaluation.2
+
+Additions over the original evaluation release:
+
+- One public verification command, exact conformance comparison, real-process negative controls and scoped regression properties.
+- Captured-history CLI and local stdio MCP reader with configured sources/disclosure, exact decimal quantities and finite worker/IO bounds.
+- Connected newcomer/operator/developer paths, an answer key and a read-only generated-case example.
+- Package-index exclusions consistent with generated tutorial data.
+
+Core0.2.2, constitutional semantics, original history fixtures and dependency versions are unchanged. The reader is observation only; it does not authorize execution or isolate hostile programs. Summary/evidence disclosure assumes trusted local administration and does not provide field-level secrecy. Experimental proof/registry/witness commands remain excluded.
+
+The primary website download now supplies the complete maintenance archive, including tests and reader. Original evaluation.1 assets remain preserved. [Release notes](RELEASE-NOTES.md) distinguish local acceptance from actual hosted CI results.
+
+---
+
 # First public evaluation — 19 September 2026
 
 Apache 2.0 release authorized and published with visual README, GitHub Pages, tutorial download, Constitution and developer guidance. Runtime remains Core 0.2.2.

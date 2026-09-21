@@ -1,6 +1,6 @@
 {
   "name": "continuity-core-evaluation",
-  "version": "0.2.0-evaluation.2",
+  "version": "0.2.2-evaluation.2",
   "private": true,
   "type": "module",
   "engines": {
@@ -10,7 +10,10 @@
   "scripts": {
     "demo": "node tutorial/cli.mjs run",
     "inspect": "node tutorial/cli.mjs inspect",
-    "verify": "node tools/verify-package.mjs"
+    "verify": "node tools/verify-package.mjs",
+    "test": "node tools/test.mjs",
+    "test:core": "node --test \"tests/*.test.mjs\" \"packages/core-0.2/test/*.test.mjs\"",
+    "test:conformance": "python3 -B -m unittest discover -s conformance -p test_runner.py -v"
   },
   "dependencies": {
     "viem": "2.55.19"
