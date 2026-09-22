@@ -1,3 +1,9 @@
+# Onboarding evaluation — v0.2.2-evaluation.4
+
+Add Node-only recorded reading, project-local setup, a repeat-safe starter, runtime compatibility beyond Node24, early prerequisites and clearer diagnostics. Align quickstart snippets and CI. Core0.2.2 source and dependency lock remain unchanged. [Release notes](RELEASE-NOTES.md) · [Quickstart](docs/QUICKSTART.md).
+
+---
+
 # Public evaluation — v0.2.2-evaluation.3
 
 The current public distribution uses a lightweight [RFC process](docs/RFC.md) for substantive upstream proposals and omits an unlinked historical tutorial archive. Core 0.2.2, tests, dependencies, license and security boundaries are unchanged. Previous release assets and Git history remain available.

@@ -1,4 +1,4 @@
-> **Public evaluation — v0.2.2-evaluation.3.** Core remains 0.2.2. Runnable verification, a bounded reader and connected user journeys. [Release notes](RELEASE-NOTES.md) · [Run the tests](docs/TESTING.md) · [Reader/CLI/MCP](docs/READER.md).
+> **Public evaluation — v0.2.2-evaluation.4.** Core remains 0.2.2. Runnable verification, a bounded reader and connected user journeys. [Release notes](RELEASE-NOTES.md) · [Run the tests](docs/TESTING.md) · [Reader/CLI/MCP](docs/READER.md).
 
 [![it is 2 a.m. do you know what your agent is doing?](website/images/agent-at-2am.png)](https://zerohourzulu.github.io/continuity/)
 [![Security. Control. Inheritance. Durable survival of powers and responsibilities. Record durably, locally or on chain. This is your agent’s brain on Continuity.](assets/continuity-statement.svg)](https://zerohourzulu.github.io/continuity/)
@@ -23,25 +23,47 @@ The demonstration follows a security investigation interrupted by an agent repla
 
 ## Run the tutorial
 
-Use **Node.js 24.x and pnpm 11.19.0** on macOS or Linux. Extract the supplied package (or clone this repository), then run:
+Use **Node 22.18+ (22.x), 24.x or 26.x** on macOS or Linux. Prefer the latest patch of your chosen release. No global pnpm or Python is needed for this tutorial. [Full quickstart, including archive extraction](docs/QUICKSTART.md).
 
+Get the public source; no GitHub account is needed:
+
+<!-- quickstart:clone -->
 ```sh
-pnpm install --frozen-lockfile --ignore-scripts
-node tools/verify-package.mjs
-node tutorial/cli.mjs run --case first-look
-node tutorial/cli.mjs inspect first-look
+git clone https://github.com/zerohourzulu/continuity.git
+cd continuity
 ```
+<!-- /quickstart -->
 
-Expected result: **PASS — duty remains OPEN; B has no collection power.** No wallet, AI subscription, chain node or background service is needed. Installation downloads locked dependencies; the tutorial then runs locally using synthetic data and declared public test keys.
+**See the result first, without installing dependencies:**
+
+<!-- quickstart:recorded -->
+```sh
+node examples/recorded.mjs
+```
+<!-- /quickstart -->
+
+Expect ALLOW for reviewing the investigation and DENY for collecting another packet. This inspects a bundled recorded case; it does not execute a new action.
+
+**Generate your own evidence:**
+
+<!-- quickstart:run -->
+```sh
+node tools/setup.mjs
+node tutorial/start.mjs
+```
+<!-- /quickstart -->
+
+Expect **PASS — duty remains OPEN; B has no collection power**, then **VERIFIED**. Setup downloads locked dependencies with scripts disabled. The tutorial then runs locally using synthetic data and public test keys. It prints your new case name and exact follow-up commands. Rerunning creates another case and preserves earlier evidence.
 
 Change one permission:
 
+<!-- quickstart:compare -->
 ```sh
-node tutorial/cli.mjs run --case no-review-power --successor-review deny
-node tutorial/cli.mjs inspect no-review-power
+node tutorial/start.mjs --deny-review
 ```
+<!-- /quickstart -->
 
-B still receives the duty, but its permission to review changes to DENY. These are two separate synthetic histories, not an edit to the first run. Each inspection is a new process. [Full tutorial and expected output](docs/TUTORIAL.md) · [Setup help](docs/TROUBLESHOOTING.md).
+B still inherits the duty, but its review permission becomes DENY. [Expected output and explanation](docs/TUTORIAL.md) · [Setup checks and recovery](docs/TROUBLESHOOTING.md).
 
 ## Choose your holder of record.
 
@@ -58,7 +80,7 @@ Keep records locally, or choose a chain-backed deployment to make selected histo
 | Review source provenance and validation | [Validation](VALIDATION.md) · [Presentation checks](docs/PRESENTATION-VALIDATION.md) · [Provenance](SOURCE-PROVENANCE.json) |
 | Extend the presentation | [Website maintenance](docs/WEBSITE.md) |
 
-The [evolving Sites edition](https://continuity-core-demo.zero-hour-zulu.chatgpt.site/) is currently private to its owner and may develop independently. GitHub Pages is the public walkthrough; no Sites account is needed to use Pages or the local tutorial.
+Presentation maintainers can find the separate owner-private edition in [website maintenance](docs/WEBSITE.md). The public walkthrough needs no account.
 
 ## Contribute and explore
 
@@ -68,6 +90,6 @@ Read the [short development history](docs/DEVELOPMENT-HISTORY.md) from Core 0.1 
 
 Core 0.2.2 is local reference software. It is not a hostile-agent sandbox, production credential system or autonomous cyber defender. The website selects recorded results; the downloaded tutorial executes Core. Real integrations must mediate every consequential operation through a protected executor. [Security boundaries](SECURITY.md).
 
-The source, tutorial, tests, reader and website are included here and in the complete evaluation download. Earlier editions remain available as historical releases; use evaluation.3 for the commands above. [Package overview](docs/PACKAGE-OVERVIEW.md) · [Presentation provenance](PRESENTATION-PROVENANCE.json).
+The source, tutorial, tests, reader and website are included here and in the complete evaluation download. Earlier editions remain available as historical releases; use evaluation.4 for the commands above. [Package overview](docs/PACKAGE-OVERVIEW.md) · [Presentation provenance](PRESENTATION-PROVENANCE.json).
 
 [Release status and licensing](RELEASE-STATUS.md) · [Apache 2.0 license](LICENSE) · [Third-party notices](THIRD-PARTY-NOTICES.md)

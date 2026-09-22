@@ -224,8 +224,9 @@
     },
     {
       "path": "packages/core-0.2/package.json",
-      "sha256": "4391b15d0bb9ef10b9e5e9e0623f8a78416ed71d20e5f48e9f8145bb889bae3e",
-      "origin": "accepted development source"
+      "sha256": "b2a97d7f932286a541bc643cee6941882f1f3eaffe8789d2aee77a82c985a753",
+      "origin": "onboarding edition runtime support metadata; engine source unchanged",
+      "predecessorSha256": "4391b15d0bb9ef10b9e5e9e0623f8a78416ed71d20e5f48e9f8145bb889bae3e"
     },
     {
       "path": "integrations/document-release-native/build.sh",
@@ -558,5 +559,13 @@
       "sha256": "03b7ed1091bab76cd8f88bc009401c8ec408d03d0e325c1ca6dccabc69445d8f",
       "origin": "accepted native source documentation"
     }
-  ]
+  ],
+  "onboardingCandidate": {
+    "version": "0.2.2-evaluation.4",
+    "baselineCommit": "b73aec6ce90aa18190277728517fef09c0f7122b",
+    "coreVersion": "0.2.2",
+    "coreSourceChanged": false,
+    "dependencyLockChanged": false,
+    "changes": "Runtime support metadata, onboarding helpers/tutorial preflight, local reader error hints, checks/CI and documentation. Source records retain accepted byte identities except explicitly identified package metadata."
+  }
 }

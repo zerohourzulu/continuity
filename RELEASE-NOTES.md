@@ -1,3 +1,22 @@
+# Onboarding evaluation 4 — 21 September 2026
+
+Core remains **0.2.2**. This edition broadens the tutorial runtime range and simplifies first contact:
+
+- Node22.18+ within22.x, 24.x and26.x; pinned dependencies and one shared engine remain unchanged.
+- `node examples/recorded.mjs` inspects bundled recorded evidence with Node alone.
+- `node tools/setup.mjs` installs locked dependencies through a pinned local package manager, without global pnpm or lifecycle scripts.
+- `node tutorial/start.mjs` creates a fresh case, verifies it and prints exact follow-up commands. `--deny-review` and `--packet` preserve the same explicit permission/effect boundaries.
+- Local doctor/preflight, actionable errors, early Python checks and a clearly labeled Node-only test subset.
+- Shared quickstart command blocks, clearer historical source labeling, and concise immutable-package diagnostics. CI checks the declared Node minimum plus24/26 on macOS/Linux.
+
+[Quickstart](docs/QUICKSTART.md) · [Tests](docs/TESTING.md) · [Acceptance scope](VALIDATION.md). Local candidate verification is recorded separately from hosted CI, which only runs after publication or an explicit workflow dispatch. The older native Linux lab retains its Node24/header requirements. Native Windows, a stable installable SDK and production assurance are not added.
+
+Core source, conformance vectors, fixture signing material, dependency versions/lockfile, licensing and recorded enforcement evidence are preserved. Wrapper preflight, local CLI diagnostics, onboarding helpers/tests, CI and documentation change. No protocol authority, admission or recovery rule is relaxed. Earlier release assets remain available.
+
+---
+
+## Historical release notes below
+
 # Public evaluation 3 — 21 September 2026
 
 Core stays **0.2.2**. This is a public presentation and contribution-process update. Current documentation uses a [lightweight public RFC process](docs/RFC.md) for substantive upstream proposals; ordinary fixes can go directly to a pull request, and forks choose their own direction under the applicable licenses. An unlinked historical tutorial archive is omitted from the current source tree. Earlier Git history and release assets remain preserved.

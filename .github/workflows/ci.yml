@@ -11,35 +11,38 @@ concurrency:
   cancel-in-progress: true
 jobs:
   verify:
-    name: ${{ matrix.os }} / Node24
+    name: ${{ matrix.os }} / Node${{ matrix.node }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
+        node: ['22.18.0', '24', '26']
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 11.19.0
       - uses: actions/setup-node@v4
         with:
-          node-version: '24'
-          cache: pnpm
+          node-version: ${{ matrix.node }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Locked dependencies, no install scripts
-        run: pnpm install --frozen-lockfile --ignore-scripts
-      - name: Verify package identity
+      - name: Recorded reading without installed dependencies
+        run: node examples/recorded.mjs
+      - name: Setup documentation agrees
+        run: node tools/render-quickstart.mjs --check
+      - name: Locked dependencies, no global pnpm or install scripts
+        run: node tools/setup.mjs
+      - name: Verify released package identity
+        if: github.event_name != 'pull_request'
         run: node tools/verify-package.mjs
       - name: Public regression and actual conformance controls
         run: node tools/test.mjs
-      - name: Existing tutorial and fresh inspection
+      - name: Fresh tutorial and changed permission
         run: |
-          node tutorial/cli.mjs run --case ci-verification
-          node tutorial/cli.mjs inspect ci-verification
+          node tutorial/start.mjs
+          node tutorial/start.mjs --deny-review --packet
       - name: Ensure checks did not change packaged files
+        if: github.event_name != 'pull_request'
         run: node tools/verify-package.mjs

@@ -1,24 +1,38 @@
 # Walkthrough: replace a security reviewer without losing its duty
 
-From a terminal in this complete package directory, check `node --version` (24.x) and `pnpm --version` (11.19.0). See [setup help](TROUBLESHOOTING.md) if either is missing. Then:
+Begin with the [quickstart](QUICKSTART.md) to get the package and a supported Node runtime. From the complete package directory:
+
+<!-- quickstart:run -->
+```sh
+node tools/setup.mjs
+node tutorial/start.mjs
+```
+<!-- /quickstart -->
+
+Expect `PASS — duty remains OPEN; B has no collection power.`, then `VERIFIED demo-...`, `Duty: OPEN; performer b:demo-...` and `Old request: DENIED; executor invoked: false`. The helper runs the existing tutorial and verifies the result, then prints commands for later fresh-process inspection. Each invocation chooses a new case name.
+
+Compare with another case where review permission is revoked:
+
+<!-- quickstart:compare -->
+```sh
+node tutorial/start.mjs --deny-review
+```
+<!-- /quickstart -->
+
+The latter DENY is an intentional decision, not a broken installation. [The short answer key](READ-THE-RESULT.md) explains what this establishes.
+
+### Explicit names for the detailed examples below
+
+If you want the exact paths used by the operator/developer guides, run these once:
 
 ```sh
-pnpm install --frozen-lockfile --ignore-scripts
-node tools/verify-package.mjs
 node tutorial/cli.mjs run --case first-look
 node tutorial/cli.mjs inspect first-look
-```
-
-Expect `PASS — duty remains OPEN; B has no collection power.`, then a fresh-process `VERIFIED first-look`, `Duty: OPEN; performer b:first-look` and `Old request: DENIED; executor invoked: false`. Installation may need registry access. Runtime is local. Execution timing depends on the host; no universal latency bound is claimed.
-
-Change one policy input in a new synthetic case:
-
-```sh
 node tutorial/cli.mjs run --case no-review-power --successor-review deny
 node tutorial/cli.mjs inspect no-review-power
 ```
 
-Both runs retain an OPEN duty. First-look permits B to review; no-review-power refuses it. The latter is an intentional decision, not a broken installation. [The short answer key](READ-THE-RESULT.md) explains what this does and does not establish.
+If a name already exists, inspect it or choose another name and use it consistently in later commands. The low-level CLI never overwrites retained evidence. The beginner `start` helper avoids these collisions for you. Installation may need registry access; runtime is local. No universal latency bound is claimed.
 
 ## Read the seven checkpoints
 

@@ -48,5 +48,17 @@
     "currentPublicContributionProcess": "docs/RFC.md",
     "releaseUrl": "https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.3",
     "priorReleaseAssetsPreserved": true
+  },
+  "onboardingCandidate": {
+    "version": "0.2.2-evaluation.4",
+    "sourceBaselineCommit": "b73aec6ce90aa18190277728517fef09c0f7122b",
+    "changes": "Try panel and current setup links/commands; accepted masthead, art, styles, Understand-first navigation and recorded evidence unchanged.",
+    "published": false
+  },
+  "onboardingRelease": {
+    "version": "0.2.2-evaluation.4",
+    "acceptedCandidateTree": "8bf848a82a038221c85208ac24fcdbdc74a4f38c",
+    "sourceBaselineCommit": "b73aec6ce90aa18190277728517fef09c0f7122b",
+    "changeFromCandidate": "Release-status wording and this publication provenance only; tested executable source, fixtures, dependencies, workflow and styling preserved."
   }
 }

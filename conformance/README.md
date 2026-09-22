@@ -1,6 +1,6 @@
 # Run the retained vectors
 
-From the package root, with Node24 and Python3.9+ on macOS or Linux:
+From the package root, with a supported Node release (22.18+ within22.x, 24.x or26.x) and Python3.9+ on macOS or Linux:
 
 ```sh
 python3 -B conformance/run.py --json -- node conformance/adapters/node.mjs
@@ -17,4 +17,4 @@ Objects use documented expected-field projections, arrays preserve order/length,
 
 The runner bounds per-request time including blocked input writes (default10seconds), request bytes (8MiB), response bytes (1MiB), and total adapter stderr (64KiB). It rejects duplicate keys/non-finite JSON and kills/reaps its owned process group at close. Diagnostics on stderr are drained and bounded; the public report supplies concise error codes rather than echoing all diagnostics. `--timeout` and `--max-response-bytes` permit bounded overrides. These controls do not sandbox a hostile executable; run only inspected/trusted local adapters. Supported platforms are macOS/Linux, not Windows.
 
-Troubleshooting: ensure `node --version` is24.x and dependencies were installed with the locked command. `ADAPTER_EOF` may indicate an import or startup failure; inspect the adapter locally. `TIMEOUT` is not evidence of a wrong authorization decision. An unexpected semantic difference should retain its report and source version for diagnosis; do not regenerate vectors to hide it.
+Troubleshooting: run `node tools/doctor.mjs --for test` and ensure dependencies were installed with `node tools/setup.mjs`. `ADAPTER_EOF` may indicate an import or startup failure; inspect the adapter locally. `TIMEOUT` is not evidence of a wrong authorization decision. An unexpected semantic difference should retain its report and source version for diagnosis; do not regenerate vectors to hide it.

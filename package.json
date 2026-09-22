@@ -1,10 +1,10 @@
 {
   "name": "continuity-core-evaluation",
-  "version": "0.2.2-evaluation.3",
+  "version": "0.2.2-evaluation.4",
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=24 <25"
+    "node": "^22.18.0 || ^24.0.0 || ^26.0.0"
   },
   "packageManager": "pnpm@11.19.0",
   "scripts": {
@@ -12,8 +12,12 @@
     "inspect": "node tutorial/cli.mjs inspect",
     "verify": "node tools/verify-package.mjs",
     "test": "node tools/test.mjs",
-    "test:core": "node --test \"tests/*.test.mjs\" \"packages/core-0.2/test/*.test.mjs\"",
-    "test:conformance": "python3 -B -m unittest discover -s conformance -p test_runner.py -v"
+    "test:core": "node tools/test.mjs --node-only",
+    "test:conformance": "python3 -B -m unittest discover -s conformance -p test_runner.py -v",
+    "setup": "node tools/setup.mjs",
+    "doctor": "node tools/doctor.mjs",
+    "recorded": "node examples/recorded.mjs",
+    "start": "node tutorial/start.mjs"
   },
   "dependencies": {
     "viem": "2.55.19"

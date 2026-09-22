@@ -2,6 +2,7 @@
 // Adapted contributed command vocabulary. Explicit local file access is an
 // operator capability; the MCP surface separately permits only named sources.
 import { resolve } from 'node:path';
+import { assertReady } from '../tools/environment.mjs';
 import { runObservation } from '../lib/reader-runner.mjs';
 import { OPERATIONS, ReaderError, fail } from '../lib/reader-contract.mjs';
 const help = `Continuity retained-history reader (observation only)
@@ -34,12 +35,23 @@ try {
     }
     const { file, json, ...args } = options;
     if (typeof file !== 'string' || file.length > 4096) fail('FILE_REQUIRED');
+    assertReady('reader');
     const result = runObservation({ path: resolve(file), source: 'local-file', disclosure: 'evidence' }, operation, args);
     process.stdout.write(JSON.stringify(result, null, json ? undefined : 2) + '\n');
     if (result.decision === 'DENY') process.exitCode = 3;
     else if (result.decision === 'INDETERMINATE' || result.replayStatus !== 'ACCEPTED' || (result.result && result.result.epistemicStatus !== 'ESTABLISHED')) process.exitCode = 4;
   }
 } catch (error) {
-  process.stderr.write(JSON.stringify({ error: error instanceof ReaderError ? error.code : 'READER_FAILED' }) + '\n');
+  const code = error instanceof ReaderError ? error.code : 'READER_FAILED';
+  const hints = {
+    FILE_REQUIRED: 'Choose a history with --file PATH. For a ready-to-read bundled case: node examples/recorded.mjs',
+    SOURCE_UNAVAILABLE: 'Check the history path and read permission. For a tutorial case, use the path printed by its run.',
+    UNKNOWN_OPERATION: 'List commands: node bin/continuity.mjs --help',
+    INVALID_ARGUMENTS: 'Check the options: node bin/continuity.mjs --help',
+    READER_FAILED: 'Check local prerequisites: node tools/doctor.mjs --for reader. No action was executed.',
+  };
+  // Preserve the exact compact error envelope for explicit machine output.
+  process.stderr.write(JSON.stringify({ error: code }) + '\n');
+  if (!process.argv.slice(2).includes('--json')) process.stderr.write((hints[code] ?? 'See docs/READER.md and docs/TROUBLESHOOTING.md; no action was executed.') + '\n');
   process.exitCode = 2;
 }

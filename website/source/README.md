@@ -1,3 +1,5 @@
+> **Historical source subset for recorded-guide links.** For current setup, tests and supported runtimes use the [complete current repository and quickstart](https://github.com/zerohourzulu/continuity/blob/main/docs/QUICKSTART.md). The instructions below describe the earlier subset, not the current onboarding path.
+
 # Continuity Core 0.2 — agents change; responsibility remains
 
 **Public evaluation edition 3 · local reference software · Apache 2.0**

@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { createHash, randomBytes } from 'node:crypto';
 import assert from 'node:assert/strict';
+import { assertReady, NODE_RANGE } from '../tools/environment.mjs';
 
 const ROOT=realpathSync(fileURLToPath(new URL('../',import.meta.url)));
 const help=`Continuity Core 0.2 — public evaluation tutorial
@@ -18,7 +19,8 @@ No AI account, wallet, server, root access or network call is needed at runtime.
 Packet mode copies two synthetic logs locally; it never exports a real document.
 Each run uses a new case. Existing cases are refused. Evidence stays in runs/NAME
 and integrations/core-0.2-reference/cases/NAME. Nothing is automatically deleted.
-Linux/macOS, Node 24; install locked dependencies first (see README.md).
+Linux/macOS, ${NODE_RANGE}. Setup: node tools/setup.mjs
+Simpler fresh run: node tutorial/start.mjs
 `;
 function parse(args){
  const [command,...rest]=args;
@@ -35,7 +37,7 @@ const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const json=p=>JSON.parse(readFileSync(p,'utf8'));
 const save=(p,v)=>writeFileSync(p,JSON.stringify(v,null,2)+'\n',{flag:'wx',mode:0o600});
 async function modules(){
- if(Number(process.versions.node.split('.')[0])!==24)throw Error('This candidate requires Node 24.x; check node --version.');
+ assertReady('tutorial');
  const core=await import('../packages/core-0.2/src/core/index.ts');
  const {PortableFileEventStore}=await import('../packages/core-0.2/src/indexer/portable-file-event-store.ts');
  const app=await import('../integrations/core-0.2-reference/src/application.mjs');
@@ -44,7 +46,7 @@ async function modules(){
 export async function run(opts){
  const {core,PortableFileEventStore,app}=await modules(),name=opts.name;
  const caseDir=join(ROOT,'integrations/core-0.2-reference/cases',name),out=join(ROOT,'runs',name);
- if(existsSync(caseDir)||existsSync(out))throw Error('Case already exists. Choose another --case; retained evidence will not be overwritten.');
+ if(existsSync(caseDir)||existsSync(out))throw Error(`Case ${name} already exists; nothing was overwritten. Inspect it: node tutorial/cli.mjs inspect ${name}. Or create a fresh case: node tutorial/start.mjs`);
  mkdirSync(out,{recursive:true,mode:0o700});
  const checkpoints=[];
  const step=(label,value)=>{checkpoints.push({label,...value});console.log(`${checkpoints.length}. ${label}: ${value.decision??value.status}`);};
@@ -86,7 +88,9 @@ export async function run(opts){
  return result;
 }
 export async function inspect(name){
- const {core,app}=await modules(),out=join(ROOT,'runs',name),caseDir=join(ROOT,'integrations/core-0.2-reference/cases',name),result=json(join(out,'result.json'));
+ const {core,app}=await modules(),out=join(ROOT,'runs',name),caseDir=join(ROOT,'integrations/core-0.2-reference/cases',name);
+ if(!existsSync(join(out,'result.json')))throw Error(`No completed result for ${name}. Check the case name printed by your run; use node tutorial/start.mjs for a fresh case. A partial case, if present, is retained.`);
+ const result=json(join(out,'result.json'));
  assert.equal(result.caseId,name);assert.equal(result.schemaVersion,'continuity-evaluation-result/1');
  const expected=['case.json','history.jsonl','receipt.json','stale-request.json','export/history.json','export/summary.json'];
  assert.deepEqual(result.evidence.map(row=>row.path),expected);

@@ -2,7 +2,7 @@
 
 This experimental reader wraps the unchanged Core0.2.2 engine. It answers questions about supplied records; it does not start agents, sign, write histories or authorize real effects. An observed `ALLOW` is not an execution capability. Consequential work still needs current admission, pre-use checks and an enforcing adapter. Duty does not grant power.
 
-Use Node24 and the locked dependency setup in [Testing](TESTING.md). From this package directory:
+Use a supported Node release from the [quickstart](QUICKSTART.md). The recorded reader needs no dependency installation; try `node examples/recorded.mjs` first. From this package directory:
 
 ```sh
 node bin/continuity.mjs status --file tests/fixtures/handover-history.jsonl

@@ -1,74 +1,17 @@
-# Continuity Core 0.2 — agents change; responsibility remains
+# The complete Continuity evaluation package
 
-**Public evaluation 3 · local reference software · Apache 2.0**
+Start with the [quickstart](QUICKSTART.md): get the package, inspect recorded ALLOW/DENY using Node alone, then generate your own synthetic case. No wallet, model account or chain node is required.
 
-For the connected novice, operator and developer paths, start at the [root README](../README.md#choose-your-path). The complete maintenance download includes this tutorial, the reader and runnable verification.
-
-An agent investigating a suspicious document may disappear, be replaced, or lose permission. What may its replacement do? What happens to the unfinished investigation? Can the old agent still act?
-
-Continuity records authority, actions and unfinished duties in a replayable history. This tutorial lets you **run those decisions**, inspect the evidence, and change one permission to see a different result. It uses the same Core 0.2.2 engine as the retained security reference. No AI subscription, wallet, chain node or cloud service is needed.
-
-## Choose your starting point
-
-| You want to… | Start here |
+| Path | Purpose |
 |---|---|
-| Understand the idea without installing anything | [Five-minute explanation](START-HERE.md) |
-| Run it and see the result | The commands below, then [the walkthrough](TUTORIAL.md) |
-| Inspect recorded Linux enforcement evidence | [Operator guide](OPERATOR.md) |
-| Integrate a deterministic authority check | [Developer guide](DEVELOPER.md) and [reader example](../examples/read-investigation.mjs) |
-| Try native Linux boundary mechanics | [Optional disposable Linux lab](LINUX-LAB.md) |
-| Assess suitability or limitations | [Security and scope](../SECURITY.md), [release notes](../CHANGELOG.md) |
+| [README](../README.md) / [website](../website/index.html) | The idea and paths into the software. |
+| [Tutorial](TUTORIAL.md) / `tutorial/` | New synthetic histories, fresh case names and inspection. |
+| [Operator](OPERATOR.md) / [Reader](READER.md) | Bounded observation of retained history; not an execution capability. |
+| [Developer](DEVELOPER.md) / `packages/core-0.2/` | Reference engine and integration boundaries. |
+| [Testing](TESTING.md) / `tests/` / `conformance/` | Test changes and diagnose setup failures. |
+| [Optional Linux lab](LINUX-LAB.md) | Separate native mechanics with additional prerequisites. |
+| `website/source/` | Historical subset supporting recorded-guide links; not the current setup entry. |
 
-## Run the tutorial
+`node tools/verify-package.mjs` verifies an untouched package against `PACKAGE-FILES.json`. Source changes are tested with `node tools/test.mjs`; they are not expected to match the original distribution hash. Generated runs and installed dependencies are excluded from the package index.
 
-Use **macOS or Linux, Node.js 24.x and pnpm 11.19.0**. Check `node --version` and `pnpm --version`. Standard Node installations include npm; if needed, install the selected package manager with `npm install --global pnpm@11.19.0`. See [setup and troubleshooting](TROUBLESHOOTING.md).
-
-Extract the complete current source archive or clone `https://github.com/zerohourzulu/continuity`. Use evaluation.2 or later for the reader paths.
-
-From the repository root:
-
-```sh
-pnpm install --frozen-lockfile --ignore-scripts
-node tools/verify-package.mjs
-node tutorial/cli.mjs run --case first-look
-node tutorial/cli.mjs inspect first-look
-```
-
-The first command downloads locked open-source dependencies. After installation, the tutorial runs locally without network access. No installation scripts run. No bundled Node binary or old development archive is required.
-
-Expected ending:
-
-```text
-PASS — duty remains OPEN; B has no collection power.
-Evidence: runs/first-look/result.json
-Replay: node tutorial/cli.mjs inspect first-look
-```
-
-`inspect` starts a fresh process, checks retained evidence hashes and replays the history. It reports `VERIFIED first-look`, an `OPEN` duty assigned to B, and the old request `DENIED` with its executor never invoked.
-
-Now change one policy:
-
-```sh
-node tutorial/cli.mjs run --case no-review-power --successor-review deny
-node tutorial/cli.mjs inspect no-review-power
-```
-
-B still inherits the OPEN duty, but its review decision changes from **ALLOW to DENY**. This is the central distinction: responsibility can survive without power being silently expanded.
-
-To also create a real local packet of the two synthetic logs and record a signed review note:
-
-```sh
-node tutorial/cli.mjs run --case local-packet --mode packet
-```
-
-Only local test files are written. No document is sent to another person or system. See [expected stages and files](TUTORIAL.md). Existing case names are refused; choose a new name to repeat.
-
-## What this is useful for
-
-For an operator, this makes a replacement's powers and unfinished work explicit. For a developer, it supplies a deterministic decision/history layer to integrate with a protected executor. The tutorial is a small incident-review story; it does not detect attacks or run an autonomous defender.
-
-The included Linux guide shows previously recorded enforcement observations. The easy tutorial itself assumes a trusted host and public test signing keys. It is **not a sandbox, production credential system, hosted product, or proof of a secure operating system**. A service must prevent alternate routes around its checks. [Exact boundaries](../SECURITY.md).
-
-All tutorial sources, selected evidence and documentation travel in this Git tree. Generated cases and installed dependencies are ignored. `PACKAGE-FILES.json` identifies the immutable distribution; `SOURCE-PROVENANCE.json` identifies reused source and evidence. The 48 private historical archives are intentionally not needed.
-
-[Release status](../RELEASE-STATUS.md) · [Apache 2.0 license](../LICENSE) · [Third-party notices](../THIRD-PARTY-NOTICES.md)
+Core0.2.2 remains local reference software: no hostile-agent sandbox, production credential service or autonomous defender. [Security](../SECURITY.md) · [License](../LICENSE) · [Provenance](../SOURCE-PROVENANCE.json).

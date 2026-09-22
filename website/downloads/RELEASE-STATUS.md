@@ -1,13 +1,9 @@
-# Continuity public evaluation — v0.2.2-evaluation.3
+# Continuity evaluation — v0.2.2-evaluation.4
 
-Core **0.2.2** remains unchanged. This edition keeps the runnable verification, bounded retained-history CLI/stdio MCP reader, and newcomer/operator/developer paths. The current public package uses a lightweight [RFC process](https://github.com/zerohourzulu/continuity/blob/main/docs/RFC.md) for substantive upstream changes. It is local reference software, not production software or a hostile-agent sandbox.
+Core **0.2.2** remains unchanged. This onboarding edition adds easier setup and recorded reading, repeat-safe synthetic runs, broader Node compatibility and useful local diagnostics. It retains the bounded reader, runnable checks, [public RFC process](https://github.com/zerohourzulu/continuity/blob/main/docs/RFC.md) and existing security boundaries.
 
-[Release and complete source download](https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.3) · [Release notes](https://github.com/zerohourzulu/continuity/blob/main/RELEASE-NOTES.md) · [Verification](https://github.com/zerohourzulu/continuity/blob/main/docs/TESTING.md) · [Security boundaries](https://github.com/zerohourzulu/continuity/blob/main/SECURITY.md).
+[Quickstart](https://github.com/zerohourzulu/continuity/blob/main/docs/QUICKSTART.md) · [Release notes](https://github.com/zerohourzulu/continuity/blob/main/RELEASE-NOTES.md) · [Verification](https://github.com/zerohourzulu/continuity/blob/main/docs/TESTING.md) · [Security](https://github.com/zerohourzulu/continuity/blob/main/SECURITY.md).
 
-The accepted runtime's Mac/Linux results are recorded in the release notes; GitHub Actions provides the actual hosted result for each public commit. Publication does not establish customer demand, independent certification or production readiness. No npm publication is selected.
+This is the public onboarding evaluation. [Release and complete source download](https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.4). Hosted CI results are recorded in [GitHub Actions](https://github.com/zerohourzulu/continuity/actions); local acceptance is not a claim that every hosted run passed. No npm publication is selected. Local acceptance is documented in [Validation](https://github.com/zerohourzulu/continuity/blob/main/VALIDATION.md); it does not establish market demand, independent certification or production readiness.
 
-## Rights and earlier release
-
-Continuity-authored code and documentation are Apache 2.0; third-party terms remain unchanged. [License](https://github.com/zerohourzulu/continuity/blob/main/LICENSE) · [Scope](https://github.com/zerohourzulu/continuity/blob/main/LICENSING.md).
-
-Earlier evaluations [1](https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.1) and [2](https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.2) remain preserved with their original assets. Evaluation.1 lacks this edition's reader and verification tools. The older tutorial source subset under website/source is retained for recorded-guide links, with current public-facing notices updated. Use the complete current repository or evaluation.3 archive for current commands.
+Continuity-authored code/documentation are Apache2.0; third-party terms remain unchanged. Earlier evaluations1–3 remain preserved in release history. The historical `website/source/` subset supports recorded-guide links; use the complete current package for onboarding.
