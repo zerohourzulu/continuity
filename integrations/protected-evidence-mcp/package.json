@@ -1,0 +1,17 @@
+{
+  "name": "@continuity/evidence-mcp",
+  "version": "0.3.0-preview.5",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": "^22.18.0 || ^24.0.0 || ^26.0.0"
+  },
+  "dependencies": {
+    "@continuity/core": "file:../../sdk/continuity-core-0.3.0-preview.5.tgz",
+    "@modelcontextprotocol/client": "2.0.0",
+    "@modelcontextprotocol/server": "2.0.0",
+    "viem": "2.55.19",
+    "zod": "4.6.5"
+  }
+}

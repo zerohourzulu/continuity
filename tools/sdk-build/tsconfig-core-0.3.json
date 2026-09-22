@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "allowJs": true, "checkJs": false, "rootDir": "../../packages", "outDir": "../../sdk/core-0.3/dist" },
+  "include": ["../../packages/core-0.2/src/**/*.ts", "../../packages/core-0.3/src/**/*.ts"]
+}

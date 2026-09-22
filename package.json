@@ -1,6 +1,6 @@
 {
   "name": "continuity-core-evaluation",
-  "version": "0.2.2-evaluation.6",
+  "version": "0.3.0-preview.5",
   "private": true,
   "type": "module",
   "engines": {
@@ -20,7 +20,12 @@
     "start": "node tutorial/start.mjs",
     "sdk:build": "node tools/build-sdk.mjs --pack",
     "sdk:verify": "node tools/verify-sdk.mjs",
-    "case": "node tools/case.mjs"
+    "case": "node tools/case.mjs",
+    "test:api": "node --test tests/core-0.3/*.test.mjs",
+    "api:build": "node tools/build-core-0.3.mjs --pack",
+    "api:verify": "node tools/verify-core-0.3.mjs",
+    "mcp:build": "node tools/build-mcp.mjs",
+    "mcp:verify": "node tools/verify-mcp-package.mjs"
   },
   "dependencies": {
     "viem": "2.55.19"

@@ -106,3 +106,7 @@ If you build software, you can use the small [JavaScript developer package](docs
 The package also includes TypeScript descriptions of its interfaces. You can leave that detail until you need it. The next useful step is simply to run the example and compare its result with what you expected.
 
 *Illustration made with AI assistance for this guide. [Art notes and prompt](docs/ELI5-ILLUSTRATION.md).*
+
+## Ready to try your own little case?
+
+The [Core0.3 quickstart](docs/CORE-0.3-QUICKSTART.md) gives an agent permission, takes it away, and shows that reopening its saved work does not bring that permission back. If you want a tool that actually checks before copying a few example files, try the [MCP demo](docs/MCP-PACKAGE.md). Both use made-up case data; no model account is needed.

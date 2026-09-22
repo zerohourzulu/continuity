@@ -1,9 +1,9 @@
-# Current edition — v0.2.2-evaluation.6
+# Current edition — Core 0.3 preview.5
 
-This edition adds an illustrated plain-language introduction and improves public guides. Core **0.2.2**, SDK **0.2.2-sdk.1**, dependencies and signed examples are unchanged. [Illustrated introduction](README-ELI5.md) · [Developer quickstart](docs/SDK-QUICKSTART.md) · [Validation](VALIDATION.md).
+This developer preview supplies a small JavaScript/TypeScript API, signed local runtime and handover helpers, an enforcing local MCP evidence tool, a tested LangChain recipe, and optional Cedar/OpenFGA examples. It uses the unchanged0.2.2 engine and canonical history format. Earlier evaluation tags and their validation records remain available.
 
-[Release and download](https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.6) · [Hosted checks](https://github.com/zerohourzulu/continuity/actions).
+[Release and downloads](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.5) · [Quickstart](docs/CORE-0.3-QUICKSTART.md) · [Tests](docs/CORE-0.3-TESTING.md) · [Compatibility](docs/CORE-0.3-MIGRATION.md).
 
-Use this evaluation to learn, inspect and build a local integration. It is not a stable general SDK, hostile-agent sandbox or production credential service. No package has been published to npm. The separately developed browser playground is not included in this edition.
+The API and MCP packages are installable release tarballs. Their npm names are provisional; npm publication and the official MCP Registry listing await publisher-account setup. Do not install an unrelated npm package with the same name. This is a developer preview, not a production certification or stable API promise.
 
-Earlier releases remain available in the release history. Apache 2.0 licensing, third-party notices and the public RFC contribution process remain unchanged.
+The website continues to show the original recorded demonstration. The separate browser playground is not part of this release. Apache2.0 licensing, dependency notices and the public RFC contribution path are unchanged.

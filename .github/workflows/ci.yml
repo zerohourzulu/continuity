@@ -46,6 +46,16 @@ jobs:
           node tools/build-sdk.mjs --check
           node tools/sdk-parity.mjs
           node tools/verify-sdk.mjs
+      - name: Core 0.3 integrations and independent packages
+        run: |
+          npm ci --prefix integrations/protected-evidence-mcp --ignore-scripts --no-audit --no-fund
+          npm ci --prefix integrations/langchain-evidence --ignore-scripts --no-audit --no-fund
+          npm ci --prefix integrations/policy-composition --ignore-scripts --no-audit --no-fund
+          npm ci --prefix examples/core-0.3/signing --ignore-scripts --no-audit --no-fund
+          node tools/build-core-0.3.mjs --check
+          node tools/verify-core-0.3.mjs
+          node tools/verify-mcp-package.mjs
+          node --test integrations/protected-evidence-mcp/tests/*.test.mjs integrations/langchain-evidence/tests/*.test.mjs integrations/policy-composition/tests/cedar.test.mjs integrations/policy-composition/tests/wire-policy.test.mjs
       - name: Fresh tutorial and changed permission
         run: |
           node tutorial/start.mjs

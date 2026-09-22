@@ -8,7 +8,7 @@ try {
   // Check all required prerequisites BEFORE any suite begins.
   assertReady(nodeOnly ? 'tutorial' : 'test');
 } catch (error) { console.error(error.message); process.exit(2); }
-const commands = [[process.execPath, ['--test', 'tests/*.test.mjs', 'packages/core-0.2/test/*.test.mjs']]];
+const commands = [[process.execPath, ['--test', 'tests/*.test.mjs', 'tests/core-0.3/*.test.mjs', 'packages/core-0.2/test/*.test.mjs']]];
 if (!nodeOnly) commands.push(['python3', ['-B', '-m', 'unittest', 'discover', '-s', 'conformance', '-p', 'test_runner.py', '-v']]);
 for (const [command, commandArgs] of commands) {
   const result = spawnSync(command, commandArgs, { cwd: ROOT, stdio: 'inherit', timeout: 600000,

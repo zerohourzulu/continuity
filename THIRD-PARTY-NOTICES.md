@@ -21,3 +21,13 @@ Dependencies are installed from the pinned lockfile, not bundled as executable b
 ## Website assets
 
 Original generated graffiti and authored green branding are presentation assets. The stock style-reference image is not included. The previously bundled Permanent Marker font retains its [Apache license](website/fonts/PermanentMarker-LICENSE.txt).
+
+## Optional protected evidence MCP integration
+
+The separately installed MCP server/client2.0.0 are MIT-licensed packages from the Model Context Protocol project. Zod4.6.5 is MIT; viem2.55.19 is MIT. Exact transitive versions/integrities are in integrations/protected-evidence-mcp/package-lock.json and their installed packages retain their licenses. No dependency code is copied into the Core SDK. These packages run only when the optional integration is installed.
+
+## Optional LangChain recipe
+
+The separately installed LangChain1.5.12 and @langchain/core1.2.12 packages are MIT-licensed. The recipe uses their actual agent loop with a scripted model and the separately licensed MCP client/Zod dependencies. Exact transitive packages and integrities are pinned in integrations/langchain-evidence/package-lock.json; installed dependencies retain their own license files. No framework code is bundled in the Core SDK.
+
+The optional policy examples separately install Cedar WASM 4.13.0 and OpenFGA SDK 0.9.7 (Apache-2.0). OpenFGA server 1.21.0 is downloaded separately under its upstream license; no server binary or policy dependency is bundled into the Core SDK. See the pinned example lockfile and installed dependency notices.

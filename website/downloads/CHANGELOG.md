@@ -1,3 +1,7 @@
+# Core 0.3 preview.5
+
+Fresh-case API, signed lifecycle, protected MCP evidence tool, LangChain recipe, separate-user Linux lab and optional policy composition. See [release notes](https://github.com/zerohourzulu/continuity/blob/main/RELEASE-NOTES.md). Original0.2.2 history and engine preserved.
+
 # Editorial evaluation.6 — 22 September 2026
 
 Added an illustrated plain-language README companion, revised public guides around reader tasks, corrected stale validation wording and synchronized downloadable website guides. Core0.2.2 and SDK0.2.2-sdk.1 remain unchanged.

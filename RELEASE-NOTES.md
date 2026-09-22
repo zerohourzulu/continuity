@@ -1,3 +1,17 @@
+# Core 0.3 preview.5
+
+Build a new case without editing raw events. The preview adds a small owner/observation API, fresh signed runtime sessions, explicit review duties and recoverable handover. A replacement receives only separately granted powers; unfinished duties remain visible.
+
+The project now supplies a protected local MCP tool for bounded evidence collection, an independently installable tool package, an actual LangChain agent example requiring no paid model, and a disposable Linux example with separate agent/broker identities. Optional Cedar and OpenFGA adapters require agreement with Core and refuse policy/audit failures.
+
+[Start here](docs/CORE-0.3-QUICKSTART.md). [Compatibility, limits and migration](docs/CORE-0.3-MIGRATION.md). [Public tests](docs/CORE-0.3-TESTING.md). Core0.2.2 implementation and its evaluation releases are preserved; the new interface does not silently change canonical event semantics.
+
+Known boundaries: this is a preview API; the tool handles one synchronous local copy, not arbitrary remote-tool fencing. OpenFGA checks are not atomic with local effects. Host administration remains trusted. npm and Registry publication await account setup; use the supplied tarballs.
+
+---
+
+## Earlier releases
+
 # Editorial evaluation.6
 
 An illustrated README companion explains the unfinished-job/permission distinction through a story. Public guides now start with the reader’s task, and website copies are generated from their maintained sources. Existing runtime, SDK, dependencies and test fixtures are unchanged. The main README changes only its release labels. This release does not include the separately developed browser playground.

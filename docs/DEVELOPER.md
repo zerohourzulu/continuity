@@ -1,6 +1,8 @@
-> Maintenance evaluation paths: [bounded reader/CLI/MCP](READER.md), [runnable verification](TESTING.md), [descriptive contract](REFERENCE-CONTRACT.md), and [conformance adapter](../conformance/ADAPTER.md). No stable general SDK or new Core version is claimed.
-
 # Developer entry
+
+For a new integration, start with the [Core 0.3 quickstart](CORE-0.3-QUICKSTART.md). It creates fresh identities and permissions through a small API. Try the [installable MCP tool](MCP-PACKAGE.md) when you want an enforcing integration, then the [LangChain recipe](../integrations/langchain-evidence/README.md) or optional [Cedar/OpenFGA examples](../integrations/policy-composition/README.md). [Compatibility and migration](CORE-0.3-MIGRATION.md) explains the current bounds.
+
+## Earlier evaluation interfaces
 
 Start with the [standalone JavaScript package and protected-operation example](SDK-QUICKSTART.md). It runs outside this repository using the local SDK tarball, with generated types and no runtime dependencies. Core remains0.2.2; this is an evaluation interface.
 

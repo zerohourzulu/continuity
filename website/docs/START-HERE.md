@@ -1,3 +1,5 @@
+> Want to build a fresh integration? Try the [Core0.3 quickstart](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-QUICKSTART.md) or the [protected MCP tool](https://github.com/zerohourzulu/continuity/blob/main/docs/MCP-PACKAGE.md). The recorded story below remains a good first look.
+
 # The helper changes. What happens to the unfinished job?
 
 A security team asks software helper A to gather a packet and review it. A gathers the packet, but the review is still unfinished when the team replaces A with B.

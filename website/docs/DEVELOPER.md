@@ -1,6 +1,8 @@
-> Maintenance evaluation paths: [bounded reader/CLI/MCP](https://github.com/zerohourzulu/continuity/blob/main/docs/READER.md), [runnable verification](https://github.com/zerohourzulu/continuity/blob/main/docs/TESTING.md), [descriptive contract](https://github.com/zerohourzulu/continuity/blob/main/docs/REFERENCE-CONTRACT.md), and [conformance adapter](https://github.com/zerohourzulu/continuity/blob/main/conformance/ADAPTER.md). No stable general SDK or new Core version is claimed.
-
 # Developer entry
+
+For a new integration, start with the [Core 0.3 quickstart](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-QUICKSTART.md). It creates fresh identities and permissions through a small API. Try the [installable MCP tool](https://github.com/zerohourzulu/continuity/blob/main/docs/MCP-PACKAGE.md) when you want an enforcing integration, then the [LangChain recipe](https://github.com/zerohourzulu/continuity/blob/main/integrations/langchain-evidence/README.md) or optional [Cedar/OpenFGA examples](https://github.com/zerohourzulu/continuity/blob/main/integrations/policy-composition/README.md). [Compatibility and migration](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-MIGRATION.md) explains the current bounds.
+
+## Earlier evaluation interfaces
 
 Start with the [standalone JavaScript package and protected-operation example](https://github.com/zerohourzulu/continuity/blob/main/docs/SDK-QUICKSTART.md). It runs outside this repository using the local SDK tarball, with generated types and no runtime dependencies. Core remains0.2.2; this is an evaluation interface.
 

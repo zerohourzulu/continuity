@@ -1,4 +1,4 @@
-> **Public evaluation — v0.2.2-evaluation.6.** Core remains 0.2.2. Runnable verification, a bounded reader and connected user journeys. [Release notes](RELEASE-NOTES.md) · [Run the tests](docs/TESTING.md) · [Reader/CLI/MCP](docs/READER.md).
+> **Core 0.3 preview:** [Build a fresh case](docs/CORE-0.3-QUICKSTART.md), [try the protected MCP tool](docs/MCP-PACKAGE.md), or [run the public tests](docs/CORE-0.3-TESTING.md). The original 0.2.2 evaluation releases remain available.
 
 [![it is 2 a.m. do you know what your agent is doing?](website/images/agent-at-2am.png)](https://zerohourzulu.github.io/continuity/)
 [![Security. Control. Inheritance. Durable survival of powers and responsibilities. Record durably, locally or on chain. This is your agent’s brain on Continuity.](assets/continuity-statement.svg)](https://zerohourzulu.github.io/continuity/)
@@ -7,7 +7,7 @@
 
 **[Explore the interactive demo →](https://zerohourzulu.github.io/continuity/)** · [Start here](docs/START-HERE.md) · [Developer guide](docs/DEVELOPER.md) · [Security and limits](SECURITY.md)
 
-**Public maintenance evaluation · Apache 2.0.** [Release status](RELEASE-STATUS.md).
+**Developer preview · Apache 2.0.** [Release status](RELEASE-STATUS.md).
 
 A process supervisor can start Agent B. Continuity records which role B occupies, which powers it has, what happened before, and which unfinished duties survive the change. A replacement receives its explicitly granted powers; an unfinished duty does not silently grant more authority.
 
@@ -19,7 +19,7 @@ The demonstration follows a security investigation interrupted by an agent repla
 |---|---|---|
 | Understand the idea without installing anything | [The story and answer key](docs/READ-THE-RESULT.md) | Why an unfinished duty and permission are separate. |
 | Run and inspect a replacement | [Tutorial](docs/TUTORIAL.md), then [operator commands](docs/OPERATOR.md) | What was refused, who holds the duty and what B may do. |
-| Evaluate or integrate the code | [Developer path](docs/DEVELOPER.md) | Run checks, change one policy input, call the bounded reader and MCP. |
+| Evaluate or integrate the code | [Core 0.3 quickstart](docs/CORE-0.3-QUICKSTART.md) | Create your own permissions, try a protected tool, then connect a framework or policy engine. |
 
 ## Run the tutorial
 

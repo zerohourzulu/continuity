@@ -1,0 +1,36 @@
+{
+  "name": "@continuity/evidence-mcp",
+  "version": "0.3.0-preview.5",
+  "private": true,
+  "description": "A bounded local MCP evidence tool that checks current authority and preserves operation history",
+  "type": "module",
+  "license": "Apache-2.0",
+  "mcpName": "io.github.zerohourzulu/continuity-evidence",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zerohourzulu/continuity.git"
+  },
+  "engines": {
+    "node": "^22.18.0 || ^24.0.0 || ^26.0.0"
+  },
+  "bin": {
+    "continuity-evidence": "./server.mjs",
+    "continuity-evidence-setup": "./setup.mjs",
+    "continuity-evidence-demo": "./client.mjs"
+  },
+  "files": [
+    "*.mjs",
+    "core",
+    "CORE-BUILD-PROVENANCE.json",
+    "LICENSE",
+    "NOTICE",
+    "THIRD-PARTY-NOTICES.md",
+    "README.md"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/client": "2.0.0",
+    "@modelcontextprotocol/server": "2.0.0",
+    "viem": "2.55.19",
+    "zod": "4.6.5"
+  }
+}

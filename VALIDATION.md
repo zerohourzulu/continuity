@@ -1,3 +1,15 @@
+# Core 0.3 preview validation
+
+The new API, protected tool and optional policy adapters have69 focused checks, passed locally on Node22.18 and24.21. They use the actual MCP client/server, actual LangChain agent loop with a scripted model, Cedar WASM4.13.0 and OpenFGA1.21.0. Independent application installs exercise the compiled API and MCP tarballs. The public test commands are in [Core0.3 testing](docs/CORE-0.3-TESTING.md).
+
+A separate ARM64 Linux lab demonstrated distinct broker/agent user identities, denied direct source/history/key/code access, and refusal of an old still-running agent after retirement. Its first47API/MCP/framework checks passed on Node24.19. Host administration remains trusted. No broad sandbox, distributed atomicity or production assurance is inferred.
+
+Earlier Core0.2.2 verification below remains historical and applies to its unchanged implementation. Hosted checks for the current commit are reported by [GitHub Actions](https://github.com/zerohourzulu/continuity/actions), not inferred from those older results.
+
+---
+
+> **0.3 preview note:** the prior release results below describe the unchanged 0.2.2 baseline, not validation of the new facade. See [the new interface and checks](docs/CORE-0.3-API.md). This preview is local and has not been deployed or published to a registry.
+
 # What has been tested
 
 The published **v0.2.2-evaluation.5** release passed **194 Node tests and 15 Python checks in each of six hosted jobs**: macOS and Ubuntu, each with Node 22.18, 24 and 26. The jobs also checked the SDK rebuild, source/compiled behavior and a separate JavaScript/TypeScript consumer. [Verification run](https://github.com/zerohourzulu/continuity/actions/runs/35681575289) · [Pages deployment](https://github.com/zerohourzulu/continuity/actions/runs/35681575319).
