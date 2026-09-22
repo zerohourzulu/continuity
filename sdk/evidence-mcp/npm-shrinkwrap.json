@@ -1,12 +1,12 @@
 {
-  "name": "@continuity/evidence-mcp",
-  "version": "0.3.0-preview.5",
+  "name": "@ramex-labs/continuity-mcp",
+  "version": "0.3.0-preview.6",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
-      "name": "@continuity/evidence-mcp",
-      "version": "0.3.0-preview.5",
+      "name": "@ramex-labs/continuity-mcp",
+      "version": "0.3.0-preview.6",
       "license": "Apache-2.0",
       "dependencies": {
         "@modelcontextprotocol/client": "2.0.0",

@@ -2,7 +2,7 @@
 
 This preview adds a small application API and a protected local MCP tool around the unchanged 0.2.2 engine and history format. Install the supplied tarball; no npm publication or stable API compatibility promise is claimed. [Start with the three-minute example](CORE-0.3-QUICKSTART.md).
 
-The package separates observation, owner administration, signed duty operations and effect-free simulation. `@continuity/core` reads a captured history. `@continuity/core/local` gives a trusted local application an owner handle for creating and changing a policy history. The package name is provisional until publisher namespace ownership is established.
+The package separates observation, owner administration, signed duty operations and effect-free simulation. `@ramex-labs/continuity` reads a captured history. `@ramex-labs/continuity/local` gives a trusted local application an owner handle for creating and changing a policy history. The package is published under the RAmEx Labs npm scope.
 
 ## A small example
 
@@ -13,7 +13,7 @@ package_dir="$PWD"
 example_dir="$(mktemp -d)"
 cp "$package_dir/examples/core-0.3/permissions.mjs" "$example_dir/"
 cd "$example_dir"
-npm install --offline --ignore-scripts --no-audit --no-fund "$package_dir/sdk/continuity-core-0.3.0-preview.5.tgz"
+npm install --offline --ignore-scripts --no-audit --no-fund "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.6.tgz"
 node permissions.mjs
 ```
 
@@ -78,13 +78,13 @@ cp "$package_dir/examples/core-0.3/handover.mjs" "$example_dir/"
 cp "$package_dir/examples/core-0.3/signing/"package*.json "$example_dir/"
 cd "$example_dir"
 npm ci --ignore-scripts --no-audit --no-fund
-npm install --offline --ignore-scripts --no-audit --no-fund "$package_dir/sdk/continuity-core-0.3.0-preview.5.tgz"
+npm install --offline --ignore-scripts --no-audit --no-fund "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.6.tgz"
 node handover.mjs
 ```
 
 The first install downloads the pinned example signing library. The SDK has no third-party runtime dependency. The example prints: simulation **SUBMITTED**, signed receipt **ADMITTED**, old process **RUNTIME_NOT_CURRENT**, replacement read permission **DENY**, duty **OPEN**, repeated operation **RECONCILIATION_ONLY**. Keys are discarded when the example exits; it is not a key-custody design.
 
-`@continuity/core/runtime` exports `openLocalRuntime({...config, session, signHash})`. `signHash` is your application's trusted callback: sign the 32-byte hash with EIP-191 personal-sign and return a 65-byte hexadecimal signature. Store real credentials outside the history. The example uses viem; the SDK accepts any compatible signer. `@continuity/core/simulation` exports `openLocalSimulation` and `commitTerms`. Simulation records no real external action.
+`@ramex-labs/continuity/runtime` exports `openLocalRuntime({...config, session, signHash})`. `signHash` is your application's trusted callback: sign the 32-byte hash with EIP-191 personal-sign and return a 65-byte hexadecimal signature. Store real credentials outside the history. The example uses viem; the SDK accepts any compatible signer. `@ramex-labs/continuity/simulation` exports `openLocalSimulation` and `commitTerms`. Simulation records no real external action.
 
 | Method | Meaning |
 | --- | --- |
@@ -112,7 +112,7 @@ Keep host configuration, owner handles, history paths, clocks and signer callbac
 
 ## Collect a protected evidence packet
 
-`@continuity/core/evidence` exports `selectEvidence` for trusted setup and `openLocalEvidenceTool` for a fixed local file-copy operation. Configuration fixes the actor/session, role/tenure, resource alias, source directory, stored file selection and protected output directory. `collect({operationId, resource})` accepts no caller paths or alternative adapter. `recordReceipt` is an operator application method; inspection stays privileged. Filesystem effects use the same admission and restart rules as the simulator, with a real typed packet acknowledgment and external business outcome NOT_PROVEN.
+`@ramex-labs/continuity/evidence` exports `selectEvidence` for trusted setup and `openLocalEvidenceTool` for a fixed local file-copy operation. Configuration fixes the actor/session, role/tenure, resource alias, source directory, stored file selection and protected output directory. `collect({operationId, resource})` accepts no caller paths or alternative adapter. `recordReceipt` is an operator application method; inspection stays privileged. Filesystem effects use the same admission and restart rules as the simulator, with a real typed packet acknowledgment and external business outcome NOT_PROVEN.
 
 The public MCP walkthrough is in `integrations/protected-evidence-mcp/README.md` in the full distribution. It uses the official MCP2.0 SDK with a pinned2026-07-28 client and legacy negotiation tests. The server is stdio-only and uses one launch-bound identity. This supported local operation is not a general remote MCP proxy or a sandbox.
 

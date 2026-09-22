@@ -6,13 +6,13 @@ It is a stdio MCP server, not a public network service or a general tool proxy. 
 
 ## Install and try it
 
-Download `continuity-evidence-mcp-0.3.0-preview.5.tgz` from the [Core 0.3 preview release](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.5), verify its published SHA-256, and use Node22.18+,24.x or26.x on macOS/Linux:
+Use Node22.18+,24.x or26.x on macOS/Linux. Install the exact preview from npm:
 
 ```sh
 mkdir my-continuity-demo
 cd my-continuity-demo
 npm init -y
-npm install --ignore-scripts /path/to/continuity-evidence-mcp-0.3.0-preview.5.tgz
+npm install --ignore-scripts @ramex-labs/continuity-mcp@0.3.0-preview.6
 npx --no-install continuity-evidence-setup ./case
 npx --no-install continuity-evidence-demo ./case/gateway.json
 ```
@@ -27,4 +27,4 @@ The demo runs the client and server under your own user account. A client with t
 
 The supported operation is a synchronous bounded local copy: at most8 files,64KiB each and256KiB total. This guarantee does not extend automatically to arbitrary remote tools. A packet proves which selected bytes were copied, not whether their contents are true. UNKNOWN means investigate or reconcile; it does not mean dispatch another attempt with a new ID.
 
-Cedar/OpenFGA integration examples are separately installed from the source repository. They are not required dependencies of this package. The npm package name is provisional; install the release tarball, not an unrelated package that happens to have the same name. No npm or MCP Registry publication is claimed yet.
+Cedar/OpenFGA integration examples are separately installed from the source repository. They are not required dependencies of this package. The publisher scope is `@ramex-labs`. An official MCP Registry listing is separate from npm package availability.

@@ -2,7 +2,7 @@
 import { mkdtempSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { createLocalDomain, createLocalOwner, openLocalOwner } from '@continuity/core/local';
+import { createLocalDomain, createLocalOwner, openLocalOwner } from '@ramex-labs/continuity/local';
 const directory = mkdtempSync(join(tmpdir(), 'continuity-permissions-'));
 const options = {
   historyFile: join(directory, 'history.jsonl'),

@@ -3,9 +3,9 @@ import { mkdtempSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts';
-import { createLocalDomain, createLocalOwner } from '@continuity/core/local';
-import { openLocalRuntime } from '@continuity/core/runtime';
-import { openLocalSimulation, commitTerms } from '@continuity/core/simulation';
+import { createLocalDomain, createLocalOwner } from '@ramex-labs/continuity/local';
+import { openLocalRuntime } from '@ramex-labs/continuity/runtime';
+import { openLocalSimulation, commitTerms } from '@ramex-labs/continuity/simulation';
 const folder = mkdtempSync(join(tmpdir(), 'continuity-handover-example-'));
 const config = { historyFile: join(folder, 'history.jsonl'), domain: createLocalDomain(),
   owner: 'operations', controller: 'operator', now: Date.now };

@@ -33,11 +33,11 @@ for (const name of [
     "utf8",
   )
     .replaceAll(
-      "@continuity/core/evidence",
+      "@ramex-labs/continuity/evidence",
       "./core/dist/core-0.3/src/evidence.js",
     )
     .replaceAll(
-      "@continuity/core/local",
+      "@ramex-labs/continuity/local",
       "./core/dist/core-0.3/src/local-owner.js",
     );
   writeFileSync(join(out, name), code, {
@@ -55,9 +55,9 @@ writeFileSync(
   join(out, "package.json"),
   JSON.stringify(
     {
-      name: "@continuity/evidence-mcp",
-      version: "0.3.0-preview.5",
-      private: true,
+      name: "@ramex-labs/continuity-mcp",
+      version: "0.3.0-preview.6",
+      publishConfig: { access: "public", tag: "preview", registry: "https://registry.npmjs.org" },
       description:
         "A bounded local MCP evidence tool that checks current authority and preserves operation history",
       type: "module",
@@ -97,7 +97,7 @@ writeFileSync(
 // Core is included directly, so its local development tarball is not a dependency.
 const manifest = JSON.parse(readFileSync(join(out, "package.json")));
 const lock = JSON.parse(readFileSync(join(root, "integrations/protected-evidence-mcp/package-lock.json")));
-delete lock.packages["node_modules/@continuity/core"];
+delete lock.packages["node_modules/@ramex-labs/continuity"];
 lock.name = manifest.name; lock.version = manifest.version;
 lock.packages[""] = { name: manifest.name, version: manifest.version, license: manifest.license,
   dependencies: manifest.dependencies, bin: manifest.bin, engines: manifest.engines };

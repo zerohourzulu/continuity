@@ -16,27 +16,27 @@ const run=(cmd,args,options={})=>{
 const files=(dir,prefix='')=>readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?files(join(dir,e.name),prefix+e.name+'/'):[prefix+e.name]).sort();
 try {
   writeFileSync(join(scratch,'package.json'),JSON.stringify({private:true,type:'module'}));
-  run('npm',['install','--offline','--ignore-scripts','--no-audit','--no-fund',join(root,'sdk/continuity-core-0.3.0-preview.5.tgz')]);
-  const installed=join(scratch,'node_modules/@continuity/core'), generated=join(root,'sdk/core-0.3');
+  run('npm',['install','--offline','--ignore-scripts','--no-audit','--no-fund',join(root,'sdk/ramex-labs-continuity-0.3.0-preview.6.tgz')]);
+  const installed=join(scratch,'node_modules/@ramex-labs/continuity'), generated=join(root,'sdk/core-0.3');
   assert.deepEqual(files(installed),files(generated));
   for(const path of files(generated))assert.deepEqual(readFileSync(join(installed,path)),readFileSync(join(generated,path)),path);
   cpSync(join(root,'examples/core-0.3/permissions.mjs'),join(scratch,'permissions.mjs'));
   const output=run(process.execPath,['--no-experimental-strip-types','permissions.mjs']);
   for(const expected of ['A job title alone: DENY','With permission: ALLOW','After withdrawal: DENY','After reopening: DENY'])assert(output.includes(expected),expected);
   writeFileSync(join(scratch,'exports.mjs'),`import assert from 'node:assert/strict';
-import {observeHistory,ContinuityError} from '@continuity/core';
-import {createLocalDomain,createLocalOwner,openLocalOwner} from '@continuity/core/local';
+import {observeHistory,ContinuityError} from '@ramex-labs/continuity';
+import {createLocalDomain,createLocalOwner,openLocalOwner} from '@ramex-labs/continuity/local';
 for(const fn of [observeHistory,ContinuityError,createLocalDomain,createLocalOwner,openLocalOwner])assert.equal(typeof fn,'function');
-await assert.rejects(import('@continuity/core/dist/core-0.2/src/core/index.js'),{code:'ERR_PACKAGE_PATH_NOT_EXPORTED'});
+await assert.rejects(import('@ramex-labs/continuity/dist/core-0.2/src/core/index.js'),{code:'ERR_PACKAGE_PATH_NOT_EXPORTED'});
 `);
   run(process.execPath,['--no-experimental-strip-types','exports.mjs']);
-  writeFileSync(join(scratch,'consumer.mts'),`import {observeHistory, type Action, type HistoryEvent} from '@continuity/core';
-import {createLocalOwner, type LocalOwnerOptions} from '@continuity/core/local';
-import {openLocalEvidenceTool, type EvidenceToolOptions} from '@continuity/core/evidence';
-import type {AdditionalPolicy} from '@continuity/core/policy';
+  writeFileSync(join(scratch,'consumer.mts'),`import {observeHistory, type Action, type HistoryEvent} from '@ramex-labs/continuity';
+import {createLocalOwner, type LocalOwnerOptions} from '@ramex-labs/continuity/local';
+import {openLocalEvidenceTool, type EvidenceToolOptions} from '@ramex-labs/continuity/evidence';
+import type {AdditionalPolicy} from '@ramex-labs/continuity/policy';
 export function protectedTool(options:EvidenceToolOptions, additionalPolicy:AdditionalPolicy) {return openLocalEvidenceTool({...options,additionalPolicy});}
-import {openLocalRuntime, type Obligation, type LocalRuntimeOptions} from '@continuity/core/runtime';
-import {openLocalSimulation, commitTerms} from '@continuity/core/simulation';
+import {openLocalRuntime, type Obligation, type LocalRuntimeOptions} from '@ramex-labs/continuity/runtime';
+import {openLocalSimulation, commitTerms} from '@ramex-labs/continuity/simulation';
 export async function signed(options:LocalRuntimeOptions, obligation:Obligation) {
  const runtime=openLocalRuntime(options);
  await runtime.obligate(obligation);
@@ -67,7 +67,7 @@ export function manage(options: LocalOwnerOptions) {
   // The optional signing example has registry dependencies. Its fresh cache
   // is independent of the dependency-free SDK's offline install above.
   run('npm',['ci','--prefer-offline','--ignore-scripts','--no-audit','--no-fund']);
-  run('npm',['install','--offline','--ignore-scripts','--no-audit','--no-fund',join(root,'sdk/continuity-core-0.3.0-preview.5.tgz')]);
+  run('npm',['install','--offline','--ignore-scripts','--no-audit','--no-fund',join(root,'sdk/ramex-labs-continuity-0.3.0-preview.6.tgz')]);
   cpSync(join(root,'examples/core-0.3/handover.mjs'),join(scratch,'handover.mjs'));
   const handover=run(process.execPath,['--no-experimental-strip-types','handover.mjs']);
   for(const expected of ['Simulation: SUBMITTED','Signed receipt: ADMITTED','Old live process: RUNTIME_NOT_CURRENT','Replacement can read? DENY','Duty: OPEN','Repeated operation: RECONCILIATION_ONLY'])assert(handover.includes(expected),expected);

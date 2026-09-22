@@ -1,7 +1,11 @@
 {
-  "name": "@continuity/evidence-mcp",
-  "version": "0.3.0-preview.5",
-  "private": true,
+  "name": "@ramex-labs/continuity-mcp",
+  "version": "0.3.0-preview.6",
+  "publishConfig": {
+    "access": "public",
+    "tag": "preview",
+    "registry": "https://registry.npmjs.org"
+  },
   "description": "A bounded local MCP evidence tool that checks current authority and preserves operation history",
   "type": "module",
   "license": "Apache-2.0",

@@ -1,7 +1,15 @@
 {
-  "name": "@continuity/core",
-  "version": "0.3.0-preview.5",
-  "private": true,
+  "name": "@ramex-labs/continuity",
+  "version": "0.3.0-preview.6",
+  "publishConfig": {
+    "access": "public",
+    "tag": "preview",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zerohourzulu/continuity.git"
+  },
   "type": "module",
   "license": "Apache-2.0",
   "description": "Continuity 0.3 signed local API and protected evidence tool preview",

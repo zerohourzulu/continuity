@@ -1,7 +1,7 @@
 {
   "schemaVersion": "continuity-sdk-build/1",
   "coreVersion": "0.2.2",
-  "apiVersion": "0.3.0-preview.5",
+  "apiVersion": "0.3.0-preview.6",
   "compiler": "5.9.3",
   "compilerConfigSha256": "e284412668b8d64b8dd02510fd2d70e58538be5f48456e11797fe5136ebad3d6",
   "sources": [

@@ -1,3 +1,7 @@
+# Preview 6 — npm packages under RAmEx Labs
+
+The Core SDK is `@ramex-labs/continuity`; the protected MCP tool is `@ramex-labs/continuity-mcp`. Both use the preview dist-tag. Imports and examples now use the owned publisher namespace. Core engine semantics and supported operations are unchanged. Earlier tarball-only previews remain available in release history.
+
 # Preview 5.1 — fresh-machine verification
 
 The public consumer check now downloads the signing example’s locked dependencies when its private cache is empty. The dependency-free SDK still installs offline. SDK and MCP package bytes and engine behavior are unchanged from preview 5.

@@ -26,9 +26,9 @@ try {
     "--ignore-scripts",
     "--no-audit",
     "--no-fund",
-    join(root, "sdk/continuity-evidence-mcp-0.3.0-preview.5.tgz"),
+    join(root, "sdk/ramex-labs-continuity-mcp-0.3.0-preview.6.tgz"),
   ]);
-  const pkg = join(temp, "node_modules/@continuity/evidence-mcp");
+  const pkg = join(temp, "node_modules/@ramex-labs/continuity-mcp");
   assert.equal(
     JSON.parse(readFileSync(join(pkg, "package.json"))).mcpName,
     "io.github.zerohourzulu/continuity-evidence",

@@ -7,7 +7,7 @@ import {
   lstatSync,
 } from "node:fs";
 import { privateKeyToAccount } from "viem/accounts";
-import { openLocalEvidenceTool } from "@continuity/core/evidence";
+import { openLocalEvidenceTool } from "@ramex-labs/continuity/evidence";
 import { parseStrictJson } from "./strict-json.mjs";
 const fail = () => {
   throw Error("CONFIG_UNAVAILABLE");

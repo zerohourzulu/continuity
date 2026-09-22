@@ -1,6 +1,6 @@
 {
-  "name": "@continuity/evidence-mcp",
-  "version": "0.3.0-preview.5",
+  "name": "@ramex-labs/continuity-mcp",
+  "version": "0.3.0-preview.6",
   "private": true,
   "type": "module",
   "license": "Apache-2.0",
@@ -8,7 +8,7 @@
     "node": "^22.18.0 || ^24.0.0 || ^26.0.0"
   },
   "dependencies": {
-    "@continuity/core": "file:../../sdk/continuity-core-0.3.0-preview.5.tgz",
+    "@ramex-labs/continuity": "file:../../sdk/ramex-labs-continuity-0.3.0-preview.6.tgz",
     "@modelcontextprotocol/client": "2.0.0",
     "@modelcontextprotocol/server": "2.0.0",
     "viem": "2.55.19",
