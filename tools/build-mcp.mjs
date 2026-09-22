@@ -56,7 +56,7 @@ writeFileSync(
   JSON.stringify(
     {
       name: "@ramex-labs/continuity-mcp",
-      version: "0.3.0-preview.6",
+      version: "0.3.0-preview.7",
       publishConfig: { access: "public", tag: "preview", registry: "https://registry.npmjs.org" },
       description:
         "A bounded local MCP evidence tool that checks current authority and preserves operation history",
@@ -69,6 +69,7 @@ writeFileSync(
       },
       engines: { node: "^22.18.0 || ^24.0.0 || ^26.0.0" },
       bin: {
+        "continuity-mcp": "./server.mjs",
         "continuity-evidence": "./server.mjs",
         "continuity-evidence-setup": "./setup.mjs",
         "continuity-evidence-demo": "./client.mjs",

@@ -26,7 +26,7 @@ try {
     "--ignore-scripts",
     "--no-audit",
     "--no-fund",
-    join(root, "sdk/ramex-labs-continuity-mcp-0.3.0-preview.6.tgz"),
+    join(root, "sdk/ramex-labs-continuity-mcp-0.3.0-preview.7.tgz"),
   ]);
   const pkg = join(temp, "node_modules/@ramex-labs/continuity-mcp");
   assert.equal(
@@ -45,6 +45,16 @@ try {
   ]);
   assert.match(result, /RECORDED/);
   assert.match(result, /RECONCILIATION_ONLY/);
+  // Verify the package-name launch used by Registry clients, not only named bins.
+  run(process.execPath, [join(temp, "node_modules/.bin/continuity-evidence-setup"), join(temp, "registry-case")]);
+  const clientSource = readFileSync(join(pkg, "client.mjs"), "utf8")
+    .replace('command: process.execPath,', 'command: "npx",')
+    .replace('fileURLToPath(new URL("./server.mjs", import.meta.url)),', '"--no-install", "@ramex-labs/continuity-mcp",');
+  writeFileSync(join(temp, "registry-client.mjs"), clientSource);
+  const registryResult = run(process.execPath, [join(temp, "registry-client.mjs"), join(temp, "registry-case/gateway.json")]);
+  assert.match(registryResult, /RECORDED/);
+  assert.match(registryResult, /RECONCILIATION_ONLY/);
+  console.log("PASS: npx package-name launch through actual MCP handshake and one-attempt retry.");
   console.log(
     "PASS: independently installed MCP tarball, compiled Core, fresh keys, actual client/server and one-attempt retry.",
   );

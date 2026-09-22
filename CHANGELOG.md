@@ -1,3 +1,7 @@
+# Preview 6.1 — MCP package-name launch
+
+MCP package preview.7 adds `continuity-mcp` as a default command alias. This lets npx and Registry clients select the server without guessing among setup/demo commands. Existing commands remain available. The Core SDK remains preview.6; engine code is unchanged. The public package test now runs an actual MCP handshake and retry through the npx package-name launch.
+
 # Preview 6 — npm packages under RAmEx Labs
 
 The Core SDK is `@ramex-labs/continuity`; the protected MCP tool is `@ramex-labs/continuity-mcp`. Both use the preview dist-tag. Imports and examples now use the owned publisher namespace. Core engine semantics and supported operations are unchanged. Earlier tarball-only previews remain available in release history.

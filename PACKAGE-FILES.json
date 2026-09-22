@@ -33,8 +33,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 4474,
-      "sha256": "1cec9d7969015206c720605b2efa8be78d49594332b1d8cb908129c6ea14c318"
+      "bytes": 4885,
+      "sha256": "4fde94158d0fdec5bd6ae6f948b485b2a2b31c8cf8caca8553c572200203e1f8"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -83,8 +83,8 @@
     },
     {
       "path": "RELEASE-STATUS.md",
-      "bytes": 1099,
-      "sha256": "afd996781b3682be2684320af52d4d8446878489c1b937498aa6d44ec8ce9693"
+      "bytes": 1101,
+      "sha256": "ff4788cf3197da67544a3ab5eeed52a06e192c0931858c0a6c80d9bfd0d6f4b7"
     },
     {
       "path": "SECURITY.md",
@@ -208,8 +208,8 @@
     },
     {
       "path": "docs/MCP-PACKAGE.md",
-      "bytes": 2789,
-      "sha256": "571e46fe49da97f769c621dd4c8d7993bf9681e202952114096146e49539ea3a"
+      "bytes": 3010,
+      "sha256": "f3b8c641c04b8b4ba0648049ecbc2301b66a3751ced303a70644f79de09f01a4"
     },
     {
       "path": "docs/OPERATOR.md",
@@ -899,7 +899,7 @@
     {
       "path": "integrations/protected-evidence-mcp/client.mjs",
       "bytes": 1170,
-      "sha256": "42c9f5050e83d8f3f47fbc96125701c6e6746e20634755303d53691f82c38477"
+      "sha256": "629726f8d692ab1023dac99b25f53b0f11ce54640dfe2156c64e2c59287251ae"
     },
     {
       "path": "integrations/protected-evidence-mcp/config.mjs",
@@ -934,17 +934,17 @@
     {
       "path": "integrations/protected-evidence-mcp/package-lock.json",
       "bytes": 13387,
-      "sha256": "051a0e79428f440a421d1953f70bcffb46c371d1449cfb0495c2f4365e4190b0"
+      "sha256": "a2a44b6b49fc639760367cc2a34e8cd06837bcd6f7a778c2fe124d571a8bc951"
     },
     {
       "path": "integrations/protected-evidence-mcp/package.json",
       "bytes": 453,
-      "sha256": "f231405090fa16cf8351acb660e5c995f3680383761f4006c1e2d73bcb5c70b3"
+      "sha256": "8ed49d40f7f1b101e3008ef91cb1b9c8a9bd30dbea94ed8ac8c84232f2e06943"
     },
     {
       "path": "integrations/protected-evidence-mcp/server.mjs",
       "bytes": 6081,
-      "sha256": "d959300920751a75b3287ec2de631d2c5337a6320283c164a04d0f5f39518aad"
+      "sha256": "d409fd2982ef927c7c6478a6a46df85c4766108a4370388692bf51d208b46439"
     },
     {
       "path": "integrations/protected-evidence-mcp/setup.mjs",
@@ -2073,8 +2073,8 @@
     },
     {
       "path": "sdk/evidence-mcp/README.md",
-      "bytes": 2789,
-      "sha256": "571e46fe49da97f769c621dd4c8d7993bf9681e202952114096146e49539ea3a"
+      "bytes": 3010,
+      "sha256": "f3b8c641c04b8b4ba0648049ecbc2301b66a3751ced303a70644f79de09f01a4"
     },
     {
       "path": "sdk/evidence-mcp/THIRD-PARTY-NOTICES.md",
@@ -2084,7 +2084,7 @@
     {
       "path": "sdk/evidence-mcp/client.mjs",
       "bytes": 1170,
-      "sha256": "42c9f5050e83d8f3f47fbc96125701c6e6746e20634755303d53691f82c38477"
+      "sha256": "629726f8d692ab1023dac99b25f53b0f11ce54640dfe2156c64e2c59287251ae"
     },
     {
       "path": "sdk/evidence-mcp/config.mjs",
@@ -2483,18 +2483,18 @@
     },
     {
       "path": "sdk/evidence-mcp/npm-shrinkwrap.json",
-      "bytes": 13076,
-      "sha256": "eacc792e3c01a86ad5c049e158e2b01d06cc2f84974407bedba2ad93b191243c"
+      "bytes": 13118,
+      "sha256": "9fc6b3fac9b95b140c94283245b5739e1042be1cc68a84e0d4156b396309dc57"
     },
     {
       "path": "sdk/evidence-mcp/package.json",
-      "bytes": 1044,
-      "sha256": "f1379a8932bbfe6713f8ebada74a881f9fa1440377fde4e35567ea9dda8d32f3"
+      "bytes": 1082,
+      "sha256": "d4efeb7e48c1b5656aeddc45280ca8f287a8f1caf77b59f135f783f497c1902a"
     },
     {
       "path": "sdk/evidence-mcp/server.mjs",
       "bytes": 6081,
-      "sha256": "d959300920751a75b3287ec2de631d2c5337a6320283c164a04d0f5f39518aad"
+      "sha256": "d409fd2982ef927c7c6478a6a46df85c4766108a4370388692bf51d208b46439"
     },
     {
       "path": "sdk/evidence-mcp/setup.mjs",
@@ -2512,9 +2512,9 @@
       "sha256": "83a978deb82a47c5ffd4d9cc12599e84bd7b55a831b71d1d280c13af84585e5a"
     },
     {
-      "path": "sdk/ramex-labs-continuity-mcp-0.3.0-preview.6.tgz",
-      "bytes": 185482,
-      "sha256": "569d78111712785bc136e07ebffe66d445145acb21ec487d0fed7228e4f18525"
+      "path": "sdk/ramex-labs-continuity-mcp-0.3.0-preview.7.tgz",
+      "bytes": 185534,
+      "sha256": "55ed6da548f060a3f94fe0d66e1d22290c0aa9a0f419fc727455089cf4e49d3c"
     },
     {
       "path": "tests/authority.test.mjs",
@@ -2748,8 +2748,8 @@
     },
     {
       "path": "tools/build-mcp.mjs",
-      "bytes": 4247,
-      "sha256": "3a5a11afa3640a31730873324a19f1642f1854903119eb3f767067ad7506f438"
+      "bytes": 4289,
+      "sha256": "fc04ea5e40072d55525d14296890db6be1a0bcc78720ce80f627504693d981b3"
     },
     {
       "path": "tools/build-sdk.mjs",
@@ -2833,8 +2833,8 @@
     },
     {
       "path": "tools/verify-mcp-package.mjs",
-      "bytes": 1764,
-      "sha256": "8653faa41e4af283521ede51ba3064b686115380785e7128ee068ef48ef0aaf9"
+      "bytes": 2608,
+      "sha256": "c80b2f33366a10fd80a60d246e065d03e528f8991a1f4f8a684fa0a90f920c1a"
     },
     {
       "path": "tools/verify-package.mjs",
@@ -2923,8 +2923,8 @@
     },
     {
       "path": "website/downloads/RELEASE-STATUS.md",
-      "bytes": 1258,
-      "sha256": "db4178efeb44b039a935533b7dcd4feb84056a326fa92262c07289b1a0a5a67d"
+      "bytes": 1260,
+      "sha256": "1660c64dbc0cd5cf5738f7e2a8a7ef7bdb4a356872cb885471383da4626233a9"
     },
     {
       "path": "website/downloads/SECURITY.md",
@@ -3348,8 +3348,8 @@
     },
     {
       "path": "website/index.html",
-      "bytes": 13127,
-      "sha256": "eeea241c6e44aed9f2ecbb3168d6ff075470a8e7664f950d8e7294760431ce7d"
+      "bytes": 13141,
+      "sha256": "b94e3eb2e4546ad1bdf74931bf8baf86cc770e5cccf01e6dd44d41cfa3f1de2f"
     },
     {
       "path": "website/source/.gitignore",

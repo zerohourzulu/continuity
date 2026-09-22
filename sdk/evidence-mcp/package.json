@@ -1,6 +1,6 @@
 {
   "name": "@ramex-labs/continuity-mcp",
-  "version": "0.3.0-preview.6",
+  "version": "0.3.0-preview.7",
   "publishConfig": {
     "access": "public",
     "tag": "preview",
@@ -18,6 +18,7 @@
     "node": "^22.18.0 || ^24.0.0 || ^26.0.0"
   },
   "bin": {
+    "continuity-mcp": "./server.mjs",
     "continuity-evidence": "./server.mjs",
     "continuity-evidence-setup": "./setup.mjs",
     "continuity-evidence-demo": "./client.mjs"

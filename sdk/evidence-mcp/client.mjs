@@ -5,7 +5,7 @@ import { StdioClientTransport } from "@modelcontextprotocol/client/stdio";
 const config = process.argv[2];
 if (!config) throw Error("Pass the private gateway.json configuration path.");
 const client = new Client(
-  { name: "continuity-example-client", version: "0.3.0-preview.6" },
+  { name: "continuity-example-client", version: "0.3.0-preview.7" },
   { versionNegotiation: { mode: { pin: "2026-07-28" } } },
 );
 const transport = new StdioClientTransport({

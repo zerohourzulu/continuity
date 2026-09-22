@@ -12,7 +12,7 @@ Use Node22.18+,24.x or26.x on macOS/Linux. Install the exact preview from npm:
 mkdir my-continuity-demo
 cd my-continuity-demo
 npm init -y
-npm install --ignore-scripts @ramex-labs/continuity-mcp@0.3.0-preview.6
+npm install --ignore-scripts @ramex-labs/continuity-mcp@0.3.0-preview.7
 npx --no-install continuity-evidence-setup ./case
 npx --no-install continuity-evidence-demo ./case/gateway.json
 ```
@@ -28,3 +28,5 @@ The demo runs the client and server under your own user account. A client with t
 The supported operation is a synchronous bounded local copy: at most8 files,64KiB each and256KiB total. This guarantee does not extend automatically to arbitrary remote tools. A packet proves which selected bytes were copied, not whether their contents are true. UNKNOWN means investigate or reconcile; it does not mean dispatch another attempt with a new ID.
 
 Cedar/OpenFGA integration examples are separately installed from the source repository. They are not required dependencies of this package. The publisher scope is `@ramex-labs`. An official MCP Registry listing is separate from npm package availability.
+
+The package also supports `npx @ramex-labs/continuity-mcp@0.3.0-preview.7 --config /absolute/path/gateway.json`. The configuration must be created first. This launches the same protected server as `continuity-evidence`.

@@ -57,7 +57,7 @@ const reply = (value, isError = false) => ({
 });
 export function createGatewayServer(tool) {
   const server = new McpServer(
-    { name: "continuity-protected-evidence", version: "0.3.0-preview.6" },
+    { name: "continuity-protected-evidence", version: "0.3.0-preview.7" },
     { capabilities: { tools: {} } },
   );
   let busy = false;
