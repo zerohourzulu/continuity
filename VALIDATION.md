@@ -1,3 +1,13 @@
+# Developer package validation — local candidate
+
+The packed SDK passed offline external installation and exact archive/output membership checks on macOS Node24.21 and Linux Node24.19. All six ESM exports load with TypeScript stripping disabled; an independent TypeScript5.9.3 consumer passes strict checking without skipLibCheck. Generated output is byte-reproducible from unchanged Core0.2.2 source. Source/emitted replay, signed admission and survival query results agree for both original adapter profiles.
+
+A separate application copies actual synthetic packet bytes only after durable admission. It rejects control loss before invocation, revoked-head preparation, forged capability and modified signed request. Selected-input change remains UNKNOWN without resubmission. These checks use trusted local files, public fixture signatures and fixed time; they do not prove production isolation or public-chain freshness. Three new actual CLI/MCP tests cover case shortcuts, summary disclosure enforcement, explicit evidence selection, non-overwrite and symlink rejection. Hosted candidate CI and publication have not occurred.
+
+The earlier evaluation.4 evidence below is historical, not a claim that it already tested this candidate. Final local regression passed194Node+15Python checks on macOS Node24.21/Python3.9.6. Targeted SDK/case/MCP checks also passed on macOS Node22.18 and Linux Node24.19/26.9. The four targeted lanes each cover external JS/TS consumption and all six application scenarios; they are not four new full product-suite runs. A final packaging-only correction supplies the NOTICE-referenced licensing files; installed bytes and deterministic rebuild were verified again on Mac24.21. Executable JS is unchanged from the cross-platform tests.
+
+## Historical evaluation.4 validation
+
 # Validation scope — onboarding evaluation 4
 
 Local acceptance on21September2026 used public-only clean extracted copies. Every environment below passed **191 Node tests and15 Python checks**, plus the Node-only recorded example before installation, synchronized quickstart check, fresh starter, denied packet-note case and package integrity before/after execution.

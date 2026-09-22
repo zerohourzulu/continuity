@@ -52,3 +52,7 @@ Native reporter and receiver identities differ. Receiver policy administration/p
 This candidate supplies an evaluation and developer starting point. A real deployment needs its own protected executor, private signing/custody arrangements, trusted administration, current history source, recovery procedure and resource boundaries. Never substitute the public tutorial scalars for operational credentials. No hosted service, monitoring agent or production installation is supplied here.
 
 The optional [Linux lab](LINUX-LAB.md) exercises native file/socket mechanics with harmless data. It is not a complete deployment of the recorded multi-principal service.
+
+## Shortcuts for a generated case
+
+Use `node tools/case.mjs status CASE` or `node tools/case.mjs check CASE review` with the case name printed by the tutorial. Add `--json` for the original structured result. Each observation prints its own head/time and is not an execution capability. `node tools/case.mjs mcp-config CASE --disclosure summary` generates a read-only configuration for that actual case; evidence disclosure must be selected explicitly. See [Developer entry](DEVELOPER.md).

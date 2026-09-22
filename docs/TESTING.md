@@ -29,3 +29,7 @@ python3 -B conformance/run.py --json -- node conformance/adapters/node.mjs
 Retain the failing command, source version, seed/vector ID and report before editing. An import failure is not a denied action and a timeout is not semantic nonconformance. Check prerequisites/dependencies and relative imports first. Do not change expected security outcomes just to make a test green.
 
 The CI definition exercises Node22.18 (the declared minimum), 24 and26 on macOS/Linux, checks recorded reading before dependency installation, and uses locked dependencies with scripts disabled. Local results do not establish that hosted CI has run. This is the v0.2.2-evaluation.4 public package; [release notes](../RELEASE-NOTES.md) identify local acceptance environments, and GitHub Actions records actual hosted results. The retained vector corpus originated from the reference engine, so a different runner language does not make it independent implementation evidence.
+
+## Developer artifact checks
+
+After the separate build-tool install in [SDK quickstart](SDK-QUICKSTART.md), run `node tools/build-sdk.mjs --check`, `node tools/sdk-parity.mjs` and `node tools/verify-sdk.mjs`. These verify emitted/source parity, actual tarball contents, all six JS exports, strict external TS use and a separate application with packet/no-effect/uncertainty scenarios. No registry publication occurs. Case helper and generated MCP wire regressions are included in the ordinary test suite.

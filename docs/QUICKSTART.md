@@ -13,13 +13,13 @@ cd continuity
 ```
 <!-- /quickstart -->
 
-Or download the complete source archive and checksum from [Releases](https://github.com/zerohourzulu/continuity/releases). For the evaluation.4 archive, open a terminal in its download folder:
+Or download the complete source archive and checksum from [Releases](https://github.com/zerohourzulu/continuity/releases). For the evaluation.5 archive, open a terminal in its download folder:
 
 ```sh
-# macOS; on Linux use: sha256sum -c continuity-v0.2.2-evaluation.4.tar.gz.sha256
-shasum -a 256 -c continuity-v0.2.2-evaluation.4.tar.gz.sha256
-tar -xzf continuity-v0.2.2-evaluation.4.tar.gz
-cd continuity-v0.2.2-evaluation.4
+# macOS; on Linux use: sha256sum -c continuity-v0.2.2-evaluation.5.tar.gz.sha256
+shasum -a 256 -c continuity-v0.2.2-evaluation.5.tar.gz.sha256
+tar -xzf continuity-v0.2.2-evaluation.5.tar.gz
+cd continuity-v0.2.2-evaluation.5
 ```
 
 Verify the untouched package with `node tools/verify-package.mjs`. This checks file membership and hashes; it is not a publisher signature or a test of your edits. A checksum fetched beside an archive has the trust of that delivery channel. Do not use the retained `website/source/` subset as the current package.

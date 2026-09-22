@@ -8,7 +8,7 @@ import { ROOT, supportedNode } from '../tools/environment.mjs';
 
 const scratch = realpathSync(mkdtempSync(join(tmpdir(), 'continuity-onboarding-')));
 const excluded = new Set(['node_modules', '.git', 'runs', 'integrations/core-0.2-reference/cases', 'integrations/document-release-native/build']);
-cpSync(ROOT, scratch, { recursive: true, filter: path => !excluded.has(relative(ROOT, path)) });
+cpSync(ROOT, scratch, { recursive: true, filter: path => !excluded.has(relative(ROOT, path)) && !relative(ROOT,path).split('/').includes('node_modules') });
 let clean = false;
 process.on('exit', code => { if (clean && code === 0) rmSync(scratch, { recursive: true, force: true }); else console.error(`Onboarding failure evidence retained: ${scratch}`); });
 function invoke(args, env = process.env) {

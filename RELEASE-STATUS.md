@@ -1,9 +1,5 @@
-# Continuity evaluation — v0.2.2-evaluation.4
+# Continuity evaluation.5 — developer-package evaluation
 
-Core **0.2.2** remains unchanged. This onboarding edition adds easier setup and recorded reading, repeat-safe synthetic runs, broader Node compatibility and useful local diagnostics. It retains the bounded reader, runnable checks, [public RFC process](docs/RFC.md) and existing security boundaries.
+Core0.2.2 remains unchanged. This edition adds an installable JavaScript package with TypeScript declarations, an independent protected-operation example and case-oriented observation/MCP helpers. See [Developer quickstart](docs/SDK-QUICKSTART.md).
 
-[Quickstart](docs/QUICKSTART.md) · [Release notes](RELEASE-NOTES.md) · [Verification](docs/TESTING.md) · [Security](SECURITY.md).
-
-This is the public onboarding evaluation. [Release and complete source download](https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.4). Hosted CI results are recorded in [GitHub Actions](https://github.com/zerohourzulu/continuity/actions); local acceptance is not a claim that every hosted run passed. No npm publication is selected. Local acceptance is documented in [Validation](VALIDATION.md); it does not establish market demand, independent certification or production readiness.
-
-Continuity-authored code/documentation are Apache2.0; third-party terms remain unchanged. Earlier evaluations1–3 remain preserved in release history. The historical `website/source/` subset supports recorded-guide links; use the complete current package for onboarding.
+[Public release and download](https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.5). Hosted verification is separately visible in [GitHub Actions](https://github.com/zerohourzulu/continuity/actions). Earlier releases and historical source snapshots remain preserved. Local build/consumer checks do not claim hosted CI success, npm publication, a stable general SDK, hostile-host containment or production readiness. Apache-2.0 licensing and existing public RFC contribution process remain unchanged.

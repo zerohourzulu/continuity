@@ -39,6 +39,13 @@ jobs:
         run: node tools/verify-package.mjs
       - name: Public regression and actual conformance controls
         run: node tools/test.mjs
+      - name: Pinned SDK build tools (no install scripts)
+        run: npm ci --prefix tools/sdk-build --ignore-scripts --no-audit --no-fund
+      - name: Reproducible SDK and independent packed consumer
+        run: |
+          node tools/build-sdk.mjs --check
+          node tools/sdk-parity.mjs
+          node tools/verify-sdk.mjs
       - name: Fresh tutorial and changed permission
         run: |
           node tutorial/start.mjs

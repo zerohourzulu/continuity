@@ -60,5 +60,11 @@
     "acceptedCandidateTree": "8bf848a82a038221c85208ac24fcdbdc74a4f38c",
     "sourceBaselineCommit": "b73aec6ce90aa18190277728517fef09c0f7122b",
     "changeFromCandidate": "Release-status wording and this publication provenance only; tested executable source, fixtures, dependencies, workflow and styling preserved."
+  },
+  "developerRelease": {
+    "version": "0.2.2-evaluation.5",
+    "candidateCommit": "4601e029e84a22239ec42123ef574ff8ee09b485",
+    "publicBaseline": "43749f0c67b69748900a80a7fa27c1cf8583e8a4",
+    "delta": "Publication wording, download URLs and developer entry link; executable code, SDK archive, tests and CI unchanged."
   }
 }

@@ -2,6 +2,8 @@
 
 # Developer entry
 
+Start with the [standalone JavaScript package and protected-operation example](SDK-QUICKSTART.md). It runs outside this repository using the local SDK tarball, with generated types and no runtime dependencies. Core remains0.2.2; this is an evaluation interface.
+
 The reusable engine is [packages/core-0.2/src/core/index.ts](../packages/core-0.2/src/core/index.ts), version 0.2.2. The evaluation wrapper has its own version; it does not change Core's protocol version or fork the engine. `SOURCE-PROVENANCE.json` binds copied implementation files to their accepted source bytes.
 
 After running `first-look`, execute this small read-only integration example:
@@ -19,25 +21,18 @@ This example uses the bounded reader to ask whether B may review and collect ano
 3. Run `node examples/read-investigation.mjs first-look` and `node examples/read-investigation.mjs no-review-power`. Expect ALLOW/DENY then DENY/DENY. This is the changed input's observable effect; it does not create a new engine primitive.
 4. Follow the [real stdio MCP example](../integrations/retained-evidence-mcp/README.md). Its default configured `demo` points to the committed synthetic fixture. It does not automatically select your new tutorial case.
 
-To expose your generated case, create a local configuration in `runs/reader-config.json`:
+For a generated case, use the helper instead of assembling paths by hand:
 
-```json
-{
-  "version": "continuity-reader-config/1",
-  "root": "../integrations/core-0.2-reference/cases",
-  "sources": {
-    "investigation": {
-      "file": "first-look/history.jsonl",
-      "disclosure": "evidence",
-      "operations": ["verify", "check", "why", "responsible", "survives", "handover_report"]
-    }
-  }
-}
+```sh
+node tools/case.mjs status first-look
+node tools/case.mjs check first-look review
+node tools/case.mjs check first-look collect --json
+node tools/case.mjs mcp-config first-look --disclosure summary
 ```
 
-Start the same server with `--config runs/reader-config.json` and change the example request's `source` to `investigation`. Keep the actor/resource identifiers `b:first-look` and `obligation:first-look`. This file is trusted local administration: callers cannot provide paths or change its disclosure. Every client attached to that process receives the same configured access. Restart after configuration changes. Use evidence mode only for records whose supported projections may be disclosed.
+Use your actual case name. `summary` permits only verify/status/check; `evidence` explicitly allows WHY/RESPONSIBLE/SURVIVES and the composite report. Configuration and host command/argument fields are written beneath runs/CASE with exclusive creation. Repeating identical generation is safe; changed files are never overwritten. Local absolute paths identify this installation and must not be committed publicly. Every client of that server shares the selected disclosure; no signing/write/execution tools are added. Restart to reload configuration. The host fields are illustrative, not a claim of testing every MCP client.
 
-`runs/` is generated local data outside the package index. Do not add private histories/configuration to a public checkout. The reader is an experimental documented interface, not a general stable SDK; its supported decimal inputs, outputs and limits are in [READER](READER.md). An executor integration still needs the protections below.
+The existing default example-config still exposes only the synthetic committed fixture. Generated configuration selects the named case instead. More detail is in [the MCP reader](../integrations/retained-evidence-mcp/README.md) and [bounded interface](READER.md).
 
 ## Where the work happens
 

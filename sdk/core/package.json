@@ -1,0 +1,46 @@
+{
+  "name": "@continuity/core-0.2",
+  "version": "0.2.2-sdk.1",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "description": "Continuity Core 0.2.2 local evaluation SDK",
+  "engines": {
+    "node": "^22.18.0 || ^24.0.0 || ^26.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js"
+    },
+    "./sdk/admission": {
+      "types": "./dist/sdk/durable-admission.d.ts",
+      "import": "./dist/sdk/durable-admission.js"
+    },
+    "./sdk/receipt": {
+      "types": "./dist/sdk/durable-receipt.d.ts",
+      "import": "./dist/sdk/durable-receipt.js"
+    },
+    "./store": {
+      "types": "./dist/indexer/portable-file-event-store.d.ts",
+      "import": "./dist/indexer/portable-file-event-store.js"
+    },
+    "./administration": {
+      "types": "./dist/administration/index.d.ts",
+      "import": "./dist/administration/index.js"
+    },
+    "./adapters": {
+      "types": "./dist/adapters/index.d.ts",
+      "import": "./dist/adapters/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "NOTICE",
+    "LICENSING.md",
+    "THIRD-PARTY-NOTICES.md",
+    "README.md",
+    "BUILD-PROVENANCE.json"
+  ]
+}

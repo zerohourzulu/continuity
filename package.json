@@ -1,6 +1,6 @@
 {
   "name": "continuity-core-evaluation",
-  "version": "0.2.2-evaluation.4",
+  "version": "0.2.2-evaluation.5",
   "private": true,
   "type": "module",
   "engines": {
@@ -17,7 +17,10 @@
     "setup": "node tools/setup.mjs",
     "doctor": "node tools/doctor.mjs",
     "recorded": "node examples/recorded.mjs",
-    "start": "node tutorial/start.mjs"
+    "start": "node tutorial/start.mjs",
+    "sdk:build": "node tools/build-sdk.mjs --pack",
+    "sdk:verify": "node tools/verify-sdk.mjs",
+    "case": "node tools/case.mjs"
   },
   "dependencies": {
     "viem": "2.55.19"

@@ -1,0 +1,8 @@
+{
+  "name": "continuity-independent-consumer-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "demo": "node demo.mjs"
+  }
+}

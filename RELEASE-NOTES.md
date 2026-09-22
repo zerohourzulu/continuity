@@ -1,3 +1,14 @@
+# Developer-package evaluation.5
+
+- One compiled ESM SDK from unchanged Core0.2.2 with strict generated declarations, explicit exports, source/output provenance and no runtime dependencies.
+- Offline packed installation and real synthetic packet example in a separate application; no install hooks or npm publication.
+- Case-name status/permission shortcuts and explicit summary/evidence MCP configuration for the selected generated case.
+- Reproducible build, source/emitted parity, external JS/TS consumption and actual generated-config wire checks.
+
+Public developer-package evaluation; hosted verification results are recorded separately in GitHub Actions. See [developer guide](docs/SDK-QUICKSTART.md) for exact limits, including admission versus pre-use control checks.
+
+## Earlier release notes (historical)
+
 # Onboarding evaluation 4 — 21 September 2026
 
 Core remains **0.2.2**. This edition broadens the tutorial runtime range and simplifies first contact:

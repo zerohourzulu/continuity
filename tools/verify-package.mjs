@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const skip=new Set(['.git','node_modules','runs','integrations/core-0.2-reference/cases','integrations/document-release-native/build']);
-function walk(dir='',files=[]){for(const entry of readdirSync(join(root,dir))){const rel=dir?`${dir}/${entry}`:entry;if(skip.has(rel)||entry==='.DS_Store')continue;const stat=lstatSync(join(root,rel));assert(!stat.isSymbolicLink(),`Unexpected link: ${rel}`);if(stat.isDirectory())walk(rel,files);else{assert(stat.isFile(),`Unexpected file type: ${rel}`);files.push(rel);}}return files.sort();}
+function walk(dir='',files=[]){for(const entry of readdirSync(join(root,dir))){const rel=dir?`${dir}/${entry}`:entry;if(skip.has(rel)||entry==='node_modules'||entry==='.DS_Store')continue;const stat=lstatSync(join(root,rel));assert(!stat.isSymbolicLink(),`Unexpected link: ${rel}`);if(stat.isDirectory())walk(rel,files);else{assert(stat.isFile(),`Unexpected file type: ${rel}`);files.push(rel);}}return files.sort();}
 try{
  const index=JSON.parse(readFileSync(join(root,'PACKAGE-FILES.json'),'utf8'));
  assert.equal(index.schemaVersion,'continuity-evaluation-files/1');

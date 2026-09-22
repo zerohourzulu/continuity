@@ -1,0 +1,10 @@
+{
+  "name": "continuity-sdk-build-tools",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "22.18.6"
+  }
+}

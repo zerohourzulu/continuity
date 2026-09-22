@@ -23,7 +23,7 @@ A typical local host configuration uses its executable and argument fields:
 }
 ```
 
-Replace `/ABSOLUTE/PACKAGE` with this installation and ensure `node` is Node24 (or use its absolute executable path). These fields are illustrative; individual hosts store them differently. No particular host integration is claimed tested here.
+Replace `/ABSOLUTE/PACKAGE` with this installation and ensure `node` is Node22.18+(22.x),24.x or26.x (or use its absolute executable path). These fields are illustrative; individual hosts store them differently. No particular host integration is claimed tested here.
 
 ## Try actual requests without a host
 
@@ -44,3 +44,5 @@ Expect an initialize response followed by a tool result whose text content is a 
 Tool domain failures return `isError:true` with a coded text result. Invalid protocol parameters/methods and malformed frames produce JSON-RPC errors. `DENY` is a successfully observed decision, not a transport error. Incomplete/oversized frames and stalled output terminate the session; run a new process after correcting input. No subscription, streaming progress, resource/prompt endpoints, task execution or multi-client server is supplied. A running worker is bounded by15seconds; cancellation notifications do not interrupt it early. This is not a general MCP SDK.
 
 The reader deliberately omits the contributed experimental commitment/registry/witness commands. Those remain optional research outside the supported interface. Test with `node --test tests/reader-mcp.test.mjs` from the package root; this exercises real stdin/stdout processes.
+
+For a tutorial-created case, `node tools/case.mjs mcp-config CASE --disclosure summary` generates the actual reader configuration and local host command/args under runs/CASE. Summary allowlists only verify/status/check. Choose evidence explicitly for richer queries. Existing altered configurations are refused rather than overwritten; local absolute paths are not public artifacts.
