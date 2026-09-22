@@ -2,7 +2,7 @@
 
 Start here if you want to build with Continuity. This example runs in a new application, creates its own history and makes no network calls after installation. You need Node22.18+ (22.x),24.x or26.x on macOS or Linux. No model account, chain account, Python or global pnpm is needed.
 
-Download and extract the complete [Core 0.3 preview](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.5). Verify its published SHA-256. From the extracted directory:
+Download and extract the complete [Core 0.3 preview](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.5.1). Verify its published SHA-256. From the extracted directory:
 
 ```sh
 package_dir="$PWD"

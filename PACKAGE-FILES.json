@@ -33,8 +33,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 3820,
-      "sha256": "c34b723a7b94b6f89d658c5b115f5c566976547c26337a17d77f2f6352aad66f"
+      "bytes": 4108,
+      "sha256": "15dce14c73ba8455b5fb312050a04d8149e70e302a8dac9dc7c6351b75840e15"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -83,8 +83,8 @@
     },
     {
       "path": "RELEASE-STATUS.md",
-      "bytes": 1160,
-      "sha256": "e239ba23afdc0cd6341e2840618ca8de75e27e9c63357ac1e7de78d80742e844"
+      "bytes": 1162,
+      "sha256": "797c9a5ea7967ffda56fdcfe2ff357b12a0767d09f7c840965469d7874802aa3"
     },
     {
       "path": "SECURITY.md",
@@ -168,8 +168,8 @@
     },
     {
       "path": "docs/CORE-0.3-QUICKSTART.md",
-      "bytes": 3312,
-      "sha256": "2847325de84c872fdd4daa38db05b20436b3fd6d81d099e7b812baf810f317f8"
+      "bytes": 3314,
+      "sha256": "ee84184df85e9fd64613c5febc2af7e36f9ef12619c6ded78fa3265652e7892f"
     },
     {
       "path": "docs/CORE-0.3-TESTING.md",
@@ -2828,8 +2828,8 @@
     },
     {
       "path": "tools/verify-core-0.3.mjs",
-      "bytes": 5784,
-      "sha256": "ddc67953776c65d0839e0c98e7e241d07c1b1ecc0eb6165b0e46625b01ef7d53"
+      "bytes": 5940,
+      "sha256": "971e338d64a08b241d09dc91aafcd743ee41b430e9952b9c85336fcfb42cce67"
     },
     {
       "path": "tools/verify-mcp-package.mjs",
@@ -2923,8 +2923,8 @@
     },
     {
       "path": "website/downloads/RELEASE-STATUS.md",
-      "bytes": 1319,
-      "sha256": "7ff90c4edd40e9c48075a717f2674a9ba0f7bbe3b09b26eb53e359787e8777d5"
+      "bytes": 1321,
+      "sha256": "0bcefb0be4f244d1d8634ca249156cbdcd708be4ccd6f4753bbad97216bf2db9"
     },
     {
       "path": "website/downloads/SECURITY.md",
@@ -3348,8 +3348,8 @@
     },
     {
       "path": "website/index.html",
-      "bytes": 13127,
-      "sha256": "5fcb2d0c9c2ec61550f95cd7c0779b324a48e08b6fc6bbe2f66958d9191bd637"
+      "bytes": 13141,
+      "sha256": "708187ecff13caec229c0a8d2160c3e4e7fcb7cc521e936685fce085ef847549"
     },
     {
       "path": "website/source/.gitignore",

@@ -64,7 +64,9 @@ export function manage(options: LocalOwnerOptions) {
     '--moduleResolution','NodeNext','--target','ES2022','--types','node','--typeRoots',join(root,'tools/sdk-build/node_modules/@types'),'consumer.mts']);
   cpSync(join(root,'examples/core-0.3/signing/package.json'),join(scratch,'package.json'));
   cpSync(join(root,'examples/core-0.3/signing/package-lock.json'),join(scratch,'package-lock.json'));
-  run('npm',['ci','--offline','--ignore-scripts','--no-audit','--no-fund']);
+  // The optional signing example has registry dependencies. Its fresh cache
+  // is independent of the dependency-free SDK's offline install above.
+  run('npm',['ci','--prefer-offline','--ignore-scripts','--no-audit','--no-fund']);
   run('npm',['install','--offline','--ignore-scripts','--no-audit','--no-fund',join(root,'sdk/continuity-core-0.3.0-preview.5.tgz')]);
   cpSync(join(root,'examples/core-0.3/handover.mjs'),join(scratch,'handover.mjs'));
   const handover=run(process.execPath,['--no-experimental-strip-types','handover.mjs']);

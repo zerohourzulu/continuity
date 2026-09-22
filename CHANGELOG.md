@@ -1,3 +1,7 @@
+# Preview 5.1 — fresh-machine verification
+
+The public consumer check now downloads the signing example’s locked dependencies when its private cache is empty. The dependency-free SDK still installs offline. SDK and MCP package bytes and engine behavior are unchanged from preview 5.
+
 # Core 0.3 preview.5
 
 Fresh-case API, signed lifecycle, protected MCP evidence tool, LangChain recipe, separate-user Linux lab and optional policy composition. See [release notes](RELEASE-NOTES.md). Original0.2.2 history and engine preserved.
