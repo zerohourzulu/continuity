@@ -26,4 +26,4 @@ Proceed with the Node command only if `findmnt` reports `ext4` and the ownership
 
 A successful check emits its JSON result and exits 0. A refusal is a useful boundary result, not permission to weaken the checks. Read the error and provision a new suitable scratch directory. Do not rerun over retained output or use a real document path.
 
-This candidate includes the unchanged source and prior recorded guide evidence. Fresh native compilation/mechanics execution is **not** part of its public tutorial acceptance claim; the clean-checkout acceptance covers the portable tutorial on the platforms recorded in VALIDATION.md. Full hostile-host containment, production custody and arbitrary crash recovery remain outside scope.
+This release includes the unchanged source and prior recorded guide evidence. Fresh native compilation/mechanics execution is **not** part of its public tutorial acceptance claim; the clean-checkout acceptance covers the portable tutorial on the platforms recorded in VALIDATION.md. Full hostile-host containment, production custody and arbitrary crash recovery remain outside scope.

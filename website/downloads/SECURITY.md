@@ -11,3 +11,7 @@ The wrapper appends selected revocations as the trusted single-process operator,
 The printed current decision is scoped to a history head and operation. Do not treat it as a capability for a later action. An integration must use the current admission/pre-use checks and completely mediate its protected resource. No privileged decision is delegated to an AI model.
 
 Source integrity checks identify bytes, not correctness, author identity, independence of review or production readiness. Only the documented tutorial behavior and recorded observations are claimed. Experimental deeper APIs are not a compatibility promise.
+
+## Reporting a vulnerability
+
+Use the repository Security tab to report a vulnerability privately. For ordinary setup questions, use GitHub Issues. Do not include secrets or real customer incident data in public reports. No bounty or response-time commitment is offered.

@@ -1,6 +1,38 @@
 # Walkthrough: replace a security reviewer without losing its duty
 
-Run the commands in the [README](../source/README.md). Budget roughly ten minutes for installation and reading; execution timing depends on the host. No claim of a benchmark or universal latency bound is made.
+Begin with the [quickstart](https://github.com/zerohourzulu/continuity/blob/main/docs/QUICKSTART.md) to get the package and a supported Node runtime. From the complete package directory:
+
+<!-- quickstart:run -->
+```sh
+node tools/setup.mjs
+node tutorial/start.mjs
+```
+<!-- /quickstart -->
+
+Expect `PASS — duty remains OPEN; B has no collection power.`, then `VERIFIED demo-...`, `Duty: OPEN; performer b:demo-...` and `Old request: DENIED; executor invoked: false`. The helper runs the existing tutorial and verifies the result, then prints commands for later fresh-process inspection. Each invocation chooses a new case name.
+
+Compare with another case where review permission is revoked:
+
+<!-- quickstart:compare -->
+```sh
+node tutorial/start.mjs --deny-review
+```
+<!-- /quickstart -->
+
+The latter DENY is an intentional decision, not a broken installation. [The short answer key](https://github.com/zerohourzulu/continuity/blob/main/docs/READ-THE-RESULT.md) explains what this establishes.
+
+### Explicit names for the detailed examples below
+
+If you want the exact paths used by the operator/developer guides, run these once:
+
+```sh
+node tutorial/cli.mjs run --case first-look
+node tutorial/cli.mjs inspect first-look
+node tutorial/cli.mjs run --case no-review-power --successor-review deny
+node tutorial/cli.mjs inspect no-review-power
+```
+
+If a name already exists, inspect it or choose another name and use it consistently in later commands. The low-level CLI never overwrites files from an earlier run. The beginner `start` helper avoids these collisions for you. Installation may need registry access; runtime is local. No universal latency bound is claimed.
 
 ## Read the seven checkpoints
 
@@ -48,4 +80,4 @@ Raw application evidence lives under `integrations/core-0.2-reference/cases/firs
 
 A successful run has no background service. Stop reading whenever you wish; its local files remain. Run `inspect` later to reconstruct it. To repeat, choose another case name. To clean up, manually delete only the matching `runs/CASE` and `integrations/core-0.2-reference/cases/CASE` directories after retaining anything you want. Deletion removes that tutorial's evidence. There is no automatic repair, resend or cleanup of a partial failure.
 
-[Developer example](../source/docs/DEVELOPER.md) · [Troubleshooting](../source/docs/TROUBLESHOOTING.md)
+[Inspect with WHY / RESPONSIBLE / SURVIVES](https://github.com/zerohourzulu/continuity/blob/main/docs/OPERATOR.md) · [Developer example](https://github.com/zerohourzulu/continuity/blob/main/docs/DEVELOPER.md) · [Troubleshooting](https://github.com/zerohourzulu/continuity/blob/main/docs/TROUBLESHOOTING.md)

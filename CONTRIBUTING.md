@@ -1,6 +1,6 @@
 # Contributing and asking questions
 
-Start with the README and runnable tutorial. Use GitHub Issues for setup questions, reproducible bugs and concrete security-operator use cases. Include your OS, Node/pnpm versions, exact command, expected result and a minimal synthetic example. Do not post credentials, private prompts, customer files or sensitive incident evidence.
+Start with the README and runnable tutorial. Use GitHub Issues for setup questions, reproducible bugs and concrete security-operator use cases. Include your OS, Node version (and package-manager version if relevant), exact command, expected result and a minimal synthetic example. Do not post credentials, private prompts, customer files or sensitive incident evidence.
 
 Use pull requests for bounded changes. Explain the problem, changed behavior and relevant verification. Authorization must remain deterministic; do not silently broaden powers or make production/containment claims from local results. Follow the existing Apache 2.0 license and preserve third-party notices. Changes intentionally submitted for inclusion are covered by Apache 2.0 section 5 unless explicitly stated otherwise.
 
@@ -11,3 +11,9 @@ Report exploitable vulnerabilities through the repository Security tab’s priva
 Maintainers may use AI assistance to triage or draft responses; decisions must be grounded in the repository and evidence. A pull request is not automatically merged just because it passes a check.
 
 [Package maintenance and manifest updates](docs/MAINTENANCE.md).
+
+## Writing for readers
+
+Begin with what the reader wants to do and what they should expect to see. Assume they are curious, capable and new to this project. Use familiar words and a concrete example before introducing specialist terms. Keep most explanations readable for a bright high-school student; use exact technical names where they help someone build, diagnose or verify.
+
+Leave internal approval language out of public instructions. Keep real security limits next to the action they qualify. Warm writing should not hide uncertainty, imply that a test proves safety, or obscure AI assistance. For a longer explanation, offer a simple first route and links to the details. Images need useful alt text, and the explanation must still work without them.

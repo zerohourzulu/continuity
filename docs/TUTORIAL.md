@@ -32,7 +32,7 @@ node tutorial/cli.mjs run --case no-review-power --successor-review deny
 node tutorial/cli.mjs inspect no-review-power
 ```
 
-If a name already exists, inspect it or choose another name and use it consistently in later commands. The low-level CLI never overwrites retained evidence. The beginner `start` helper avoids these collisions for you. Installation may need registry access; runtime is local. No universal latency bound is claimed.
+If a name already exists, inspect it or choose another name and use it consistently in later commands. The low-level CLI never overwrites files from an earlier run. The beginner `start` helper avoids these collisions for you. Installation may need registry access; runtime is local. No universal latency bound is claimed.
 
 ## Read the seven checkpoints
 

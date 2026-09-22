@@ -1,8 +1,24 @@
-# Developer package validation — local candidate
+# What has been tested
+
+The published **v0.2.2-evaluation.5** release passed **194 Node tests and 15 Python checks in each of six hosted jobs**: macOS and Ubuntu, each with Node 22.18, 24 and 26. The jobs also checked the SDK rebuild, source/compiled behavior and a separate JavaScript/TypeScript consumer. [Verification run](https://github.com/zerohourzulu/continuity/actions/runs/35681575289) · [Pages deployment](https://github.com/zerohourzulu/continuity/actions/runs/35681575319).
+
+The tutorial demonstrates replacement, refusal of an obsolete request, continuing unfinished work and separately checked permissions. The SDK example exercises a protected operation and refusal paths. These checks use synthetic data and public test keys on trusted hosts. They do not establish hostile-host containment, production credentials, current public-chain state, real incident truth or measured beginner comprehension.
+
+## Editorial evaluation.6
+
+The illustrated guide and editorial changes are based on evaluation.5. Executable source, dependencies, signed fixtures and the SDK archive are unchanged. The hosted results above apply to that runtime baseline; they establish the unchanged runtime baseline. Local editorial checks passed file integrity, guide links and exact tutorial-command agreement. Publication checks for this edition appear in the repository’s Actions history; no independent newcomer study is claimed.
+
+[Run the checks yourself](docs/TESTING.md) · [Security boundaries](SECURITY.md).
+
+## Earlier local preparation records
+
+The records below preserve the environments and limitations observed before publication. Statements about unpublished preparation describe their date, not the current release.
+
+### Developer package — pre-publication local checks
 
 The packed SDK passed offline external installation and exact archive/output membership checks on macOS Node24.21 and Linux Node24.19. All six ESM exports load with TypeScript stripping disabled; an independent TypeScript5.9.3 consumer passes strict checking without skipLibCheck. Generated output is byte-reproducible from unchanged Core0.2.2 source. Source/emitted replay, signed admission and survival query results agree for both original adapter profiles.
 
-A separate application copies actual synthetic packet bytes only after durable admission. It rejects control loss before invocation, revoked-head preparation, forged capability and modified signed request. Selected-input change remains UNKNOWN without resubmission. These checks use trusted local files, public fixture signatures and fixed time; they do not prove production isolation or public-chain freshness. Three new actual CLI/MCP tests cover case shortcuts, summary disclosure enforcement, explicit evidence selection, non-overwrite and symlink rejection. Hosted candidate CI and publication have not occurred.
+A separate application copies actual synthetic packet bytes only after durable admission. It rejects control loss before invocation, revoked-head preparation, forged capability and modified signed request. Selected-input change remains UNKNOWN without resubmission. These checks use trusted local files, public fixture signatures and fixed time; they do not prove production isolation or public-chain freshness. Three new actual CLI/MCP tests cover case shortcuts, summary disclosure enforcement, explicit evidence selection, non-overwrite and symlink rejection. At the time of this local preparation record, hosted CI and publication had not occurred; the published results are summarized above.
 
 The earlier evaluation.4 evidence below is historical, not a claim that it already tested this candidate. Final local regression passed194Node+15Python checks on macOS Node24.21/Python3.9.6. Targeted SDK/case/MCP checks also passed on macOS Node22.18 and Linux Node24.19/26.9. The four targeted lanes each cover external JS/TS consumption and all six application scenarios; they are not four new full product-suite runs. A final packaging-only correction supplies the NOTICE-referenced licensing files; installed bytes and deterministic rebuild were verified again on Mac24.21. Executable JS is unchanged from the cross-platform tests.
 

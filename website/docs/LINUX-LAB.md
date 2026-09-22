@@ -12,7 +12,7 @@ From the package root, build as your ordinary lab user:
 sh integrations/document-release-native/build.sh
 ```
 
-The build emits `integrations/document-release-native/build/document_release.node`. Read the [native contract](../source/integrations/document-release-native/README.md) before the next step.
+The build emits `integrations/document-release-native/build/document_release.node`. Read the [native contract](https://github.com/zerohourzulu/continuity/blob/main/integrations/document-release-native/README.md) before the next step.
 
 Create a new private scratch directory under a safe home (not `/tmp`, not a shared mount or symlink). All ancestors must be owned by root or your user, not group/world writable, and without access/default ACLs. The path must be on ext4. Use a new directory name for every run:
 
@@ -26,4 +26,4 @@ Proceed with the Node command only if `findmnt` reports `ext4` and the ownership
 
 A successful check emits its JSON result and exits 0. A refusal is a useful boundary result, not permission to weaken the checks. Read the error and provision a new suitable scratch directory. Do not rerun over retained output or use a real document path.
 
-This candidate includes the unchanged source and prior recorded guide evidence. Fresh native compilation/mechanics execution is **not** part of its public tutorial acceptance claim; the clean-checkout acceptance covers the portable tutorial on the platforms recorded in VALIDATION.md. Full hostile-host containment, production custody and arbitrary crash recovery remain outside scope.
+This release includes the unchanged source and prior recorded guide evidence. Fresh native compilation/mechanics execution is **not** part of its public tutorial acceptance claim; the clean-checkout acceptance covers the portable tutorial on the platforms recorded in VALIDATION.md. Full hostile-host containment, production custody and arbitrary crash recovery remain outside scope.

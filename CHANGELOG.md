@@ -1,3 +1,7 @@
+# Editorial evaluation.6 — 22 September 2026
+
+Added an illustrated plain-language README companion, revised public guides around reader tasks, corrected stale validation wording and synchronized downloadable website guides. Core0.2.2 and SDK0.2.2-sdk.1 remain unchanged.
+
 # Onboarding evaluation — v0.2.2-evaluation.4
 
 Add Node-only recorded reading, project-local setup, a repeat-safe starter, runtime compatibility beyond Node24, early prerequisites and clearer diagnostics. Align quickstart snippets and CI. Core0.2.2 source and dependency lock remain unchanged. [Release notes](RELEASE-NOTES.md) · [Quickstart](docs/QUICKSTART.md).

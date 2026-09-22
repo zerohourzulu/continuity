@@ -1,19 +1,23 @@
-# An agent is temporary. Its unfinished work may not be.
+# The helper changes. What happens to the unfinished job?
 
-Imagine a security team asks agent A to collect a small evidence packet and review it. A has explicit permission for that task. The investigation is still open when the team replaces A with B.
+A security team asks software helper A to gather a packet and review it. A gathers the packet, but the review is still unfinished when the team replaces A with B.
 
-A process supervisor can start B. Continuity answers a different set of questions: which authority is current, which old requests must be refused, and which recorded duties still exist?
+Starting B does not answer three practical questions: what may B do, which old requests should now be refused, and who is assigned the work that remains? Continuity keeps those questions separate.
 
-In this tutorial:
+Prefer a picture and a slower walkthrough? [Read the illustrated explanation](https://github.com/zerohourzulu/continuity/blob/main/README-ELI5.md).
 
-1. A's selected collection request is allowed. The simulator acknowledges it; a review duty is recorded as OPEN.
-2. The operator hands over the role. A's control epoch changes, A is terminated in the protocol, and B receives the performance assignment. This does not kill an OS process.
-3. The operator explicitly revokes A's collection grant. A's old signed request is refused before executor invocation.
-4. B holds the unfinished duty, with only its separately declared powers. B cannot collect another packet. B's review permission can also be revoked without deleting the duty.
-5. A new process replays the retained events and sees the same history head and OPEN duty.
+## What happens in the tutorial
 
-The agents here are identifiers and signed requests driven by a small program. You do not need to install an AI model. Models may propose work in a future integration; they do not decide whether a grant or signature is valid.
+1. A's permitted collection request runs in the simulator. The record shows a review duty as `OPEN`: it is not finished.
+2. The operator assigns the remaining work to B and changes A's recorded control status. This does not kill an operating-system process.
+3. The operator revokes A's collection permission. The old signed collection request is refused before the component that would carry it out is called.
+4. B can review the existing packet, but cannot collect another. Removing B's review permission leaves the unfinished duty in the record.
+5. A fresh process reads the saved events and finds the same history and unfinished duty.
 
-**Three different facts:** a valid signature identifies the fixture signer; an authorization decision says what the declared rules allow; an acknowledgment records the executor's stated result. None proves the investigation was completed or the incident allegation was true.
+No AI model is needed: A and B are test identities and signed requests driven by a small program.
 
-[Run it](../source/README.md#run-the-tutorial) · [See the stages](../source/docs/TUTORIAL.md) · [Inspect the implementation](../source/docs/DEVELOPER.md)
+## What an answer tells you
+
+A valid signature identifies who signed the test request. An authorization decision says what the supplied rules and history allow. An executor acknowledgment records what the component carrying out the action reported. These are different facts. None proves that the investigation is finished or that a suspected incident really happened.
+
+[Read the result](https://github.com/zerohourzulu/continuity/blob/main/docs/READ-THE-RESULT.md) · [Run it](https://github.com/zerohourzulu/continuity/blob/main/README.md#run-the-tutorial) · [Detailed stages](https://github.com/zerohourzulu/continuity/blob/main/docs/TUTORIAL.md) · [Build an integration](https://github.com/zerohourzulu/continuity/blob/main/docs/DEVELOPER.md)

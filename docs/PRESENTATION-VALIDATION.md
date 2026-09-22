@@ -2,7 +2,7 @@
 
 # Presentation validation
 
-This edition adds presentation, publication preparation and public-facing context to the accepted evaluation R1. Runtime code, tutorial code, integration, lockfile and retained evidence bytes are unchanged; the prior [runtime validation](../VALIDATION.md) remains applicable at its stated scope. No fresh product scenario or destructive lab campaign was needed for these changes.
+This edition adds presentation, publication preparation and public-facing context to the original evaluation. Runtime code, tutorial code, integration, lockfile and recorded run files are unchanged; the prior [runtime validation](../VALIDATION.md) remains applicable at its stated scope. No fresh product scenario or destructive lab campaign was needed for these changes.
 
 Checks completed locally:
 

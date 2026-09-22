@@ -1,3 +1,7 @@
+# Editorial evaluation.6
+
+An illustrated README companion explains the unfinished-job/permission distinction through a story. Public guides now start with the reader’s task, and website copies are generated from their maintained sources. Existing runtime, SDK, dependencies and test fixtures are unchanged. The main README changes only its release labels. This release does not include the separately developed browser playground.
+
 # Developer-package evaluation.5
 
 - One compiled ESM SDK from unchanged Core0.2.2 with strict generated declarations, explicit exports, source/output provenance and no runtime dependencies.
