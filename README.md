@@ -1,4 +1,4 @@
-> **Maintenance evaluation — v0.2.2-evaluation.2.** Core remains 0.2.2. Runnable verification, a bounded reader and connected user journeys. [Release notes](RELEASE-NOTES.md) · [Run the tests](docs/TESTING.md) · [Reader/CLI/MCP](docs/READER.md).
+> **Public evaluation — v0.2.2-evaluation.3.** Core remains 0.2.2. Runnable verification, a bounded reader and connected user journeys. [Release notes](RELEASE-NOTES.md) · [Run the tests](docs/TESTING.md) · [Reader/CLI/MCP](docs/READER.md).
 
 [![it is 2 a.m. do you know what your agent is doing?](website/images/agent-at-2am.png)](https://zerohourzulu.github.io/continuity/)
 [![Security. Control. Inheritance. Durable survival of powers and responsibilities. Record durably, locally or on chain. This is your agent’s brain on Continuity.](assets/continuity-statement.svg)](https://zerohourzulu.github.io/continuity/)
@@ -60,14 +60,14 @@ Keep records locally, or choose a chain-backed deployment to make selected histo
 
 The [evolving Sites edition](https://continuity-core-demo.zero-hour-zulu.chatgpt.site/) is currently private to its owner and may develop independently. GitHub Pages is the public walkthrough; no Sites account is needed to use Pages or the local tutorial.
 
-## Principles and development
+## Contribute and explore
 
-Read the [Constitution and plain-language introduction](docs/constitution/README.md), or the [short development history](docs/DEVELOPMENT-HISTORY.md) from Core 0.1 to the current reference implementation.
+Read the [short development history](docs/DEVELOPMENT-HISTORY.md) from Core 0.1 to the current reference implementation. [Contributions](CONTRIBUTING.md) and [public RFCs](docs/RFC.md) are welcome; an RFC is useful for changes to protocol behavior or security boundaries.
 
 ## Scope
 
 Core 0.2.2 is local reference software. It is not a hostile-agent sandbox, production credential system or autonomous cyber defender. The website selects recorded results; the downloaded tutorial executes Core. Real integrations must mediate every consequential operation through a protected executor. [Security boundaries](SECURITY.md).
 
-The source, tutorial, tests, reader and website are included here and in the complete maintenance download. The original evaluation.1 remains available as a historical release; use evaluation.2 for the commands above. [Package overview](docs/PACKAGE-OVERVIEW.md) · [Presentation provenance](PRESENTATION-PROVENANCE.json).
+The source, tutorial, tests, reader and website are included here and in the complete evaluation download. Earlier editions remain available as historical releases; use evaluation.3 for the commands above. [Package overview](docs/PACKAGE-OVERVIEW.md) · [Presentation provenance](PRESENTATION-PROVENANCE.json).
 
 [Release status and licensing](RELEASE-STATUS.md) · [Apache 2.0 license](LICENSE) · [Third-party notices](THIRD-PARTY-NOTICES.md)

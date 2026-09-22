@@ -1,3 +1,11 @@
+# Public evaluation 3 — 21 September 2026
+
+Core stays **0.2.2**. This is a public presentation and contribution-process update. Current documentation uses a [lightweight public RFC process](docs/RFC.md) for substantive upstream proposals; ordinary fixes can go directly to a pull request, and forks choose their own direction under the applicable licenses. An unlinked historical tutorial archive is omitted from the current source tree. Earlier Git history and release assets remain preserved.
+
+No runtime, test, fixture, dependency, workflow, license, visual asset or security-boundary behavior changed from evaluation.2. The same local Mac/Linux acceptance applies to those unchanged bytes; GitHub Actions shows the hosted results for this edition. [Run the tutorial](README.md#run-the-tutorial) · [Verify the package](docs/TESTING.md) · [Security boundaries](SECURITY.md).
+
+---
+
 # Maintenance evaluation 2 — 21 September 2026
 
 Core stays **0.2.2**; the evaluation package is **0.2.2-evaluation.2**.
@@ -30,7 +38,7 @@ The accepted runtime candidate was exercised on macOS ARM64 and Linux ARM64 usin
 
 These are bounded local/model-reviewed results, not external certification, a complete independent specification, actual novice-comprehension evidence or production assurance. Reader ALLOW is an observation about supplied history, not a permission to execute later. Coarse source disclosure assumes trusted administration; it is not field-level secrecy. The default tutorial has public test credentials and simulated effects. [Security scope](SECURITY.md).
 
-No Core semantic, constitutional, dependency or license change is made. Experimental registry, membership/witness and shielded modules remain outside this supported release. Optional research does not imply implemented zero knowledge, private computation or complete authority proofs.
+No Core semantic, dependency or license change was made in evaluation.2. Experimental registry, membership/witness and shielded modules remain outside this supported release. Optional research does not imply implemented zero knowledge, private computation or complete authority proofs.
 
 ## Distribution
 

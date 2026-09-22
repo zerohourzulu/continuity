@@ -1,6 +1,6 @@
 # Continuity Core 0.2 — agents change; responsibility remains
 
-**Maintenance evaluation 2 · local reference software · Apache 2.0**
+**Public evaluation 3 · local reference software · Apache 2.0**
 
 For the connected novice, operator and developer paths, start at the [root README](../README.md#choose-your-path). The complete maintenance download includes this tutorial, the reader and runnable verification.
 
@@ -23,7 +23,7 @@ Continuity records authority, actions and unfinished duties in a replayable hist
 
 Use **macOS or Linux, Node.js 24.x and pnpm 11.19.0**. Check `node --version` and `pnpm --version`. Standard Node installations include npm; if needed, install the selected package manager with `npm install --global pnpm@11.19.0`. See [setup and troubleshooting](TROUBLESHOOTING.md).
 
-Extract the complete maintenance source archive or clone `https://github.com/zerohourzulu/continuity`. Use evaluation.2 or later for the reader paths.
+Extract the complete current source archive or clone `https://github.com/zerohourzulu/continuity`. Use evaluation.2 or later for the reader paths.
 
 From the repository root:
 

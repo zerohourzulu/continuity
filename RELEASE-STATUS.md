@@ -1,13 +1,13 @@
-# Continuity maintenance evaluation — v0.2.2-evaluation.2
+# Continuity public evaluation — v0.2.2-evaluation.3
 
-Core **0.2.2** remains unchanged. This evaluation edition adds runnable regression/conformance checks, a bounded retained-history CLI/stdio MCP reader, and connected newcomer/operator/developer paths. It is local reference software, not production software or a hostile-agent sandbox.
+Core **0.2.2** remains unchanged. This edition keeps the runnable verification, bounded retained-history CLI/stdio MCP reader, and newcomer/operator/developer paths. The current public package uses a lightweight [RFC process](docs/RFC.md) for substantive upstream changes. It is local reference software, not production software or a hostile-agent sandbox.
 
-[Release and complete source download](https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.2) · [Release notes](RELEASE-NOTES.md) · [Verification](docs/TESTING.md) · [Security boundaries](SECURITY.md).
+[Release and complete source download](https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.3) · [Release notes](RELEASE-NOTES.md) · [Verification](docs/TESTING.md) · [Security boundaries](SECURITY.md).
 
-The founder authorized this maintenance publication on 21 September 2026. Local Mac/Linux acceptance is recorded in the release notes; GitHub Actions provides the actual hosted result for each public commit. Publication does not establish customer demand, independent certification or production readiness. No npm publication is selected.
+The accepted runtime's Mac/Linux results are recorded in the release notes; GitHub Actions provides the actual hosted result for each public commit. Publication does not establish customer demand, independent certification or production readiness. No npm publication is selected.
 
 ## Rights and earlier release
 
-Continuity-authored code, documentation and Constitution are Apache 2.0; third-party terms remain unchanged. [License](LICENSE) · [Scope](LICENSING.md).
+Continuity-authored code and documentation are Apache 2.0; third-party terms remain unchanged. [License](LICENSE) · [Scope](LICENSING.md).
 
-The first public evaluation, https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.1, remains preserved with its original assets. It does not contain this edition's new reader and verification tools. The historical source snapshot under website/source belongs to that earlier tutorial. Use the complete current repository or maintenance archive for current commands.
+Earlier evaluations [1](https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.1) and [2](https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.2) remain preserved with their original assets. Evaluation.1 lacks this edition's reader and verification tools. The older tutorial source subset under website/source is retained for recorded-guide links, with current public-facing notices updated. Use the complete current repository or evaluation.3 archive for current commands.

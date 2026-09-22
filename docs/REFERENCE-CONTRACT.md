@@ -1,6 +1,6 @@
 # Descriptive reference contract — Core0.2.2 verification surface
 
-Status: descriptive evaluation contract, not a new protocol edition or stable SDK promise. The governing [Constitution](constitution/README.md), accepted versioned engine contracts and actual evidence boundaries retain their authority. This document describes the surface covered by the selected tests; it is not a complete independent implementation specification.
+Status: descriptive evaluation contract, not a new protocol edition or stable SDK promise. The current versioned engine contracts and actual evidence boundaries define the tested reference behavior. This document describes the surface covered by the selected tests; it is not a complete independent implementation specification. [Propose material changes through an RFC](RFC.md).
 
 The central distinction is that a duty can survive replacement while permission remains separately established. The existing tutorial produces a retained handover history. A fresh inspector can ask why a request was refused and what survives; that answer does not execute the action or establish present-world truth.
 

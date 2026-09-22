@@ -1,3 +1,9 @@
+# Public evaluation — v0.2.2-evaluation.3
+
+The current public distribution uses a lightweight [RFC process](docs/RFC.md) for substantive upstream proposals and omits an unlinked historical tutorial archive. Core 0.2.2, tests, dependencies, license and security boundaries are unchanged. Previous release assets and Git history remain available.
+
+---
+
 # Maintenance evaluation — v0.2.2-evaluation.2
 
 Additions over the original evaluation release:
@@ -7,7 +13,7 @@ Additions over the original evaluation release:
 - Connected newcomer/operator/developer paths, an answer key and a read-only generated-case example.
 - Package-index exclusions consistent with generated tutorial data.
 
-Core0.2.2, constitutional semantics, original history fixtures and dependency versions are unchanged. The reader is observation only; it does not authorize execution or isolate hostile programs. Summary/evidence disclosure assumes trusted local administration and does not provide field-level secrecy. Experimental proof/registry/witness commands remain excluded.
+Core0.2.2, original history fixtures and dependency versions are unchanged. The reader is observation only; it does not authorize execution or isolate hostile programs. Summary/evidence disclosure assumes trusted local administration and does not provide field-level secrecy. Experimental proof/registry/witness commands remain excluded.
 
 The primary website download now supplies the complete maintenance archive, including tests and reader. Original evaluation.1 assets remain preserved. [Release notes](RELEASE-NOTES.md) distinguish local acceptance from actual hosted CI results.
 
@@ -15,7 +21,7 @@ The primary website download now supplies the complete maintenance archive, incl
 
 # First public evaluation — 19 September 2026
 
-Apache 2.0 release authorized and published with visual README, GitHub Pages, tutorial download, Constitution and developer guidance. Runtime remains Core 0.2.2.
+Apache 2.0 release authorized and published with visual README, GitHub Pages, tutorial download and developer guidance. Runtime remains Core 0.2.2.
 
 ## Historical candidate notes
 

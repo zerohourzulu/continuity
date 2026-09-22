@@ -1,6 +1,5 @@
 {
   "schemaVersion": "continuity-presentation-provenance/1",
-  "evaluationArchiveSha256": "98d6e1a797ff402f6ca4b8bccfe64ebd4c476123a01242883a079eff5d9adb8d",
   "acceptedSitesVersion": 4,
   "siteSourceCommit": "6c5d60b81d922004edcc27e722871d259a503c8d",
   "runtimeChanged": false,
@@ -25,7 +24,6 @@
   },
   "correctedSitesVersion": 5,
   "correctedSiteSourceCommit": "056526bfa2753595e8e927761263673703588af1",
-  "constitutionSha256": "6d80880dc272c8938a57bca352e7dd8cfb4693414c15060a72e0a444464e1dbc",
   "evaluationEdition": 3,
   "license": "Apache-2.0",
   "predecessorStagingCommit": "ecdd15ed1dc0cf437fd30a910e498d3833232f21",
@@ -43,5 +41,12 @@
     "changes": "Current complete download and documentation alignment; visual assets, stylesheets, original tutorial archive and historical source snapshot preserved.",
     "releaseUrl": "https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.2",
     "hostedEvidence": "See GitHub Actions for the exact published commit; local acceptance alone is not a hosted result."
+  },
+  "publicRfcRelease": {
+    "version": "0.2.2-evaluation.3",
+    "coreRuntimeChanged": false,
+    "currentPublicContributionProcess": "docs/RFC.md",
+    "releaseUrl": "https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.3",
+    "priorReleaseAssetsPreserved": true
   }
 }

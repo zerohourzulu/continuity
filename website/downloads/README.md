@@ -21,7 +21,7 @@ Continuity records authority, actions and unfinished duties in a replayable hist
 
 Use **macOS or Linux, Node.js 24.x and pnpm 11.19.0**. Check `node --version` and `pnpm --version`. Standard Node installations include npm; if needed, install the selected package manager with `npm install --global pnpm@11.19.0`. See [setup and troubleshooting](../source/docs/TROUBLESHOOTING.md).
 
-Extract the source archive or clone `https://github.com/zerohourzulu/continuity`.
+Extract the [complete current release archive](https://github.com/zerohourzulu/continuity/releases/tag/v0.2.2-evaluation.3) or clone `https://github.com/zerohourzulu/continuity`.
 
 From the directory containing this README:
 
