@@ -1,4 +1,3 @@
-/** Internal Section 9 projection vocabulary; public query dispatch is staged separately. */
 import { canonicalEncode, compareProtocolStrings, immutableProtocolValue } from "./canonical.js";
 export const PORTABLE_QUERY_VERSION = "continuity-query-envelope/0.2";
 export const PORTABLE_QUERY_EXTERNAL_ASSUMPTIONS = Object.freeze({
@@ -64,7 +63,7 @@ const constraintsFields = "actions resources quantitative notBefore expiresAt ma
 const rootFields = "rootAuthorityId principalId principalRecognitionEventId rootGrantEventId";
 const domainFields = "protocol version deploymentId chainId verifyingContract";
 const grantFields = "kind authorityId grantorId granteeId rootAuthorityId parentAuthorityId independent constraints";
-fields("", "authorization presentConsequentialUse authorizationDecision attributions targetAgentId exists lifecycleStatus historicalIdentity currentRoleTenures transferredRoleTenures unresolvedIntents adapterOutcomes receiptCommitments obligations currentPerformanceAssignments invalidatedAuthorityDependencies");
+fields("", "authorization presentConsequentialUse authorizationDecision attributions targetAgentId exists lifecycleStatus historicalIdentity currentRoleTenures transferredRoleTenures unresolvedIntents adapterOutcomes outcomeObservations attemptDuties receiptCommitments obligations currentPerformanceAssignments invalidatedAuthorityDependencies");
 fields("authorization", "operationVersion decision scopeAssurance consequential proof code failures");
 fields("authorization.failures", "code subjectId rootAuthorityId terminalAuthorityId failingAuthorityId authorityPathIds evidence");
 fields("authorization.failures.evidence", evidenceFields);
@@ -93,6 +92,12 @@ for (const path of ["currentRoleTenures", "transferredRoleTenures"]) {
 }
 fields("unresolvedIntents", "intentId actorId nonce state evidence");
 const adapterProfileFields = "profileId profileVersion descriptorHash";
+fields("outcomeObservations", "observationEventId intentId sourceAdmissionEventId originalActorId recorderId recordedAt reportDigest reportStatus externalOutcome evidence");
+fields("outcomeObservations.reportDigest", "algorithm value");
+fields("outcomeObservations.evidence", evidenceFields);
+fields("attemptDuties", "dutyId sourceIntentId sourceAdmissionEventId originalActorId durableRoleId creationActorId initialAssigneeId currentAssigneeId deadline status externalOutcome evidence reviewStatus reviews");
+fields("attemptDuties.reviews", "dutyId actorId observationEventIds summaryDigest eventId eventPosition reviewedAt");
+fields("attemptDuties.evidence", evidenceFields);
 fields("adapterOutcomes", "intentId actorId adapterProfile state acknowledgment latestOutcome evidence");
 fields("adapterOutcomes.adapterProfile", adapterProfileFields);
 fields("adapterOutcomes.evidence", evidenceFields);
@@ -105,7 +110,8 @@ for (const path of ["adapterOutcomes.acknowledgment", "adapterOutcomes.latestOut
     fields(`${path}.domain`, domainFields);
     fields(`${path}.admissionHead`, "hash position canonicalTime");
 }
-fields("adapterOutcomes.acknowledgment.result", "kind submissionReference manifestDigest transitionDigest publicationManifestDigest");
+fields("adapterOutcomes.acknowledgment.result", "kind submissionReference manifestDigest transitionDigest publicationManifestDigest reportDigest");
+fields("adapterOutcomes.acknowledgment.result.reportDigest", "algorithm value");
 fields("adapterOutcomes.acknowledgment.result.manifestDigest", "algorithm value");
 fields("adapterOutcomes.acknowledgment.result.publicationManifestDigest", "algorithm value");
 fields("adapterOutcomes.acknowledgment.result.transitionDigest", "algorithm value");

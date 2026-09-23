@@ -1,3 +1,4 @@
+import { PORTABLE_ADAPTER_POLICY_E5_HASH, PORTABLE_ADAPTER_POLICY_E6_HASH } from "./portable-adapter-engine.js";
 import { captureBoundedCanonicalAuthorityOperationIncrementally, captureBoundedCanonicalValue, canonicalEncode, compareProtocolStrings, getCanonicalCaptureLimitErrorMetadata, hashCanonical, isCanonicalReplaySchemaFailure, isCapturedCanonicalAuthorityOperation, isWellFormedUnicode, } from "./canonical.js";
 import { portableAdministrativeTransitionEffect, } from "./portable-administration-codec.js";
 import { HostTypeError, arrayIncludes, arrayIsArray, arrayPush, arraySort, bigintFrom, copyArray, createMap, createSet, hostObjectPrototype, keccak256Bytes, mapForEach, mapGet, mapHas, mapSet, mapSize, numberFrom, numberIsSafeInteger, objectCreate, objectDefineDataProperty, objectFreeze, objectHasOwn, objectIs, reflectApply, reflectGetOwnPropertyDescriptor, reflectGetPrototypeOf, reflectOwnKeys, regExpTest, setAdd, setDelete, setHas, setSize, setToArray, stringCharCodeAt, stringSlice, stringToLowerCase, utf8Encode, uint8ArrayLength, } from "./host-intrinsics.js";
@@ -2729,7 +2730,17 @@ export const createPortableAdministrativePolicyProof = (state, requirements, eva
 export const validatePortableAdministrativeTransition = (state, event, requirements) => {
     if (event.type !== "OBLIGATION_CREATED" &&
         event.type !== "OBLIGATION_PERFORMANCE_ASSIGNED" &&
-        event.type !== "OBLIGATION_STATUS_RECORDED")
+        event.type !== "OBLIGATION_STATUS_RECORDED" &&
+        event.type !== "OUTCOME_OBSERVATION_RECORDED" &&
+        event.type !== "ATTEMPT_DUTY_CREATED" &&
+        event.type !== "ATTEMPT_DUTY_ASSIGNED" &&
+        event.type !== "ATTEMPT_DUTY_REVIEW_CLOSED")
+        return false;
+    if ((event.type === "OUTCOME_OBSERVATION_RECORDED" || event.type === "ATTEMPT_DUTY_CREATED" ||
+        event.type === "ATTEMPT_DUTY_ASSIGNED") && state.genesis.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E5_HASH &&
+        state.genesis.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E6_HASH)
+        return false;
+    if (event.type === "ATTEMPT_DUTY_REVIEW_CLOSED" && state.genesis.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E6_HASH)
         return false;
     const data = event.data;
     const wrapper = data.administrativeAuthorization;

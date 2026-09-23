@@ -1,3 +1,15 @@
+# Preview 6.1 — MCP package-name launch
+
+MCP package preview.7 adds `continuity-mcp` as a default command alias. This lets npx and Registry clients select the server without guessing among setup/demo commands. Existing commands remain available. The Core SDK remains preview.6; engine code is unchanged. The public package test now runs an actual MCP handshake and retry through the npx package-name launch.
+
+# Preview 6 — npm packages under RAmEx Labs
+
+The Core SDK is `@ramex-labs/continuity`; the protected MCP tool is `@ramex-labs/continuity-mcp`. Both use the preview dist-tag. Imports and examples now use the owned publisher namespace. Core engine semantics and supported operations are unchanged. Earlier tarball-only previews remain available in release history.
+
+# Preview 5.1 — fresh-machine verification
+
+The public consumer check now downloads the signing example’s locked dependencies when its private cache is empty. The dependency-free SDK still installs offline. SDK and MCP package bytes and engine behavior are unchanged from preview 5.
+
 # Core 0.3 preview.5
 
 Fresh-case API, signed lifecycle, protected MCP evidence tool, LangChain recipe, separate-user Linux lab and optional policy composition. See [release notes](https://github.com/zerohourzulu/continuity/blob/main/RELEASE-NOTES.md). Original0.2.2 history and engine preserved.

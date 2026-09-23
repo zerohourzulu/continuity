@@ -1,9 +1,11 @@
-# Current edition — Core 0.3 preview.5
+# Current edition — Core 0.3 preview.7
 
-This developer preview supplies a small JavaScript/TypeScript API, signed local runtime and handover helpers, an enforcing local MCP evidence tool, a tested LangChain recipe, and optional Cedar/OpenFGA examples. It uses the unchanged0.2.2 engine and canonical history format. Earlier evaluation tags and their validation records remain available.
+One shared Core now supplies the rules used by both the MCP evidence tool and the cooperating remote-tools integration. The remote package includes native LangChain tools, typed budgets, separate compensation and recovery without automatic redelivery. Explicit history constructors enable attempt records and evidence review; the ordinary Core constructor keeps its existing default. Existing histories are not upgraded automatically.
 
-[Release and downloads](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.6.1) · [Quickstart](docs/CORE-0.3-QUICKSTART.md) · [Tests](docs/CORE-0.3-TESTING.md) · [Compatibility](docs/CORE-0.3-MIGRATION.md).
+[Release and downloads](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.7) · [Quickstart](docs/CORE-0.3-QUICKSTART.md) · [Shared packages](docs/SHARED-CORE.md) · [Remote tutorial](packages/remote-tools/README.md) · [Tests](docs/CORE-0.3-TESTING.md).
 
-The API and MCP packages are installable release tarballs. The npm packages use the verified @ramex-labs scope. The official MCP Registry listing is a separate discovery step. This is a developer preview, not a production certification or stable API promise.
+Use Core `@ramex-labs/continuity@0.3.0-preview.7`, remote `@ramex-labs/continuity-remote@0.3.0-preview.1` and MCP `@ramex-labs/continuity-mcp@0.3.0-preview.8`. The integrations depend on that exact Core version and contain no engine copies. The evidence server remains `io.github.zerohourzulu/continuity-evidence` in the official MCP Registry.
 
-The website continues to show the original recorded demonstration. The separate browser playground is not part of this release. Apache2.0 licensing, dependency notices and the public RFC contribution path are unchanged.
+The remote example uses a cooperating loopback service and synthetic effects. Local revocation becomes a destination fence when the destination acknowledges its newer checkpoint. Restoring an older valid destination snapshot is not detected, evidence review does not discharge a duty, and arbitrary outside APIs do not inherit these guarantees. This remains a developer preview, not a production assurance claim.
+
+The coordinated packages are checked on macOS/Linux ARM64 with Node22.18 and Node24. Earlier public releases, frozen0.2 SDK, Apache2.0 licensing, notices and contribution process remain available. The website's recorded case and interactive playground retain their separate scopes.

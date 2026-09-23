@@ -35,6 +35,8 @@ export type {
   PortableReceiptVerificationIndeterminate, PortableReceiptRecordAdmissionInput, PortableReceiptRecordAdmissionResult,
 } from "./portable-receipt-codec.ts";
 export type { PortableObligationRecord, PortableObligationStatus, PortableObligationTransitionPolicy } from "./portable-administration-codec.ts";
+export type { PortableAttemptDutyRecord, PortableOutcomeObservationRecordedData, PortableAttemptDutyCreatedData,
+  PortableAttemptDutyAssignedData, PortableAttemptDutyReviewClosedData } from "./portable-administration-codec.ts";
 export { whyPortable, responsiblePortable, survivesPortable } from "./portable-queries.ts";
 export { PORTABLE_QUERY_VERSION, PORTABLE_QUERY_EXTERNAL_ASSUMPTIONS, portablePublicQueryDisclosure } from "./portable-query-codec.ts";
 export type {
@@ -47,6 +49,10 @@ export type {
   PortableAdapterOutcomeProjection, PortableIntentProjection, PortableObligationProjection, PortablePerformanceAssignmentProjection, PortableAuthorityDependencyProjection,
 } from "./portable-query-codec.ts";
 export {
+  REMOTE_SERVICE_REPORT_ADAPTER_ID, REMOTE_SERVICE_REPORT_ACKNOWLEDGMENT_VERSION, PORTABLE_ADAPTER_POLICY_E4_HASH,
+  PORTABLE_ADAPTER_POLICY_E5_HASH, PORTABLE_ATTEMPT_OBSERVATION_DUTY_EXTENSION,
+  PORTABLE_ADAPTER_POLICY_E6_HASH, PORTABLE_ATTEMPT_DUTY_REVIEW_EXTENSION,
+  createRemoteServiceReportAcknowledgment,
   LOCAL_DOCUMENT_RELEASE_ADAPTER_ID, LOCAL_DOCUMENT_RELEASE_ACKNOWLEDGMENT_VERSION, PORTABLE_ADAPTER_POLICY_E3_HASH,
   createLocalDocumentReleaseAcknowledgment,
   SIMULATED_ADAPTER_ID, LOCAL_EVIDENCE_PACKET_ADAPTER_ID, LOCAL_SYNTHETIC_ENDPOINT_STATE_ADAPTER_ID,
@@ -61,4 +67,4 @@ export {
   portableAdapterAcknowledgmentEvidence, portableAdapterNoEffectEvidence,
 } from "./portable-adapter-engine.ts";
 export type { PortableAdapterProfile, PortableAdapterAcknowledgment, PortableAdapterNoEffect, PortableAdapterIdentity,
-  LocalDocumentReleaseAcknowledgment, ImmutablePolicy, PortableSimulatedAdapterAcknowledgment, PortableLocalPacketAdapterAcknowledgment, LocalSyntheticEndpointStateAcknowledgment } from "./portable-adapter-engine.ts";
+  RemoteServiceReportAcknowledgment, LocalDocumentReleaseAcknowledgment, ImmutablePolicy, PortableSimulatedAdapterAcknowledgment, PortableLocalPacketAdapterAcknowledgment, LocalSyntheticEndpointStateAcknowledgment } from "./portable-adapter-engine.ts";

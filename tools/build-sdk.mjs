@@ -16,6 +16,13 @@ function files(dir, prefix = '') {
 }
 const args = process.argv.slice(2);
 if (args.length > 1 || args.some(x=>!['--check','--pack'].includes(x))) throw Error('Use: node tools/build-sdk.mjs [--check|--pack]');
+// The frozen SDK can only be rebuilt from its recorded original source.
+const frozen = JSON.parse(readFileSync(join(root,'sdk/core/BUILD-PROVENANCE.json')));
+const currentSources = files(join(root,'packages/core-0.2/src'));
+if (currentSources.length !== frozen.sources.length || frozen.sources.some(item => !currentSources.includes(item.path) || sha(readFileSync(join(root,'packages/core-0.2/src',item.path))) !== item.sha256)) {
+  console.error('The frozen 0.2 SDK belongs to its original release source. Use that release to reproduce it. Build the current shared Core with npm run api:build; do not overwrite the old SDK under its old version.');
+  process.exit(2);
+}
 const scratch = mkdtempSync(join(tmpdir(),'continuity-sdk-build-'));
 try {
   const tsc = join(root,'tools/sdk-build/node_modules/typescript/bin/tsc');

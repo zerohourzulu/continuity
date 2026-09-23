@@ -3,8 +3,8 @@ import { mkdirSync, writeFileSync, realpathSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { generatePrivateKey, privateKeyToAccount } from "viem/accounts";
-import { createLocalOwner, createLocalDomain } from "./core/dist/core-0.3/src/local-owner.js";
-import { selectEvidence } from "./core/dist/core-0.3/src/evidence.js";
+import { createLocalOwner, createLocalDomain } from "@ramex-labs/continuity/local";
+import { selectEvidence } from "@ramex-labs/continuity/evidence";
 export function createDemo(target) {
   mkdirSync(resolve(target), { mode: 0o700 });
   const dir = realpathSync(target),

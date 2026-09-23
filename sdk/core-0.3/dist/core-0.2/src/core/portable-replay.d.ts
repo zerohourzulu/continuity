@@ -1,7 +1,7 @@
 import { type CanonicalReplayCaptureVisitDecision, type CapturedCanonicalReplayEvent, type ContentHash } from "./canonical.ts";
 import { type AcceptedCanonicalEventShape } from "./event-schema.ts";
-import type { PortableObligationRecord, PortableObligationStatus } from "./portable-administration-codec.ts";
-import { type PortableAdapterProfile, type PortableAdapterAcknowledgment, type PortableAdapterNoEffect, type PortableAdapterIdentity } from "./portable-adapter-engine.ts";
+import type { PortableAttemptDutyRecord, PortableObligationRecord, PortableObligationStatus } from "./portable-administration-codec.ts";
+import { type RemoteServiceReportAcknowledgment, type PortableAdapterProfile, type PortableAdapterAcknowledgment, type PortableAdapterNoEffect, type PortableAdapterIdentity } from "./portable-adapter-engine.ts";
 export declare const PORTABLE_REPLAY_VERSION: "continuity-replay/0.2";
 export type PortableReplayCode = "INVALID_INPUT" | "UNSUPPORTED_VERSION" | "UNSUPPORTED_EVENT_SCHEMA" | "UNSUPPORTED_EVENT_TYPE" | "GENESIS_REQUIRED" | "GENESIS_DUPLICATE" | "EVENT_ID_DUPLICATE" | "EVENT_TIME_REGRESSION" | "EVENT_DATA_INVALID" | "TRANSITION_INVALID";
 export type PortableHistoryHead = Readonly<{
@@ -167,6 +167,40 @@ export type PortableReceiptCommitmentRecord = ReceiptRecordedData & Readonly<{
     eventPosition: number;
     head: PortableHistoryHead;
 }>;
+export type PortableOutcomeObservation = Readonly<{
+    intentId: string;
+    sourceAdmissionEventId: string;
+    acknowledgment: RemoteServiceReportAcknowledgment;
+    actorId: string;
+    eventId: string;
+    eventPosition: number;
+    observedAt: number;
+}>;
+export type PortableAttemptDutyAssignment = Readonly<{
+    fromAgentId: string;
+    toAgentId: string;
+    actorId: string;
+    eventId: string;
+    eventPosition: number;
+    assignedAt: number;
+}>;
+export type PortableAttemptDutyReview = Readonly<{
+    dutyId: string;
+    actorId: string;
+    observationEventIds: readonly string[];
+    summaryDigest: ContentHash;
+    eventId: string;
+    eventPosition: number;
+    reviewedAt: number;
+}>;
+export type PortableAttemptDutyState = Readonly<{
+    record: PortableAttemptDutyRecord;
+    creationEventId: string;
+    creationEventPosition: number;
+    creationActorId: string;
+    currentAssigneeId: string;
+    assignments: readonly PortableAttemptDutyAssignment[];
+}>;
 export type PortableObligationState = Readonly<{
     record: PortableObligationRecord;
     status: PortableObligationStatus;
@@ -299,6 +333,9 @@ export type PortableReplayState = Readonly<{
     readonly intentAdmissions: ReadonlyMap<string, PortableIntentAdmissionRecord>;
     readonly intentConsumptions: ReadonlyMap<string, PortableIntentConsumptionRecord>;
     readonly intentOutcomeStates: ReadonlyMap<string, PortableIntentOutcomeState>;
+    readonly outcomeObservations: ReadonlyMap<string, readonly PortableOutcomeObservation[]>;
+    readonly attemptDuties: ReadonlyMap<string, PortableAttemptDutyState>;
+    readonly attemptDutyReviews: ReadonlyMap<string, readonly PortableAttemptDutyReview[]>;
     readonly receiptCommitments: ReadonlyMap<ContentHash, PortableReceiptCommitmentRecord>;
     readonly obligations: ReadonlyMap<string, PortableObligationState>;
     readonly nonceReservationsByActor: ReadonlyMap<string, ReadonlyMap<string, PortableNonceReservation>>;

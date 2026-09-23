@@ -4,7 +4,7 @@ import { isCoreEventType, validateCanonicalEventShape, validateCapturedPortableR
 import { capturePortableReceiptInput } from "./portable-receipt-capture.js";
 import { PORTABLE_RECEIPT_VERIFICATION_VERSION as VERIFY_VERSION, PORTABLE_RECEIPT_RECORD_ADMISSION_VERSION as RECORD_VERSION, PORTABLE_RECEIPT_LIMITATIONS, receiptRecordDataForArtifact, } from "./portable-receipt-codec.js";
 import { evaluatePortableReceiptPolicy, recoverPortableContentHashSigner } from "./portable-authority-engine.js";
-import { LOCAL_DOCUMENT_RELEASE_ADAPTER_ID, SIMULATED_ADAPTER_ID, LOCAL_EVIDENCE_PACKET_ADAPTER_ID, LOCAL_SYNTHETIC_ENDPOINT_STATE_ADAPTER_ID } from "./portable-adapter-engine.js";
+import { REMOTE_SERVICE_REPORT_ADAPTER_ID, LOCAL_DOCUMENT_RELEASE_ADAPTER_ID, SIMULATED_ADAPTER_ID, LOCAL_EVIDENCE_PACKET_ADAPTER_ID, LOCAL_SYNTHETIC_ENDPOINT_STATE_ADAPTER_ID } from "./portable-adapter-engine.js";
 import { createPortableReplayKernel, PORTABLE_REPLAY_VERSION, } from "./portable-replay.js";
 const same = (a, b) => canonicalEncode(a) === canonicalEncode(b);
 const sameHead = (a, b) => a.hash === b.hash && a.position === b.position && a.canonicalTime === b.canonicalTime;
@@ -127,6 +127,7 @@ const boundProof = (state, payload) => {
 const assuranceFor = (adapterId) => {
     switch (adapterId) {
         case SIMULATED_ADAPTER_ID: return "SIMULATED";
+        case REMOTE_SERVICE_REPORT_ADAPTER_ID:
         case LOCAL_EVIDENCE_PACKET_ADAPTER_ID:
         case LOCAL_DOCUMENT_RELEASE_ADAPTER_ID:
         case LOCAL_SYNTHETIC_ENDPOINT_STATE_ADAPTER_ID: return "NOT_PROVEN";

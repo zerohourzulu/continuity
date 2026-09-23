@@ -14,13 +14,6 @@ const root = fileURLToPath(new URL("../", import.meta.url)),
 if (process.argv.length !== 2) throw Error("Use: node tools/build-mcp.mjs");
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
-cpSync(join(root, "sdk/core-0.3/dist"), join(out, "core/dist"), {
-  recursive: true,
-});
-cpSync(
-  join(root, "sdk/core-0.3/BUILD-PROVENANCE.json"),
-  join(out, "CORE-BUILD-PROVENANCE.json"),
-);
 for (const name of [
   "server.mjs",
   "config.mjs",
@@ -32,14 +25,7 @@ for (const name of [
     join(root, "integrations/protected-evidence-mcp", name),
     "utf8",
   )
-    .replaceAll(
-      "@ramex-labs/continuity/evidence",
-      "./core/dist/core-0.3/src/evidence.js",
-    )
-    .replaceAll(
-      "@ramex-labs/continuity/local",
-      "./core/dist/core-0.3/src/local-owner.js",
-    );
+;
   writeFileSync(join(out, name), code, {
     mode: name.endsWith(".mjs") ? 0o755 : 0o644,
   });
@@ -48,7 +34,7 @@ for (const name of ["LICENSE", "NOTICE"])
   cpSync(join(root, name), join(out, name));
 writeFileSync(join(out, "THIRD-PARTY-NOTICES.md"), `# Package dependencies
 
-This archive bundles Continuity-authored compiled Core and MCP glue under Apache-2.0, with LICENSE and NOTICE. It does not bundle third-party runtime code or website assets. npm installs the pinned MCP client/server, viem and zod dependencies separately; their own package licenses and transitive dependency notices remain applicable and accompany those installed packages. The full source distribution has a separate dependency and website notice inventory.
+This archive includes Continuity-authored MCP glue and depends on the shared Core package under Apache-2.0, with LICENSE and NOTICE. It does not bundle third-party runtime code or website assets. npm installs the pinned MCP client/server, viem and zod dependencies separately; their own package licenses and transitive dependency notices remain applicable and accompany those installed packages. The full source distribution has a separate dependency and website notice inventory.
 `);
 cpSync(join(root, "docs/MCP-PACKAGE.md"), join(out, "README.md"));
 writeFileSync(
@@ -56,7 +42,7 @@ writeFileSync(
   JSON.stringify(
     {
       name: "@ramex-labs/continuity-mcp",
-      version: "0.3.0-preview.7",
+      version: "0.3.0-preview.8",
       publishConfig: { access: "public", tag: "preview", registry: "https://registry.npmjs.org" },
       description:
         "A bounded local MCP evidence tool that checks current authority and preserves operation history",
@@ -76,14 +62,15 @@ writeFileSync(
       },
       files: [
         "*.mjs",
-        "core",
-        "CORE-BUILD-PROVENANCE.json",
+        
+        
         "LICENSE",
         "NOTICE",
         "THIRD-PARTY-NOTICES.md",
         "README.md",
       ],
       dependencies: {
+        "@ramex-labs/continuity": "0.3.0-preview.7",
         "@modelcontextprotocol/client": "2.0.0",
         "@modelcontextprotocol/server": "2.0.0",
         viem: "2.55.19",

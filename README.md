@@ -97,3 +97,7 @@ The source, tutorial, tests, reader and website are included here and in the com
 ## Embed the engine
 
 Try the [standalone developer package](docs/SDK-QUICKSTART.md): install the supplied JavaScript SDK tarball in a separate application, create one authorized synthetic packet, and inspect why refused requests create none. Includes TypeScript declarations and an offline consumer check. This is an evaluation interface around unchanged Core0.2.2.
+
+## Shared Core integration preview
+
+The [shared-package preview](docs/SHARED-CORE.md) connects the cooperating remote tools and MCP evidence tool to one Core dependency. Try [native LangChain tools and lost-reply recovery](packages/remote-tools/README.md), or the [MCP evidence tool](docs/MCP-PACKAGE.md).

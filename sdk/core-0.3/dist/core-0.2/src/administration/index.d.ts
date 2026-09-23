@@ -11,6 +11,10 @@ declare const DATA_FIELDS: {
     readonly OBLIGATION_CREATED: readonly ["record", "actorId"];
     readonly OBLIGATION_PERFORMANCE_ASSIGNED: readonly ["obligationId", "fromAgentId", "toAgentId", "successionRuleId", "actorId"];
     readonly OBLIGATION_STATUS_RECORDED: readonly ["obligationId", "fromStatus", "toStatus", "actorId", "action", "attesterId", "evidenceReference"];
+    readonly OUTCOME_OBSERVATION_RECORDED: readonly ["intentId", "sourceAdmissionEventId", "acknowledgment", "actorId"];
+    readonly ATTEMPT_DUTY_CREATED: readonly ["record", "actorId"];
+    readonly ATTEMPT_DUTY_ASSIGNED: readonly ["dutyId", "fromAgentId", "toAgentId", "actorId"];
+    readonly ATTEMPT_DUTY_REVIEW_CLOSED: readonly ["dutyId", "actorId", "observationEventIds", "summaryDigest"];
 };
 type TransitionKind = keyof typeof DATA_FIELDS;
 /** Unsigned historical-prefix preparation; not permission or an append capability. */
@@ -49,7 +53,7 @@ export declare function prepareAdministrativeEvent(input: unknown): {
         eventHistoryHash: `0x${string}`;
         eventHistoryPosition: number;
         transitionEventId: string;
-        transitionEventType: "OBLIGATION_CREATED" | "OBLIGATION_PERFORMANCE_ASSIGNED" | "OBLIGATION_STATUS_RECORDED";
+        transitionEventType: "OBLIGATION_CREATED" | "OBLIGATION_PERFORMANCE_ASSIGNED" | "OBLIGATION_STATUS_RECORDED" | "OUTCOME_OBSERVATION_RECORDED" | "ATTEMPT_DUTY_CREATED" | "ATTEMPT_DUTY_ASSIGNED" | "ATTEMPT_DUTY_REVIEW_CLOSED";
         runtimeSessionId: string;
         credentialKeyId: string;
         controlEpoch: number;
@@ -116,7 +120,7 @@ export declare function attachAdministrativeSignature(input: unknown, runtimeSig
                     eventHistoryHash: `0x${string}`;
                     eventHistoryPosition: number;
                     transitionEventId: string;
-                    transitionEventType: "OBLIGATION_CREATED" | "OBLIGATION_PERFORMANCE_ASSIGNED" | "OBLIGATION_STATUS_RECORDED";
+                    transitionEventType: "OBLIGATION_CREATED" | "OBLIGATION_PERFORMANCE_ASSIGNED" | "OBLIGATION_STATUS_RECORDED" | "OUTCOME_OBSERVATION_RECORDED" | "ATTEMPT_DUTY_CREATED" | "ATTEMPT_DUTY_ASSIGNED" | "ATTEMPT_DUTY_REVIEW_CLOSED";
                     runtimeSessionId: string;
                     credentialKeyId: string;
                     controlEpoch: number;
@@ -183,7 +187,7 @@ export declare function attachAdministrativeSignature(input: unknown, runtimeSig
         eventHistoryHash: `0x${string}`;
         eventHistoryPosition: number;
         transitionEventId: string;
-        transitionEventType: "OBLIGATION_CREATED" | "OBLIGATION_PERFORMANCE_ASSIGNED" | "OBLIGATION_STATUS_RECORDED";
+        transitionEventType: "OBLIGATION_CREATED" | "OBLIGATION_PERFORMANCE_ASSIGNED" | "OBLIGATION_STATUS_RECORDED" | "OUTCOME_OBSERVATION_RECORDED" | "ATTEMPT_DUTY_CREATED" | "ATTEMPT_DUTY_ASSIGNED" | "ATTEMPT_DUTY_REVIEW_CLOSED";
         runtimeSessionId: string;
         credentialKeyId: string;
         controlEpoch: number;
@@ -255,7 +259,7 @@ export declare function produceAdministrativeEvent(input: unknown, options: unkn
                     eventHistoryHash: `0x${string}`;
                     eventHistoryPosition: number;
                     transitionEventId: string;
-                    transitionEventType: "OBLIGATION_CREATED" | "OBLIGATION_PERFORMANCE_ASSIGNED" | "OBLIGATION_STATUS_RECORDED";
+                    transitionEventType: "OBLIGATION_CREATED" | "OBLIGATION_PERFORMANCE_ASSIGNED" | "OBLIGATION_STATUS_RECORDED" | "OUTCOME_OBSERVATION_RECORDED" | "ATTEMPT_DUTY_CREATED" | "ATTEMPT_DUTY_ASSIGNED" | "ATTEMPT_DUTY_REVIEW_CLOSED";
                     runtimeSessionId: string;
                     credentialKeyId: string;
                     controlEpoch: number;
@@ -322,7 +326,7 @@ export declare function produceAdministrativeEvent(input: unknown, options: unkn
         eventHistoryHash: `0x${string}`;
         eventHistoryPosition: number;
         transitionEventId: string;
-        transitionEventType: "OBLIGATION_CREATED" | "OBLIGATION_PERFORMANCE_ASSIGNED" | "OBLIGATION_STATUS_RECORDED";
+        transitionEventType: "OBLIGATION_CREATED" | "OBLIGATION_PERFORMANCE_ASSIGNED" | "OBLIGATION_STATUS_RECORDED" | "OUTCOME_OBSERVATION_RECORDED" | "ATTEMPT_DUTY_CREATED" | "ATTEMPT_DUTY_ASSIGNED" | "ATTEMPT_DUTY_REVIEW_CLOSED";
         runtimeSessionId: string;
         credentialKeyId: string;
         controlEpoch: number;

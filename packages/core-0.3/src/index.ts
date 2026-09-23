@@ -6,6 +6,8 @@ export type {
   ObservationOptions,
 } from "./observation.ts";
 export { ContinuityError } from "./input.ts";
+export { openLocalAttemptRecorder, inspectAttemptHistory } from "./attempts.ts";
+export type { OutcomeObservation, AttemptDuty, AttemptDutyAssignment, AttemptDutyReview, LocalAttemptRecorder } from "./attempts.ts";
 export type { ContinuityErrorCode } from "./input.ts";
 export type {
   PortableCanonicalEvent as HistoryEvent,

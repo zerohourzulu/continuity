@@ -13,7 +13,7 @@ package_dir="$PWD"
 example_dir="$(mktemp -d)"
 cp "$package_dir/examples/core-0.3/permissions.mjs" "$example_dir/"
 cd "$example_dir"
-npm install --offline --ignore-scripts --no-audit --no-fund "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.6.tgz"
+npm install --offline --ignore-scripts --no-audit --no-fund "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.7.tgz"
 node permissions.mjs
 ```
 
@@ -78,7 +78,7 @@ cp "$package_dir/examples/core-0.3/handover.mjs" "$example_dir/"
 cp "$package_dir/examples/core-0.3/signing/"package*.json "$example_dir/"
 cd "$example_dir"
 npm ci --ignore-scripts --no-audit --no-fund
-npm install --offline --ignore-scripts --no-audit --no-fund "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.6.tgz"
+npm install --offline --ignore-scripts --no-audit --no-fund "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.7.tgz"
 node handover.mjs
 ```
 
@@ -123,3 +123,14 @@ Run `node --test tests/core-0.3/*.test.mjs` for the interface checks. `node tool
 ## Add an existing policy system
 
 The protected tool and simulator accept an optional application-owned `additionalPolicy`. Both Core and that policy must allow a new effect. Its identity is pinned to the operation; its result must bind the exact request hash. Failed evaluation or failed durable audit recording prevents admission. The [Cedar and OpenFGA examples](https://github.com/zerohourzulu/continuity/blob/main/integrations/policy-composition/README.md) include real-engine tests and explain the cross-service consistency limits. The `/policy` export supplies the TypeScript request/result contract; it gives no agent administration powers.
+
+
+## Shared Core and integration packages
+
+The coordinated preview uses `@ramex-labs/continuity@0.3.0-preview.7` as the shared engine. The remote and MCP previews depend on that exact version; they do not contain private engine copies. The previously published packages remain available and unchanged.
+
+`createLocalOwner` keeps the existing default policy. Import `createLocalAttemptOwner` from `/local` to explicitly start a fresh E5 history with attempt records, or `createLocalReviewOwner` to start E6 with evidence review. `openLocalOwner` preserves the history's recorded policy. There is no implicit migration. The new `/attempts` entry records signed observations, assigns investigation work and records evidence review. A completed evidence review does not discharge the duty or prove an outside outcome.
+
+The `/adapter` entry is an advanced trusted-host contract for integration authors, including admission checks, exact encoding and file-backed execution. It is not an agent-facing tool API. Exposing these functions does not authenticate an application or contain a hostile process; the embedding application controls credentials, storage and complete mediation. Adapter implementations should pin the matching preview Core version. These exports collect existing implementation functions without changing their rules.
+
+For an ordinary application, start with `/local`, `/runtime`, `/evidence` and `/attempts`; choose the remote integration only when the destination supports its contract. See [the shared-package guide](https://github.com/zerohourzulu/continuity/blob/main/docs/SHARED-CORE.md).

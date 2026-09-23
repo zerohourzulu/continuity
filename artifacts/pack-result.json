@@ -1,0 +1,151 @@
+[
+  {
+    "id": "@ramex-labs/continuity-remote@0.3.0-preview.1",
+    "name": "@ramex-labs/continuity-remote",
+    "version": "0.3.0-preview.1",
+    "size": 33150,
+    "unpackedSize": 112401,
+    "shasum": "7f7f0a63d076d2b5b4f930fb867dd7d5646c8cf0",
+    "integrity": "sha512-Dk5OPCnKmin7/TcRpaJur2h3+zKfbo4REjpnwq+vj8cb+B0P8naJDVc5S2nCKTrPOel9D4f6aW7w7sfBwcoHeA==",
+    "filename": "ramex-labs-continuity-remote-0.3.0-preview.1.tgz",
+    "files": [
+      {
+        "path": "BUILD-PROVENANCE.json",
+        "size": 7366,
+        "mode": 420
+      },
+      {
+        "path": "LICENSE",
+        "size": 11358,
+        "mode": 420
+      },
+      {
+        "path": "LICENSING.md",
+        "size": 412,
+        "mode": 420
+      },
+      {
+        "path": "NOTICE",
+        "size": 303,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 8297,
+        "mode": 420
+      },
+      {
+        "path": "THIRD-PARTY-NOTICES.md",
+        "size": 728,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/attempts.d.mts",
+        "size": 49,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/attempts.mjs",
+        "size": 49,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/client.mjs",
+        "size": 2401,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/destination.mjs",
+        "size": 12910,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/durable-store.mjs",
+        "size": 14919,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/executor.mjs",
+        "size": 3981,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/index.d.mts",
+        "size": 7802,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/index.mjs",
+        "size": 388,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/langchain.d.mts",
+        "size": 705,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/langchain.mjs",
+        "size": 3982,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/local.d.mts",
+        "size": 46,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/local.mjs",
+        "size": 46,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/recovery.mjs",
+        "size": 2891,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/runtime.d.mts",
+        "size": 48,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/runtime.mjs",
+        "size": 48,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/strict-json.mjs",
+        "size": 3835,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/validation.mjs",
+        "size": 7475,
+        "mode": 420
+      },
+      {
+        "path": "dist/remote-tools/wire.mjs",
+        "size": 8389,
+        "mode": 420
+      },
+      {
+        "path": "examples/native-consumer.mjs",
+        "size": 3912,
+        "mode": 420
+      },
+      {
+        "path": "examples/walkthrough.mjs",
+        "size": 8456,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 1605,
+        "mode": 420
+      }
+    ],
+    "entryCount": 27,
+    "bundled": []
+  }
+]

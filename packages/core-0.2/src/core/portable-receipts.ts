@@ -17,7 +17,7 @@ import {
   type PortableReceiptVerificationResult, type PortableReceiptRecordAdmissionResult,
 } from "./portable-receipt-codec.ts";
 import { evaluatePortableReceiptPolicy, recoverPortableContentHashSigner, type PortableAuthorizationProof } from "./portable-authority-engine.ts";
-import { LOCAL_DOCUMENT_RELEASE_ADAPTER_ID, SIMULATED_ADAPTER_ID, LOCAL_EVIDENCE_PACKET_ADAPTER_ID, LOCAL_SYNTHETIC_ENDPOINT_STATE_ADAPTER_ID } from "./portable-adapter-engine.ts";
+import { REMOTE_SERVICE_REPORT_ADAPTER_ID, LOCAL_DOCUMENT_RELEASE_ADAPTER_ID, SIMULATED_ADAPTER_ID, LOCAL_EVIDENCE_PACKET_ADAPTER_ID, LOCAL_SYNTHETIC_ENDPOINT_STATE_ADAPTER_ID } from "./portable-adapter-engine.ts";
 import {
   createPortableReplayKernel, PORTABLE_REPLAY_VERSION,
   type PortableReplayState, type PortableHistoryHead, type PortableAuthorizationDomain,
@@ -148,6 +148,7 @@ const boundProof = (state: PortableReplayState, payload: PortableReceiptPayload)
 const assuranceFor = (adapterId: string): "SIMULATED" | "NOT_PROVEN" | undefined => {
   switch (adapterId) {
     case SIMULATED_ADAPTER_ID: return "SIMULATED";
+    case REMOTE_SERVICE_REPORT_ADAPTER_ID:
     case LOCAL_EVIDENCE_PACKET_ADAPTER_ID:
     case LOCAL_DOCUMENT_RELEASE_ADAPTER_ID:
     case LOCAL_SYNTHETIC_ENDPOINT_STATE_ADAPTER_ID: return "NOT_PROVEN";

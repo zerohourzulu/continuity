@@ -1,4 +1,4 @@
-import type { PortableAdapterProfile } from "./portable-adapter-engine.ts";
+import { PORTABLE_ADAPTER_POLICY_E5_HASH, PORTABLE_ADAPTER_POLICY_E6_HASH, type PortableAdapterProfile } from "./portable-adapter-engine.ts";
 import {
   captureBoundedCanonicalAuthorityOperationIncrementally,
   captureBoundedCanonicalValue,
@@ -4240,8 +4240,16 @@ export const validatePortableAdministrativeTransition = (
   if (
     event.type !== "OBLIGATION_CREATED" &&
     event.type !== "OBLIGATION_PERFORMANCE_ASSIGNED" &&
-    event.type !== "OBLIGATION_STATUS_RECORDED"
+    event.type !== "OBLIGATION_STATUS_RECORDED" &&
+    event.type !== "OUTCOME_OBSERVATION_RECORDED" &&
+    event.type !== "ATTEMPT_DUTY_CREATED" &&
+    event.type !== "ATTEMPT_DUTY_ASSIGNED" &&
+    event.type !== "ATTEMPT_DUTY_REVIEW_CLOSED"
   ) return false;
+  if ((event.type === "OUTCOME_OBSERVATION_RECORDED" || event.type === "ATTEMPT_DUTY_CREATED" ||
+      event.type === "ATTEMPT_DUTY_ASSIGNED") && state.genesis.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E5_HASH &&
+      state.genesis.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E6_HASH) return false;
+  if (event.type === "ATTEMPT_DUTY_REVIEW_CLOSED" && state.genesis.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E6_HASH) return false;
   const data = event.data as Readonly<Record<string, unknown>>;
   const wrapper = data.administrativeAuthorization as PortableAdministrativeAuthorization;
   const challenge = wrapper.challenge;

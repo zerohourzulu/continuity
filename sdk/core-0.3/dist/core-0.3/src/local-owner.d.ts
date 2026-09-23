@@ -18,6 +18,9 @@ export type Grant = Readonly<{
     resources: readonly string[];
     expiresAt: number;
     notBefore?: number;
+    maxAmount?: bigint;
+    maxCumulativeAmount?: bigint;
+    maxTransactions?: number;
 }>;
 export type Appointment = Readonly<{
     agent: string;
@@ -82,6 +85,10 @@ export interface LocalOwner {
 }
 /** Create a new, operator-owned local policy history. No runtime keys or effects. */
 export declare function createLocalOwner(options: LocalOwnerOptions): LocalOwner;
+/** Explicit E5 attempt-record history; existing histories are not migrated. */
+export declare function createLocalAttemptOwner(options: LocalOwnerOptions): LocalOwner;
+/** Explicit E6 opt-in for a new history; does not migrate or reinterpret E5 histories. */
+export declare function createLocalReviewOwner(options: LocalOwnerOptions): LocalOwner;
 /** Reopen only the explicitly selected local profile. Does not prove global freshness. */
 export declare function openLocalOwner(options: LocalOwnerOptions): LocalOwner;
 /** Fresh local namespace; the legacy chain/address fields carry no chain claim. */

@@ -22,6 +22,8 @@ export type PolicyRequest = Readonly<{
   operationId: string;
   termsCommitment: core.ContentHash;
   historyHead: core.ContentHash;
+  amount?: bigint;
+  counterparty?: string;
 }>;
 export type PolicyDecision = Readonly<{
   identity: string;

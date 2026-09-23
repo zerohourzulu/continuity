@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.zerohourzulu/continuity-evidence",
+  "description": "A bounded local evidence tool with current agent permission checks and durable retry handling.",
+  "repository": {
+    "url": "https://github.com/zerohourzulu/continuity",
+    "source": "github"
+  },
+  "version": "0.3.0-preview.8",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@ramex-labs/continuity-mcp",
+      "version": "0.3.0-preview.8",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "named",
+          "name": "--config",
+          "description": "Absolute path to the operator-created private gateway configuration.",
+          "isRequired": true,
+          "valueHint": "gateway_config",
+          "format": "filepath"
+        }
+      ]
+    }
+  ]
+}

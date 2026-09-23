@@ -41,9 +41,8 @@ jobs:
         run: node tools/test.mjs
       - name: Pinned SDK build tools (no install scripts)
         run: npm ci --prefix tools/sdk-build --ignore-scripts --no-audit --no-fund
-      - name: Reproducible SDK and independent packed consumer
+      - name: Frozen 0.2 SDK compatibility and independent consumer
         run: |
-          node tools/build-sdk.mjs --check
           node tools/sdk-parity.mjs
           node tools/verify-sdk.mjs
       - name: Core 0.3 integrations and independent packages
@@ -56,6 +55,12 @@ jobs:
           node tools/verify-core-0.3.mjs
           node tools/verify-mcp-package.mjs
           node --test integrations/protected-evidence-mcp/tests/*.test.mjs integrations/langchain-evidence/tests/*.test.mjs integrations/policy-composition/tests/cedar.test.mjs integrations/policy-composition/tests/wire-policy.test.mjs
+      - name: Shared Core and remote integration (supported Node versions)
+        if: matrix.node != '26'
+        run: |
+          node tools/verify-shared-core.mjs
+          node tools/remote-build/verify.mjs .
+          node --test --test-concurrency=1 lab/*.test.mjs
       - name: Fresh tutorial and changed permission
         run: |
           node tutorial/start.mjs

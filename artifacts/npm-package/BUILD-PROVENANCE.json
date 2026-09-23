@@ -1,0 +1,204 @@
+{
+  "kind": "continuity-remote-shared-core-build/1",
+  "compiler": "5.9.3",
+  "coreDependency": {
+    "name": "@ramex-labs/continuity",
+    "version": "0.3.0-preview.7",
+    "archiveSha256": "835c57a195b483b572e614e4f32b5894c478993baea512cba707f61f8f3dacf1"
+  },
+  "sources": [
+    {
+      "path": "packages/remote-tools/client.mjs",
+      "sha256": "4fe0bf01b46e9177fdf2ea15803b6c2457c05e0ba8008d3e7a96195bebf4d279"
+    },
+    {
+      "path": "packages/remote-tools/CONTRACT.md",
+      "sha256": "998937d1d799e1046236e97269d88e2eab942f80f0d443174d7c788faa91e096"
+    },
+    {
+      "path": "packages/remote-tools/destination.mjs",
+      "sha256": "755c1212f49af492c94b8de41cd49ca3c2e9c4bccac706465cc594442e72f3fe"
+    },
+    {
+      "path": "packages/remote-tools/durable-store.mjs",
+      "sha256": "4989ad74b81218278ed4c56fd36d591e121f81641f1e8af36bec415c965450a5"
+    },
+    {
+      "path": "packages/remote-tools/executor.mjs",
+      "sha256": "899f2f4b453e43197882c3b99d070fb5fae45f23af1dd2df6a065a2c6c8bc658"
+    },
+    {
+      "path": "packages/remote-tools/langchain.mjs",
+      "sha256": "d7582c8c464e925dc05f78d2ac60d31c09030d5b4dade1d6ca297618a6e52d49"
+    },
+    {
+      "path": "packages/remote-tools/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "packages/remote-tools/LICENSING.md",
+      "sha256": "951f62c81b479190303d2d4a322c098f5ee39604a149b01455c29e3d9330c1de"
+    },
+    {
+      "path": "packages/remote-tools/NOTICE",
+      "sha256": "bfb2131be616bebf277cfcb08f3927c1c360e114f7e51e46a77b490bcbdef59a"
+    },
+    {
+      "path": "packages/remote-tools/README.md",
+      "sha256": "c5a80cf0cf066935877ae11cbe6c0faae7946924b82c5fa268faeaa013a666fd"
+    },
+    {
+      "path": "packages/remote-tools/recovery.mjs",
+      "sha256": "2325d0eba844035dd0b1bb95b07fd42ee0f7cf8f7a3f5114a079a41e32ba515c"
+    },
+    {
+      "path": "packages/remote-tools/THIRD-PARTY-NOTICES.md",
+      "sha256": "9fac1b22fd197ee70215fdf57f8bb198ff171acdfd1abba67b9a852362afdcff"
+    },
+    {
+      "path": "packages/remote-tools/validation.mjs",
+      "sha256": "f8c948416b1d3f65691c4b3756b0a1e53b348941c8f35dab9af3b233fbe460f8"
+    },
+    {
+      "path": "packages/remote-tools/wire.mjs",
+      "sha256": "a8f48acd040ade138de26303e05978425daf0e06551bd970a062fac8e0d09630"
+    },
+    {
+      "path": "examples/remote/native-consumer.mjs",
+      "sha256": "d608a7800179264a1ecf9f41d4055f5e02d44eb8f1817a9db2d654a492d67afb"
+    },
+    {
+      "path": "examples/remote/walkthrough.mjs",
+      "sha256": "b76985a42525a3930cf457a5cce483abd660d7731fc07b079181d2d5b0bb42d8"
+    }
+  ],
+  "buildInputs": [
+    {
+      "path": "tools/remote-build/build.mjs",
+      "sha256": "cad7305a0d936669970db6703fbaa923bb5c56e4b2e7f6227126c154362df09d"
+    },
+    {
+      "path": "tools/remote-build/templates/attempts.d.mts",
+      "sha256": "db1faf0f3e005cb62a3acd74500da358bea05c7834e28a0f55fcf65102be0b7b"
+    },
+    {
+      "path": "tools/remote-build/templates/attempts.mjs",
+      "sha256": "db1faf0f3e005cb62a3acd74500da358bea05c7834e28a0f55fcf65102be0b7b"
+    },
+    {
+      "path": "tools/remote-build/templates/consumer.mts",
+      "sha256": "2224097ad60293c11e503514e4d1c61558f5ffcd7a189de5653dfa94f8e51294"
+    },
+    {
+      "path": "tools/remote-build/templates/index.d.mts",
+      "sha256": "cb2ff52da7624e359dc5219af58ae12a6cadfff9bb5a567ce0871d5de073b5b3"
+    },
+    {
+      "path": "tools/remote-build/templates/index.mjs",
+      "sha256": "798e816691431e30f75aa4b920c21f24a1f0c429ab3663a1d9fa6791a5fd81a1"
+    },
+    {
+      "path": "tools/remote-build/templates/langchain.d.mts",
+      "sha256": "76bf0b24e94e072a3177524b47d71d7d558070c89ce6213bd24310ae40d8b9e8"
+    },
+    {
+      "path": "tools/remote-build/templates/local.d.mts",
+      "sha256": "b2637875a27143ac2407920749b965b8cc4ffa9e07696c524b4d249f1fcd1ace"
+    },
+    {
+      "path": "tools/remote-build/templates/local.mjs",
+      "sha256": "b2637875a27143ac2407920749b965b8cc4ffa9e07696c524b4d249f1fcd1ace"
+    },
+    {
+      "path": "tools/remote-build/templates/runtime.d.mts",
+      "sha256": "9a060069565874be8bfa01b2d622850e5e238f1e1956a878c0177d2c1238a606"
+    },
+    {
+      "path": "tools/remote-build/templates/runtime.mjs",
+      "sha256": "9a060069565874be8bfa01b2d622850e5e238f1e1956a878c0177d2c1238a606"
+    },
+    {
+      "path": "tools/sdk-build/tsconfig-core-0.3.json",
+      "sha256": "e284412668b8d64b8dd02510fd2d70e58538be5f48456e11797fe5136ebad3d6"
+    },
+    {
+      "path": "tools/sdk-build/package-lock.json",
+      "sha256": "7aa68fe1137c146d7bab4e43f086e0a401a723b4b0a7b7d7b530a7c609893f29"
+    }
+  ],
+  "strictJsonSha256": "efadbaf7513423e4c47360d33c1a6ff9b7bd2c300bf4c96fac4e561e940f369a",
+  "outputs": [
+    {
+      "path": "dist/remote-tools/attempts.d.mts",
+      "sha256": "db1faf0f3e005cb62a3acd74500da358bea05c7834e28a0f55fcf65102be0b7b"
+    },
+    {
+      "path": "dist/remote-tools/attempts.mjs",
+      "sha256": "db1faf0f3e005cb62a3acd74500da358bea05c7834e28a0f55fcf65102be0b7b"
+    },
+    {
+      "path": "dist/remote-tools/client.mjs",
+      "sha256": "4fe0bf01b46e9177fdf2ea15803b6c2457c05e0ba8008d3e7a96195bebf4d279"
+    },
+    {
+      "path": "dist/remote-tools/destination.mjs",
+      "sha256": "72e3057f1de34e83a4828c9ff4b21b1af4872fc1c224ac05d2f386d00e87bae6"
+    },
+    {
+      "path": "dist/remote-tools/durable-store.mjs",
+      "sha256": "4989ad74b81218278ed4c56fd36d591e121f81641f1e8af36bec415c965450a5"
+    },
+    {
+      "path": "dist/remote-tools/executor.mjs",
+      "sha256": "a9c16320c7c27c88d8bdd18e1302b2110dabf5385c4efd6884e5e80d2c9bf465"
+    },
+    {
+      "path": "dist/remote-tools/index.d.mts",
+      "sha256": "cb2ff52da7624e359dc5219af58ae12a6cadfff9bb5a567ce0871d5de073b5b3"
+    },
+    {
+      "path": "dist/remote-tools/index.mjs",
+      "sha256": "798e816691431e30f75aa4b920c21f24a1f0c429ab3663a1d9fa6791a5fd81a1"
+    },
+    {
+      "path": "dist/remote-tools/langchain.d.mts",
+      "sha256": "76bf0b24e94e072a3177524b47d71d7d558070c89ce6213bd24310ae40d8b9e8"
+    },
+    {
+      "path": "dist/remote-tools/langchain.mjs",
+      "sha256": "6b3a9083ec138b4c1e519b06440a706daac6b3f2a149a0e9ecaf3ece19187934"
+    },
+    {
+      "path": "dist/remote-tools/local.d.mts",
+      "sha256": "b2637875a27143ac2407920749b965b8cc4ffa9e07696c524b4d249f1fcd1ace"
+    },
+    {
+      "path": "dist/remote-tools/local.mjs",
+      "sha256": "b2637875a27143ac2407920749b965b8cc4ffa9e07696c524b4d249f1fcd1ace"
+    },
+    {
+      "path": "dist/remote-tools/recovery.mjs",
+      "sha256": "c7bd4ac6771f8344867061897e179c5d225d7a5db002276d148255fd9983d266"
+    },
+    {
+      "path": "dist/remote-tools/runtime.d.mts",
+      "sha256": "9a060069565874be8bfa01b2d622850e5e238f1e1956a878c0177d2c1238a606"
+    },
+    {
+      "path": "dist/remote-tools/runtime.mjs",
+      "sha256": "9a060069565874be8bfa01b2d622850e5e238f1e1956a878c0177d2c1238a606"
+    },
+    {
+      "path": "dist/remote-tools/strict-json.mjs",
+      "sha256": "efadbaf7513423e4c47360d33c1a6ff9b7bd2c300bf4c96fac4e561e940f369a"
+    },
+    {
+      "path": "dist/remote-tools/validation.mjs",
+      "sha256": "30fc4057944ef3ba5f914074131c535c4f8485611abfdfdae7829458155ab340"
+    },
+    {
+      "path": "dist/remote-tools/wire.mjs",
+      "sha256": "5be7ced92317e5a95ebe6acdcaf95172c8f89d10e4659b63400bc4389a202854"
+    }
+  ]
+}

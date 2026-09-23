@@ -7,6 +7,32 @@ import { objectFreeze } from "./host-intrinsics.js";
 export const portableAdministrativeTransitionEffect = (event) => {
     const data = event.data;
     switch (event.type) {
+        case "OUTCOME_OBSERVATION_RECORDED":
+            return objectFreeze({
+                transitionEventType: event.type,
+                intentId: data.intentId,
+                sourceAdmissionEventId: data.sourceAdmissionEventId,
+                acknowledgment: data.acknowledgment,
+                actorId: data.actorId,
+            });
+        case "ATTEMPT_DUTY_CREATED":
+            return objectFreeze({
+                transitionEventType: event.type,
+                record: data.record,
+                actorId: data.actorId,
+            });
+        case "ATTEMPT_DUTY_REVIEW_CLOSED":
+            return objectFreeze({ transitionEventType: event.type, dutyId: data.dutyId,
+                actorId: data.actorId, observationEventIds: data.observationEventIds,
+                summaryDigest: data.summaryDigest });
+        case "ATTEMPT_DUTY_ASSIGNED":
+            return objectFreeze({
+                transitionEventType: event.type,
+                dutyId: data.dutyId,
+                fromAgentId: data.fromAgentId,
+                toAgentId: data.toAgentId,
+                actorId: data.actorId,
+            });
         case "OBLIGATION_CREATED":
             return objectFreeze({
                 transitionEventType: event.type,

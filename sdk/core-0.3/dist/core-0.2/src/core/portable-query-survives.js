@@ -1,5 +1,7 @@
 // Package-internal projection over an already accepted replay snapshot. The
 // query coordinator owns capture, replay provenance, time and output limits.
+import { portableAttemptDutyReviewStatus } from "./portable-attempt-review.js";
+import { PORTABLE_ADAPTER_POLICY_E5_HASH, PORTABLE_ADAPTER_POLICY_E6_HASH } from "./portable-adapter-engine.js";
 import { canonicalEncode, compareProtocolStrings } from "./canonical.js";
 import { compareQueryEvidence, } from "./portable-query-codec.js";
 import { createPortableQueryEvidenceCache, createPortableQueryProjectionWriter, requirePortableQueryProjection, createPortableQueryComparisonPlan, portableQueryComparisonPlansDiffer } from "./portable-query-output.js";
@@ -73,6 +75,7 @@ const skeletonFor = (state, targetAgentId) => ({
     lifecycleStatus: !state.agents.has(targetAgentId) ? "ABSENT" : state.agents.get(targetAgentId).terminated ? "TERMINATED" : "ACTIVE",
     historicalIdentity: [], currentRoleTenures: [], transferredRoleTenures: [], unresolvedIntents: [],
     adapterOutcomes: [],
+    ...((state.genesis.adapterPolicyHash === PORTABLE_ADAPTER_POLICY_E5_HASH || state.genesis.adapterPolicyHash === PORTABLE_ADAPTER_POLICY_E6_HASH) ? { outcomeObservations: [], attemptDuties: [] } : {}),
     receiptCommitments: [], obligations: [], currentPerformanceAssignments: [], invalidatedAuthorityDependencies: [],
 });
 const walkPortableSurvives = (state, targetAgentId, evaluationTime, writer) => {
@@ -118,6 +121,46 @@ const walkPortableSurvives = (state, targetAgentId, evaluationTime, writer) => {
         const intentState = outcome ?? (consumption !== undefined ? "SUBMITTED" : state.intentAdmissions.has(intentId) ? "ADMITTED" : "DECLARED");
         writer.row("unresolvedIntents", intentId, { intentId, actorId: targetAgentId, nonce: declaration.data.nonce, state: intentState }, evidence);
         includedIntentIds.add(intentId);
+    }
+    // E5 adds recordkeeping and responsibility without changing execution state.
+    // Keep every recorder and digest visible; differing bytes are not a verdict.
+    for (const [intentId, observations] of state.outcomeObservations) {
+        const originalActorId = state.intentDeclarations.get(intentId).data.actorId;
+        const relatedDuty = [...state.attemptDuties.values()].find(item => item.record.sourceIntentId === intentId);
+        const linkedAssignee = relatedDuty !== undefined && (relatedDuty.record.performanceAssigneeId === targetAgentId ||
+            relatedDuty.assignments.some(item => item.fromAgentId === targetAgentId || item.toAgentId === targetAgentId));
+        if (originalActorId !== targetAgentId && !observations.some(item => item.actorId === targetAgentId) && !linkedAssignee)
+            continue;
+        const digests = new Set(observations.map(item => item.acknowledgment.result.reportDigest.value));
+        const source = state.intentAdmissions.get(intentId);
+        for (const observation of observations)
+            writer.row("outcomeObservations", observation.eventId, {
+                observationEventId: observation.eventId, intentId, sourceAdmissionEventId: observation.sourceAdmissionEventId,
+                originalActorId, recorderId: observation.actorId, recordedAt: observation.observedAt,
+                reportDigest: observation.acknowledgment.result.reportDigest,
+                reportStatus: digests.size > 1 ? "DIVERGENT_REPORTS" : "REPORT_RECORDED", externalOutcome: "NOT_PROVEN",
+            }, [eventReference(source.admissionEventPosition), eventReference(observation.eventPosition)]);
+    }
+    for (const [dutyId, duty] of state.attemptDuties) {
+        const record = duty.record, source = state.intentAdmissions.get(record.sourceIntentId);
+        const originalActorId = state.intentDeclarations.get(record.sourceIntentId).data.actorId;
+        if (originalActorId !== targetAgentId && record.performanceAssigneeId !== targetAgentId &&
+            !duty.assignments.some(item => item.fromAgentId === targetAgentId || item.toAgentId === targetAgentId))
+            continue;
+        writer.row("attemptDuties", dutyId, {
+            dutyId, sourceIntentId: record.sourceIntentId, sourceAdmissionEventId: record.sourceAdmissionEventId,
+            originalActorId, durableRoleId: record.durableRoleId, creationActorId: duty.creationActorId,
+            initialAssigneeId: record.performanceAssigneeId, currentAssigneeId: duty.currentAssigneeId,
+            deadline: record.deadline, status: record.status, externalOutcome: "NOT_PROVEN",
+            ...(state.genesis.adapterPolicyHash === PORTABLE_ADAPTER_POLICY_E6_HASH ? {
+                reviewStatus: portableAttemptDutyReviewStatus(state, dutyId), reviews: state.attemptDutyReviews.get(dutyId) ?? [],
+            } : {}),
+        }, [eventReference(source.admissionEventPosition), eventReference(duty.creationEventPosition),
+            ...duty.assignments.map(item => eventReference(item.eventPosition)),
+            ...(state.genesis.adapterPolicyHash === PORTABLE_ADAPTER_POLICY_E6_HASH ? [
+                ...(state.attemptDutyReviews.get(dutyId) ?? []).map(item => eventReference(item.eventPosition)),
+                ...(state.outcomeObservations.get(record.sourceIntentId) ?? []).map(item => eventReference(item.eventPosition)),
+            ] : [])]);
     }
     const includedReceiptHashes = new Set();
     for (const [obligationId, obligation] of state.obligations) {
@@ -179,6 +222,8 @@ const walkPortableSurvives = (state, targetAgentId, evaluationTime, writer) => {
     }
 };
 const sortSurvives = (answer) => {
+    answer.outcomeObservations?.sort((a, b) => compareProtocolStrings(a.intentId, b.intentId) || compareProtocolStrings(a.observationEventId, b.observationEventId));
+    answer.attemptDuties?.sort((a, b) => compareProtocolStrings(a.dutyId, b.dutyId));
     const compareTenures = (left, right) => compareProtocolStrings(left.roleId, right.roleId) || left.tenureNumber - right.tenureNumber ||
         compareProtocolStrings(left.roleTenureId, right.roleTenureId);
     answer.currentRoleTenures.sort(compareTenures);

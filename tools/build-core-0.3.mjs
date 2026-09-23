@@ -23,8 +23,8 @@ try {
   if (compiler.version !== '5.9.3') throw Error('Use pinned tooling: npm ci --prefix tools/sdk-build --ignore-scripts');
   const result = spawnSync(process.execPath,[tsc,'-p',join(root,'tools/sdk-build/tsconfig-core-0.3.json'),'--outDir',join(scratch,'dist')],{stdio:'inherit'});
   if (result.error || result.status !== 0) throw Error('Strict SDK build failed; no package was replaced');
-  const exports = Object.fromEntries(Object.entries({'.':'core-0.3/src/index','./local':'core-0.3/src/local-owner','./simulation':'core-0.3/src/simulation','./runtime':'core-0.3/src/runtime','./evidence':'core-0.3/src/evidence','./policy':'core-0.3/src/policy'}).map(([name,path])=>[name,{types:`./dist/${path}.d.ts`,import:`./dist/${path}.js`}]));
-  const manifest = {name:'@ramex-labs/continuity',version:'0.3.0-preview.6',publishConfig:{access:'public',tag:'preview',registry:'https://registry.npmjs.org'},repository:{type:'git',url:'https://github.com/zerohourzulu/continuity.git'},type:'module',license:'Apache-2.0',description:'Continuity 0.3 signed local API and protected evidence tool preview',engines:{node:'^22.18.0 || ^24.0.0 || ^26.0.0'},exports,files:['dist','LICENSE','NOTICE','LICENSING.md','THIRD-PARTY-NOTICES.md','README.md','BUILD-PROVENANCE.json']};
+  const exports = Object.fromEntries(Object.entries({'.':'core-0.3/src/index','./local':'core-0.3/src/local-owner','./simulation':'core-0.3/src/simulation','./runtime':'core-0.3/src/runtime','./evidence':'core-0.3/src/evidence','./policy':'core-0.3/src/policy','./attempts':'core-0.3/src/attempts','./adapter':'core-0.3/src/adapter'}).map(([name,path])=>[name,{types:`./dist/${path}.d.ts`,import:`./dist/${path}.js`}]));
+  const manifest = {name:'@ramex-labs/continuity',version:'0.3.0-preview.7',publishConfig:{access:'public',tag:'preview',registry:'https://registry.npmjs.org'},repository:{type:'git',url:'https://github.com/zerohourzulu/continuity.git'},type:'module',license:'Apache-2.0',description:'Continuity 0.3 signed local API and protected evidence tool preview',engines:{node:'^22.18.0 || ^24.0.0 || ^26.0.0'},exports,files:['dist','LICENSE','NOTICE','LICENSING.md','THIRD-PARTY-NOTICES.md','README.md','BUILD-PROVENANCE.json']};
   writeFileSync(join(scratch,'package.json'),JSON.stringify(manifest,null,2)+'\n');
   for (const name of ['LICENSE','NOTICE']) cpSync(join(root,name),join(scratch,name));
   writeFileSync(join(scratch,'README.md'),readFileSync(join(root,'docs/CORE-0.3-API.md'),'utf8').replace(/\]\((?!https?:|#)([^)]+)\)/g, (_match, target) => '](https://github.com/zerohourzulu/continuity/blob/main/' + posix.normalize('docs/' + target) + ')'));
@@ -32,7 +32,7 @@ try {
   writeFileSync(join(scratch,'THIRD-PARTY-NOTICES.md'),'# SDK third-party scope\n\nNo third-party runtime code is bundled in this SDK archive. Node and build tooling are separately installed; their licenses remain applicable to those tools. The full evaluation distribution has its own dependency and website notices.\n');
   const sources = ['core-0.2','core-0.3'].flatMap(component=>files(join(root,'packages',component,'src')).map(path=>({path:component+'/src/'+path,sha256:sha(readFileSync(join(root,'packages',component,'src',path)))})));
   const outputs = files(join(scratch,'dist')).map(path=>({path,sha256:sha(readFileSync(join(scratch,'dist',path)))}));
-  writeFileSync(join(scratch,'BUILD-PROVENANCE.json'),JSON.stringify({schemaVersion:'continuity-sdk-build/1',coreVersion:'0.2.2',apiVersion:'0.3.0-preview.6',compiler:compiler.version,compilerConfigSha256:sha(readFileSync(join(root,'tools/sdk-build/tsconfig-core-0.3.json'))),sources,outputs},null,2)+'\n');
+  writeFileSync(join(scratch,'BUILD-PROVENANCE.json'),JSON.stringify({schemaVersion:'continuity-sdk-build/1',coreVersion:'0.2.2',apiVersion:'0.3.0-preview.7',compiler:compiler.version,compilerConfigSha256:sha(readFileSync(join(root,'tools/sdk-build/tsconfig-core-0.3.json'))),sources,outputs},null,2)+'\n');
   const destination = join(root,'sdk/core-0.3');
   if(args.includes('--check')) {
     if(JSON.stringify(files(scratch))!==JSON.stringify(files(destination)))throw Error('SDK file membership differs; rebuild intentionally');
@@ -41,7 +41,7 @@ try {
   } else {
     // sdk/core is generated output only. Source and installed consumers are never removed.
     rmSync(destination,{recursive:true,force:true}); mkdirSync(join(root,'sdk'),{recursive:true});cpSync(scratch,destination,{recursive:true});
-    console.log('Built SDK from unchanged Core source with strict type checking.');
+    console.log('Built shared SDK from canonical Core source with strict type checking.');
     if(args.includes('--pack')) {
       const pack = spawnSync('npm',['pack','--ignore-scripts','--json','--pack-destination',join(root,'sdk')],{cwd:destination,encoding:'utf8'});
       if(pack.error || pack.status!==0)throw Error('npm pack failed: '+(pack.stderr??''));

@@ -17,7 +17,9 @@ function operation(input) {
         "role",
         "tenure",
         "termsCommitment",
-    ]);
+    ], ["amount", "counterparty"]);
+    if (Object.hasOwn(r, "amount"))
+        requireCondition(typeof r.amount === "bigint" && r.amount >= 0n && r.amount < (1n << 256n));
     requireCondition(typeof r.termsCommitment === "string" &&
         /^0x[0-9a-f]{64}$/.test(r.termsCommitment));
     return Object.freeze({
@@ -27,6 +29,8 @@ function operation(input) {
         role: identifier(r.role),
         tenure: identifier(r.tenure),
         termsCommitment: r.termsCommitment,
+        ...(Object.hasOwn(r, "amount") ? { amount: r.amount } : {}),
+        ...(Object.hasOwn(r, "counterparty") ? { counterparty: identifier(r.counterparty) } : {}),
     });
 }
 /**
@@ -70,6 +74,8 @@ export function openLocalExecution(options, adapter, mode) {
         resource: op.resource,
         termsCommitment: op.termsCommitment,
         claimedAt: at,
+        ...(Object.hasOwn(op, "amount") ? { amount: op.amount } : {}),
+        ...(Object.hasOwn(op, "counterparty") ? { counterpartyId: op.counterparty } : {}),
     });
     const declarationFor = (op) => Object.freeze({
         intentId: op.id,
@@ -81,6 +87,8 @@ export function openLocalExecution(options, adapter, mode) {
         roleId: op.role,
         roleTenureId: op.tenure,
         termsCommitment: op.termsCommitment,
+        ...(Object.hasOwn(op, "amount") ? { amount: op.amount } : {}),
+        ...(Object.hasOwn(op, "counterparty") ? { counterpartyId: op.counterparty } : {}),
     });
     const declarationId = (op) => `operation:${core.hashCanonical({
         version: "continuity-simulation-operation/1",
@@ -127,7 +135,7 @@ export function openLocalExecution(options, adapter, mode) {
     return Object.freeze({
         profile: mode === "SIMULATION"
             ? "EFFECT_FREE_SIMULATION"
-            : "LOCAL_EVIDENCE_PACKET",
+            : mode === "REMOTE_REPORT" ? "REMOTE_REPORTED_OUTCOME" : "LOCAL_EVIDENCE_PACKET",
         /** A committed admission is never re-invoked, including after a restart. */
         async run(input) {
             const op = operation(input);
@@ -140,7 +148,7 @@ export function openLocalExecution(options, adapter, mode) {
                     operationId: op.id,
                     externalEffect: mode === "SIMULATION"
                         ? "NONE_SIMULATED"
-                        : "LOCAL_PACKET",
+                        : mode === "REMOTE_REPORT" ? "REMOTE_REPORTED_OUTCOME" : "LOCAL_PACKET",
                     result: await coordinator.reconcile(op.id),
                 });
             }
@@ -198,6 +206,8 @@ export function openLocalExecution(options, adapter, mode) {
                     operationId: op.id,
                     termsCommitment: op.termsCommitment,
                     historyHead: state.head.hash,
+                    ...(Object.hasOwn(op, "amount") ? { amount: op.amount } : {}),
+                    ...(Object.hasOwn(op, "counterparty") ? { counterparty: op.counterparty } : {}),
                 }, config.now);
                 if (evidence.result.decision !== "ALLOW")
                     return Object.freeze({
@@ -244,7 +254,7 @@ export function openLocalExecution(options, adapter, mode) {
                 operationId: op.id,
                 externalEffect: mode === "SIMULATION"
                     ? "NONE_SIMULATED"
-                    : "LOCAL_PACKET",
+                    : mode === "REMOTE_REPORT" ? "REMOTE_REPORTED_OUTCOME" : "LOCAL_PACKET",
                 admission: admitted.result,
                 invocation,
             });

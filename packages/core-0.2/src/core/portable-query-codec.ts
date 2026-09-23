@@ -1,4 +1,5 @@
 /** Internal Section 9 projection vocabulary; public query dispatch is staged separately. */
+import type { ContentHash } from "./canonical.ts";
 import { canonicalEncode, compareProtocolStrings, immutableProtocolValue } from "./canonical.ts";
 import type { PortableActionRequest, PortableConsequentialBinding, PortableAuthorizationResult } from "./portable-authority-engine.ts";
 import type { AcceptedCanonicalEventShape } from "./event-schema.ts";
@@ -65,6 +66,25 @@ export type PortableAuthorityDependencyProjection = Readonly<{
   authorityId: string; state: "REVOKED" | "EXPIRED" | "AGENT_TERMINATED";
   evidence: readonly PortableReplayEvidenceReference[];
 }>;
+export type PortableOutcomeObservationProjection = Readonly<{
+  observationEventId: string; intentId: string; sourceAdmissionEventId: string;
+  originalActorId: string; recorderId: string; recordedAt: number;
+  reportDigest: Readonly<{algorithm: "sha256"; value: ContentHash}>;
+  reportStatus: "REPORT_RECORDED" | "DIVERGENT_REPORTS";
+  externalOutcome: "NOT_PROVEN"; evidence: readonly PortableReplayEvidenceReference[];
+}>;
+export type PortableAttemptDutyReviewProjection = Readonly<{
+  dutyId: string; actorId: string; observationEventIds: readonly string[]; summaryDigest: ContentHash;
+  eventId: string; eventPosition: number; reviewedAt: number;
+}>;
+export type PortableAttemptDutyProjection = Readonly<{
+  dutyId: string; sourceIntentId: string; sourceAdmissionEventId: string;
+  originalActorId: string; durableRoleId: string; creationActorId: string;
+  initialAssigneeId: string; currentAssigneeId: string; deadline: number;
+  status: "OPEN"; externalOutcome: "NOT_PROVEN"; evidence: readonly PortableReplayEvidenceReference[];
+  reviewStatus?: "UNREVIEWED" | "REVIEW_CLOSED" | "NEEDS_REVIEW";
+  reviews?: readonly PortableAttemptDutyReviewProjection[];
+}>;
 export type PortableSurvivesAnswer = Readonly<{
   targetAgentId: string; exists: boolean; lifecycleStatus: "ABSENT" | "ACTIVE" | "TERMINATED";
   historicalIdentity: readonly PortableReplayEvidenceReference[];
@@ -72,6 +92,8 @@ export type PortableSurvivesAnswer = Readonly<{
   transferredRoleTenures: readonly PortableRoleTenureProjection[];
   unresolvedIntents: readonly PortableIntentProjection[];
   adapterOutcomes: readonly PortableAdapterOutcomeProjection[];
+  outcomeObservations?: readonly PortableOutcomeObservationProjection[];
+  attemptDuties?: readonly PortableAttemptDutyProjection[];
   receiptCommitments: readonly PortableReplayEvidenceReference[];
   obligations: readonly PortableObligationProjection[];
   currentPerformanceAssignments: readonly PortablePerformanceAssignmentProjection[];
@@ -198,7 +220,7 @@ const constraintsFields = "actions resources quantitative notBefore expiresAt ma
 const rootFields = "rootAuthorityId principalId principalRecognitionEventId rootGrantEventId";
 const domainFields = "protocol version deploymentId chainId verifyingContract";
 const grantFields = "kind authorityId grantorId granteeId rootAuthorityId parentAuthorityId independent constraints";
-fields("", "authorization presentConsequentialUse authorizationDecision attributions targetAgentId exists lifecycleStatus historicalIdentity currentRoleTenures transferredRoleTenures unresolvedIntents adapterOutcomes receiptCommitments obligations currentPerformanceAssignments invalidatedAuthorityDependencies");
+fields("", "authorization presentConsequentialUse authorizationDecision attributions targetAgentId exists lifecycleStatus historicalIdentity currentRoleTenures transferredRoleTenures unresolvedIntents adapterOutcomes outcomeObservations attemptDuties receiptCommitments obligations currentPerformanceAssignments invalidatedAuthorityDependencies");
 fields("authorization", "operationVersion decision scopeAssurance consequential proof code failures");
 fields("authorization.failures", "code subjectId rootAuthorityId terminalAuthorityId failingAuthorityId authorityPathIds evidence");
 fields("authorization.failures.evidence", evidenceFields);
@@ -225,6 +247,12 @@ for (const path of ["currentRoleTenures", "transferredRoleTenures"]) {
 }
 fields("unresolvedIntents", "intentId actorId nonce state evidence");
 const adapterProfileFields = "profileId profileVersion descriptorHash";
+fields("outcomeObservations", "observationEventId intentId sourceAdmissionEventId originalActorId recorderId recordedAt reportDigest reportStatus externalOutcome evidence");
+fields("outcomeObservations.reportDigest", "algorithm value");
+fields("outcomeObservations.evidence", evidenceFields);
+fields("attemptDuties", "dutyId sourceIntentId sourceAdmissionEventId originalActorId durableRoleId creationActorId initialAssigneeId currentAssigneeId deadline status externalOutcome evidence reviewStatus reviews");
+fields("attemptDuties.reviews", "dutyId actorId observationEventIds summaryDigest eventId eventPosition reviewedAt");
+fields("attemptDuties.evidence", evidenceFields);
 fields("adapterOutcomes", "intentId actorId adapterProfile state acknowledgment latestOutcome evidence");
 fields("adapterOutcomes.adapterProfile", adapterProfileFields);
 fields("adapterOutcomes.evidence", evidenceFields);
@@ -237,7 +265,8 @@ for (const path of ["adapterOutcomes.acknowledgment", "adapterOutcomes.latestOut
   fields(`${path}.domain`, domainFields);
   fields(`${path}.admissionHead`, "hash position canonicalTime");
 }
-fields("adapterOutcomes.acknowledgment.result", "kind submissionReference manifestDigest transitionDigest publicationManifestDigest");
+fields("adapterOutcomes.acknowledgment.result", "kind submissionReference manifestDigest transitionDigest publicationManifestDigest reportDigest");
+fields("adapterOutcomes.acknowledgment.result.reportDigest", "algorithm value");
 fields("adapterOutcomes.acknowledgment.result.manifestDigest", "algorithm value");
 fields("adapterOutcomes.acknowledgment.result.publicationManifestDigest", "algorithm value");
 fields("adapterOutcomes.acknowledgment.result.transitionDigest", "algorithm value");

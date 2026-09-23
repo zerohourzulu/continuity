@@ -1,6 +1,6 @@
 {
   "name": "@ramex-labs/continuity",
-  "version": "0.3.0-preview.6",
+  "version": "0.3.0-preview.7",
   "publishConfig": {
     "access": "public",
     "tag": "preview",
@@ -40,6 +40,14 @@
     "./policy": {
       "types": "./dist/core-0.3/src/policy.d.ts",
       "import": "./dist/core-0.3/src/policy.js"
+    },
+    "./attempts": {
+      "types": "./dist/core-0.3/src/attempts.d.ts",
+      "import": "./dist/core-0.3/src/attempts.js"
+    },
+    "./adapter": {
+      "types": "./dist/core-0.3/src/adapter.d.ts",
+      "import": "./dist/core-0.3/src/adapter.js"
     }
   },
   "files": [

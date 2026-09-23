@@ -1,6 +1,7 @@
 import {
   resolvePortableAdapterPolicy, validateKnownPortableAdapterProfile,
   validatePortableAdapterAcknowledgmentShape, validatePortableAdapterNoEffectShape,
+  REMOTE_SERVICE_REPORT_ACKNOWLEDGMENT_VERSION,
 } from "./portable-adapter-engine.ts";
 import {
   compareProtocolStrings,
@@ -104,6 +105,10 @@ export const CORE_EVENT_TYPES = Object.freeze([
   "OBLIGATION_PERFORMANCE_ASSIGNED",
   "OBLIGATION_STATUS_RECORDED",
   "AGENT_TERMINATED",
+  "OUTCOME_OBSERVATION_RECORDED",
+  "ATTEMPT_DUTY_CREATED",
+  "ATTEMPT_DUTY_ASSIGNED",
+  "ATTEMPT_DUTY_REVIEW_CLOSED",
 ] as const);
 
 export type CoreEventType = (typeof CORE_EVENT_TYPES)[number];
@@ -455,6 +460,14 @@ const identifierList = (
     if (!identifier(v, value[index], `${path}[${index}]`)) return false;
     if (setHas(seen, value[index]!)) return v.fail(`${path}[${index}]`, "duplicates an Identifier");
     setAdd(seen, value[index]!);
+  }
+  return true;
+};
+
+const reviewObservationIds = (v: ShapeValidator, value: unknown, path: string): boolean => {
+  if (!identifierList(v, value, path, { maximum: 128 })) return false;
+  for (let index = 1; index < value.length; index += 1) {
+    if (compareProtocolStrings(value[index - 1]!, value[index]!) >= 0) return v.fail(path, "must be strictly sorted");
   }
   return true;
 };
@@ -1015,6 +1028,9 @@ const adapterEvidence = (v: ShapeValidator, value: unknown, path: string, noEffe
   } else if (result.kind === "LOCAL_PACKET_CREATED") {
     if (v.record(result, `${path}.result`, ["kind", "manifestDigest"]) === undefined ||
         v.record(result.manifestDigest, `${path}.result.manifestDigest`, ["algorithm", "value"]) === undefined) return false;
+  } else if (result.kind === "REMOTE_SERVICE_REPORTED") {
+    if (v.record(result, `${path}.result`, ["kind", "reportDigest"]) === undefined ||
+        v.record(result.reportDigest, `${path}.result.reportDigest`, ["algorithm", "value"]) === undefined) return false;
   } else if (result.kind === "LOCAL_DOCUMENT_RELEASED") {
     if (v.record(result, `${path}.result`, ["kind", "publicationManifestDigest"]) === undefined ||
         v.record(result.publicationManifestDigest, `${path}.result.publicationManifestDigest`, ["algorithm", "value"]) === undefined) return false;
@@ -1147,6 +1163,10 @@ const ADMINISTRATIVE_EVENT_TYPES = [
   "OBLIGATION_CREATED",
   "OBLIGATION_PERFORMANCE_ASSIGNED",
   "OBLIGATION_STATUS_RECORDED",
+  "OUTCOME_OBSERVATION_RECORDED",
+  "ATTEMPT_DUTY_CREATED",
+  "ATTEMPT_DUTY_ASSIGNED",
+  "ATTEMPT_DUTY_REVIEW_CLOSED",
 ] as const;
 
 const administrativeChallenge = (v: ShapeValidator, value: unknown, path: string): boolean => {
@@ -1211,6 +1231,23 @@ const obligationCreatedData = (v: ShapeValidator, value: unknown, path: string):
     obligationRecord(v, record.record, `${path}.record`) &&
     identifier(v, record.actorId, `${path}.actorId`) &&
     administrativeAuthorization(v, record.administrativeAuthorization, `${path}.administrativeAuthorization`);
+};
+
+const attemptDutyRecord = (v: ShapeValidator, value: unknown, path: string): boolean => {
+  const record = v.record(value, path, [
+    "dutyId", "sourceIntentId", "sourceAdmissionEventId", "durableRoleId", "creationRoleTenureId",
+    "description", "deadline", "performanceAssigneeId", "status",
+  ]);
+  return record !== undefined &&
+    identifier(v, record.dutyId, `${path}.dutyId`) &&
+    identifier(v, record.sourceIntentId, `${path}.sourceIntentId`) &&
+    identifier(v, record.sourceAdmissionEventId, `${path}.sourceAdmissionEventId`) &&
+    identifier(v, record.durableRoleId, `${path}.durableRoleId`) &&
+    identifier(v, record.creationRoleTenureId, `${path}.creationRoleTenureId`) &&
+    protocolString(v, record.description, `${path}.description`) &&
+    u53(v, record.deadline, `${path}.deadline`) &&
+    identifier(v, record.performanceAssigneeId, `${path}.performanceAssigneeId`) &&
+    literal(v, record.status, `${path}.status`, ["OPEN"]);
 };
 
 type NamedLimitNode =
@@ -1280,6 +1317,7 @@ const LIMIT_ADAPTER_EVIDENCE = limitRecord(
   limitField("adapterProfile", LIMIT_ADAPTER_PROFILE), limitField("domain", LIMIT_DOMAIN),
   limitField("intentId", LIMIT_IDENTIFIER),
   limitField("result", limitRecord(limitField("kind", LIMIT_IDENTIFIER),
+    limitField("reportDigest", limitRecord(limitField("algorithm", LIMIT_IDENTIFIER))),
     limitField("publicationManifestDigest", limitRecord(limitField("algorithm", LIMIT_IDENTIFIER))),
     limitField("manifestDigest", limitRecord(limitField("algorithm", LIMIT_IDENTIFIER))),
     limitField("transitionDigest", limitRecord(limitField("algorithm", LIMIT_IDENTIFIER))))),
@@ -1548,6 +1586,15 @@ const LIMIT_OBLIGATION_CREATED_DATA = limitRecord(
   limitField("administrativeAuthorization", LIMIT_ADMINISTRATIVE_AUTHORIZATION),
 );
 
+const LIMIT_ATTEMPT_DUTY_RECORD = limitRecord(
+  limitField("dutyId", LIMIT_IDENTIFIER),
+  limitField("sourceIntentId", LIMIT_IDENTIFIER),
+  limitField("sourceAdmissionEventId", LIMIT_IDENTIFIER),
+  limitField("durableRoleId", LIMIT_IDENTIFIER),
+  limitField("creationRoleTenureId", LIMIT_IDENTIFIER),
+  limitField("performanceAssigneeId", LIMIT_IDENTIFIER),
+);
+
 const CORE_EVENT_NAMED_LIMITS = createMap<CoreEventType, NamedLimitNode>();
 
 mapSet(
@@ -1701,6 +1748,42 @@ mapSet(
   ),
 );
 mapSet(CORE_EVENT_NAMED_LIMITS, "OBLIGATION_CREATED", LIMIT_OBLIGATION_CREATED_DATA);
+mapSet(CORE_EVENT_NAMED_LIMITS, "ATTEMPT_DUTY_REVIEW_CLOSED", limitRecord(
+  limitField("dutyId", LIMIT_IDENTIFIER), limitField("actorId", LIMIT_IDENTIFIER),
+  limitField("observationEventIds", limitList(LIMIT_IDENTIFIER, 128, "attempt-review-observations")),
+  limitField("administrativeAuthorization", LIMIT_ADMINISTRATIVE_AUTHORIZATION),
+));
+mapSet(
+  CORE_EVENT_NAMED_LIMITS,
+  "OUTCOME_OBSERVATION_RECORDED",
+  limitRecord(
+    limitField("intentId", LIMIT_IDENTIFIER),
+    limitField("sourceAdmissionEventId", LIMIT_IDENTIFIER),
+    limitField("acknowledgment", LIMIT_ADAPTER_EVIDENCE),
+    limitField("actorId", LIMIT_IDENTIFIER),
+    limitField("administrativeAuthorization", LIMIT_ADMINISTRATIVE_AUTHORIZATION),
+  ),
+);
+mapSet(
+  CORE_EVENT_NAMED_LIMITS,
+  "ATTEMPT_DUTY_CREATED",
+  limitRecord(
+    limitField("record", LIMIT_ATTEMPT_DUTY_RECORD),
+    limitField("actorId", LIMIT_IDENTIFIER),
+    limitField("administrativeAuthorization", LIMIT_ADMINISTRATIVE_AUTHORIZATION),
+  ),
+);
+mapSet(
+  CORE_EVENT_NAMED_LIMITS,
+  "ATTEMPT_DUTY_ASSIGNED",
+  limitRecord(
+    limitField("dutyId", LIMIT_IDENTIFIER),
+    limitField("fromAgentId", LIMIT_IDENTIFIER),
+    limitField("toAgentId", LIMIT_IDENTIFIER),
+    limitField("actorId", LIMIT_IDENTIFIER),
+    limitField("administrativeAuthorization", LIMIT_ADMINISTRATIVE_AUTHORIZATION),
+  ),
+);
 mapSet(
   CORE_EVENT_NAMED_LIMITS,
   "OBLIGATION_PERFORMANCE_ASSIGNED",
@@ -2292,6 +2375,43 @@ const validateEventData = (
     }
     case "OBLIGATION_CREATED":
       return obligationCreatedData(v, value, path);
+    case "OUTCOME_OBSERVATION_RECORDED": {
+      const record = v.record(value, path, [
+        "intentId", "sourceAdmissionEventId", "acknowledgment", "actorId", "administrativeAuthorization",
+      ]);
+      return record !== undefined &&
+        identifier(v, record.intentId, `${path}.intentId`) &&
+        identifier(v, record.sourceAdmissionEventId, `${path}.sourceAdmissionEventId`) &&
+        isPlainRecord(record.acknowledgment) &&
+        record.acknowledgment.schemaVersion === REMOTE_SERVICE_REPORT_ACKNOWLEDGMENT_VERSION &&
+        adapterEvidence(v, record.acknowledgment, `${path}.acknowledgment`) &&
+        identifier(v, record.actorId, `${path}.actorId`) &&
+        administrativeAuthorization(v, record.administrativeAuthorization, `${path}.administrativeAuthorization`);
+    }
+    case "ATTEMPT_DUTY_CREATED": {
+      const record = v.record(value, path, ["record", "actorId", "administrativeAuthorization"]);
+      return record !== undefined &&
+        attemptDutyRecord(v, record.record, `${path}.record`) &&
+        identifier(v, record.actorId, `${path}.actorId`) &&
+        administrativeAuthorization(v, record.administrativeAuthorization, `${path}.administrativeAuthorization`);
+    }
+    case "ATTEMPT_DUTY_REVIEW_CLOSED": {
+      const record = v.record(value, path, ["dutyId", "actorId", "observationEventIds", "summaryDigest", "administrativeAuthorization"]);
+      return record !== undefined && identifier(v, record.dutyId, `${path}.dutyId`) &&
+        identifier(v, record.actorId, `${path}.actorId`) &&
+        reviewObservationIds(v, record.observationEventIds, `${path}.observationEventIds`) &&
+        contentHash(v, record.summaryDigest, `${path}.summaryDigest`) &&
+        administrativeAuthorization(v, record.administrativeAuthorization, `${path}.administrativeAuthorization`);
+    }
+    case "ATTEMPT_DUTY_ASSIGNED": {
+      const record = v.record(value, path, ["dutyId", "fromAgentId", "toAgentId", "actorId", "administrativeAuthorization"]);
+      return record !== undefined &&
+        identifier(v, record.dutyId, `${path}.dutyId`) &&
+        identifier(v, record.fromAgentId, `${path}.fromAgentId`) &&
+        identifier(v, record.toAgentId, `${path}.toAgentId`) &&
+        identifier(v, record.actorId, `${path}.actorId`) &&
+        administrativeAuthorization(v, record.administrativeAuthorization, `${path}.administrativeAuthorization`);
+    }
     case "OBLIGATION_PERFORMANCE_ASSIGNED": {
       const record = v.record(value, path, [
         "obligationId",

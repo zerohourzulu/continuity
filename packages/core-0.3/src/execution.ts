@@ -33,6 +33,9 @@ export type LocalOperation = Readonly<{
   role: string;
   tenure: string;
   termsCommitment: core.ContentHash;
+  /** Unsigned integer in the application's declared smallest unit. No currency conversion. */
+  amount?: bigint;
+  counterparty?: string;
 }>;
 
 /** Hash only bounded data. Keep the actual private terms in application storage. */
@@ -47,7 +50,9 @@ function operation(input: LocalOperation): LocalOperation {
     "role",
     "tenure",
     "termsCommitment",
-  ]);
+  ], ["amount", "counterparty"]);
+  if (Object.hasOwn(r, "amount"))
+    requireCondition(typeof r.amount === "bigint" && r.amount >= 0n && r.amount < (1n << 256n));
   requireCondition(
     typeof r.termsCommitment === "string" &&
       /^0x[0-9a-f]{64}$/.test(r.termsCommitment),
@@ -59,6 +64,8 @@ function operation(input: LocalOperation): LocalOperation {
     role: identifier(r.role),
     tenure: identifier(r.tenure),
     termsCommitment: r.termsCommitment as core.ContentHash,
+    ...(Object.hasOwn(r, "amount") ? { amount: r.amount as bigint } : {}),
+    ...(Object.hasOwn(r, "counterparty") ? { counterparty: identifier(r.counterparty) } : {}),
   });
 }
 
@@ -70,7 +77,7 @@ function operation(input: LocalOperation): LocalOperation {
 export function openLocalExecution(
   options: LocalExecutionOptions,
   adapter: TransactionAdapter,
-  mode: "SIMULATION" | "LOCAL_PACKET",
+  mode: "SIMULATION" | "LOCAL_PACKET" | "REMOTE_REPORT",
 ) {
   const config = configuration(options),
     sessionId = identifier(options.session),
@@ -121,6 +128,8 @@ export function openLocalExecution(
       resource: op.resource,
       termsCommitment: op.termsCommitment,
       claimedAt: at,
+      ...(Object.hasOwn(op, "amount") ? { amount: op.amount } : {}),
+      ...(Object.hasOwn(op, "counterparty") ? { counterpartyId: op.counterparty } : {}),
     });
   const declarationFor = (op: LocalOperation) =>
     Object.freeze({
@@ -133,6 +142,8 @@ export function openLocalExecution(
       roleId: op.role,
       roleTenureId: op.tenure,
       termsCommitment: op.termsCommitment,
+      ...(Object.hasOwn(op, "amount") ? { amount: op.amount } : {}),
+      ...(Object.hasOwn(op, "counterparty") ? { counterpartyId: op.counterparty } : {}),
     });
   const declarationId = (op: LocalOperation) =>
     `operation:${core.hashCanonical({
@@ -199,7 +210,7 @@ export function openLocalExecution(
     profile:
       mode === "SIMULATION"
         ? ("EFFECT_FREE_SIMULATION" as const)
-        : ("LOCAL_EVIDENCE_PACKET" as const),
+        : mode === "REMOTE_REPORT" ? ("REMOTE_REPORTED_OUTCOME" as const) : ("LOCAL_EVIDENCE_PACKET" as const),
     /** A committed admission is never re-invoked, including after a restart. */
     async run(input: LocalOperation) {
       const op = operation(input);
@@ -214,7 +225,7 @@ export function openLocalExecution(
           externalEffect:
             mode === "SIMULATION"
               ? ("NONE_SIMULATED" as const)
-              : ("LOCAL_PACKET" as const),
+              : mode === "REMOTE_REPORT" ? ("REMOTE_REPORTED_OUTCOME" as const) : ("LOCAL_PACKET" as const),
           result: await coordinator.reconcile(op.id),
         });
       }
@@ -277,6 +288,8 @@ export function openLocalExecution(
             operationId: op.id,
             termsCommitment: op.termsCommitment,
             historyHead: state.head.hash,
+            ...(Object.hasOwn(op, "amount") ? { amount: op.amount } : {}),
+            ...(Object.hasOwn(op, "counterparty") ? { counterparty: op.counterparty } : {}),
           },
           config.now,
         );
@@ -331,7 +344,7 @@ export function openLocalExecution(
         externalEffect:
           mode === "SIMULATION"
             ? ("NONE_SIMULATED" as const)
-            : ("LOCAL_PACKET" as const),
+            : mode === "REMOTE_REPORT" ? ("REMOTE_REPORTED_OUTCOME" as const) : ("LOCAL_PACKET" as const),
         admission: admitted.result,
         invocation,
       });

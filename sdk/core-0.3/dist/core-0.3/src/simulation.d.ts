@@ -3,11 +3,11 @@ export { commitTerms } from "./execution.ts";
 export type { SignHash, LocalExecutionOptions as LocalSimulationOptions, LocalOperation as SimulationOperation, } from "./execution.ts";
 /** Effect-free, signed local execution example; no adapter injection. */
 export declare function openLocalSimulation(options: LocalExecutionOptions): Readonly<{
-    profile: "EFFECT_FREE_SIMULATION" | "LOCAL_EVIDENCE_PACKET";
+    profile: "EFFECT_FREE_SIMULATION" | "REMOTE_REPORTED_OUTCOME" | "LOCAL_EVIDENCE_PACKET";
     run(input: import("./execution.ts").LocalOperation): Promise<Readonly<{
         status: "RECONCILIATION_ONLY";
         operationId: string;
-        externalEffect: "LOCAL_PACKET" | "NONE_SIMULATED";
+        externalEffect: "LOCAL_PACKET" | "REMOTE_REPORTED_OUTCOME" | "NONE_SIMULATED";
         result: import("../../core-0.2/src/sdk/durable-admission.ts").PortableInvocationResult;
     }> | Readonly<{
         status: "NOT_AUTHORIZED";
@@ -51,7 +51,7 @@ export declare function openLocalSimulation(options: LocalExecutionOptions): Rea
     }> | Readonly<{
         status: "SIMULATION_RESULT" | "EXECUTION_RESULT";
         operationId: string;
-        externalEffect: "LOCAL_PACKET" | "NONE_SIMULATED";
+        externalEffect: "LOCAL_PACKET" | "REMOTE_REPORTED_OUTCOME" | "NONE_SIMULATED";
         admission: Readonly<{
             operationVersion: "continuity-intent-admission/0.2";
             status: "ADMITTED";
@@ -59,7 +59,7 @@ export declare function openLocalSimulation(options: LocalExecutionOptions): Rea
                 status: "PROPOSED";
             }>["authorization"];
             admissionEvent: import("../../core-0.2/src/core/portable-admission.ts").PortableIntentAdmissionEvent;
-            newHead: import("./index.ts").HistoryHead;
+            newHead: import("./adapter.ts").PortableHistoryHead;
         }>;
         invocation: import("../../core-0.2/src/sdk/durable-admission.ts").PortableInvocationResult;
     }>>;

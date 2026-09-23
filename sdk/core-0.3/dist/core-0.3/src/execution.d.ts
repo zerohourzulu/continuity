@@ -16,6 +16,9 @@ export type LocalOperation = Readonly<{
     role: string;
     tenure: string;
     termsCommitment: core.ContentHash;
+    /** Unsigned integer in the application's declared smallest unit. No currency conversion. */
+    amount?: bigint;
+    counterparty?: string;
 }>;
 /** Hash only bounded data. Keep the actual private terms in application storage. */
 export declare function commitTerms(terms: unknown): core.ContentHash;
@@ -24,13 +27,13 @@ export declare function commitTerms(terms: unknown): core.ContentHash;
  * This internal constructor accepts approved executable configuration only.
  * Public factories pin the supported adapter; no agent can inject one.
  */
-export declare function openLocalExecution(options: LocalExecutionOptions, adapter: TransactionAdapter, mode: "SIMULATION" | "LOCAL_PACKET"): Readonly<{
-    profile: "EFFECT_FREE_SIMULATION" | "LOCAL_EVIDENCE_PACKET";
+export declare function openLocalExecution(options: LocalExecutionOptions, adapter: TransactionAdapter, mode: "SIMULATION" | "LOCAL_PACKET" | "REMOTE_REPORT"): Readonly<{
+    profile: "EFFECT_FREE_SIMULATION" | "REMOTE_REPORTED_OUTCOME" | "LOCAL_EVIDENCE_PACKET";
     /** A committed admission is never re-invoked, including after a restart. */
     run(input: LocalOperation): Promise<Readonly<{
         status: "RECONCILIATION_ONLY";
         operationId: string;
-        externalEffect: "LOCAL_PACKET" | "NONE_SIMULATED";
+        externalEffect: "LOCAL_PACKET" | "REMOTE_REPORTED_OUTCOME" | "NONE_SIMULATED";
         result: import("../../core-0.2/src/sdk/durable-admission.ts").PortableInvocationResult;
     }> | Readonly<{
         status: "NOT_AUTHORIZED";
@@ -74,7 +77,7 @@ export declare function openLocalExecution(options: LocalExecutionOptions, adapt
     }> | Readonly<{
         status: "SIMULATION_RESULT" | "EXECUTION_RESULT";
         operationId: string;
-        externalEffect: "LOCAL_PACKET" | "NONE_SIMULATED";
+        externalEffect: "LOCAL_PACKET" | "REMOTE_REPORTED_OUTCOME" | "NONE_SIMULATED";
         admission: Readonly<{
             operationVersion: "continuity-intent-admission/0.2";
             status: "ADMITTED";

@@ -45,6 +45,9 @@ export type Grant = Readonly<{
   resources: readonly string[];
   expiresAt: number;
   notBefore?: number;
+  maxAmount?: bigint;
+  maxCumulativeAmount?: bigint;
+  maxTransactions?: number;
 }>;
 export type Appointment = Readonly<{
   agent: string;
@@ -134,9 +137,15 @@ function attach(store: PortableFileEventStore, config: Config): LocalOwner {
       const r = record(
         input,
         ["id", "to", "actions", "resources", "expiresAt"],
-        ["notBefore"],
+        ["notBefore", "maxAmount", "maxCumulativeAmount", "maxTransactions"],
       );
       const id = identifier(r.id);
+      for (const field of ["maxAmount", "maxCumulativeAmount"] as const) {
+        if (Object.hasOwn(r, field)) {
+          const value = r[field];
+          requireCondition(typeof value === "bigint" && value >= 0n && value < (1n << 256n));
+        }
+      }
       return write("AUTHORITY_GRANTED", {
         grant: {
           kind: "PERMISSION",
@@ -148,11 +157,14 @@ function attach(store: PortableFileEventStore, config: Config): LocalOwner {
           constraints: {
             actions: identifiers(r.actions),
             resources: identifiers(r.resources),
-            quantitative: false,
+            quantitative: Object.hasOwn(r, "maxAmount") || Object.hasOwn(r, "maxCumulativeAmount"),
             expiresAt: time(r.expiresAt),
             ...(Object.hasOwn(r, "notBefore")
               ? { notBefore: time(r.notBefore) }
               : {}),
+            ...(Object.hasOwn(r, "maxAmount") ? { maxAmount: r.maxAmount as bigint } : {}),
+            ...(Object.hasOwn(r, "maxCumulativeAmount") ? { maxCumulativeAmount: r.maxCumulativeAmount as bigint } : {}),
+            ...(Object.hasOwn(r, "maxTransactions") ? { maxTransactions: time(r.maxTransactions) } : {}),
             maxDelegationDepth: 0,
             requiredIntersectionIds: [],
           },
@@ -351,12 +363,23 @@ function attach(store: PortableFileEventStore, config: Config): LocalOwner {
 }
 /** Create a new, operator-owned local policy history. No runtime keys or effects. */
 export function createLocalOwner(options: LocalOwnerOptions): LocalOwner {
+  return createLocalOwnerWithPolicy(options, core.PORTABLE_ADAPTER_POLICY_HASH);
+}
+/** Explicit E5 attempt-record history; existing histories are not migrated. */
+export function createLocalAttemptOwner(options: LocalOwnerOptions): LocalOwner {
+  return createLocalOwnerWithPolicy(options, core.PORTABLE_ADAPTER_POLICY_E5_HASH);
+}
+/** Explicit E6 opt-in for a new history; does not migrate or reinterpret E5 histories. */
+export function createLocalReviewOwner(options: LocalOwnerOptions): LocalOwner {
+  return createLocalOwnerWithPolicy(options, core.PORTABLE_ADAPTER_POLICY_E6_HASH);
+}
+function createLocalOwnerWithPolicy(options: LocalOwnerOptions, adapterPolicyHash: core.ContentHash): LocalOwner {
   const config = configuration(options);
   const timestamp = config.now();
   const initial = [
     event("DEPLOYMENT_INITIALIZED", timestamp, {
       domain: config.domain,
-      adapterPolicyHash: core.PORTABLE_ADAPTER_POLICY_HASH,
+      adapterPolicyHash,
       canonicalLineageId: `lineage:${randomUUID()}`,
       versions: {
         eventSchemaVersion: "continuity-event/0.2",

@@ -1,3 +1,5 @@
+> This guide describes the frozen 0.2 SDK. Use its original release source for rebuilding. For current development, use [shared Core](SHARED-CORE.md) and `npm run api:build`.
+
 # Use Core from your own application
 
 This local evaluation packages the unchanged Core0.2.2 engine as JavaScript with TypeScript declarations. Unlike the original source-only entry, it can be installed under `node_modules` without TypeScript stripping. No npm publication or stable API promise is made. See [package/API scope](SDK-PACKAGE.md).

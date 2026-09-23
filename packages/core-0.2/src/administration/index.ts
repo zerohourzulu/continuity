@@ -1,13 +1,17 @@
 /** Repository-local preparation only; never a durable append or authority capability. */
 import {
   captureBoundedCanonicalValue, captureBoundedCanonicalReplayBodyIncrementally,
-  canonicalEncode, hashCanonical, immutableProtocolValue, isCanonicalCaptureLimitError,
+  canonicalEncode, compareProtocolStrings, hashCanonical, immutableProtocolValue, isCanonicalCaptureLimitError,
   type BoundedCanonicalCapture, type ContentHash,
 } from "../core/canonical.ts";
 import { validateCanonicalEventShape, type AcceptedCanonicalEventShape as Event } from "../core/event-schema.ts";
 import { createPortableReplayKernel, replayPortable, PORTABLE_REPLAY_VERSION, type PortableReplayState } from "../core/portable-replay.ts";
 import { createPortableAdministrativePolicyProof, type PortableAdministrativeRequirements } from "../core/portable-authority-engine.ts";
 import { portableAdministrativeTransitionEffect, type PortableObligationRecord } from "../core/portable-administration-codec.ts";
+import {
+  PORTABLE_ADAPTER_POLICY_E5_HASH, PORTABLE_ADAPTER_POLICY_E6_HASH, REMOTE_SERVICE_REPORT_ADAPTER_ID,
+  validatePortableAdapterAcknowledgment,
+} from "../core/portable-adapter-engine.ts";
 
 export type AdministrativeProducerPhase = "CAPTURE" | "PREPARE" | "SIGN" | "VERIFY";
 export type AdministrativeProducerCode =
@@ -35,6 +39,10 @@ const DATA_FIELDS = {
   OBLIGATION_CREATED: ["record", "actorId"],
   OBLIGATION_PERFORMANCE_ASSIGNED: ["obligationId", "fromAgentId", "toAgentId", "successionRuleId", "actorId"],
   OBLIGATION_STATUS_RECORDED: ["obligationId", "fromStatus", "toStatus", "actorId", "action", "attesterId", "evidenceReference"],
+  OUTCOME_OBSERVATION_RECORDED: ["intentId", "sourceAdmissionEventId", "acknowledgment", "actorId"],
+  ATTEMPT_DUTY_CREATED: ["record", "actorId"],
+  ATTEMPT_DUTY_ASSIGNED: ["dutyId", "fromAgentId", "toAgentId", "actorId"],
+  ATTEMPT_DUTY_REVIEW_CLOSED: ["dutyId", "actorId", "observationEventIds", "summaryDigest"],
 } as const;
 type TransitionKind = keyof typeof DATA_FIELDS;
 type UnsignedTransition = Readonly<{ id: string; type: TransitionKind; timestamp: number; data: Readonly<Record<string, unknown>> }>;
@@ -88,7 +96,7 @@ function captureInput(input: unknown): CapturedInput {
       transition.timestamp < 0 || Object.is(transition.timestamp, -0)) fail("PREPARE", "INVALID_TRANSITION");
   const data = transition.data as Readonly<Record<string, unknown>>;
   if (typeof data.actorId !== "string") fail("PREPARE", "INVALID_TRANSITION");
-  if (transition.type === "OBLIGATION_CREATED") {
+  if (transition.type === "OBLIGATION_CREATED" || transition.type === "ATTEMPT_DUTY_CREATED") {
     if (!record(data.record)) fail("PREPARE", "INVALID_TRANSITION");
     if (data.record.status !== "OPEN") fail("PREPARE", "UNSUPPORTED_STATUS");
   } else if (transition.type === "OBLIGATION_STATUS_RECORDED" &&
@@ -110,6 +118,64 @@ function replayPrefix(events: readonly Event[]): PortableReplayState {
 
 function deriveRequirements(state: PortableReplayState, transition: UnsignedTransition): PortableAdministrativeRequirements {
   const data = transition.data, actorId = data.actorId as string;
+  if (transition.type === "OUTCOME_OBSERVATION_RECORDED" ||
+      transition.type === "ATTEMPT_DUTY_CREATED" || transition.type === "ATTEMPT_DUTY_ASSIGNED" ||
+      transition.type === "ATTEMPT_DUTY_REVIEW_CLOSED") {
+    if (state.genesis.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E5_HASH &&
+        state.genesis.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E6_HASH) fail("PREPARE", "POLICY_UNAVAILABLE");
+    if (transition.type === "ATTEMPT_DUTY_REVIEW_CLOSED" &&
+        state.genesis.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E6_HASH) fail("PREPARE", "POLICY_UNAVAILABLE");
+    let intentId: string;
+    let action: string;
+    if (transition.type === "OUTCOME_OBSERVATION_RECORDED") {
+      if (typeof data.intentId !== "string") fail("PREPARE", "INVALID_TRANSITION");
+      intentId = data.intentId;
+      action = "OBSERVE_OUTCOME";
+    } else if (transition.type === "ATTEMPT_DUTY_CREATED") {
+      if (!record(data.record) || typeof data.record.sourceIntentId !== "string") fail("PREPARE", "INVALID_TRANSITION");
+      intentId = data.record.sourceIntentId;
+      action = "CREATE_ATTEMPT_DUTY";
+    } else {
+      if (typeof data.dutyId !== "string") fail("PREPARE", "INVALID_TRANSITION");
+      const duty = state.attemptDuties.get(data.dutyId);
+      if (!duty) fail("PREPARE", "INVALID_TRANSITION");
+      intentId = duty.record.sourceIntentId;
+      if (transition.type === "ATTEMPT_DUTY_REVIEW_CLOSED") {
+        const ids = (state.outcomeObservations.get(intentId) ?? []).map(item => item.eventId).sort(compareProtocolStrings);
+        if (duty.currentAssigneeId !== actorId || canonicalEncode(data.observationEventIds) !== canonicalEncode(ids)) {
+          fail("PREPARE", "INVALID_TRANSITION");
+        }
+        action = "CLOSE_ATTEMPT_DUTY";
+      } else {
+        if (data.fromAgentId !== duty.currentAssigneeId || data.toAgentId !== actorId) fail("PREPARE", "INVALID_TRANSITION");
+        action = "ASSIGN_ATTEMPT_DUTY";
+      }
+    }
+    const source = state.intentDeclarations.get(intentId);
+    const admission = state.intentAdmissions.get(intentId);
+    if (!source || !admission || admission.adapterIdentity.adapterProfile.profileId !== REMOTE_SERVICE_REPORT_ADAPTER_ID) {
+      fail("PREPARE", "INVALID_TRANSITION");
+    }
+    const role = state.roles.get(source.data.roleId);
+    if (!role || role.currentTenureId === undefined) fail("PREPARE", "INVALID_TRANSITION");
+    if (transition.type === "OUTCOME_OBSERVATION_RECORDED") {
+      if (data.sourceAdmissionEventId !== admission.admissionEventId ||
+          !validatePortableAdapterAcknowledgment(data.acknowledgment, admission.adapterIdentity)) {
+        fail("PREPARE", "INVALID_TRANSITION");
+      }
+    } else if (transition.type === "ATTEMPT_DUTY_CREATED") {
+      const creation = data.record as Readonly<Record<string, unknown>>;
+      if (creation.sourceAdmissionEventId !== admission.admissionEventId || creation.durableRoleId !== role.id ||
+          creation.creationRoleTenureId !== role.currentTenureId || creation.performanceAssigneeId !== actorId) {
+        fail("PREPARE", "INVALID_TRANSITION");
+      }
+    }
+    return {
+      request: { actorId, action, resource: intentId, claimedAt: transition.timestamp,
+        ...(Object.hasOwn(source.data, "termsCommitment") ? { termsCommitment: source.data.termsCommitment! } : {}) },
+      requiredPrincipalId: role.principalId, requiredAuthorityIds: [], roleId: role.id, roleTenureId: role.currentTenureId,
+    };
+  }
   if (transition.type === "OBLIGATION_CREATED") {
     const creation = data.record as PortableObligationRecord;
     const source = state.intentDeclarations.get(creation.sourceIntentId);

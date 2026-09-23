@@ -1,3 +1,5 @@
+/** Internal Section 9 projection vocabulary; public query dispatch is staged separately. */
+import type { ContentHash } from "./canonical.ts";
 import type { PortableActionRequest, PortableConsequentialBinding, PortableAuthorizationResult } from "./portable-authority-engine.ts";
 import type { AcceptedCanonicalEventShape } from "./event-schema.ts";
 import type { PortableAuthorizationDomain, PortableHistoryHead } from "./portable-replay.ts";
@@ -67,6 +69,46 @@ export type PortableAuthorityDependencyProjection = Readonly<{
     state: "REVOKED" | "EXPIRED" | "AGENT_TERMINATED";
     evidence: readonly PortableReplayEvidenceReference[];
 }>;
+export type PortableOutcomeObservationProjection = Readonly<{
+    observationEventId: string;
+    intentId: string;
+    sourceAdmissionEventId: string;
+    originalActorId: string;
+    recorderId: string;
+    recordedAt: number;
+    reportDigest: Readonly<{
+        algorithm: "sha256";
+        value: ContentHash;
+    }>;
+    reportStatus: "REPORT_RECORDED" | "DIVERGENT_REPORTS";
+    externalOutcome: "NOT_PROVEN";
+    evidence: readonly PortableReplayEvidenceReference[];
+}>;
+export type PortableAttemptDutyReviewProjection = Readonly<{
+    dutyId: string;
+    actorId: string;
+    observationEventIds: readonly string[];
+    summaryDigest: ContentHash;
+    eventId: string;
+    eventPosition: number;
+    reviewedAt: number;
+}>;
+export type PortableAttemptDutyProjection = Readonly<{
+    dutyId: string;
+    sourceIntentId: string;
+    sourceAdmissionEventId: string;
+    originalActorId: string;
+    durableRoleId: string;
+    creationActorId: string;
+    initialAssigneeId: string;
+    currentAssigneeId: string;
+    deadline: number;
+    status: "OPEN";
+    externalOutcome: "NOT_PROVEN";
+    evidence: readonly PortableReplayEvidenceReference[];
+    reviewStatus?: "UNREVIEWED" | "REVIEW_CLOSED" | "NEEDS_REVIEW";
+    reviews?: readonly PortableAttemptDutyReviewProjection[];
+}>;
 export type PortableSurvivesAnswer = Readonly<{
     targetAgentId: string;
     exists: boolean;
@@ -76,6 +118,8 @@ export type PortableSurvivesAnswer = Readonly<{
     transferredRoleTenures: readonly PortableRoleTenureProjection[];
     unresolvedIntents: readonly PortableIntentProjection[];
     adapterOutcomes: readonly PortableAdapterOutcomeProjection[];
+    outcomeObservations?: readonly PortableOutcomeObservationProjection[];
+    attemptDuties?: readonly PortableAttemptDutyProjection[];
     receiptCommitments: readonly PortableReplayEvidenceReference[];
     obligations: readonly PortableObligationProjection[];
     currentPerformanceAssignments: readonly PortablePerformanceAssignmentProjection[];

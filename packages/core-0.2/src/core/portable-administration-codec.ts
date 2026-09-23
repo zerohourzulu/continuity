@@ -3,6 +3,7 @@ import type { AcceptedCanonicalEventShape } from "./event-schema.ts";
 import { objectFreeze } from "./host-intrinsics.ts";
 import type { PortableActionRequest, PortableAuthorizationProof } from "./portable-authority-engine.ts";
 import type { PortableAuthorizationDomain, PortableReplayEvidenceReference } from "./portable-replay.ts";
+import type { RemoteServiceReportAcknowledgment } from "./portable-adapter-engine.ts";
 
 export type PortableObligationStatus =
   | "OPEN" | "OUTCOME_UNKNOWN" | "DISPUTED" | "DISCHARGED" | "IMPOSSIBLE_OR_ESCALATED";
@@ -34,7 +35,69 @@ export type PortableObligationRecord = Readonly<{
   transitionPolicies: readonly PortableObligationTransitionPolicy[];
 }>;
 
+/** Immutable E5 attempt-duty creation facts; subsequent assignment is separate replay state. */
+export type PortableAttemptDutyRecord = Readonly<{
+  dutyId: string;
+  sourceIntentId: string;
+  sourceAdmissionEventId: string;
+  durableRoleId: string;
+  creationRoleTenureId: string;
+  description: string;
+  deadline: number;
+  performanceAssigneeId: string;
+  status: "OPEN";
+}>;
+
+export type PortableOutcomeObservationRecordedData = Readonly<{
+  intentId: string;
+  sourceAdmissionEventId: string;
+  acknowledgment: RemoteServiceReportAcknowledgment;
+  actorId: string;
+  administrativeAuthorization: PortableAdministrativeAuthorization;
+}>;
+
+export type PortableAttemptDutyCreatedData = Readonly<{
+  record: PortableAttemptDutyRecord;
+  actorId: string;
+  administrativeAuthorization: PortableAdministrativeAuthorization;
+}>;
+
+export type PortableAttemptDutyAssignedData = Readonly<{
+  dutyId: string;
+  fromAgentId: string;
+  toAgentId: string;
+  actorId: string;
+  administrativeAuthorization: PortableAdministrativeAuthorization;
+}>;
+
+export type PortableAttemptDutyReviewClosedData = Readonly<{
+  dutyId: string; actorId: string; observationEventIds: readonly string[]; summaryDigest: ContentHash;
+  administrativeAuthorization: PortableAdministrativeAuthorization;
+}>;
+
 export type PortableAdministrativeTransitionEffect =
+  | Readonly<{ transitionEventType: "ATTEMPT_DUTY_REVIEW_CLOSED";
+      dutyId: string; actorId: string; observationEventIds: readonly string[]; summaryDigest: ContentHash; }>
+
+  | Readonly<{
+      transitionEventType: "OUTCOME_OBSERVATION_RECORDED";
+      intentId: string;
+      sourceAdmissionEventId: string;
+      acknowledgment: RemoteServiceReportAcknowledgment;
+      actorId: string;
+    }>
+  | Readonly<{
+      transitionEventType: "ATTEMPT_DUTY_CREATED";
+      record: PortableAttemptDutyRecord;
+      actorId: string;
+    }>
+  | Readonly<{
+      transitionEventType: "ATTEMPT_DUTY_ASSIGNED";
+      dutyId: string;
+      fromAgentId: string;
+      toAgentId: string;
+      actorId: string;
+    }>
   | Readonly<{
       transitionEventType: "OBLIGATION_CREATED";
       record: PortableObligationRecord;
@@ -97,6 +160,32 @@ export const portableAdministrativeTransitionEffect = (
 ): PortableAdministrativeTransitionEffect => {
   const data = event.data;
   switch (event.type) {
+    case "OUTCOME_OBSERVATION_RECORDED":
+      return objectFreeze({
+        transitionEventType: event.type,
+        intentId: data.intentId as string,
+        sourceAdmissionEventId: data.sourceAdmissionEventId as string,
+        acknowledgment: data.acknowledgment as RemoteServiceReportAcknowledgment,
+        actorId: data.actorId as string,
+      });
+    case "ATTEMPT_DUTY_CREATED":
+      return objectFreeze({
+        transitionEventType: event.type,
+        record: data.record as PortableAttemptDutyRecord,
+        actorId: data.actorId as string,
+      });
+    case "ATTEMPT_DUTY_REVIEW_CLOSED":
+      return objectFreeze({ transitionEventType: event.type, dutyId: data.dutyId as string,
+        actorId: data.actorId as string, observationEventIds: data.observationEventIds as readonly string[],
+        summaryDigest: data.summaryDigest as ContentHash });
+    case "ATTEMPT_DUTY_ASSIGNED":
+      return objectFreeze({
+        transitionEventType: event.type,
+        dutyId: data.dutyId as string,
+        fromAgentId: data.fromAgentId as string,
+        toAgentId: data.toAgentId as string,
+        actorId: data.actorId as string,
+      });
     case "OBLIGATION_CREATED":
       return objectFreeze({
         transitionEventType: event.type,

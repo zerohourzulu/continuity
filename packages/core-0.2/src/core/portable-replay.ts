@@ -24,11 +24,19 @@ import {
   type PortableAuthorityReplayState,
 } from "./portable-authority-engine.ts";
 import type {
+  PortableAttemptDutyRecord,
+  PortableOutcomeObservationRecordedData,
+  PortableAttemptDutyCreatedData,
+  PortableAttemptDutyAssignedData,
+  PortableAttemptDutyReviewClosedData,
   PortableObligationRecord,
   PortableObligationStatus,
   PortableObligationTransitionPolicy,
 } from "./portable-administration-codec.ts";
 import {
+  PORTABLE_ADAPTER_POLICY_E5_HASH, PORTABLE_ADAPTER_POLICY_E6_HASH,
+  REMOTE_SERVICE_REPORT_ADAPTER_ID,
+  type RemoteServiceReportAcknowledgment,
   SIMULATED_ADAPTER_ID,
   resolvePortableAdapterPolicy,
   validatePortableAdapterProfileForPolicy,
@@ -424,6 +432,30 @@ export type PortableReceiptCommitmentRecord = ReceiptRecordedData & Readonly<{
   head: PortableHistoryHead;
 }>;
 
+export type PortableOutcomeObservation = Readonly<{
+  intentId: string;
+  sourceAdmissionEventId: string;
+  acknowledgment: RemoteServiceReportAcknowledgment;
+  actorId: string;
+  eventId: string;
+  eventPosition: number;
+  observedAt: number;
+}>;
+export type PortableAttemptDutyAssignment = Readonly<{
+  fromAgentId: string; toAgentId: string; actorId: string;
+  eventId: string; eventPosition: number; assignedAt: number;
+}>;
+export type PortableAttemptDutyReview = Readonly<{
+  dutyId: string; actorId: string; observationEventIds: readonly string[]; summaryDigest: ContentHash;
+  eventId: string; eventPosition: number; reviewedAt: number;
+}>;
+export type PortableAttemptDutyState = Readonly<{
+  record: PortableAttemptDutyRecord;
+  creationEventId: string; creationEventPosition: number; creationActorId: string;
+  currentAssigneeId: string;
+  assignments: readonly PortableAttemptDutyAssignment[];
+}>;
+
 export type PortableObligationState = Readonly<{
   record: PortableObligationRecord;
   status: PortableObligationStatus;
@@ -605,6 +637,10 @@ type PortableReplayDraft = {
   readonly intentAdmissions: Map<string, PortableIntentAdmissionRecord>;
   readonly intentConsumptions: Map<string, PortableIntentConsumptionRecord>;
   readonly intentOutcomeStates: Map<string, PortableIntentOutcomeState>;
+  readonly outcomeObservations: Map<string, readonly PortableOutcomeObservation[]>;
+  readonly attemptDuties: Map<string, PortableAttemptDutyState>;
+  readonly attemptDutyReviews: Map<string, readonly PortableAttemptDutyReview[]>;
+  readonly attemptDutyIdsBySourceIntent: Map<string, string>;
   readonly receiptCommitments: Map<ContentHash, PortableReceiptCommitmentRecord>;
   readonly obligations: Map<string, PortableObligationState>;
   readonly obligationIdsBySourceIntent: Map<string, string>;
@@ -639,6 +675,9 @@ export type PortableReplayState = Readonly<{
   readonly intentAdmissions: ReadonlyMap<string, PortableIntentAdmissionRecord>;
   readonly intentConsumptions: ReadonlyMap<string, PortableIntentConsumptionRecord>;
   readonly intentOutcomeStates: ReadonlyMap<string, PortableIntentOutcomeState>;
+  readonly outcomeObservations: ReadonlyMap<string, readonly PortableOutcomeObservation[]>;
+  readonly attemptDuties: ReadonlyMap<string, PortableAttemptDutyState>;
+  readonly attemptDutyReviews: ReadonlyMap<string, readonly PortableAttemptDutyReview[]>;
   readonly receiptCommitments: ReadonlyMap<ContentHash, PortableReceiptCommitmentRecord>;
   readonly obligations: ReadonlyMap<string, PortableObligationState>;
   readonly nonceReservationsByActor: ReadonlyMap<
@@ -814,6 +853,10 @@ const newDraft = (): PortableReplayDraft => ({
   intentAdmissions: createMap<string, PortableIntentAdmissionRecord>(),
   intentConsumptions: createMap<string, PortableIntentConsumptionRecord>(),
   intentOutcomeStates: createMap<string, PortableIntentOutcomeState>(),
+  outcomeObservations: createMap<string, readonly PortableOutcomeObservation[]>(),
+  attemptDuties: createMap<string, PortableAttemptDutyState>(),
+  attemptDutyReviews: createMap<string, readonly PortableAttemptDutyReview[]>(),
+  attemptDutyIdsBySourceIntent: createMap<string, string>(),
   receiptCommitments: createMap<ContentHash, PortableReceiptCommitmentRecord>(),
   obligations: createMap<string, PortableObligationState>(),
   obligationIdsBySourceIntent: createMap<string, string>(),
@@ -1962,6 +2005,101 @@ const obligationPoliciesAreValid = (
   return true;
 };
 
+// An observation authenticates the present recorder, not the provider or the
+// truth of an external effect. These reducers cannot consume an intent.
+const attemptSource = (draft: PortableReplayDraft, intentId: string) => {
+  if (draft.genesis?.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E5_HASH &&
+      draft.genesis?.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E6_HASH) return undefined;
+  const intent = mapGet(draft.intentDeclarations, intentId)?.data;
+  const admission = mapGet(draft.intentAdmissions, intentId);
+  if (intent === undefined || admission === undefined ||
+      admission.adapterIdentity.adapterProfile.profileId !== REMOTE_SERVICE_REPORT_ADAPTER_ID) return undefined;
+  const role = mapGet(draft.roles, intent.roleId);
+  const tenure = role?.currentTenureId === undefined ? undefined : mapGet(draft.tenures, role.currentTenureId);
+  if (role === undefined || tenure === undefined || tenure.closed ||
+      activeAgent(draft, tenure.agentId) === undefined) return undefined;
+  return {intent, admission, role, tenure};
+};
+const authorizeAttemptRecord = (draft: PortableReplayDraft, event: AcceptedCanonicalEventShape,
+  actorId: string, source: NonNullable<ReturnType<typeof attemptSource>>, action: string): boolean => {
+  if (actorId !== source.tenure.agentId) return false;
+  const state = authorityStateForDraft(draft);
+  const termsCommitment = ownOptional(source.intent, "termsCommitment");
+  return state !== undefined && validatePortableAdministrativeTransition(state, event, {
+    request: {actorId, action, resource: source.intent.intentId, claimedAt: event.timestamp,
+      ...(termsCommitment === undefined ? {} : {termsCommitment})},
+    requiredPrincipalId: source.role.principalId, requiredAuthorityIds: [],
+    roleId: source.role.id, roleTenureId: source.tenure.id,
+  });
+};
+const applyOutcomeObservationRecorded = (draft: PortableReplayDraft, event: AcceptedCanonicalEventShape): boolean => {
+  const data = event.data as unknown as PortableOutcomeObservationRecordedData;
+  const source = attemptSource(draft, data.intentId);
+  if (source === undefined || source.admission.admissionEventId !== data.sourceAdmissionEventId ||
+      !validatePortableAdapterAcknowledgment(data.acknowledgment, source.admission.adapterIdentity) ||
+      data.acknowledgment.result.kind !== "REMOTE_SERVICE_REPORTED" ||
+      !authorizeAttemptRecord(draft, event, data.actorId, source, "OBSERVE_OUTCOME")) return false;
+  const observation: PortableOutcomeObservation = Object.freeze({
+    intentId: data.intentId, sourceAdmissionEventId: data.sourceAdmissionEventId,
+    acknowledgment: data.acknowledgment, actorId: data.actorId, eventId: event.id,
+    eventPosition: draft.acceptedEvents.length, observedAt: event.timestamp,
+  });
+  const observations = copyArray(mapGet(draft.outcomeObservations, data.intentId) ?? []);
+  arrayPush(observations, observation);
+  mapSet(draft.outcomeObservations, data.intentId, Object.freeze(observations));
+  return true;
+};
+const applyAttemptDutyCreated = (draft: PortableReplayDraft, event: AcceptedCanonicalEventShape): boolean => {
+  const data = event.data as unknown as PortableAttemptDutyCreatedData;
+  const record = data.record, source = attemptSource(draft, record.sourceIntentId);
+  if (source === undefined || record.sourceAdmissionEventId !== source.admission.admissionEventId ||
+      record.durableRoleId !== source.role.id || record.creationRoleTenureId !== source.tenure.id ||
+      record.performanceAssigneeId !== source.tenure.agentId || record.status !== "OPEN" ||
+      mapHas(draft.attemptDuties, record.dutyId) || mapHas(draft.obligations, record.dutyId) ||
+      mapHas(draft.attemptDutyIdsBySourceIntent, record.sourceIntentId) ||
+      !authorizeAttemptRecord(draft, event, data.actorId, source, "CREATE_ATTEMPT_DUTY")) return false;
+  mapSet(draft.attemptDuties, record.dutyId, Object.freeze({record, creationEventId: event.id,
+    creationEventPosition: draft.acceptedEvents.length, creationActorId: data.actorId,
+    currentAssigneeId: record.performanceAssigneeId, assignments: Object.freeze([])}));
+  mapSet(draft.attemptDutyIdsBySourceIntent, record.sourceIntentId, record.dutyId);
+  return true;
+};
+const applyAttemptDutyReviewClosed = (draft: PortableReplayDraft, event: AcceptedCanonicalEventShape): boolean => {
+  if (draft.genesis?.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E6_HASH) return false;
+  const data = event.data as unknown as PortableAttemptDutyReviewClosedData;
+  const duty = mapGet(draft.attemptDuties, data.dutyId);
+  if (duty === undefined || duty.currentAssigneeId !== data.actorId) return false;
+  const source = attemptSource(draft, duty.record.sourceIntentId);
+  const observations = mapGet(draft.outcomeObservations, duty.record.sourceIntentId) ?? [];
+  if (source === undefined || observations.length !== data.observationEventIds.length ||
+      (data.observationEventIds.length > 0 && !identifiersAreStrictlySorted(data.observationEventIds)) ||
+      !authorizeAttemptRecord(draft, event, data.actorId, source, "CLOSE_ATTEMPT_DUTY")) return false;
+  for (let index = 0; index < observations.length; index += 1) {
+    if (!arrayIncludes(data.observationEventIds, observations[index]!.eventId)) return false;
+  }
+  const reviews = copyArray(mapGet(draft.attemptDutyReviews, data.dutyId) ?? []);
+  arrayPush(reviews, Object.freeze({ dutyId: data.dutyId, actorId: data.actorId,
+    observationEventIds: data.observationEventIds, summaryDigest: data.summaryDigest,
+    eventId: event.id, eventPosition: draft.acceptedEvents.length, reviewedAt: event.timestamp }));
+  mapSet(draft.attemptDutyReviews, data.dutyId, Object.freeze(reviews));
+  return true;
+};
+const applyAttemptDutyAssigned = (draft: PortableReplayDraft, event: AcceptedCanonicalEventShape): boolean => {
+  const data = event.data as unknown as PortableAttemptDutyAssignedData;
+  const duty = mapGet(draft.attemptDuties, data.dutyId);
+  if (duty === undefined) return false;
+  const source = attemptSource(draft, duty.record.sourceIntentId);
+  if (source === undefined || data.fromAgentId !== duty.currentAssigneeId ||
+      data.toAgentId === data.fromAgentId || data.toAgentId !== source.tenure.agentId ||
+      !authorizeAttemptRecord(draft, event, data.actorId, source, "ASSIGN_ATTEMPT_DUTY")) return false;
+  const assignments = copyArray(duty.assignments);
+  arrayPush(assignments, Object.freeze({fromAgentId: data.fromAgentId, toAgentId: data.toAgentId,
+    actorId: data.actorId, eventId: event.id, eventPosition: draft.acceptedEvents.length, assignedAt: event.timestamp}));
+  mapSet(draft.attemptDuties, data.dutyId, Object.freeze({...duty,
+    currentAssigneeId: data.toAgentId, assignments: Object.freeze(assignments)}));
+  return true;
+};
+
 const applyObligationCreated = (
   draft: PortableReplayDraft,
   event: AcceptedCanonicalEventShape,
@@ -1977,6 +2115,7 @@ const applyObligationCreated = (
   const tenure = mapGet(draft.tenures, record.creationRoleTenureId);
   const rule = mapGet(draft.successionRules, record.successionRuleId)?.data;
   if (mapHas(draft.obligations, record.obligationId) ||
+      mapHas(draft.attemptDuties, record.obligationId) ||
       mapHas(draft.obligationIdsBySourceIntent, record.sourceIntentId) ||
       intent === undefined || admission === undefined || consumption === undefined ||
       receipt === undefined || role === undefined || tenure === undefined ||
@@ -2267,6 +2406,14 @@ const applyTransition = (
       return applyTransactionOutcomeRecorded(draft, event, nextHead);
     case "RECEIPT_RECORDED":
       return applyReceiptRecorded(draft, event, nextHead);
+    case "OUTCOME_OBSERVATION_RECORDED":
+      return applyOutcomeObservationRecorded(draft, event);
+    case "ATTEMPT_DUTY_CREATED":
+      return applyAttemptDutyCreated(draft, event);
+    case "ATTEMPT_DUTY_ASSIGNED":
+      return applyAttemptDutyAssigned(draft, event);
+    case "ATTEMPT_DUTY_REVIEW_CLOSED":
+      return applyAttemptDutyReviewClosed(draft, event);
     case "OBLIGATION_CREATED":
       return applyObligationCreated(draft, event, nextHead);
     case "OBLIGATION_PERFORMANCE_ASSIGNED":
@@ -2318,6 +2465,9 @@ const freezeState = (
   const intentAdmissions = copyMap(draft.intentAdmissions);
   const intentConsumptions = copyMap(draft.intentConsumptions);
   const intentOutcomeStates = copyMap(draft.intentOutcomeStates);
+  const outcomeObservations = copyMap(draft.outcomeObservations);
+  const attemptDuties = copyMap(draft.attemptDuties);
+  const attemptDutyReviews = copyMap(draft.attemptDutyReviews);
   const receiptCommitments = copyMap(draft.receiptCommitments);
   const obligations = copyMap(draft.obligations);
   const nonceReservationsByActor = createMap<
@@ -2371,6 +2521,9 @@ const freezeState = (
     get intentOutcomeStates() {
       return detachedMapView(intentOutcomeStates);
     },
+    get outcomeObservations() { return detachedMapView(outcomeObservations); },
+    get attemptDuties() { return detachedMapView(attemptDuties); },
+    get attemptDutyReviews() { return detachedMapView(attemptDutyReviews); },
     get receiptCommitments() {
       return detachedMapView(receiptCommitments);
     },

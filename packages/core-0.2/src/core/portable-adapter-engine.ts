@@ -20,8 +20,10 @@ export const LOCAL_SYNTHETIC_ENDPOINT_STATE_ADAPTER_ID = "adapter:local-syntheti
 export const LOCAL_SYNTHETIC_ENDPOINT_STATE_ACKNOWLEDGMENT_VERSION = "continuity-local-endpoint-state-ack/1" as const;
 export const LOCAL_DOCUMENT_RELEASE_ADAPTER_ID = "adapter:local-document-release" as const;
 export const LOCAL_DOCUMENT_RELEASE_ACKNOWLEDGMENT_VERSION = "continuity-local-document-release-ack/1" as const;
+export const REMOTE_SERVICE_REPORT_ADAPTER_ID = "adapter:remote-service-report" as const;
+export const REMOTE_SERVICE_REPORT_ACKNOWLEDGMENT_VERSION = "continuity-remote-service-report-ack/1" as const;
 export const MAX_PORTABLE_ADAPTER_EVIDENCE_BYTES = 4096;
-type AdapterId = typeof LOCAL_DOCUMENT_RELEASE_ADAPTER_ID | typeof SIMULATED_ADAPTER_ID | typeof LOCAL_EVIDENCE_PACKET_ADAPTER_ID | typeof LOCAL_SYNTHETIC_ENDPOINT_STATE_ADAPTER_ID;
+type AdapterId = typeof REMOTE_SERVICE_REPORT_ADAPTER_ID | typeof LOCAL_DOCUMENT_RELEASE_ADAPTER_ID | typeof SIMULATED_ADAPTER_ID | typeof LOCAL_EVIDENCE_PACKET_ADAPTER_ID | typeof LOCAL_SYNTHETIC_ENDPOINT_STATE_ADAPTER_ID;
 export type PortableAdapterProfile = Readonly<{ profileId: AdapterId; profileVersion: "1"; descriptorHash: ContentHash }>;
 const descriptors = objectFreeze([
   objectFreeze({ profileId: LOCAL_EVIDENCE_PACKET_ADAPTER_ID, profileVersion: "1", acknowledgmentSchemaVersion: PORTABLE_ADAPTER_ACKNOWLEDGMENT_VERSION, replayRuleId: "continuity-adapter-replay/local-packet/1" }),
@@ -50,18 +52,43 @@ const e3Descriptors = objectFreeze([documentReleaseDescriptor, descriptors[0], e
 export const PORTABLE_ADAPTER_POLICY_E3_HASH = hashCanonical({ schemaVersion: "continuity-adapter-policy/0.2", profiles: e3Descriptors });
 const documentReleaseProfile: PortableAdapterProfile = objectFreeze({ profileId: LOCAL_DOCUMENT_RELEASE_ADAPTER_ID,
   profileVersion: "1", descriptorHash: hashCanonical(documentReleaseDescriptor) });
-export type ImmutablePolicy = Readonly<{ edition: "E1" | "E2" | "E3"; hash: ContentHash; profiles: readonly PortableAdapterProfile[] }>;
+// Experimental E4 adds one fixed report profile; earlier descriptor bytes/order remain unchanged.
+const remoteServiceReportDescriptor = objectFreeze({ profileId: REMOTE_SERVICE_REPORT_ADAPTER_ID, profileVersion: "1",
+  acknowledgmentSchemaVersion: REMOTE_SERVICE_REPORT_ACKNOWLEDGMENT_VERSION,
+  replayRuleId: "continuity-adapter-replay/remote-service-report/1" });
+const e4Descriptors = objectFreeze([documentReleaseDescriptor, descriptors[0], endpointStateDescriptor, remoteServiceReportDescriptor, descriptors[1]]);
+export const PORTABLE_ADAPTER_POLICY_E4_HASH = hashCanonical({ schemaVersion: "continuity-adapter-policy/0.2", profiles: e4Descriptors });
+export const PORTABLE_ATTEMPT_OBSERVATION_DUTY_EXTENSION = "continuity-attempt-observation-duty/1" as const;
+export const PORTABLE_ADAPTER_POLICY_E5_HASH = hashCanonical({ schemaVersion: "continuity-adapter-policy/0.2",
+  profiles: e4Descriptors, semanticExtension: PORTABLE_ATTEMPT_OBSERVATION_DUTY_EXTENSION });
+export const PORTABLE_ATTEMPT_DUTY_REVIEW_EXTENSION = "continuity-attempt-duty-review/1" as const;
+const e6Extensions = objectFreeze([PORTABLE_ATTEMPT_OBSERVATION_DUTY_EXTENSION, PORTABLE_ATTEMPT_DUTY_REVIEW_EXTENSION] as const);
+export const PORTABLE_ADAPTER_POLICY_E6_HASH = hashCanonical({ schemaVersion: "continuity-adapter-policy/0.2",
+  profiles: e4Descriptors, semanticExtensions: e6Extensions });
+const remoteServiceReportProfile: PortableAdapterProfile = objectFreeze({ profileId: REMOTE_SERVICE_REPORT_ADAPTER_ID,
+  profileVersion: "1", descriptorHash: hashCanonical(remoteServiceReportDescriptor) });
+export type ImmutablePolicy = Readonly<{ edition: "E1" | "E2" | "E3" | "E4" | "E5" | "E6"; hash: ContentHash;
+  profiles: readonly PortableAdapterProfile[]; semanticExtension?: typeof PORTABLE_ATTEMPT_OBSERVATION_DUTY_EXTENSION; semanticExtensions?: typeof e6Extensions }>;
 const e1Policy: ImmutablePolicy = objectFreeze({ edition: "E1", hash: PORTABLE_ADAPTER_POLICY_HASH,
   profiles: objectFreeze([localProfile, simulatedProfile]) });
 const e2Policy: ImmutablePolicy = objectFreeze({ edition: "E2", hash: PORTABLE_ADAPTER_POLICY_E2_HASH,
   profiles: objectFreeze([localProfile, endpointStateProfile, simulatedProfile]) });
 const e3Policy: ImmutablePolicy = objectFreeze({ edition: "E3", hash: PORTABLE_ADAPTER_POLICY_E3_HASH,
   profiles: objectFreeze([documentReleaseProfile, localProfile, endpointStateProfile, simulatedProfile]) });
+const e4Policy: ImmutablePolicy = objectFreeze({ edition: "E4", hash: PORTABLE_ADAPTER_POLICY_E4_HASH,
+  profiles: objectFreeze([documentReleaseProfile, localProfile, endpointStateProfile, remoteServiceReportProfile, simulatedProfile]) });
+const e5Policy: ImmutablePolicy = objectFreeze({ edition: "E5", hash: PORTABLE_ADAPTER_POLICY_E5_HASH,
+  profiles: e4Policy.profiles, semanticExtension: PORTABLE_ATTEMPT_OBSERVATION_DUTY_EXTENSION });
+const e6Policy: ImmutablePolicy = objectFreeze({ edition: "E6", hash: PORTABLE_ADAPTER_POLICY_E6_HASH,
+  profiles: e4Policy.profiles, semanticExtensions: e6Extensions });
 /** Exact genesis selector. Missing/unknown values never select a default. */
 export const resolvePortableAdapterPolicy = (hash: unknown): ImmutablePolicy | undefined => {
   if (hash === PORTABLE_ADAPTER_POLICY_HASH) return e1Policy;
   if (hash === PORTABLE_ADAPTER_POLICY_E2_HASH) return e2Policy;
   if (hash === PORTABLE_ADAPTER_POLICY_E3_HASH) return e3Policy;
+  if (hash === PORTABLE_ADAPTER_POLICY_E4_HASH) return e4Policy;
+  if (hash === PORTABLE_ADAPTER_POLICY_E5_HASH) return e5Policy;
+  if (hash === PORTABLE_ADAPTER_POLICY_E6_HASH) return e6Policy;
   return undefined;
 };
 export const approvedPortableAdapterProfileForPolicy = (hash: unknown, profileId: unknown): PortableAdapterProfile => {
@@ -76,13 +103,14 @@ export const approvedPortableAdapterProfileForPolicy = (hash: unknown, profileId
 };
 /** @internal Shape/configuration only. Never authorizes membership in a history. */
 export const knownPortableAdapterProfile = (profileId: unknown): PortableAdapterProfile => {
+  if (profileId === REMOTE_SERVICE_REPORT_ADAPTER_ID) return remoteServiceReportProfile;
   if (profileId === LOCAL_DOCUMENT_RELEASE_ADAPTER_ID) return documentReleaseProfile;
   if (profileId === LOCAL_SYNTHETIC_ENDPOINT_STATE_ADAPTER_ID) return endpointStateProfile;
   return approvedPortableAdapterProfile(profileId);
 };
 /** @internal Exact schema expected for a known complete tuple; not history authority. */
 export const knownPortableAdapterAcknowledgmentVersion = (profile: unknown):
-  typeof PORTABLE_ADAPTER_ACKNOWLEDGMENT_VERSION | typeof LOCAL_DOCUMENT_RELEASE_ACKNOWLEDGMENT_VERSION | typeof LOCAL_SYNTHETIC_ENDPOINT_STATE_ACKNOWLEDGMENT_VERSION => {
+  typeof PORTABLE_ADAPTER_ACKNOWLEDGMENT_VERSION | typeof REMOTE_SERVICE_REPORT_ACKNOWLEDGMENT_VERSION | typeof LOCAL_DOCUMENT_RELEASE_ACKNOWLEDGMENT_VERSION | typeof LOCAL_SYNTHETIC_ENDPOINT_STATE_ACKNOWLEDGMENT_VERSION => {
   const v = capture(profile);
   if (!closed(v, ["profileId", "profileVersion", "descriptorHash"]) || !same(v, knownPortableAdapterProfile(v.profileId))) {
     throw new HostTypeError("Unsupported adapter profile tuple.");
@@ -92,6 +120,7 @@ export const knownPortableAdapterAcknowledgmentVersion = (profile: unknown):
     case LOCAL_EVIDENCE_PACKET_ADAPTER_ID: return PORTABLE_ADAPTER_ACKNOWLEDGMENT_VERSION;
     case LOCAL_DOCUMENT_RELEASE_ADAPTER_ID: return LOCAL_DOCUMENT_RELEASE_ACKNOWLEDGMENT_VERSION;
     case LOCAL_SYNTHETIC_ENDPOINT_STATE_ADAPTER_ID: return LOCAL_SYNTHETIC_ENDPOINT_STATE_ACKNOWLEDGMENT_VERSION;
+    case REMOTE_SERVICE_REPORT_ADAPTER_ID: return REMOTE_SERVICE_REPORT_ACKNOWLEDGMENT_VERSION;
     default: throw new HostTypeError("Unsupported adapter acknowledgment schema.");
   }
 };
@@ -121,13 +150,18 @@ export type LocalDocumentReleaseAcknowledgment = Readonly<EvidenceIdentityFor<ty
   schemaVersion: typeof LOCAL_DOCUMENT_RELEASE_ACKNOWLEDGMENT_VERSION; kind: "ACKNOWLEDGMENT";
   result: Readonly<{ kind: "LOCAL_DOCUMENT_RELEASED"; publicationManifestDigest: Readonly<{ algorithm: "sha256"; value: ContentHash }> }>;
 }>;
-export type PortableAdapterAcknowledgment = LocalDocumentReleaseAcknowledgment | PortableSimulatedAdapterAcknowledgment | PortableLocalPacketAdapterAcknowledgment | LocalSyntheticEndpointStateAcknowledgment;
+/** Adapter-retained provider report digest only; not external truth, success, settlement or cancellation. */
+export type RemoteServiceReportAcknowledgment = Readonly<EvidenceIdentityFor<typeof REMOTE_SERVICE_REPORT_ADAPTER_ID> & {
+  schemaVersion: typeof REMOTE_SERVICE_REPORT_ACKNOWLEDGMENT_VERSION; kind: "ACKNOWLEDGMENT";
+  result: Readonly<{ kind: "REMOTE_SERVICE_REPORTED"; reportDigest: Readonly<{ algorithm: "sha256"; value: ContentHash }> }>;
+}>;
+export type PortableAdapterAcknowledgment = RemoteServiceReportAcknowledgment | LocalDocumentReleaseAcknowledgment | PortableSimulatedAdapterAcknowledgment | PortableLocalPacketAdapterAcknowledgment | LocalSyntheticEndpointStateAcknowledgment;
 export type PortableAdapterNoEffect = Readonly<EvidenceIdentity & {
   schemaVersion: typeof PORTABLE_ADAPTER_NO_EFFECT_VERSION; kind: "NO_EFFECT";
   result: Readonly<{ kind: "SIMULATED_NO_EFFECT"; reference: ContentHash }>;
 }>;
 export type PortableAdapterExternalEvidence = Readonly<{
-  kind: "EXTERNAL"; evidenceType: typeof PORTABLE_ADAPTER_ACKNOWLEDGMENT_VERSION | typeof LOCAL_DOCUMENT_RELEASE_ACKNOWLEDGMENT_VERSION | typeof LOCAL_SYNTHETIC_ENDPOINT_STATE_ACKNOWLEDGMENT_VERSION | typeof PORTABLE_ADAPTER_NO_EFFECT_VERSION;
+  kind: "EXTERNAL"; evidenceType: typeof PORTABLE_ADAPTER_ACKNOWLEDGMENT_VERSION | typeof REMOTE_SERVICE_REPORT_ACKNOWLEDGMENT_VERSION | typeof LOCAL_DOCUMENT_RELEASE_ACKNOWLEDGMENT_VERSION | typeof LOCAL_SYNTHETIC_ENDPOINT_STATE_ACKNOWLEDGMENT_VERSION | typeof PORTABLE_ADAPTER_NO_EFFECT_VERSION;
   reference: string; attesterId: AdapterId;
 }>;
 
@@ -307,6 +341,18 @@ export const createLocalDocumentReleaseAcknowledgment = (
     ...evidenceIdentity(i), result: objectFreeze({ kind: "LOCAL_DOCUMENT_RELEASED",
       publicationManifestDigest: objectFreeze({ algorithm: "sha256", value: publicationManifestDigest }) }) })) as LocalDocumentReleaseAcknowledgment;
 };
+/** Digest syntax/identity only. The adapter retains the provider report; its truth and effect remain separate. */
+export const createRemoteServiceReportAcknowledgment = (
+  identity: PortableAdapterIdentity, reportDigest: ContentHash,
+): RemoteServiceReportAcknowledgment => {
+  const i = identitySnapshot(identity);
+  if (i.adapterProfile.profileId !== REMOTE_SERVICE_REPORT_ADAPTER_ID || !isLocalPacketManifestReference(reportDigest) || reportDigest.length !== 66) {
+    throw new HostTypeError("Remote service report ACK requires its exact profile and a SHA-256 report digest.");
+  }
+  return capture(objectFreeze({ schemaVersion: REMOTE_SERVICE_REPORT_ACKNOWLEDGMENT_VERSION, kind: "ACKNOWLEDGMENT",
+    ...evidenceIdentity(i), result: objectFreeze({ kind: "REMOTE_SERVICE_REPORTED",
+      reportDigest: objectFreeze({ algorithm: "sha256", value: reportDigest }) }) })) as RemoteServiceReportAcknowledgment;
+};
 export const createPortableAdapterNoEffect = (identity: PortableAdapterIdentity): PortableAdapterNoEffect => {
   const i = identitySnapshot(identity);
   if (i.adapterProfile.profileId !== SIMULATED_ADAPTER_ID) throw new HostTypeError("Local packet profile cannot establish no effect.");
@@ -321,6 +367,10 @@ export const validatePortableAdapterAcknowledgment = (value: unknown, identity: 
   try {
     const v = capture(value), i = identitySnapshot(identity);
     switch (i.adapterProfile.profileId) {
+      case REMOTE_SERVICE_REPORT_ADAPTER_ID: {
+        if (!record(v) || !record(v.result) || !record(v.result.reportDigest) || !isLocalPacketManifestReference(v.result.reportDigest.value)) return false;
+        return same(v, createRemoteServiceReportAcknowledgment(i, v.result.reportDigest.value));
+      }
       case SIMULATED_ADAPTER_ID: return same(v, createPortableAdapterAcknowledgment(i));
       case LOCAL_EVIDENCE_PACKET_ADAPTER_ID: return same(v, createPortableAdapterAcknowledgment(i, localReference(v)));
       case LOCAL_DOCUMENT_RELEASE_ADAPTER_ID: {
@@ -347,6 +397,7 @@ export const portableAdapterAcknowledgmentTransactionReference = (
     case "LOCAL_PACKET_CREATED": return ack.result.manifestDigest.value;
     case "LOCAL_DOCUMENT_RELEASED": return ack.result.publicationManifestDigest.value;
     case "LOCAL_ENDPOINT_STATE_CHANGED": return ack.result.transitionDigest.value;
+    case "REMOTE_SERVICE_REPORTED": return ack.result.reportDigest.value;
     default: throw new HostTypeError("Unsupported adapter acknowledgment result.");
   }
 };

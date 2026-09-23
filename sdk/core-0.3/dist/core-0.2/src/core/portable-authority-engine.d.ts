@@ -1,4 +1,4 @@
-import type { PortableAdapterProfile } from "./portable-adapter-engine.ts";
+import { type PortableAdapterProfile } from "./portable-adapter-engine.ts";
 import { type CanonicalReplayCaptureVisitDecision, type CapturedCanonicalAuthorityOperation, type CapturedCanonicalReplayEvent, type ContentHash, type PortableAuthorityCaptureKind } from "./canonical.ts";
 import type { PortableAgentRecord, PortableAuthorityConstraints, PortableAuthorityEvidence, PortableAuthorityRecord, PortableAuthorityUsage, PortableAuthorizationDomain, PortableGenesisRecord, PortableHistoryHead, PortableIntentAdmissionRecord, PortableIntentDeclarationRecord, PortablePermissionGrant, PortablePrincipalRecord, PortableProhibitionGrant, PortableNonceReservation, PortableRecognizedRoot, PortableRoleRecord, PortableRoleTenureRecord, PortableRuntimeSessionRecord, PortableTransactionIntent } from "./portable-replay.ts";
 import type { AcceptedCanonicalEventShape, CoreEventType } from "./event-schema.ts";
