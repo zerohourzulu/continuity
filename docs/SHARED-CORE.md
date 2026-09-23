@@ -25,7 +25,7 @@ npm run remote:verify
 npm run mcp:verify
 ```
 
-From npm, install `@ramex-labs/continuity-remote@0.3.0-preview.1` or `@ramex-labs/continuity-mcp@0.3.0-preview.8`; each pulls in the exact shared Core dependency. When testing the local release archives offline, install the Core archive alongside the integration archive in the same npm command. The verification helpers do this automatically. You do not need an npm account or a model subscription. The coordinated trio is checked on Node22.18 and Node24; no new Node26 or Windows validation is claimed here.
+From npm, install `@ramex-labs/continuity-remote@0.3.0-preview.2` or `@ramex-labs/continuity-mcp@0.3.0-preview.8`; each pulls in the exact shared Core dependency. When testing the local release archives offline, install the Core archive alongside the integration archive in the same npm command. The verification helpers do this automatically. You do not need an npm account or a model subscription. The coordinated trio is checked on Node22.18 and Node24; no new Node26 or Windows validation is claimed here.
 
 ## Choose new history behavior deliberately
 

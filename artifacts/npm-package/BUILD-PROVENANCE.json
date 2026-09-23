@@ -9,7 +9,7 @@
   "sources": [
     {
       "path": "packages/remote-tools/client.mjs",
-      "sha256": "4fe0bf01b46e9177fdf2ea15803b6c2457c05e0ba8008d3e7a96195bebf4d279"
+      "sha256": "fd8a9abadc9c0908476426a64147ad3745bcf3be4f0bb0cb302cab50ee9e4547"
     },
     {
       "path": "packages/remote-tools/CONTRACT.md",
@@ -45,7 +45,7 @@
     },
     {
       "path": "packages/remote-tools/README.md",
-      "sha256": "c5a80cf0cf066935877ae11cbe6c0faae7946924b82c5fa268faeaa013a666fd"
+      "sha256": "230617f3aab0f8e7f47e6571d815f7dcb6799d565a5b864a8c06813813bd573e"
     },
     {
       "path": "packages/remote-tools/recovery.mjs",
@@ -75,7 +75,7 @@
   "buildInputs": [
     {
       "path": "tools/remote-build/build.mjs",
-      "sha256": "cad7305a0d936669970db6703fbaa923bb5c56e4b2e7f6227126c154362df09d"
+      "sha256": "6b0c6094f793412dab26a3cd0fbddaf0c991eb131fcf545ea6ad32f1d1ce2598"
     },
     {
       "path": "tools/remote-build/templates/attempts.d.mts",
@@ -138,7 +138,7 @@
     },
     {
       "path": "dist/remote-tools/client.mjs",
-      "sha256": "4fe0bf01b46e9177fdf2ea15803b6c2457c05e0ba8008d3e7a96195bebf4d279"
+      "sha256": "fd8a9abadc9c0908476426a64147ad3745bcf3be4f0bb0cb302cab50ee9e4547"
     },
     {
       "path": "dist/remote-tools/destination.mjs",

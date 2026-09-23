@@ -39,7 +39,7 @@ for(const name of ['index.mjs','index.d.mts','langchain.d.mts','local.mjs','loca
 for(const name of ['LICENSE','NOTICE'])cpSync(join(source,name),join(out,name));
 for(const name of ['LICENSING.md','THIRD-PARTY-NOTICES.md'])cpSync(join(source,'packages/remote-tools',name),join(out,name));
 
-const manifest={name:'@ramex-labs/continuity-remote',version:'0.3.0-preview.1',publishConfig:{access:'public',tag:'preview',registry:'https://registry.npmjs.org'},repository:{type:'git',url:'https://github.com/zerohourzulu/continuity.git'},type:'module',license:'Apache-2.0',
+const manifest={name:'@ramex-labs/continuity-remote',version:'0.3.0-preview.2',publishConfig:{access:'public',tag:'preview',registry:'https://registry.npmjs.org'},repository:{type:'git',url:'https://github.com/zerohourzulu/continuity.git'},type:'module',license:'Apache-2.0',
   description:'Cooperating tool execution, recovery and evidence review; local evaluation profile',
   engines:{node:'^22.18.0 || ^24.0.0'},
   exports:{

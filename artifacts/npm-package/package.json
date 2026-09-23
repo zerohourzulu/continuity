@@ -1,6 +1,6 @@
 {
   "name": "@ramex-labs/continuity-remote",
-  "version": "0.3.0-preview.1",
+  "version": "0.3.0-preview.2",
   "publishConfig": {
     "access": "public",
     "tag": "preview",

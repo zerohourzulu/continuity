@@ -97,7 +97,7 @@ export function createBroker(options) {
     };
     const receive = async (url, init, i) => {
       // Abort only bounds waiting. It is never evidence of remote cancellation.
-      const response = await fetch(url, {...init, redirect:'manual', signal:AbortSignal.timeout(timeoutMs)});
+      const response = await fetch(url, {...init, headers:{...init.headers,connection:'close'}, redirect:'manual', signal:AbortSignal.timeout(timeoutMs)});
       const parts = []; let size = 0;
       for await (const chunk of response.body ?? []) {
         size += chunk.length;

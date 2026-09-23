@@ -18,7 +18,9 @@ export function createCooperativeClient({url,serviceId,coordinatorPrivateKey,ser
   const call=async(operation,payload)=>{
     const body=capture({version:'continuity-cooperative-request/1',serviceId,nonce:randomBytes(32).toString('hex'),operation,payload});
     const envelope=signRequest(body,coordinatorPrivateKey),expectedDigest=canonicalDigest(body);
-    const response=await fetch(endpoint.origin+'/cooperative',{method:'POST',headers:{'content-type':'application/json'},
+    // Synchronous history replay can outlive an idle pooled socket. This local
+    // profile opens a fresh connection per signed request; it never auto-retries.
+    const response=await fetch(endpoint.origin+'/cooperative',{method:'POST',headers:{'content-type':'application/json',connection:'close'},
       body:encodeTransport(envelope),redirect:'manual',signal:AbortSignal.timeout(timeoutMs)});
     if(response.status!==200){await response.body?.cancel();throw Error('TRANSPORT_UNAVAILABLE');}
     const parts=[];let length=0;

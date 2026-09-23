@@ -83,8 +83,8 @@
     },
     {
       "path": "RELEASE-STATUS.md",
-      "bytes": 3097,
-      "sha256": "9dd253e514464d01e5cb21a1ec283c8f31810bdd66708327f942d87a4ad7bbf8"
+      "bytes": 2194,
+      "sha256": "1aad7703ff0f07742b97c7f0449a62fcb727c80f4e7c747fbd0472358533d245"
     },
     {
       "path": "SECURITY.md",
@@ -109,7 +109,7 @@
     {
       "path": "artifacts/npm-package/BUILD-PROVENANCE.json",
       "bytes": 7366,
-      "sha256": "98f2ee9d4a287d64e96e7d11dec9c4dc728c9c99aed23164f3a53d90191f2482"
+      "sha256": "aa32b9995194f8e2c8b3b5e8282284b493f4aae2940cdaef64a3e88228fd241e"
     },
     {
       "path": "artifacts/npm-package/LICENSE",
@@ -129,7 +129,7 @@
     {
       "path": "artifacts/npm-package/README.md",
       "bytes": 8297,
-      "sha256": "c5a80cf0cf066935877ae11cbe6c0faae7946924b82c5fa268faeaa013a666fd"
+      "sha256": "230617f3aab0f8e7f47e6571d815f7dcb6799d565a5b864a8c06813813bd573e"
     },
     {
       "path": "artifacts/npm-package/THIRD-PARTY-NOTICES.md",
@@ -148,8 +148,8 @@
     },
     {
       "path": "artifacts/npm-package/dist/remote-tools/client.mjs",
-      "bytes": 2401,
-      "sha256": "4fe0bf01b46e9177fdf2ea15803b6c2457c05e0ba8008d3e7a96195bebf4d279"
+      "bytes": 2583,
+      "sha256": "fd8a9abadc9c0908476426a64147ad3745bcf3be4f0bb0cb302cab50ee9e4547"
     },
     {
       "path": "artifacts/npm-package/dist/remote-tools/destination.mjs",
@@ -239,17 +239,17 @@
     {
       "path": "artifacts/npm-package/package.json",
       "bytes": 1605,
-      "sha256": "05a4f6ea08111ad484d9b21f493e5301a0723e22cb8eb4e218d131c7a81361a9"
+      "sha256": "1aadac71bd1232925e0d0e94c6db5edee2bed7ba4b93f39143517d80c75ef490"
     },
     {
       "path": "artifacts/pack-result.json",
       "bytes": 3305,
-      "sha256": "a8a18fa8e2afeb93206d7fe9e3319936c41ef3f4e73390596f1b6ea780db25c3"
+      "sha256": "3b231ec75d02234a9e6a5ea54cc07038234a7e1e08733d8def508f1c2f4f2068"
     },
     {
-      "path": "artifacts/ramex-labs-continuity-remote-0.3.0-preview.1.tgz",
-      "bytes": 33150,
-      "sha256": "2bc0928a0099eaa18b975496f2b612ac6bd0c06914a2462936397aa55cfd098e"
+      "path": "artifacts/ramex-labs-continuity-remote-0.3.0-preview.2.tgz",
+      "bytes": 33233,
+      "sha256": "8dd659ed770c74d2e0416e50e597ecc3c19fd8e71631cacd47bca98e6f8c4b2b"
     },
     {
       "path": "assets/continuity-statement.svg",
@@ -314,7 +314,7 @@
     {
       "path": "docs/CORE-0.3-QUICKSTART.md",
       "bytes": 3350,
-      "sha256": "8602cd8f04d408611ca65618f8a2d7d961e89ef3112b5ec31ba89fb681631c98"
+      "sha256": "58e83b3674118f00a229d1d26c97ecd73973c2bf74fa8ed33bb5a40f78041ff6"
     },
     {
       "path": "docs/CORE-0.3-TESTING.md",
@@ -414,7 +414,7 @@
     {
       "path": "docs/SHARED-CORE.md",
       "bytes": 3519,
-      "sha256": "93ef97ad1026d63eea1bbac3625542d156ae35be57948fd99deb3cfcdb4fbdb6"
+      "sha256": "c4aa639393c8eaa5f6150b1f808969c807a78ebdae442146eb873d37f51bfc7d"
     },
     {
       "path": "docs/START-HERE.md",
@@ -1173,13 +1173,18 @@
     },
     {
       "path": "lab/broker.mjs",
-      "bytes": 10748,
-      "sha256": "13f672107b45c360bbd32b395057e915df30ada37bfb0ac234b3886ae8be0d1b"
+      "bytes": 10794,
+      "sha256": "9b7b13839bbd2411685e3898a39c5386e4d2503d0e59b880b8c93140843c313e"
     },
     {
       "path": "lab/broker.test.mjs",
       "bytes": 15154,
       "sha256": "ef2e5ceda0c469f058a1775b3533605d0c0a4785f1421cde78fb839a8fec5719"
+    },
+    {
+      "path": "lab/client-connections.test.mjs",
+      "bytes": 2090,
+      "sha256": "4934663861d76c55226bd99a2e33fbfc253bc487ec9796d584fb660d78c9003b"
     },
     {
       "path": "lab/cooperative-business.test.mjs",
@@ -1634,7 +1639,7 @@
     {
       "path": "packages/remote-tools/README.md",
       "bytes": 8297,
-      "sha256": "c5a80cf0cf066935877ae11cbe6c0faae7946924b82c5fa268faeaa013a666fd"
+      "sha256": "230617f3aab0f8e7f47e6571d815f7dcb6799d565a5b864a8c06813813bd573e"
     },
     {
       "path": "packages/remote-tools/THIRD-PARTY-NOTICES.md",
@@ -1643,8 +1648,8 @@
     },
     {
       "path": "packages/remote-tools/client.mjs",
-      "bytes": 2401,
-      "sha256": "4fe0bf01b46e9177fdf2ea15803b6c2457c05e0ba8008d3e7a96195bebf4d279"
+      "bytes": 2583,
+      "sha256": "fd8a9abadc9c0908476426a64147ad3745bcf3be4f0bb0cb302cab50ee9e4547"
     },
     {
       "path": "packages/remote-tools/destination.mjs",
@@ -2804,7 +2809,7 @@
     {
       "path": "tools/remote-build/build.mjs",
       "bytes": 7618,
-      "sha256": "cad7305a0d936669970db6703fbaa923bb5c56e4b2e7f6227126c154362df09d"
+      "sha256": "6b0c6094f793412dab26a3cd0fbddaf0c991eb131fcf545ea6ad32f1d1ce2598"
     },
     {
       "path": "tools/remote-build/templates/attempts.d.mts",
@@ -2859,7 +2864,7 @@
     {
       "path": "tools/remote-build/verify.mjs",
       "bytes": 2978,
-      "sha256": "30ebb0fa9fbef4397b53c7cbc63312a43afbda3e063954fddb2974b4dea31cd6"
+      "sha256": "682cb19b31b7574c75cd62eccd48aa024bc26c6c0ca9ab16538d224b270f8e7e"
     },
     {
       "path": "tools/render-quickstart.mjs",
@@ -2934,7 +2939,7 @@
     {
       "path": "tools/verify-shared-core.mjs",
       "bytes": 4197,
-      "sha256": "a517f5bfbf7739f39643a3b4346c02024c8a6288fb607e73297ff00c5b01c39b"
+      "sha256": "cfb298b0d96bc9420212dd35b93e08ff7bf883e0cb57594ded3f401029f9e851"
     },
     {
       "path": "tutorial/cli.mjs",
@@ -3013,8 +3018,8 @@
     },
     {
       "path": "website/downloads/RELEASE-STATUS.md",
-      "bytes": 3309,
-      "sha256": "deed7218ffcc8d6a5dbeb77ee7b6815d02b61d25636146035d0f89cf30f2f6de"
+      "bytes": 2406,
+      "sha256": "e8d3ab6928b744c7ddd31c51c9c7d15363d525bd71184a62c0438bfd1cd06ed8"
     },
     {
       "path": "website/downloads/SECURITY.md",
@@ -3439,7 +3444,7 @@
     {
       "path": "website/index.html",
       "bytes": 13289,
-      "sha256": "46a1a66aec60b4380a7865f6f272acc72680753a0224cbfd58d576a8395e3cd5"
+      "sha256": "c31f9cc422ddca1e8b0b5ba5a1eb2959b4379a04f1032fc47147bb97a5fac611"
     },
     {
       "path": "website/source/.gitignore",

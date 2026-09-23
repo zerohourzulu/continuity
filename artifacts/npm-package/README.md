@@ -12,7 +12,7 @@ Install this experimental preview from npm or the matching release archives. Use
 mkdir continuity-example
 cd continuity-example
 npm init -y
-npm install --ignore-scripts @ramex-labs/continuity-remote@0.3.0-preview.1
+npm install --ignore-scripts @ramex-labs/continuity-remote@0.3.0-preview.2
 npm install --ignore-scripts viem@2.55.19
 cp node_modules/@ramex-labs/continuity-remote/examples/walkthrough.mjs .
 node walkthrough.mjs
