@@ -127,6 +127,15 @@ class Adapter:
                 os.killpg(self.process.pid, signal.SIGKILL)
             except ProcessLookupError:
                 pass
+            except PermissionError:
+                # The leader may exit between poll() and killpg(). Reap it,
+                # then retry once: absence is fine, a live/refused group is not.
+                if self.process.poll() is None:
+                    raise
+                try:
+                    os.killpg(self.process.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
         finally:
             try:
                 self.process.wait(timeout=2)

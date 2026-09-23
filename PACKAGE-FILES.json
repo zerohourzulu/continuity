@@ -548,13 +548,13 @@
     },
     {
       "path": "conformance/run.py",
-      "bytes": 12095,
-      "sha256": "c38ff4d2ed87be431d0eb82b957c56e998bd8242e53785083a42575449828346"
+      "bytes": 12515,
+      "sha256": "f48645b84a8aa913a2aafe26f189a534a3a6fd82d1ee1695a151babbfc461cbf"
     },
     {
       "path": "conformance/test_runner.py",
-      "bytes": 8814,
-      "sha256": "10b534ac5f7786f9efc40bc97148f1473f3831a9bed46f5cd79d24783c4abff0"
+      "bytes": 10717,
+      "sha256": "c4f78025cafa29574720957e53c40c61cb03a4baf745531b2b08449bc5b207b8"
     },
     {
       "path": "conformance/vectors.json",

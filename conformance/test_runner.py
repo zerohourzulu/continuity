@@ -8,6 +8,7 @@ import sys
 import tempfile
 import time
 import unittest
+from unittest.mock import Mock, patch
 
 ROOT = Path(__file__).resolve().parent.parent
 spec = importlib.util.spec_from_file_location('harness', ROOT / 'conformance/run.py')
@@ -28,6 +29,44 @@ class Comparison(unittest.TestCase):
     def test_declared_projection_preserves_extensions(self):
         self.assertEqual(harness.differences({'value': None}, {'value': None, 'metadata': True}), [])
         self.assertEqual(harness.differences({'a': [False, 0, None]}, {'a': [False, 0, None]}), [])
+
+class CleanupRace(unittest.TestCase):
+    def adapter(self, polls):
+        adapter = object.__new__(harness.Adapter)
+        adapter.process = Mock(pid=987654)
+        adapter.process.poll.side_effect = polls
+        adapter.selector = Mock()
+        return adapter
+
+    def test_exited_leader_reaped_before_one_retry(self):
+        adapter = self.adapter([None, 0])
+        with patch.object(harness.os, 'killpg', side_effect=[PermissionError(1, 'denied'), ProcessLookupError()]) as kill:
+            adapter.close()
+        self.assertEqual(kill.call_count, 2)
+        adapter.process.wait.assert_called_once_with(timeout=2)
+        adapter.selector.close.assert_called_once()
+        for stream in (adapter.process.stdin, adapter.process.stdout, adapter.process.stderr):
+            stream.close.assert_called_once()
+
+    def test_live_leader_permission_error_remains_error(self):
+        adapter = self.adapter([None, None])
+        with patch.object(harness.os, 'killpg', side_effect=PermissionError(1, 'denied')) as kill:
+            with self.assertRaises(PermissionError): adapter.close()
+        self.assertEqual(kill.call_count, 1)
+        adapter.selector.close.assert_called_once()
+
+    def test_remaining_group_permission_error_remains_error(self):
+        adapter = self.adapter([None, 0])
+        with patch.object(harness.os, 'killpg', side_effect=PermissionError(1, 'denied')) as kill:
+            with self.assertRaises(PermissionError): adapter.close()
+        self.assertEqual(kill.call_count, 2)
+        adapter.selector.close.assert_called_once()
+
+    def test_exited_leader_with_descendants_still_signals_group(self):
+        adapter = self.adapter([None, 0])
+        with patch.object(harness.os, 'killpg', side_effect=[PermissionError(1, 'denied'), None]) as kill:
+            adapter.close()
+        self.assertEqual(kill.call_count, 2)
 
 class ProcessBounds(unittest.TestCase):
     def check_failure(self, source, expected, **limits):
