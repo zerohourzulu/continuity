@@ -4058,8 +4058,8 @@
     },
     {
       "path": "website/index.html",
-      "bytes": 13270,
-      "sha256": "a0c2a2347207997ca6ca6b897e1c96435e01261b7467e2f656543dd1c1db6ac8"
+      "bytes": 13268,
+      "sha256": "88ee84433b967805dbc476e28a5786083876b0a6f468222aa0dd144590a0d390"
     },
     {
       "path": "website/source/.gitignore",
