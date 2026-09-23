@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.zerohourzulu/continuity-gateway",
+  "description": "Local MCP gateway for approved jobs, current agent permissions and durable retry inspection.",
+  "repository": {
+    "url": "https://github.com/zerohourzulu/continuity",
+    "source": "github"
+  },
+  "version": "0.3.0-preview.7",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@ramex-labs/continuity-mcp-gateway",
+      "version": "0.3.0-preview.7",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "named",
+          "name": "--config",
+          "description": "Absolute path to the operator-created private gateway configuration.",
+          "isRequired": true,
+          "valueHint": "gateway_config",
+          "format": "filepath"
+        }
+      ]
+    }
+  ]
+}

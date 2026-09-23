@@ -83,7 +83,7 @@ try {
 }
 ```
 
-The installable package is `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.6`. Install the exact release tarball or npm version; do not assume the `latest` tag selects this preview. It depends on exactly `@ramex-labs/continuity@0.3.0-preview.7` and contains no engine copy.
+The installable package is `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.7`. Install the exact release tarball or npm version; do not assume the `latest` tag selects this preview. It depends on exactly `@ramex-labs/continuity@0.3.0-preview.7` and contains no engine copy.
 
 ## What the results mean
 
@@ -133,3 +133,7 @@ For safe startup, crash recovery, private snapshots and capacity diagnostics, re
 ## Keep login revocations across restarts
 
 The optional [local access policy](ACCESS-POLICY.md) stores operator-selected bindings and permanent local denials. A refreshed login cannot undo a binding revocation. It is separate from provider login and from Core permissions.
+
+## Registry setup
+
+The intended Registry identity is `io.github.zerohourzulu/continuity-gateway`, separate from the evidence server. A listing describes how to start this local program; it is not a hosted service. Before connecting, the operator must create a private case and provide its absolute configuration path with `--config`. Discovery does not grant permissions or create a case. See the [setup guide](REGISTRY.md).

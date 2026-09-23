@@ -78,13 +78,13 @@
     },
     {
       "path": "RELEASE-NOTES.md",
-      "bytes": 1840,
-      "sha256": "aef09607625180c5a01b3f415f894afb53bfcbe62d128782ae83bad7603623d3"
+      "bytes": 799,
+      "sha256": "fb1dc9b82567ce1f78c0cef880e2b8b06c9cbe3d922d3875178d8584649f96d7"
     },
     {
       "path": "RELEASE-STATUS.md",
-      "bytes": 2509,
-      "sha256": "8491a63bc083d23b160295c9874611305640ec315a1ac022a988179b66a75ba3"
+      "bytes": 2582,
+      "sha256": "edfe876267477c2ceb25b9f0d19b37b708e4e9a2144b83bc9861dd442117d900"
     },
     {
       "path": "SECURITY.md",
@@ -252,6 +252,11 @@
       "sha256": "8933e48b683b24516109126cb4e305759d42f96800278e10de06345c92b11f99"
     },
     {
+      "path": "artifacts/ramex-labs-continuity-mcp-gateway-0.3.0-preview.7.tgz",
+      "bytes": 60962,
+      "sha256": "0aa3e850298332ab59dbec8d409e3adf02f374d50f61f37cbeb88d23f66d5f2b"
+    },
+    {
       "path": "artifacts/ramex-labs-continuity-remote-0.3.0-preview.2.tgz",
       "bytes": 33233,
       "sha256": "8dd659ed770c74d2e0416e50e597ecc3c19fd8e71631cacd47bca98e6f8c4b2b"
@@ -358,8 +363,8 @@
     },
     {
       "path": "docs/MCP-GATEWAY.md",
-      "bytes": 3546,
-      "sha256": "497af5ab19ffb50d9a29a397e3f5fffd6130f72818c722f4ad4788da898f2058"
+      "bytes": 3744,
+      "sha256": "3fe31804503e48a00f4fe220bb338a82012e27af8e945428a459b9912cf3da26"
     },
     {
       "path": "docs/MCP-PACKAGE.md",
@@ -1668,13 +1673,18 @@
     },
     {
       "path": "packages/mcp-gateway/README.md",
-      "bytes": 11184,
-      "sha256": "208f50e1baf52180c80e00179179f4aa736e9f7db27308e427508efdd9837444"
+      "bytes": 11610,
+      "sha256": "aadfd70e12904ba3494b19c5a9a243c99dd2ee0aef0c3e1420b0dbc1bf2082ca"
     },
     {
       "path": "packages/mcp-gateway/RECOVERY.md",
       "bytes": 7363,
       "sha256": "b32b93bee233f86d6ff3ae1f29f99f875cccabd5208c0b2c67a1dc5a43e788a5"
+    },
+    {
+      "path": "packages/mcp-gateway/REGISTRY.md",
+      "bytes": 2016,
+      "sha256": "be22270cddcaac1608d3c2152a1b0581e4897b066052da882b29646ca2e5068e"
     },
     {
       "path": "packages/mcp-gateway/TASKS.md",
@@ -1749,12 +1759,17 @@
     {
       "path": "packages/mcp-gateway/npm-shrinkwrap.json",
       "bytes": 14331,
-      "sha256": "bfb0b9dcd136c64e862df8333322ea130d99d5b766cbe41e9e4827bfb5e03d08"
+      "sha256": "766a4f7ec0405db45aadce999f86906a38c2362cc43d9e84e0aef108ac7c47e5"
     },
     {
       "path": "packages/mcp-gateway/package.json",
-      "bytes": 1900,
-      "sha256": "7c871b4ae1f3ad7c0ffaf5945942b95ed561d38e4f339c8845dae35b04c7a270"
+      "bytes": 1977,
+      "sha256": "f4f4c9d7cb5f0e31bcd25245709f6efd5a05971624e5a0a4cb0edd2f5afa3d6b"
+    },
+    {
+      "path": "packages/mcp-gateway/server.json",
+      "bytes": 921,
+      "sha256": "35212e185ccb8500060d2cc49a665e3c4e50cafcad995571350ac348a1375e95"
     },
     {
       "path": "packages/mcp-gateway/src/access-policy.d.ts",
@@ -3199,7 +3214,7 @@
     {
       "path": "tools/verify-gateway.mjs",
       "bytes": 2170,
-      "sha256": "5ba78503bcdbd95a77deee11df37b2ab082cb8af37f92d2622425a2171c0f96e"
+      "sha256": "45fb5f83b40513623a66ed25eeef31c20609b3c5a655ad74415acf44f80dff75"
     },
     {
       "path": "tools/verify-mcp-package.mjs",
@@ -3298,8 +3313,8 @@
     },
     {
       "path": "website/downloads/RELEASE-STATUS.md",
-      "bytes": 2774,
-      "sha256": "ca7c6f1ae3a48139a1242f9b5c955c2bdd1780f44ab3527d853678244b3b7a67"
+      "bytes": 2847,
+      "sha256": "6d7b256e11f1a6e6bdbd18269f0d2e33f5c469cd38d9330160208ae8d9167ee3"
     },
     {
       "path": "website/downloads/SECURITY.md",
@@ -3724,7 +3739,7 @@
     {
       "path": "website/index.html",
       "bytes": 13282,
-      "sha256": "fd1540920fb3c7893e4ceefb9da9ebc22a3d7d2a8aa335e83be3f2ef32fd8924"
+      "sha256": "6620ac07ce9f425e838c139d8ab36bf581b7b36debe8994fc20595ed2af85350"
     },
     {
       "path": "website/source/.gitignore",

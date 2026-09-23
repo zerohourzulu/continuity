@@ -16,10 +16,10 @@ Expect one local ticket, the original reply on repetition, and a refused retired
 
 Try `npm run demo:http` for separate caller bindings, `npm run demo:recovery` for a cooperating service, and `npm run demo:tasks` for long-running work. To inspect or change the tests, run `npm test` in the same folder.
 
-The npm package is `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.6`. Install the release tarball or use the exact npm version:
+The npm package is `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.7`. Install the release tarball or use the exact npm version:
 
 ```sh
-npm install --save-exact @ramex-labs/continuity-mcp-gateway@0.3.0-preview.6
+npm install --save-exact @ramex-labs/continuity-mcp-gateway@0.3.0-preview.7
 node node_modules/@ramex-labs/continuity-mcp-gateway/examples/demo.mjs
 ```
 
@@ -32,7 +32,7 @@ For a real client, first [create a private case and configure the gateway](../pa
 | A small evidence-collection example | [continuity-mcp](MCP-PACKAGE.md) | One configured evidence tool; existing Registry entry `continuity-evidence`. |
 | Several approved tools and durable jobs | [continuity-mcp-gateway](../packages/mcp-gateway/README.md) | Operator-defined jobs, stdio or authenticated loopback HTTP, original-attempt inspection and selected cooperating recovery. |
 
-Both use the same published Core. Installing the gateway does not replace the evidence server or its Registry listing. A separate gateway Registry entry has not been published.
+Both use the same published Core. Installing the gateway does not replace the evidence server or its Registry listing. The gateway has its own Registry identity, `io.github.zerohourzulu/continuity-gateway`. See the [client setup guide](../packages/mcp-gateway/REGISTRY.md); operators must create a private case before connecting. Check the Registry for listing availability.
 
 ## Know the boundary
 
