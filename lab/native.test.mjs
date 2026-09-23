@@ -17,12 +17,25 @@ const unitsTool={id:'credits.allocate',action:'allocate-credits',resource:'credi
   fields:{units:'amount',recipient:'identifier'},projection:{amount:'units',counterparty:'recipient',unit:'synthetic-credit'}};
 
 test('actual LangChain tools perform configured text, enum and empty-input operations through Core and the destination',async t=>{
-  const s=await cooperativeSetup(t);
+  const s=await cooperativeSetup(t),calls=[];
+  const client=Object.fromEntries(['checkpoint','prepare','commit','status'].map(method=>[method,async(...args)=>{
+    const call={method};calls.push(call);
+    try {const reply=await s.client[method](...args);call.state=reply.result.state;return reply;}
+    catch(error){call.error=error.name;call.cause=error.cause?.code;throw error;}
+  }]));
+  const executor=createCooperativeExecutor({local:s.local,client,registry:s.registry,role:'operator',tenure:'shift:1'});
   const cases=[['ticket.create',{title:'Investigate native invocation'}],['document.read',{}],
     ['document.access',{level:'reviewer'}],['incident.note',{note:'Native integration evidence'}]];
   for(const [index,[name,args]] of cases.entries()){
-    const tool=make(s,name,`native:${index}`,`native-business:${index}`);assert.ok(tool instanceof DynamicStructuredTool);
-    assert.equal(tool.name,name.replaceAll('.','_'));const answer=await invoke(tool,args);
+    const tool=make(s,name,`native:${index}`,`native-business:${index}`,executor);assert.ok(tool instanceof DynamicStructuredTool);
+    assert.equal(tool.name,name.replaceAll('.','_'));let answer=await invoke(tool,args);
+    if(answer.lastReportedServiceState==='REPORT_UNAVAILABLE') {
+      t.diagnostic(`One status-only recovery for ${name}: ${JSON.stringify(calls)}`);
+      const before=calls.length;
+      // The same host-bound identity can reconcile, never dispatch another effect.
+      answer=await invoke(tool,args);
+      assert.deepEqual(calls.slice(before).map(call=>call.method),['status']);
+    }
     assert.equal(answer.operationId,`native:${index}`);assert.equal(answer.lastReportedServiceState,'APPLIED');assert.equal(answer.externalOutcome,'NOT_PROVEN');
     assert.equal(effects(s).length,index+1);assert.equal(effects(s)[index].tool,name);assert.equal(canonicalDigest(effects(s)[index].arguments),canonicalDigest(args));
   }

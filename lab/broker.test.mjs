@@ -16,7 +16,15 @@ test('four synthetic tool kinds use actual Core admission and typed remote-repor
   const s=await setup(t);
   const requests=[s.request,{operationId:'job:2',tool:'access.set',arguments:{level:'closed'}},
     {operationId:'job:3',tool:'payment.send',arguments:{amount:20}}, {operationId:'job:4',tool:'document.read',arguments:{}}];
-  for(const request of requests) assert.equal(disposition(await s.broker.run(request)),'SUBMITTED');
+  for(const request of requests) {
+    const first=await s.broker.run(request);
+    if(disposition(first)==='OUTCOME_UNKNOWN') {
+      t.diagnostic(`One status-only recovery for ${request.tool}: ${first.result.invocation?.reason ?? first.providerReportStatus}`);
+      // Never send the operation again. The persisted attempt permits only lookup.
+      const recovered=await createBroker(s.options).run(request);
+      assert.equal(disposition(recovered),'RETRY',JSON.stringify(recovered));
+    } else assert.equal(disposition(first),'SUBMITTED',JSON.stringify(first));
+  }
   assert.equal(s.service.stats().effects,4);
   assert.equal(s.owner.exportHistory().filter(e=>e.type==='TRANSACTION_INTENT_CONSUMED').length,4);
   assert.equal(disposition(await createBroker(s.options).run(s.request)),'RETRY');

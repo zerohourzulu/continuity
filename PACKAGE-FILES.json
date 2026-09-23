@@ -83,8 +83,8 @@
     },
     {
       "path": "RELEASE-STATUS.md",
-      "bytes": 2604,
-      "sha256": "711a3fd491d183555672440e6374a4f0a888c0b434f5736331486447ac60af3a"
+      "bytes": 3097,
+      "sha256": "9dd253e514464d01e5cb21a1ec283c8f31810bdd66708327f942d87a4ad7bbf8"
     },
     {
       "path": "SECURITY.md",
@@ -314,7 +314,7 @@
     {
       "path": "docs/CORE-0.3-QUICKSTART.md",
       "bytes": 3350,
-      "sha256": "66a403d96b4bea43b12762473ea436e8012d5cef21e73a2132708e1f564ad5e6"
+      "sha256": "8602cd8f04d408611ca65618f8a2d7d961e89ef3112b5ec31ba89fb681631c98"
     },
     {
       "path": "docs/CORE-0.3-TESTING.md",
@@ -1178,8 +1178,8 @@
     },
     {
       "path": "lab/broker.test.mjs",
-      "bytes": 14681,
-      "sha256": "ebb11e100f614fcf2be100abd1920c5a079974e7a9b0e3d4301ac5bd0b4eea8e"
+      "bytes": 15154,
+      "sha256": "ef2e5ceda0c469f058a1775b3533605d0c0a4785f1421cde78fb839a8fec5719"
     },
     {
       "path": "lab/cooperative-business.test.mjs",
@@ -1243,8 +1243,8 @@
     },
     {
       "path": "lab/native.test.mjs",
-      "bytes": 13019,
-      "sha256": "da42c1b0468ea6c3c6e848450e65a2985f73f7a1c44723d01123dd1ea50cdbd0"
+      "bytes": 13892,
+      "sha256": "89b5609e565c36553ddce770624ca7e6b59e6141238444fbde148bfb90a2acfc"
     },
     {
       "path": "lab/profile.test.mjs",
@@ -3013,8 +3013,8 @@
     },
     {
       "path": "website/downloads/RELEASE-STATUS.md",
-      "bytes": 2816,
-      "sha256": "1a3f7b2d7bf375693f9aeac14c30675795a376367107744f0c6ec3d63051630e"
+      "bytes": 3309,
+      "sha256": "deed7218ffcc8d6a5dbeb77ee7b6815d02b61d25636146035d0f89cf30f2f6de"
     },
     {
       "path": "website/downloads/SECURITY.md",
@@ -3439,7 +3439,7 @@
     {
       "path": "website/index.html",
       "bytes": 13289,
-      "sha256": "782ec8b174c8c335df621d7d3c32ec1d40dab7be40430124615f467668165432"
+      "sha256": "46a1a66aec60b4380a7865f6f272acc72680753a0224cbfd58d576a8395e3cd5"
     },
     {
       "path": "website/source/.gitignore",
