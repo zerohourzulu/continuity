@@ -42,7 +42,7 @@ writeFileSync(
   JSON.stringify(
     {
       name: "@ramex-labs/continuity-mcp",
-      version: "0.3.0-preview.8",
+      version: "0.3.0-preview.9",
       publishConfig: { access: "public", tag: "preview", registry: "https://registry.npmjs.org" },
       description:
         "A bounded local MCP evidence tool that checks current authority and preserves operation history",
@@ -70,7 +70,7 @@ writeFileSync(
         "README.md",
       ],
       dependencies: {
-        "@ramex-labs/continuity": "0.3.0-preview.7",
+        "@ramex-labs/continuity": "0.3.0-preview.8",
         "@modelcontextprotocol/client": "2.0.0",
         "@modelcontextprotocol/server": "2.0.0",
         viem: "2.55.19",

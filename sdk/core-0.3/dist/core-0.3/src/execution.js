@@ -1,5 +1,5 @@
 import * as core from "../../core-0.2/src/core/index.js";
-import { PortableFileEventStore } from "../../core-0.2/src/indexer/portable-file-event-store.js";
+import { ManagedLocalEventStore as PortableFileEventStore } from "./capacity.js";
 import { DurableAdmissionCoordinator } from "../../core-0.2/src/sdk/durable-admission.js";
 import { DurableReceiptCoordinator } from "../../core-0.2/src/sdk/durable-receipt.js";
 import { captureData, ContinuityError, identifier, record, requireCondition, } from "./input.js";

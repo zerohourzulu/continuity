@@ -1,7 +1,8 @@
+import { assertCapacityTransition, capacityOf } from "./capacity.js";
 import { openSync, closeSync } from "node:fs";
 import { randomUUID } from "node:crypto";
 import * as core from "../../core-0.2/src/core/index.js";
-import { PortableFileEventStore } from "../../core-0.2/src/indexer/portable-file-event-store.js";
+import { ManagedLocalEventStore as PortableFileEventStore } from "./capacity.js";
 import { ContinuityError, identifier, identifiers, record, requireCondition, time, } from "./input.js";
 import { captureHistory, observeHistory, } from "./observation.js";
 import { POLICY, configuration, event, read, append, stateOf, } from "./local-store.js";
@@ -163,6 +164,7 @@ function attach(store, config) {
                     operationVersion: core.PORTABLE_REPLAY_VERSION,
                     events: [...events, ...prospective],
                 }).status === "ACCEPTED", "TRANSITION_REJECTED");
+                assertCapacityTransition(events, prospective);
                 // Each durable event is visible. Resume this exact command after an
                 // interrupted handover; never roll retirement back.
                 for (const next of prospective) {
@@ -222,6 +224,7 @@ function attach(store, config) {
         survives(agent) {
             return observe({ at: config.now() }).survives(agent);
         },
+        capacity() { return capacityOf(read(store, config)); },
         exportHistory() {
             return read(store, config);
         },

@@ -14,7 +14,7 @@ node tools/mcp-client-config.mjs --client vscode --gateway-dir packages/mcp-gate
 
 The setup command creates a new private case with disposable keys and two synthetic tools. It refuses to overwrite an existing case. Choose a different directory name if necessary. Do not put the case or keys in your repository or give the agent direct access to them. Running under one unrestricted OS user is a demonstration, not a sandbox.
 
-If you already installed the npm package in an application, use that installation's directory with `--gateway-dir`, for example `./node_modules/@ramex-labs/continuity-mcp-gateway`. This helper supports exactly gateway preview.7. It does not silently select or download a newer release.
+If you already installed the npm package in an application, use that installation's directory with `--gateway-dir`, for example `./node_modules/@ramex-labs/continuity-mcp-gateway`. This helper supports exactly gateway preview.8. It does not silently select or download a newer release.
 
 ## Choose the format your client reads
 
@@ -45,7 +45,7 @@ That demo uses its own temporary case. The helper's generated launch command has
 ## If setup stops
 
 - **UNSUPPORTED_RUNTIME:** run the helper with a supported Node version. Node 26 is supported elsewhere in Core, but not by this gateway profile.
-- **GATEWAY_UNAVAILABLE:** select a trusted gateway preview.7 directory containing package.json and src/cli.mjs. Install dependencies before starting it. The helper checks metadata and file presence; it does not authenticate downloaded software.
+- **GATEWAY_UNAVAILABLE:** select a trusted gateway preview.8 directory containing package.json and src/cli.mjs. Install dependencies before starting it. The helper checks metadata and file presence; it does not authenticate downloaded software.
 - **CONFIG_UNAVAILABLE:** choose an existing regular, non-shared case file in a private directory. Links, shared file permissions and hard-linked case files are refused. The helper does not change permissions. Use the supplied setup for a new synthetic case; do not relax protection on real keys to make an example run.
 - **GATEWAY_CONFIGURATION_UNAVAILABLE after launch:** the gateway rejected the actual case configuration or its contents. The helper deliberately does not read case contents, keys or histories, and therefore cannot establish that a case is valid or currently authorized. Consult the [operating guide](../packages/mcp-gateway/OPERATIONS.md).
 - **Host already active:** stop the old client session normally. Do not delete its ownership record to start another copy. Follow the operating guide for a proven-dead host.

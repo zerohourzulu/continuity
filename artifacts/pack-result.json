@@ -1,13 +1,13 @@
 [
   {
-    "id": "@ramex-labs/continuity-remote@0.3.0-preview.2",
+    "id": "@ramex-labs/continuity-remote@0.3.0-preview.3",
     "name": "@ramex-labs/continuity-remote",
-    "version": "0.3.0-preview.2",
-    "size": 33233,
-    "unpackedSize": 112583,
-    "shasum": "78b685d20e8429b19585b4079471962f31eb2474",
-    "integrity": "sha512-DCq74XB7aAfLph95lAcgReeCzICRgiEunpqZ/JPgGcikRjvvirsRPRLfLY1sJGEcz5gNAcDlHfcOE8hiXWMqGw==",
-    "filename": "ramex-labs-continuity-remote-0.3.0-preview.2.tgz",
+    "version": "0.3.0-preview.3",
+    "size": 33336,
+    "unpackedSize": 112935,
+    "shasum": "0296c295dedead58dc63364c1deb0bac72627c48",
+    "integrity": "sha512-Gttg6jQiHY2/1DSL1qMcvewwV7XfO4T6P4L+NeZq5V1lUIqNNfpd3OEsC305erDTUQI+63cPju5nsMA4zkvrXQ==",
+    "filename": "ramex-labs-continuity-remote-0.3.0-preview.3.tgz",
     "files": [
       {
         "path": "BUILD-PROVENANCE.json",
@@ -31,7 +31,7 @@
       },
       {
         "path": "README.md",
-        "size": 8297,
+        "size": 8649,
         "mode": 420
       },
       {

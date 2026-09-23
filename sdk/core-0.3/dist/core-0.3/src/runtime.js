@@ -1,5 +1,5 @@
 import * as core from "../../core-0.2/src/core/index.js";
-import { PortableFileEventStore } from "../../core-0.2/src/indexer/portable-file-event-store.js";
+import { ManagedLocalEventStore as PortableFileEventStore } from "./capacity.js";
 import { prepareAdministrativeEvent, produceAdministrativeEvent, } from "../../core-0.2/src/administration/index.js";
 import { ContinuityError, identifier, record, requireCondition, time, } from "./input.js";
 import { configuration, read, append, stateOf } from "./local-store.js";

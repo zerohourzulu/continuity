@@ -1,3 +1,4 @@
+import { capacityOf } from "./capacity.ts";
 import * as core from "../../core-0.2/src/core/index.ts";
 import { type Action, type Observation, type ObservationOptions } from "./observation.ts";
 export type LocalOwnerOptions = Readonly<{
@@ -81,6 +82,7 @@ export interface LocalOwner {
     why(action: Action): ReturnType<Observation["why"]>;
     responsible(action: Action): ReturnType<Observation["responsible"]>;
     survives(agent: string): ReturnType<Observation["survives"]>;
+    capacity(): ReturnType<typeof capacityOf>;
     exportHistory(): readonly core.PortableCanonicalEvent[];
 }
 /** Create a new, operator-owned local policy history. No runtime keys or effects. */

@@ -38,7 +38,7 @@ test('a replaced lease is detected and never removed by the former owner',t=>{
 
 test('inspection reports counts and explicit capacities without private content or paths',t=>{
  const f=fixture(t);writeFileSync(join(f.config.storage,'private.json'),'secret:should-not-appear',{mode:0o600});
- const result=inspectCase(f.location),text=JSON.stringify(result);assert.ok(result.eventCount>0);assert.equal(result.limits.coreEvents,256);assert.equal(result.limits.observationEvents,128);
+ const result=inspectCase(f.location),text=JSON.stringify(result);assert.ok(result.eventCount>0);assert.equal(result.limits.coreEvents,96);assert.equal(result.limits.observationEvents,96);
  assert.equal(text.includes('secret'),false);assert.equal(text.includes(f.root),false);assert.equal(text.includes('worker'),false);
 });
 

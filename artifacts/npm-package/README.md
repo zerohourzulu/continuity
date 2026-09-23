@@ -1,5 +1,8 @@
 # Continuity: let the work survive the worker
 
+This version uses shared Core preview.8 and its managed finite-capacity profile. It reserves ledger room for existing jobs and stops new work before those reservations are spent. See [capacity and recovery limits](https://github.com/zerohourzulu/continuity/blob/main/docs/LOCAL-CAPACITY.md).
+
+
 A worker can disappear while its request is still running. Its replacement needs to learn what happened without accidentally doing the job twice—or inheriting powers it was never given.
 
 This package gives your application a cooperating tool service, an executor and a way to investigate unfinished work. The included service records synthetic local effects. It is a runnable evaluation, not a ready-made connector to a payment, ticketing or production security system.
@@ -12,7 +15,7 @@ Install this experimental preview from npm or the matching release archives. Use
 mkdir continuity-example
 cd continuity-example
 npm init -y
-npm install --ignore-scripts @ramex-labs/continuity-remote@0.3.0-preview.2
+npm install --ignore-scripts @ramex-labs/continuity-remote@0.3.0-preview.3
 npm install --ignore-scripts viem@2.55.19
 cp node_modules/@ramex-labs/continuity-remote/examples/walkthrough.mjs .
 node walkthrough.mjs
@@ -35,7 +38,7 @@ The main export provides:
 | `createCooperativeRecovery` | Look up or cancel an original attempt without sending it again. |
 | `inspectDestinationLock`, `recoverDestinationLock` | Inspect and explicitly recover a dead local writer's exact lock. |
 
-Owner setup lives under `/local`; signed runtime helpers under `/runtime`; report, duty and review methods under `/attempts`. JavaScript and TypeScript declarations are included. The package depends on exactly `@ramex-labs/continuity@0.3.0-preview.7`. It contains no engine copy. Core owns the shared rules; the remote package owns transport, service storage and tool integration. Its `/local`, `/runtime` and `/attempts` entries forward to Core. Every forwarded constructor is the identical Core function with the same default. Use `createLocalAttemptOwner` explicitly for attempt records.
+Owner setup lives under `/local`; signed runtime helpers under `/runtime`; report, duty and review methods under `/attempts`. JavaScript and TypeScript declarations are included. The package depends on exactly `@ramex-labs/continuity@0.3.0-preview.8`. It contains no engine copy. Core owns the shared rules; the remote package owns transport, service storage and tool integration. Its `/local`, `/runtime` and `/attempts` entries forward to Core. Every forwarded constructor is the identical Core function with the same default. Use `createLocalAttemptOwner` explicitly for attempt records.
 
 The application fixes identities, keys, role, tool contracts and business keys. Agents supply only permitted arguments. Keep owner/client handles and provider credentials outside the agent's environment. This library alone does not sandbox an agent or block other network routes.
 
@@ -79,7 +82,7 @@ After a process crash, exact dead-PID lock recovery is available. Missing/corrup
 
 Signed results identify which configured service made a claim. They do not establish outside truth. Only the synthetic local effect shares the service's atomic storage transaction. External APIs need their own idempotency, fencing and outcome contract. Non-loopback transport, production TLS/credential custody, hostile-process isolation and fresh remote Cedar/OpenFGA composition are outside this package's supported profile.
 
-`createLocalOwner` retains E5; `createLocalReviewOwner` explicitly starts a fresh E6 history. Existing histories are not upgraded in place. E6 evidence reviews bind the complete current observation set and assignee. New evidence or reassignment requires a fresh review, while the business duty remains OPEN.
+`createLocalOwner` preserves the original profile; `createLocalAttemptOwner` selects E5; `createLocalReviewOwner` explicitly starts a fresh E6 history. Existing histories are not upgraded in place. E6 evidence reviews bind the complete current observation set and assignee. New evidence or reassignment requires a fresh review, while the business duty remains OPEN.
 
 ## License
 

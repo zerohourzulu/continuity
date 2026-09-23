@@ -11,7 +11,7 @@ cp examples/core-0.3/permissions.mjs "$example_dir/"
 cd "$example_dir"
 npm init -y
 npm install --offline --ignore-scripts --no-audit --no-fund \
-  "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.7.tgz"
+  "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.8.tgz"
 node permissions.mjs
 ```
 
@@ -40,7 +40,7 @@ cp "$package_dir/examples/core-0.3/signing/package.json" .
 cp "$package_dir/examples/core-0.3/signing/package-lock.json" .
 npm ci --ignore-scripts
 npm install --offline --ignore-scripts --no-audit --no-fund \
-  "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.7.tgz"
+  "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.8.tgz"
 node handover.mjs
 ```
 
@@ -54,4 +54,4 @@ Expect `Old live process: RUNTIME_NOT_CURRENT`, `Replacement can read? DENY`, `D
 - [Public tests](CORE-0.3-TESTING.md): reproduce the behavior independently.
 - [Compatibility and migration](CORE-0.3-MIGRATION.md): what is supported and what remains your application's responsibility.
 
-The npm package is `@ramex-labs/continuity`. Install the exact preview with `npm install --ignore-scripts @ramex-labs/continuity@0.3.0-preview.7`, or use the supplied archive. If a command fails, keep the exact error and your Node version; the repository's Issues page welcomes synthetic reproductions without keys or private incident data.
+The npm package is `@ramex-labs/continuity`. Install the exact preview with `npm install --ignore-scripts @ramex-labs/continuity@0.3.0-preview.8`, or use the supplied archive. If a command fails, keep the exact error and your Node version; the repository's Issues page welcomes synthetic reproductions without keys or private incident data.

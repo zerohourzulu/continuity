@@ -1,0 +1,7 @@
+Continuity MCP gateway development preview
+Copyright 2026 Continuity contributors
+Licensed under the Apache License, Version 2.0.
+
+Uses @ramex-labs/continuity@0.3.0-preview.7 as an exact dependency; no Core implementation is copied.
+The raw strict-JSON parser and client-input guard derive from Continuity's published evidence MCP integration, source v0.3.0-preview.7.5, under Apache-2.0.
+Official @modelcontextprotocol/client and @modelcontextprotocol/server2.0 are MIT licensed; viem2.55.19 is MIT licensed. Dependencies retain their own notices and licenses in their packages. No bundled third-party source or credentials are included.

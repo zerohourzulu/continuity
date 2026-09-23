@@ -7,3 +7,4 @@ export { openLocalExecution } from "./execution.js";
 export { stateOf } from "./local-store.js";
 export { captureHistory } from "./observation.js";
 export { captureData, record, identifier, requireCondition } from "./input.js";
+export { capacityOf, LOCAL_CAPACITY_PROFILE } from "./capacity.js";

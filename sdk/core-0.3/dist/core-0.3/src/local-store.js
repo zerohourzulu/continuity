@@ -5,6 +5,7 @@ import { createPortableReplayKernel, } from "../../core-0.2/src/core/portable-re
 import { captureBoundedCanonicalReplayBodyIncrementally } from "../../core-0.2/src/core/canonical.js";
 import { ContinuityError, identifier, record, requireCondition, time, } from "./input.js";
 import { captureHistory, observeHistory } from "./observation.js";
+import { assertCapacityTransition } from "./capacity.js";
 export const POLICY = "continuity-local-owner/0.3-preview.1";
 export function configuration(input) {
     // The clock is a trusted host callback. Capture all data independently; pin
@@ -87,7 +88,7 @@ export function stateOf(events) {
     return result.state;
 }
 export function append(store, config, next, events = read(store, config)) {
-    requireCondition(events.length < 256, "HISTORY_LIMIT");
+    assertCapacityTransition(events, [next]);
     const previous = observeHistory(events).head;
     requireCondition(next.timestamp >= previous.canonicalTime, "CLOCK_INVALID");
     const checked = core.replayPortable({
@@ -102,6 +103,8 @@ export function append(store, config, next, events = read(store, config)) {
         });
     }
     catch (error) {
+        if (error instanceof ContinuityError)
+            throw error;
         if (error instanceof PortableStoreConflictError ||
             error instanceof PortableStoreBusyError)
             throw new ContinuityError("HISTORY_CONFLICT");

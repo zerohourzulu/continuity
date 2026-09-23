@@ -2,6 +2,11 @@ import { types } from "node:util";
 import { captureBoundedCanonicalValue } from "../../core-0.2/src/core/canonical.ts";
 
 export type ContinuityErrorCode =
+  | "CAPACITY_RESERVED"
+  | "CAPACITY_INCOMPATIBLE"
+  | "CAPACITY_EVENT_LIMIT"
+  | "CAPACITY_BATCH_UNSUPPORTED"
+  | "CAPACITY_EXPECTED_HEAD_REQUIRED"
   | "INVALID_INPUT"
   | "INVALID_HISTORY"
   | "HISTORY_LIMIT"

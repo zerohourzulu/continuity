@@ -1,5 +1,5 @@
 import * as core from "../../core-0.2/src/core/index.ts";
-import { PortableFileEventStore } from "../../core-0.2/src/indexer/portable-file-event-store.ts";
+import { ManagedLocalEventStore as PortableFileEventStore } from "./capacity.ts";
 import { DurableAdmissionCoordinator } from "../../core-0.2/src/sdk/durable-admission.ts";
 import { DurableReceiptCoordinator } from "../../core-0.2/src/sdk/durable-receipt.ts";
 import type { TransactionAdapter } from "../../core-0.2/src/adapters/index.ts";

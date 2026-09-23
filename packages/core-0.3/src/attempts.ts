@@ -1,6 +1,6 @@
 import * as core from "../../core-0.2/src/core/index.ts";
 import { portableAttemptDutyReviewStatus } from "../../core-0.2/src/core/portable-attempt-review.ts";
-import { PortableFileEventStore } from "../../core-0.2/src/indexer/portable-file-event-store.ts";
+import { ManagedLocalEventStore as PortableFileEventStore } from "./capacity.ts";
 import { prepareAdministrativeEvent, produceAdministrativeEvent } from "../../core-0.2/src/administration/index.ts";
 import { ContinuityError, identifier, record, requireCondition, time } from "./input.ts";
 import { append, configuration, read, stateOf } from "./local-store.ts";

@@ -3,8 +3,8 @@
   "compiler": "5.9.3",
   "coreDependency": {
     "name": "@ramex-labs/continuity",
-    "version": "0.3.0-preview.7",
-    "archiveSha256": "835c57a195b483b572e614e4f32b5894c478993baea512cba707f61f8f3dacf1"
+    "version": "0.3.0-preview.8",
+    "archiveSha256": "e6bb720fce5394552761d2664bab4bd248fa758eb0202635c6960c2b21fc9190"
   },
   "sources": [
     {
@@ -45,7 +45,7 @@
     },
     {
       "path": "packages/remote-tools/README.md",
-      "sha256": "230617f3aab0f8e7f47e6571d815f7dcb6799d565a5b864a8c06813813bd573e"
+      "sha256": "0ee185b494d3b2df1fd47b30e7c1874bc00343f10c74bb71a7439fc35bf3f604"
     },
     {
       "path": "packages/remote-tools/recovery.mjs",
@@ -75,7 +75,7 @@
   "buildInputs": [
     {
       "path": "tools/remote-build/build.mjs",
-      "sha256": "6b0c6094f793412dab26a3cd0fbddaf0c991eb131fcf545ea6ad32f1d1ce2598"
+      "sha256": "07d321af6b70c2937ef3c92041eb1b68aa2d4b10fb9fb6dcaebd6a4f877e191b"
     },
     {
       "path": "tools/remote-build/templates/attempts.d.mts",

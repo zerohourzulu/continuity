@@ -1,7 +1,8 @@
+import { assertCapacityTransition, capacityOf } from "./capacity.ts";
 import { openSync, closeSync } from "node:fs";
 import { randomUUID } from "node:crypto";
 import * as core from "../../core-0.2/src/core/index.ts";
-import { PortableFileEventStore } from "../../core-0.2/src/indexer/portable-file-event-store.ts";
+import { ManagedLocalEventStore as PortableFileEventStore } from "./capacity.ts";
 import {
   ContinuityError,
   identifier,
@@ -100,6 +101,7 @@ export interface LocalOwner {
   why(action: Action): ReturnType<Observation["why"]>;
   responsible(action: Action): ReturnType<Observation["responsible"]>;
   survives(agent: string): ReturnType<Observation["survives"]>;
+  capacity(): ReturnType<typeof capacityOf>;
   exportHistory(): readonly core.PortableCanonicalEvent[];
 }
 function attach(store: PortableFileEventStore, config: Config): LocalOwner {
@@ -294,6 +296,7 @@ function attach(store: PortableFileEventStore, config: Config): LocalOwner {
           }).status === "ACCEPTED",
           "TRANSITION_REJECTED",
         );
+        assertCapacityTransition(events, prospective);
         // Each durable event is visible. Resume this exact command after an
         // interrupted handover; never roll retirement back.
         for (const next of prospective) {
@@ -356,6 +359,7 @@ function attach(store: PortableFileEventStore, config: Config): LocalOwner {
     survives(agent: string) {
       return observe({ at: config.now() }).survives(agent);
     },
+    capacity() { return capacityOf(read(store, config)); },
     exportHistory() {
       return read(store, config);
     },

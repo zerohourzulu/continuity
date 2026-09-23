@@ -20,8 +20,8 @@ const run=args=>{
 const flags=['--ignore-scripts','--no-audit','--no-fund',...(process.env.CONTINUITY_OFFLINE==='1'?['--offline']:[]),
   ...(process.env.CONTINUITY_NPM_CACHE?['--cache',process.env.CONTINUITY_NPM_CACHE]:[])];
 run([npm,'ci',...flags]);
-const archive=join(source,'artifacts/ramex-labs-continuity-remote-0.3.0-preview.2.tgz');
-run([npm,'install',...flags,join(source,'sdk/ramex-labs-continuity-0.3.0-preview.7.tgz'),archive]);
+const archive=join(source,'artifacts/ramex-labs-continuity-remote-0.3.0-preview.3.tgz');
+run([npm,'install',...flags,join(source,'sdk/ramex-labs-continuity-0.3.0-preview.8.tgz'),archive]);
 for(const name of ['walkthrough.mjs','native-consumer.mjs'])cpSync(join(source,'examples/remote',name),join(consumer,name));
 for(const dependency of ['typescript','@types/node','undici-types']){
  const target=join(consumer,'node_modules',dependency);mkdirSync(dirname(target),{recursive:true});
@@ -31,5 +31,5 @@ cpSync(join(here,'templates/consumer.mts'),join(consumer,'consumer.mts'));
 writeFileSync(join(consumer,'tsconfig.json'),JSON.stringify({compilerOptions:{target:'ES2022',module:'NodeNext',moduleResolution:'NodeNext',strict:true,noEmit:true,skipLibCheck:false,types:['node']},include:['consumer.mts']},null,2)+'\n');
 run([join(consumer,'node_modules/typescript/bin/tsc'),'-p',join(consumer,'tsconfig.json')]);
 run(['walkthrough.mjs']);run(['native-consumer.mjs']);
-if(process.env.CONTINUITY_CONSUMER_RECORD)writeFileSync(process.env.CONTINUITY_CONSUMER_RECORD,JSON.stringify({directory:consumer,node:process.version,package:'@ramex-labs/continuity-remote@0.3.0-preview.2',checks:['strict public types','signed walkthrough','native installed invocation']},null,2)+'\n');
+if(process.env.CONTINUITY_CONSUMER_RECORD)writeFileSync(process.env.CONTINUITY_CONSUMER_RECORD,JSON.stringify({directory:consumer,node:process.version,package:'@ramex-labs/continuity-remote@0.3.0-preview.3',checks:['strict public types','signed walkthrough','native installed invocation']},null,2)+'\n');
 console.log('Independent installed consumer passed: '+consumer);

@@ -39,7 +39,7 @@ for(const name of ['index.mjs','index.d.mts','langchain.d.mts','local.mjs','loca
 for(const name of ['LICENSE','NOTICE'])cpSync(join(source,name),join(out,name));
 for(const name of ['LICENSING.md','THIRD-PARTY-NOTICES.md'])cpSync(join(source,'packages/remote-tools',name),join(out,name));
 
-const manifest={name:'@ramex-labs/continuity-remote',version:'0.3.0-preview.2',publishConfig:{access:'public',tag:'preview',registry:'https://registry.npmjs.org'},repository:{type:'git',url:'https://github.com/zerohourzulu/continuity.git'},type:'module',license:'Apache-2.0',
+const manifest={name:'@ramex-labs/continuity-remote',version:'0.3.0-preview.3',publishConfig:{access:'public',tag:'preview',registry:'https://registry.npmjs.org'},repository:{type:'git',url:'https://github.com/zerohourzulu/continuity.git'},type:'module',license:'Apache-2.0',
   description:'Cooperating tool execution, recovery and evidence review; local evaluation profile',
   engines:{node:'^22.18.0 || ^24.0.0'},
   exports:{
@@ -48,13 +48,13 @@ const manifest={name:'@ramex-labs/continuity-remote',version:'0.3.0-preview.2',p
     './local':{types:'./dist/remote-tools/local.d.mts',import:'./dist/remote-tools/local.mjs'},
     './runtime':{types:'./dist/remote-tools/runtime.d.mts',import:'./dist/remote-tools/runtime.mjs'},
     './attempts':{types:'./dist/remote-tools/attempts.d.mts',import:'./dist/remote-tools/attempts.mjs'},
-  },dependencies:{'@ramex-labs/continuity':'0.3.0-preview.7'},peerDependencies:{'@langchain/core':'1.2.12',zod:'4.6.5'},
+  },dependencies:{'@ramex-labs/continuity':'0.3.0-preview.8'},peerDependencies:{'@langchain/core':'1.2.12',zod:'4.6.5'},
   peerDependenciesMeta:{'@langchain/core':{optional:true},zod:{optional:true}},
   files:['dist','LICENSE','NOTICE','LICENSING.md','THIRD-PARTY-NOTICES.md','README.md','BUILD-PROVENANCE.json','examples']};
 writeFileSync(join(out,'package.json'),JSON.stringify(manifest,null,2)+'\n');
 cpSync(join(source,'packages/remote-tools/README.md'),join(out,'README.md'));
 cpSync(join(source,'examples/remote'),join(out,'examples'),{recursive:true});
-const provenance={kind:'continuity-remote-shared-core-build/1',compiler:compiler.version,coreDependency:{name:'@ramex-labs/continuity',version:'0.3.0-preview.7',archiveSha256:sha(readFileSync(join(source,'sdk/ramex-labs-continuity-0.3.0-preview.7.tgz')))},
+const provenance={kind:'continuity-remote-shared-core-build/1',compiler:compiler.version,coreDependency:{name:'@ramex-labs/continuity',version:'0.3.0-preview.8',archiveSha256:sha(readFileSync(join(source,'sdk/ramex-labs-continuity-0.3.0-preview.8.tgz')))},
   sources:['packages/remote-tools','examples/remote'].flatMap(base=>walk(join(source,base)).map(path=>({path:base+'/'+path,sha256:sha(readFileSync(join(source,base,path)))}))),
   buildInputs:['tools/remote-build/build.mjs',...walk(join(source,'tools/remote-build/templates')).map(path=>'tools/remote-build/templates/'+path),'tools/sdk-build/tsconfig-core-0.3.json','tools/sdk-build/package-lock.json'].map(path=>({path,sha256:sha(readFileSync(join(source,path)))})),
   strictJsonSha256:sha(readFileSync(join(source,'lab/strict-json.mjs'))),

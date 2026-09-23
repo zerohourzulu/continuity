@@ -16,7 +16,7 @@ const run=(cmd,args,options={})=>{
 const files=(dir,prefix='')=>readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?files(join(dir,e.name),prefix+e.name+'/'):[prefix+e.name]).sort();
 try {
   writeFileSync(join(scratch,'package.json'),JSON.stringify({private:true,type:'module'}));
-  run('npm',['install','--offline','--ignore-scripts','--no-audit','--no-fund',join(root,'sdk/ramex-labs-continuity-0.3.0-preview.7.tgz')]);
+  run('npm',['install','--offline','--ignore-scripts','--no-audit','--no-fund',join(root,'sdk/ramex-labs-continuity-0.3.0-preview.8.tgz')]);
   const installed=join(scratch,'node_modules/@ramex-labs/continuity'), generated=join(root,'sdk/core-0.3');
   assert.deepEqual(files(installed),files(generated));
   for(const path of files(generated))assert.deepEqual(readFileSync(join(installed,path)),readFileSync(join(generated,path)),path);
@@ -67,7 +67,7 @@ export function manage(options: LocalOwnerOptions) {
   // The optional signing example has registry dependencies. Its fresh cache
   // is independent of the dependency-free SDK's offline install above.
   run('npm',['ci','--prefer-offline','--ignore-scripts','--no-audit','--no-fund']);
-  run('npm',['install','--offline','--ignore-scripts','--no-audit','--no-fund',join(root,'sdk/ramex-labs-continuity-0.3.0-preview.7.tgz')]);
+  run('npm',['install','--offline','--ignore-scripts','--no-audit','--no-fund',join(root,'sdk/ramex-labs-continuity-0.3.0-preview.8.tgz')]);
   cpSync(join(root,'examples/core-0.3/handover.mjs'),join(scratch,'handover.mjs'));
   const handover=run(process.execPath,['--no-experimental-strip-types','handover.mjs']);
   for(const expected of ['Simulation: SUBMITTED','Signed receipt: ADMITTED','Old live process: RUNTIME_NOT_CURRENT','Replacement can read? DENY','Duty: OPEN','Repeated operation: RECONCILIATION_ONLY'])assert(handover.includes(expected),expected);

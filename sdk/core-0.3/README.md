@@ -1,5 +1,8 @@
 # Core 0.3 preview: start with your own permissions
 
+This version uses the [managed finite-capacity profile](https://github.com/zerohourzulu/continuity/blob/main/docs/LOCAL-CAPACITY.md).
+
+
 This preview adds a small application API and a protected local MCP tool around the unchanged 0.2.2 engine and history format. Install the supplied tarball; no npm publication or stable API compatibility promise is claimed. [Start with the three-minute example](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-QUICKSTART.md).
 
 The package separates observation, owner administration, signed duty operations and effect-free simulation. `@ramex-labs/continuity` reads a captured history. `@ramex-labs/continuity/local` gives a trusted local application an owner handle for creating and changing a policy history. The package is published under the RAmEx Labs npm scope.
@@ -13,7 +16,7 @@ package_dir="$PWD"
 example_dir="$(mktemp -d)"
 cp "$package_dir/examples/core-0.3/permissions.mjs" "$example_dir/"
 cd "$example_dir"
-npm install --offline --ignore-scripts --no-audit --no-fund "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.7.tgz"
+npm install --offline --ignore-scripts --no-audit --no-fund "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.8.tgz"
 node permissions.mjs
 ```
 
@@ -78,7 +81,7 @@ cp "$package_dir/examples/core-0.3/handover.mjs" "$example_dir/"
 cp "$package_dir/examples/core-0.3/signing/"package*.json "$example_dir/"
 cd "$example_dir"
 npm ci --ignore-scripts --no-audit --no-fund
-npm install --offline --ignore-scripts --no-audit --no-fund "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.7.tgz"
+npm install --offline --ignore-scripts --no-audit --no-fund "$package_dir/sdk/ramex-labs-continuity-0.3.0-preview.8.tgz"
 node handover.mjs
 ```
 
@@ -106,7 +109,7 @@ Choose an operation ID once and keep its exact arguments. Reusing it with anothe
 
 A wrong signature cannot admit an operation. The wrapper checks history, current session and policy again after asynchronous signing; changed history raises `HISTORY_CONFLICT`, and expiry or revocation prevents a new effect. These checks are not general post-admission cancellation. Underlying pre-use checks fence the original session/epoch/role tenure, and revocation cannot undo an earlier effect.
 
-`obligate` and `assign` use signed engine transitions and recognize exact completed commands on repetition. Administrative signing has a stricter limit of fewer than128 prior events; observation allows256. Handover consists of two visible durable events, not an atomic multi-event transaction. If writing fails after retirement, that retirement remains in force. Inspect the original file and rerun the same handover command to finish its missing transfer. Do not restore a pre-retirement snapshot.
+`obligate` and `assign` use signed engine transitions and recognize exact completed commands on repetition. Managed writes now share the96-event reserved-capacity profile; inspection still accepts previously supported256-event histories. Use `owner.capacity()` and [the capacity guide](https://github.com/zerohourzulu/continuity/blob/main/docs/LOCAL-CAPACITY.md) before new work. Handover consists of two visible durable events, not an atomic multi-event transaction. If writing fails after retirement, that retirement remains in force. Inspect the original file and rerun the same handover command to finish its missing transfer. Do not restore a pre-retirement snapshot.
 
 Keep host configuration, owner handles, history paths, clocks and signer callbacks outside agent control. Passing a runtime handle through an untrusted same-process plugin is not containment. The protected evidence MCP integration supplies a separate bounded request surface; OS isolation still needs its deployment layer.
 

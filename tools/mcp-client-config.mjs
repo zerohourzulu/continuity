@@ -18,9 +18,9 @@ export function clientConfig(args){
   const metaPath=join(gateway,'package.json'),s=lstatSync(metaPath);
   if(!s.isFile()||s.size>65536)throw Error();
   const p=JSON.parse(readFileSync(metaPath,'utf8'));
-  if(p.name!=='@ramex-labs/continuity-mcp-gateway'||p.version!=='0.3.0-preview.7'||p.bin?.['continuity-mcp-gateway']!=='./src/cli.mjs')throw Error();
+  if(p.name!=='@ramex-labs/continuity-mcp-gateway'||p.version!=='0.3.0-preview.8'||p.bin?.['continuity-mcp-gateway']!=='./src/cli.mjs')throw Error();
   cli=join(gateway,'src/cli.mjs');if(!lstatSync(cli).isFile())throw Error();accessSync(cli,constants.R_OK);
- }catch{fail('GATEWAY_UNAVAILABLE','Choose a trusted installation of @ramex-labs/continuity-mcp-gateway@0.3.0-preview.7.');}
+ }catch{fail('GATEWAY_UNAVAILABLE','Choose a trusted installation of @ramex-labs/continuity-mcp-gateway@0.3.0-preview.8.');}
  try{
   const input=resolve(opts['--config']),s=lstatSync(input);
   if(!s.isFile()||s.nlink!==1||(s.mode&0o077)!==0||s.size>131072)throw Error();

@@ -18,6 +18,7 @@ import {
   time,
 } from "./input.ts";
 import { captureHistory, observeHistory } from "./observation.ts";
+import { assertCapacityTransition } from "./capacity.ts";
 import type { LocalOwnerOptions, WriteResult } from "./local-owner.ts";
 export const POLICY = "continuity-local-owner/0.3-preview.1";
 export function configuration(input: LocalOwnerOptions) {
@@ -128,7 +129,7 @@ export function append(
   next: core.PortableCanonicalEvent,
   events = read(store, config),
 ): WriteResult {
-  requireCondition(events.length < 256, "HISTORY_LIMIT");
+  assertCapacityTransition(events, [next]);
   const previous = observeHistory(events).head;
   requireCondition(next.timestamp >= previous.canonicalTime, "CLOCK_INVALID");
   const checked = core.replayPortable({
@@ -142,6 +143,7 @@ export function append(
       head: store.appendAtExpectedHead(next, previous),
     });
   } catch (error) {
+    if (error instanceof ContinuityError) throw error;
     if (
       error instanceof PortableStoreConflictError ||
       error instanceof PortableStoreBusyError

@@ -9,3 +9,4 @@ export type { LocalExecutionOptions } from "./execution.ts";
 export { stateOf } from "./local-store.ts";
 export { captureHistory } from "./observation.ts";
 export { captureData, record, identifier, requireCondition } from "./input.ts";
+export { capacityOf, LOCAL_CAPACITY_PROFILE } from "./capacity.ts";
