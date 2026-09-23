@@ -23,3 +23,7 @@ Source integrity checks identify bytes, not correctness, author identity, indepe
 ## Reporting a vulnerability
 
 Use the repository Security tab to report a vulnerability privately. For ordinary setup questions, use GitHub Issues. Do not include secrets or real customer incident data in public reports. No bounty or response-time commitment is offered.
+
+## Optional MCP gateway
+
+The [gateway](https://github.com/zerohourzulu/continuity/blob/main/docs/MCP-GATEWAY.md) provides an admission check for configured jobs, not a sandbox or public network service. Ordinary upstream tools can finish after revocation; cooperating services need their own enforcement. Keys, case history, access-policy denials and direct tool credentials must stay outside agent access. Old backups can restore obsolete authority or revocations; automatic rollback recovery is not supported. See the gateway operating and identity guides before deploying.

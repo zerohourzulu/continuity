@@ -1,3 +1,16 @@
+# Browser playground integration — 23 September 2026
+
+Source preview.8.2 adds the previously developed static playground to the current release. The Core 0.3 runtime, all four npm archives and the original Node SDK are unchanged.
+
+- 54 focused checks pass on macOS ARM64 Node22.18 and Node24.21: 34 existing conformance vectors and 20 scenario/boundary cases.
+- Chrome153 passes the actual worker's 34 vectors and 16 scenario cases, story/workshop controls, role and permission choices, comparison, 12-agent import/export, stale-answer cancellation, replay, mobile overflow, reduced motion and invalid input checks.
+- The downloaded maximum case and full result reproduce exactly through `node tools/playground.mjs`, using the original Node SDK. The test observed no external browser requests or page errors.
+- The browser build matches its recorded engine provenance. It adapts two host imports for a JSON-only worker boundary; it is not a general browser SDK or hostile-agent sandbox.
+
+[Run the independent checks](website/playground/README.md). The selected browser check is headless Chrome on macOS, not a native Safari or physical-phone result. Prior Firefox/WebKit evidence belongs to the original playground evaluation, not a newly repeated platform campaign. Hosted results for this source edition appear in [GitHub Actions](https://github.com/zerohourzulu/continuity/actions) after publication.
+
+The dated validation records below describe earlier increments and remain historical where superseded.
+
 # Core 0.3 preview validation
 
 The new API, protected tool and optional policy adapters have69 focused checks, passed locally on Node22.18 and24.21. They use the actual MCP client/server, actual LangChain agent loop with a scripted model, Cedar WASM4.13.0 and OpenFGA1.21.0. Independent application installs exercise the compiled API and MCP tarballs. The public test commands are in [Core0.3 testing](docs/CORE-0.3-TESTING.md).

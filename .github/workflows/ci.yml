@@ -39,6 +39,10 @@ jobs:
         run: node tools/verify-package.mjs
       - name: Public regression and actual conformance controls
         run: node tools/test.mjs
+      - name: Browser profile parity and scenario checks
+        run: |
+          node tools/build-playground.mjs --check
+          node --test tests/browser/model.test.mjs tests/browser/vectors.test.mjs
       - name: Pinned SDK build tools (no install scripts)
         run: npm ci --prefix tools/sdk-build --ignore-scripts --no-audit --no-fund
       - name: Frozen 0.2 SDK compatibility and independent consumer

@@ -8,6 +8,8 @@ Starting B does not answer three practical questions: what may B do, which old r
 
 Prefer a picture and a slower walkthrough? [Read the illustrated explanation](https://github.com/zerohourzulu/continuity/blob/main/README-ELI5.md).
 
+[Try different choices in the browser playground](https://continuity.ramex.com/playground/), then open the workshop to inspect the results.
+
 ## What happens in the tutorial
 
 1. A's permitted collection request runs in the simulator. The record shows a review duty as `OPEN`: it is not finished.

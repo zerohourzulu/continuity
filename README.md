@@ -7,6 +7,8 @@
 
 **[Explore the interactive demo →](https://zerohourzulu.github.io/continuity/)** · [Start here](docs/START-HERE.md) · [Developer guide](docs/DEVELOPER.md) · [Security and limits](SECURITY.md)
 
+**[Try your own choices in the playground →](https://continuity.ramex.com/playground/)** No installation or account needed.
+
 **Developer preview · Apache 2.0.** [Release status](RELEASE-STATUS.md).
 
 A process supervisor can start Agent B. Continuity records which role B occupies, which powers it has, what happened before, and which unfinished duties survive the change. A replacement receives its explicitly granted powers; an unfinished duty does not silently grant more authority.

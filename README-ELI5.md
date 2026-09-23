@@ -24,6 +24,8 @@ Alex and Bea are characters in our story. The tutorial calls its software helper
 
 You do not need to take every path. Reading the story is a useful first step on its own.
 
+Try the [browser playground](https://continuity.ramex.com/playground/) to change permissions and compare answers without installing anything. Start with the story; open the workshop when you want to name a case, add helpers or try different roles.
+
 ## Run the tutorial
 
 There are two ways to look: read an example that already happened, or make a new practice run. Neither needs a wallet, payment, AI account or real incident data.

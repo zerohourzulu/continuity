@@ -1,11 +1,7 @@
-# Room for recovery before new work
+# Try a different choice in your browser
 
-Core preview.8 adds a managed finite-capacity profile. Each declared job reserves space for its first supported lifecycle records, and eight shared control slots remain for actions such as revocation and replacement. New work stops before it can spend those reservations. The same checks apply under the history-writer lock across the supplied Core, remote and MCP execution paths.
+The Continuity playground brings the illustrated handover story and a more detailed workshop to the public site. Name a practice case, choose among six starting points, work with up to 12 helpers, assign roles and separate permissions, withdraw a permission, compare answers and download a scenario. The original girl-and-robot illustration appears above the clipboard/card explanation.
 
-The profile holds at most 96 bounded events. Existing incompatible histories remain readable but cannot silently opt into managed writes. There is no pruning, automatic migration, rollback protection against the host administrator or unlimited-history claim. Read [the capacity guide](docs/LOCAL-CAPACITY.md) before upgrading a case.
+Both views use actual Core replay and permission decisions over synthetic records. Nothing is sent to an agent model or external tool. The playground uses the preserved Core 0.2.2 replay engine; it does not run a Core 0.3 managed gateway or bypass its 96-event limit. A saved scenario can be reproduced with the included Node command and checked independently in a browser.
 
-Exact packages: Core `@ramex-labs/continuity@0.3.0-preview.8`, remote `@ramex-labs/continuity-remote@0.3.0-preview.3`, evidence `@ramex-labs/continuity-mcp@0.3.0-preview.9`, gateway `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.8`. Each wrapper uses that exact shared Core. Source edition: `v0.3.0-preview.8.1`.
-
-Cancellation still needs its own permission and job budget. Inspection and repeat calls never create a fresh business attempt. Raw Core0.2 writers, older binaries and manual history changes are outside the managed guarantee.
-
-Source preview.8.1 fixes a timing-dependent token-lifetime test: issuer and verifier timestamps are explicit, and the valid 300-second boundary is checked. All four npm packages and their runtime behavior are unchanged from source preview.8.
+Source edition: `v0.3.0-preview.8.2`. Existing npm Core preview.8, remote preview.3, evidence MCP preview.9 and gateway preview.8 are unchanged. No new npm or MCP Registry release is needed. This adds a static learning tool, not a production security boundary.

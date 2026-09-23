@@ -1,0 +1,15 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {readFileSync}from'node:fs';
+import * as original from '../../sdk/core/dist/core/index.js';
+import {createPortableReplayKernel}from'../../sdk/core/dist/core/portable-replay.js';
+import {captureBoundedCanonicalReplayBodyIncrementally}from'../../sdk/core/dist/core/canonical.js';
+import * as browser from '../../website/playground/engine-api.js';
+import {types}from'../../website/playground/host-profile.js';
+import {defaultCase,parseCase,runCase}from'../../website/playground/model.js';
+import {scenarios}from'./scenarios.mjs';
+const core={...original,createPortableReplayKernel,captureBoundedCanonicalReplayBodyIncrementally};
+const fixture=JSON.parse(readFileSync(new URL('../../website/playground/fixture.json',import.meta.url)));
+for(const [name,c,decision]of scenarios)test(name,()=>{const input=parseCase(JSON.stringify(c));const a=runCase(core,input,fixture),b=runCase(browser,input,fixture);assert.equal(a.decision,decision);assert.deepEqual(b,a);if(c.step>=1){assert.equal(a.duties[0].status,'OPEN');assert.equal(a.duties[0].assignee,c.step===1?'a:first-look':'b:first-look');}else assert.equal(a.duties.length,0);assert.equal(a.agents[0].status,c.step>=2?'TERMINATED':'ACTIVE');});
+test('JSON-only boundary rejects executable objects without invoking accessors',()=>{let calls=0;const proxy=new Proxy({},{get(){calls++;throw Error('must not run')}});assert.throws(()=>parseCase(proxy),/JSON text/);assert.equal(calls,0);assert.throws(()=>parseCase(()=>0),/JSON text/);assert.equal(types.isProxy(proxy),true);assert.equal(calls,0);});
+test('closed schema and finite limits',()=>{const c=defaultCase();for(const bad of [{...c,extra:1},{...c,names:Array(13).fill('x')},{...c,names:['a','a']},{...c,step:4},{...c,operation:12},{...c,actor:99},{...c,deny:'true'},{...c,roles:[{role:0,agent:1,operations:[0,0]}]},{...c,roles:[{role:0,agent:1,operations:[]},{role:0,agent:2,operations:[]}]}])assert.throws(()=>parseCase(JSON.stringify(bad)));assert.throws(()=>parseCase(' '.repeat(32769)));assert.throws(()=>parseCase('{"version":1,"version":1}'),/DUPLICATE_KEY/);assert.throws(()=>parseCase('['.repeat(1000)+']'.repeat(1000)),/DEPTH/);assert.throws(()=>parseCase('{"__proto__":{}}'));});
+test('replay is deterministic and fixture stays unchanged',()=>{const saved=JSON.stringify(fixture);const c=defaultCase();assert.deepEqual(runCase(core,c,fixture),runCase(core,c,fixture));assert.equal(JSON.stringify(fixture),saved);});
+test('terminated actor cannot be appointed to a fresh role',()=>assert.throws(()=>runCase(core,{...defaultCase(),roles:[{role:0,agent:0,operations:[]}]},fixture),/identity has ended/));

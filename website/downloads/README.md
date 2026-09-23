@@ -1,4 +1,4 @@
-> **Core 0.3 preview:** [Build a fresh case](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-QUICKSTART.md), [try the protected MCP tool](https://github.com/zerohourzulu/continuity/blob/main/docs/MCP-PACKAGE.md), or [run the public tests](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-TESTING.md). The original 0.2.2 evaluation releases remain available.
+> **Core 0.3 preview:** [Build a fresh case](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-QUICKSTART.md), [connect approved MCP tools](https://github.com/zerohourzulu/continuity/blob/main/docs/MCP-GATEWAY.md), or [run the public tests](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-TESTING.md). The original 0.2.2 evaluation releases remain available.
 
 [![it is 2 a.m. do you know what your agent is doing?](https://github.com/zerohourzulu/continuity/blob/main/website/images/agent-at-2am.png)](https://zerohourzulu.github.io/continuity/)
 [![Security. Control. Inheritance. Durable survival of powers and responsibilities. Record durably, locally or on chain. This is your agent’s brain on Continuity.](https://github.com/zerohourzulu/continuity/blob/main/assets/continuity-statement.svg)](https://zerohourzulu.github.io/continuity/)
@@ -6,6 +6,8 @@
 # Continuity — agents change; responsibility remains
 
 **[Explore the interactive demo →](https://zerohourzulu.github.io/continuity/)** · [Start here](https://github.com/zerohourzulu/continuity/blob/main/docs/START-HERE.md) · [Developer guide](https://github.com/zerohourzulu/continuity/blob/main/docs/DEVELOPER.md) · [Security and limits](https://github.com/zerohourzulu/continuity/blob/main/SECURITY.md)
+
+**[Try your own choices in the playground →](https://continuity.ramex.com/playground/)** No installation or account needed.
 
 **Developer preview · Apache 2.0.** [Release status](https://github.com/zerohourzulu/continuity/blob/main/RELEASE-STATUS.md).
 

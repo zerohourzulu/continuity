@@ -1,0 +1,140 @@
+{
+  "profile": "continuity-json-worker-evaluation/1",
+  "core": "0.2.2",
+  "nodeSdk": "0.2.2-sdk.1",
+  "boundary": "JSON text only; no supplied code, adapters, filesystem or credentials",
+  "modules": [
+    {
+      "path": "canonical.js",
+      "sourceSha256": "950b50e1851152861f14672cb9f0e1d718f254b8801f7754e24709cfd6948b84",
+      "browserSha256": "7de616571fa36850975e0d8c13c37531a3a8d52aa2d32b5d8e09bbc5b03717c1",
+      "hostImportAdapted": true
+    },
+    {
+      "path": "event-schema.js",
+      "sourceSha256": "2eef2cb85dcfe6fea61950dff2978a5a416f20b03f1c36dd4db1eab4e218520b",
+      "browserSha256": "2eef2cb85dcfe6fea61950dff2978a5a416f20b03f1c36dd4db1eab4e218520b",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "host-intrinsics.js",
+      "sourceSha256": "72a464f2e2223540a5f501e9c4955baad9667d3c133de5cd9ccd2bcf2b7e2d62",
+      "browserSha256": "72a464f2e2223540a5f501e9c4955baad9667d3c133de5cd9ccd2bcf2b7e2d62",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "index.js",
+      "sourceSha256": "3e44e04fa423721911f2255c681ea5a0648a653ba492c1d5e638909cb99d2241",
+      "browserSha256": "3e44e04fa423721911f2255c681ea5a0648a653ba492c1d5e638909cb99d2241",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-adapter-engine.js",
+      "sourceSha256": "567cb7aee46b5f89b8ec32fb79e6e50e6998add5c783902ac0dd3bf16fc03378",
+      "browserSha256": "de2d3ac2594cc63d6ef6509306deecf343bd4466ac894741cd933408818cc43b",
+      "hostImportAdapted": true
+    },
+    {
+      "path": "portable-administration-codec.js",
+      "sourceSha256": "e1fe35e6f0699feb32354fd65945453e71b647d1337eb7e8b20aa0895dae36ad",
+      "browserSha256": "e1fe35e6f0699feb32354fd65945453e71b647d1337eb7e8b20aa0895dae36ad",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-admission.js",
+      "sourceSha256": "bc5a3d0054e5838441c8236f1c95d0a8b63f15e2fc03f533be669cd7f4488935",
+      "browserSha256": "bc5a3d0054e5838441c8236f1c95d0a8b63f15e2fc03f533be669cd7f4488935",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-authority-engine.js",
+      "sourceSha256": "bd64d3bd410888d651a340d19363bedd59883fceebb043bc421ef968cdd45fc5",
+      "browserSha256": "bd64d3bd410888d651a340d19363bedd59883fceebb043bc421ef968cdd45fc5",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-authority.js",
+      "sourceSha256": "362458bdf7679c30689b89b0bc65c59809435247787056d9f725cdfd005aabfa",
+      "browserSha256": "362458bdf7679c30689b89b0bc65c59809435247787056d9f725cdfd005aabfa",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-integration.js",
+      "sourceSha256": "0f7e4b069fa47eaad058c8b2fca410042e0f0694f82cc1dd04ff9095c5d14f37",
+      "browserSha256": "0f7e4b069fa47eaad058c8b2fca410042e0f0694f82cc1dd04ff9095c5d14f37",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-queries.js",
+      "sourceSha256": "205aee325de120bdb38316da9626211387245f11696942063ff0bb758b1b9878",
+      "browserSha256": "205aee325de120bdb38316da9626211387245f11696942063ff0bb758b1b9878",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-query-capture.js",
+      "sourceSha256": "78c0314ec6aac9e54b5ebe8db75efec65200f82da191d973de2589e714686f4b",
+      "browserSha256": "78c0314ec6aac9e54b5ebe8db75efec65200f82da191d973de2589e714686f4b",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-query-codec.js",
+      "sourceSha256": "1be2378aca00ba101f7284ede3d898c0d893c6a553a05dfe0a89509669131577",
+      "browserSha256": "1be2378aca00ba101f7284ede3d898c0d893c6a553a05dfe0a89509669131577",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-query-conflicts.js",
+      "sourceSha256": "b2d13bcf2e6985e994b38211cefc4bb915e65c70ac1c7944c24a42c9c94d5cdb",
+      "browserSha256": "b2d13bcf2e6985e994b38211cefc4bb915e65c70ac1c7944c24a42c9c94d5cdb",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-query-output.js",
+      "sourceSha256": "a953983325d80398258798354a007afda8af8f9a4a84cc0ff4e7ce42cc1109f6",
+      "browserSha256": "a953983325d80398258798354a007afda8af8f9a4a84cc0ff4e7ce42cc1109f6",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-query-responsibility.js",
+      "sourceSha256": "1fb29e1c5d2989a507a67f7aa1d04ed46625961f6e18c81e2dbaef172b3522dc",
+      "browserSha256": "1fb29e1c5d2989a507a67f7aa1d04ed46625961f6e18c81e2dbaef172b3522dc",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-query-survives.js",
+      "sourceSha256": "ef79efd08f88afcc7ade2861b3ea075eba69fe0f517cdba456c5dae799960d88",
+      "browserSha256": "ef79efd08f88afcc7ade2861b3ea075eba69fe0f517cdba456c5dae799960d88",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-receipt-capture.js",
+      "sourceSha256": "e39f47ec97662afc2b4d5eb0c03ff6a863c96230e32d94c6ff651dbd30beebb2",
+      "browserSha256": "e39f47ec97662afc2b4d5eb0c03ff6a863c96230e32d94c6ff651dbd30beebb2",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-receipt-codec.js",
+      "sourceSha256": "df416525d8d3d1ac1b8e005f485ca2f6c2ce720b28bd4456450d72fe4b51c4be",
+      "browserSha256": "df416525d8d3d1ac1b8e005f485ca2f6c2ce720b28bd4456450d72fe4b51c4be",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-receipts.js",
+      "sourceSha256": "7c1d3d048daf87d7995fd84aaf255a3b05dd70af65a526125ed065d50ff3a01f",
+      "browserSha256": "7c1d3d048daf87d7995fd84aaf255a3b05dd70af65a526125ed065d50ff3a01f",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "portable-replay.js",
+      "sourceSha256": "d7b2fec549e2d6ba9db7851ec0fe1b5437236309e112322554df23de0c41e8e5",
+      "browserSha256": "d7b2fec549e2d6ba9db7851ec0fe1b5437236309e112322554df23de0c41e8e5",
+      "hostImportAdapted": false
+    },
+    {
+      "path": "reference-output-budget.js",
+      "sourceSha256": "bb2f995580dd41593de85b091f4df1382a114c7e7bf025766976f915ac39a915",
+      "browserSha256": "bb2f995580dd41593de85b091f4df1382a114c7e7bf025766976f915ac39a915",
+      "hostImportAdapted": false
+    }
+  ]
+}

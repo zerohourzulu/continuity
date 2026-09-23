@@ -1,6 +1,8 @@
-# Core 0.3 — managed finite capacity
+# Core 0.3 — developer preview
 
-[Release and downloads](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.8.1) · [Quickstart](docs/CORE-0.3-QUICKSTART.md) · [Capacity guide](docs/LOCAL-CAPACITY.md) · [Tests](docs/CORE-0.3-TESTING.md).
+[Release and downloads](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.8.2) · [Quickstart](docs/CORE-0.3-QUICKSTART.md) · [Capacity guide](docs/LOCAL-CAPACITY.md) · [Tests](docs/CORE-0.3-TESTING.md).
+
+The [browser playground](https://continuity.ramex.com/playground/) adds a story and workshop for trying hypothetical permission choices. It runs locally in the browser over the preserved Core 0.2.2 example; it does not execute live gateway jobs. [Scope and independent checks](website/playground/README.md).
 
 Use Core `@ramex-labs/continuity@0.3.0-preview.8`, remote `@ramex-labs/continuity-remote@0.3.0-preview.3`, evidence MCP `@ramex-labs/continuity-mcp@0.3.0-preview.9` and optional gateway `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.8`. All wrappers use that exact shared Core and contain no engine copies.
 
