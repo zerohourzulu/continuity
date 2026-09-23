@@ -29,7 +29,9 @@
     "remote:build": "node tools/remote-build/build.mjs .",
     "remote:test": "node --experimental-strip-types --test --test-concurrency=1 lab/*.test.mjs",
     "remote:verify": "node tools/remote-build/verify.mjs .",
-    "shared:verify": "node tools/verify-shared-core.mjs"
+    "shared:verify": "node tools/verify-shared-core.mjs",
+    "gateway:test": "npm test --prefix packages/mcp-gateway",
+    "gateway:demo": "npm run demo --prefix packages/mcp-gateway"
   },
   "dependencies": {
     "viem": "2.55.19"

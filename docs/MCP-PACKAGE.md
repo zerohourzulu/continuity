@@ -1,5 +1,7 @@
 # Try the protected MCP tool in a fresh application
 
+Need several approved tools rather than this single evidence example? Start with the [gateway guide](MCP-GATEWAY.md).
+
 This package supplies one local tool: collect a small, explicitly selected set of files into an evidence packet. Each new call checks the configured agent's current permission. A retired session cannot start another collection. Repeating an operation ID checks the original attempt instead of copying the files again.
 
 It is a stdio MCP server, not a public network service or a general tool proxy. Your application chooses the agent, source files, destination and credentials before launching it. Those choices are not tool arguments.

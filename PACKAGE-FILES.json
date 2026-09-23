@@ -13,8 +13,8 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "bytes": 2956,
-      "sha256": "a9e9cc1ba7d3e7b41a45fd2eca51408ac942dac000b44921c7646264ccdfce22"
+      "bytes": 3229,
+      "sha256": "74faf977c9b594938b1ed6563372700a35c55bbdfdb62932115a6523564873ae"
     },
     {
       "path": ".github/workflows/pages.yml",
@@ -74,22 +74,22 @@
     {
       "path": "README.md",
       "bytes": 6576,
-      "sha256": "9de39c4cb25ebe55c2973e508bd0c9b9ef4211f5b567074db599c03f181ebb6b"
+      "sha256": "ef2d4abdfcfdb8bc70dcf07cc4b2c08f55608b4afa5e41644b6da427fe061f31"
     },
     {
       "path": "RELEASE-NOTES.md",
-      "bytes": 8231,
-      "sha256": "a92ccc129a428d3f6ce841e63e21afd3a7efb842756858e986101635ecdda4e6"
+      "bytes": 1840,
+      "sha256": "aef09607625180c5a01b3f415f894afb53bfcbe62d128782ae83bad7603623d3"
     },
     {
       "path": "RELEASE-STATUS.md",
-      "bytes": 2194,
-      "sha256": "1aad7703ff0f07742b97c7f0449a62fcb727c80f4e7c747fbd0472358533d245"
+      "bytes": 2509,
+      "sha256": "8491a63bc083d23b160295c9874611305640ec315a1ac022a988179b66a75ba3"
     },
     {
       "path": "SECURITY.md",
-      "bytes": 3337,
-      "sha256": "d3f48e0a5d1dc356dde8065df8bc75ed855b7dff475ccae7078673823e01e115"
+      "bytes": 3861,
+      "sha256": "c78968910c09523314060342cf3a3e8f5f71d3e8f350e3141fd52e1e0d48d0bf"
     },
     {
       "path": "SOURCE-PROVENANCE.json",
@@ -247,6 +247,11 @@
       "sha256": "3b231ec75d02234a9e6a5ea54cc07038234a7e1e08733d8def508f1c2f4f2068"
     },
     {
+      "path": "artifacts/ramex-labs-continuity-mcp-gateway-0.3.0-preview.6.tgz",
+      "bytes": 60190,
+      "sha256": "8933e48b683b24516109126cb4e305759d42f96800278e10de06345c92b11f99"
+    },
+    {
       "path": "artifacts/ramex-labs-continuity-remote-0.3.0-preview.2.tgz",
       "bytes": 33233,
       "sha256": "8dd659ed770c74d2e0416e50e597ecc3c19fd8e71631cacd47bca98e6f8c4b2b"
@@ -352,9 +357,14 @@
       "sha256": "f2daefab75ba12f89d269bc3309fed36e3d07049a9ce883ffc0fa4c61098eb2b"
     },
     {
+      "path": "docs/MCP-GATEWAY.md",
+      "bytes": 3546,
+      "sha256": "497af5ab19ffb50d9a29a397e3f5fffd6130f72818c722f4ad4788da898f2058"
+    },
+    {
       "path": "docs/MCP-PACKAGE.md",
-      "bytes": 3332,
-      "sha256": "70f7aba86fbf163ebfc2ab91316b457212931a994d7fbf0cd6a84f3a068031de"
+      "bytes": 3451,
+      "sha256": "1ed00743eb470bcc9edc7ae51c2058df47611b96f4714ea766d7920500bc567b"
     },
     {
       "path": "docs/OPERATOR.md",
@@ -1378,8 +1388,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 1543,
-      "sha256": "b0558bdde11ae9d1aac3cb21572572d117c5d885bd4804690a9b11eb2107252e"
+      "bytes": 1671,
+      "sha256": "e89c5eae7cc88e78179ef4a469fd4a4c1118eec100129db97f2175432fdb9327"
     },
     {
       "path": "packages/core/package.json",
@@ -1617,6 +1627,271 @@
       "sha256": "ea531462ae68e2ba67e2f38fcd0d091299c6f11e27de37d87de7101ec70cb6d6"
     },
     {
+      "path": "packages/mcp-gateway/ACCESS-POLICY.md",
+      "bytes": 3377,
+      "sha256": "ecdd2a906a91d333fda52f78f1fe8a71e565898fc58a059d940133e233aafcb1"
+    },
+    {
+      "path": "packages/mcp-gateway/COMPATIBILITY.md",
+      "bytes": 4913,
+      "sha256": "856c7207dfb9f1e30d358d8826e25a9153435118418161f6684c28f7ddc02669"
+    },
+    {
+      "path": "packages/mcp-gateway/CONTRACT.md",
+      "bytes": 5098,
+      "sha256": "5a7c16c761f9892c66a150394fe34171749e4018961f3d089c9f208c38644e1b"
+    },
+    {
+      "path": "packages/mcp-gateway/HTTP.md",
+      "bytes": 8373,
+      "sha256": "e3840c64aaaf2614a4994a512cb78e57804d67dba64faa4ea3ded5bf82382c13"
+    },
+    {
+      "path": "packages/mcp-gateway/IDENTITY.md",
+      "bytes": 3659,
+      "sha256": "033f8683fcd3ca377ae6d2baa6b298a22e8aa92997535cd392e53fd2fa2aff4e"
+    },
+    {
+      "path": "packages/mcp-gateway/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "packages/mcp-gateway/NOTICE",
+      "bytes": 639,
+      "sha256": "2448b559e27bc8b7ea9323e3629d037b07b20466c70cb9b66602479aebf76779"
+    },
+    {
+      "path": "packages/mcp-gateway/OPERATIONS.md",
+      "bytes": 5125,
+      "sha256": "fcbe7cd45f85aad281966f1954aef50f26fc9c9a463eb22c1751116827593345"
+    },
+    {
+      "path": "packages/mcp-gateway/README.md",
+      "bytes": 11184,
+      "sha256": "208f50e1baf52180c80e00179179f4aa736e9f7db27308e427508efdd9837444"
+    },
+    {
+      "path": "packages/mcp-gateway/RECOVERY.md",
+      "bytes": 7363,
+      "sha256": "b32b93bee233f86d6ff3ae1f29f99f875cccabd5208c0b2c67a1dc5a43e788a5"
+    },
+    {
+      "path": "packages/mcp-gateway/TASKS.md",
+      "bytes": 6164,
+      "sha256": "5d3d49bde95e3ea075ba47763cc24e052363d92e9252c34dc62f0e8a836c9c5f"
+    },
+    {
+      "path": "packages/mcp-gateway/examples/cooperative-setup.mjs",
+      "bytes": 1780,
+      "sha256": "384802e5273bd48530bb214c71fee8357cdc146e6ce2fe6f62e9d843b7092aa9"
+    },
+    {
+      "path": "packages/mcp-gateway/examples/demo.mjs",
+      "bytes": 2054,
+      "sha256": "d504898a50a2400193287f3374ab83b971fa1b036f695a2f5a60790d225d89d2"
+    },
+    {
+      "path": "packages/mcp-gateway/examples/host-compatibility.mjs",
+      "bytes": 5631,
+      "sha256": "75b50977a1313639c6455b52c139c36db84e7892732f5ebb8e91b9d541710650"
+    },
+    {
+      "path": "packages/mcp-gateway/examples/http-demo.mjs",
+      "bytes": 2201,
+      "sha256": "60b0ed87f61cc713157e00e9f35bb9e37ddf10229993b869241bb0737f9abc32"
+    },
+    {
+      "path": "packages/mcp-gateway/examples/keycloak-realm.json",
+      "bytes": 4189,
+      "sha256": "7d0ef31ec0095238626ba36670c91f06b9770dbe41e610ea109b829e2a4e8301"
+    },
+    {
+      "path": "packages/mcp-gateway/examples/linux-isolation.mjs",
+      "bytes": 2864,
+      "sha256": "0353e11cfc80d1984408338d61f2e6c0f7864abb10533d8988d57b7bea64f812"
+    },
+    {
+      "path": "packages/mcp-gateway/examples/lossy-relay.mjs",
+      "bytes": 1522,
+      "sha256": "ef7366840ffc0a39861639c9b5ebcc4f686ea57c44904c328f6805a5d0bf08f4"
+    },
+    {
+      "path": "packages/mcp-gateway/examples/recovery-demo.mjs",
+      "bytes": 2863,
+      "sha256": "2174016a7ba218fc01e170f137f170b72e8e6681ebbaaa4260144a894748bd2a"
+    },
+    {
+      "path": "packages/mcp-gateway/examples/setup.mjs",
+      "bytes": 3187,
+      "sha256": "e2581673a6be43efb84c2dc3591c638ca04277a3cac47298a4f02355cf192109"
+    },
+    {
+      "path": "packages/mcp-gateway/examples/task-client.mjs",
+      "bytes": 1434,
+      "sha256": "b506eb0f5102134d7508c21092040aa25877c4e85aa7f327ad8fbe60aab5725f"
+    },
+    {
+      "path": "packages/mcp-gateway/examples/tasks-demo.mjs",
+      "bytes": 2489,
+      "sha256": "7e1d6eac9f95649c125d3171e85d16c4f5e4a4b51f3bd39833091d9f08153fd2"
+    },
+    {
+      "path": "packages/mcp-gateway/examples/test-issuer.mjs",
+      "bytes": 1628,
+      "sha256": "f3abbba4d390d7b6bab248ea345a7dd3c06bf956d377f5e5f9b53411334f4674"
+    },
+    {
+      "path": "packages/mcp-gateway/examples/upstream.mjs",
+      "bytes": 3585,
+      "sha256": "5f349813af9e55fc13e7f8c583e82332604156463fae371bc35e081ead972650"
+    },
+    {
+      "path": "packages/mcp-gateway/npm-shrinkwrap.json",
+      "bytes": 14331,
+      "sha256": "bfb0b9dcd136c64e862df8333322ea130d99d5b766cbe41e9e4827bfb5e03d08"
+    },
+    {
+      "path": "packages/mcp-gateway/package.json",
+      "bytes": 1900,
+      "sha256": "7c871b4ae1f3ad7c0ffaf5945942b95ed561d38e4f339c8845dae35b04c7a270"
+    },
+    {
+      "path": "packages/mcp-gateway/src/access-policy.d.ts",
+      "bytes": 643,
+      "sha256": "1857315d8314d193ef614c6b24878e9a728d2e04022e5721c7b6e06f639bca82"
+    },
+    {
+      "path": "packages/mcp-gateway/src/access-policy.mjs",
+      "bytes": 3360,
+      "sha256": "f153906a2af1b68ae6fb406bb2ba02ec7a1f8bf9744f382322f8008291301051"
+    },
+    {
+      "path": "packages/mcp-gateway/src/access.mjs",
+      "bytes": 3572,
+      "sha256": "ebd06e83b6dde6f3a8e5d72e3d753d79ff5e20c065aba0474b3e8bb467adbd70"
+    },
+    {
+      "path": "packages/mcp-gateway/src/cli.mjs",
+      "bytes": 1875,
+      "sha256": "398c7f0158250c4fef7704614b4db2283bc7f55e8a7aad5ba7c05d8cd8344b95"
+    },
+    {
+      "path": "packages/mcp-gateway/src/cooperative.d.ts",
+      "bytes": 1249,
+      "sha256": "9a8924d20f7f9abf9c6f0c3fa99207b2e4bf61a3114ad99fb6bff601e92e9a15"
+    },
+    {
+      "path": "packages/mcp-gateway/src/cooperative.mjs",
+      "bytes": 17154,
+      "sha256": "1023bcb18ea3ed6418f478528a86842804d2f2b1cc0f0a5667a2c589d2828668"
+    },
+    {
+      "path": "packages/mcp-gateway/src/data.mjs",
+      "bytes": 2278,
+      "sha256": "a25d5aad3d68f1774be78b311f17baec388eed67708db4f0aa7be465d36f6fce"
+    },
+    {
+      "path": "packages/mcp-gateway/src/gateway.d.ts",
+      "bytes": 1577,
+      "sha256": "2cd74bc849f468b779b99ee94a5c90a0109c15cfb92c3847853e55c053a61e5b"
+    },
+    {
+      "path": "packages/mcp-gateway/src/gateway.mjs",
+      "bytes": 12027,
+      "sha256": "caa7fac7095fff456e19a251cc972e185f7399b23cd40456cc38b7cc13ccab72"
+    },
+    {
+      "path": "packages/mcp-gateway/src/guard.mjs",
+      "bytes": 1457,
+      "sha256": "51729b376b5c1883ae906b261c120db0764bcda91041cd6dacd624e9af96457e"
+    },
+    {
+      "path": "packages/mcp-gateway/src/http.d.ts",
+      "bytes": 1272,
+      "sha256": "f18cd3bd93239bb26d2c48c73257593db1228952aec448190e61ea9eea07a874"
+    },
+    {
+      "path": "packages/mcp-gateway/src/http.mjs",
+      "bytes": 9574,
+      "sha256": "bed47c6e01d122747ba292cd06958e962c652c58e18fe6f2d1ca14d88bf5915c"
+    },
+    {
+      "path": "packages/mcp-gateway/src/operations.d.ts",
+      "bytes": 1059,
+      "sha256": "972d583096c0de781e82b7a3ed4a2317ca0dc45ca0996e9897e25c6d378ba9e1"
+    },
+    {
+      "path": "packages/mcp-gateway/src/operations.mjs",
+      "bytes": 7627,
+      "sha256": "5bd7abca029e960e1d9e8ba6e9312b3e21d98aec45aa8c58c322cfd3c5969201"
+    },
+    {
+      "path": "packages/mcp-gateway/src/ops-cli.mjs",
+      "bytes": 1082,
+      "sha256": "7bdab78247f4807ba5431f2b2e57b4331e8ac616438830b7602b3518bf2d9648"
+    },
+    {
+      "path": "packages/mcp-gateway/src/server.mjs",
+      "bytes": 2628,
+      "sha256": "060a2d1bf0f1fab17c54f391a19267560dcd5bd0bfc9d6f48ad940fba675f23d"
+    },
+    {
+      "path": "packages/mcp-gateway/src/stdio.mjs",
+      "bytes": 2451,
+      "sha256": "a30348027b8cc3198e4a03afaae93df3f7dc45583fea8c535c32e57e99dbf1fb"
+    },
+    {
+      "path": "packages/mcp-gateway/src/strict-json.mjs",
+      "bytes": 3835,
+      "sha256": "efadbaf7513423e4c47360d33c1a6ff9b7bd2c300bf4c96fac4e561e940f369a"
+    },
+    {
+      "path": "packages/mcp-gateway/src/tasks.mjs",
+      "bytes": 10010,
+      "sha256": "b6655306130091502bc298fbe4c1f87f79f224c2d1e13fde23c7f0ccebdd1e81"
+    },
+    {
+      "path": "packages/mcp-gateway/src/upstream.mjs",
+      "bytes": 2998,
+      "sha256": "b87d94afa860b4638c22344b1e5c03bda83f705dbaf70795237b0846c5564d63"
+    },
+    {
+      "path": "packages/mcp-gateway/test/access-policy.test.mjs",
+      "bytes": 3338,
+      "sha256": "1f849f2f457bdb8626449c241398712eda3f8cc8356e481b79bd6224261f9e1c"
+    },
+    {
+      "path": "packages/mcp-gateway/test/cooperative.test.mjs",
+      "bytes": 16249,
+      "sha256": "c8b0bd677b08ae39c6c9b2803c58a3dd825b3a26dc6a38ecd6952a522f3c4f0a"
+    },
+    {
+      "path": "packages/mcp-gateway/test/fixtures/task-host.mjs",
+      "bytes": 1024,
+      "sha256": "d7dde8054e24d74eb35bd55d4b91e7799e0954280b6f021b6ee4fe783877a271"
+    },
+    {
+      "path": "packages/mcp-gateway/test/gateway.test.mjs",
+      "bytes": 16573,
+      "sha256": "1211237f0a916346ab35e7957ab232f582ece8a49c2ec23df34ff7700ebf1235"
+    },
+    {
+      "path": "packages/mcp-gateway/test/http.test.mjs",
+      "bytes": 15889,
+      "sha256": "a63813a53c4b959d2fb9e1fbd30110df797d6044554d6f44ff0ad47573e3f972"
+    },
+    {
+      "path": "packages/mcp-gateway/test/operations.test.mjs",
+      "bytes": 6275,
+      "sha256": "4bd4f8192a37a5bb2fd0b724d197f62a96ae26a4bbd03c505ba42237bd9b7ee3"
+    },
+    {
+      "path": "packages/mcp-gateway/test/tasks.test.mjs",
+      "bytes": 13966,
+      "sha256": "4dd0cd74c7e88cb851d025f0c842bc0874005e0c5db0295af9cbc37295da061b"
+    },
+    {
       "path": "packages/remote-tools/CONTRACT.md",
       "bytes": 7465,
       "sha256": "998937d1d799e1046236e97269d88e2eab942f80f0d443174d7c788faa91e096"
@@ -1638,8 +1913,8 @@
     },
     {
       "path": "packages/remote-tools/README.md",
-      "bytes": 8297,
-      "sha256": "230617f3aab0f8e7f47e6571d815f7dcb6799d565a5b864a8c06813813bd573e"
+      "bytes": 8355,
+      "sha256": "2ac8fcb2c78a49bb8ffa0c87e20c21e466b438ac4a5ffb9aefb706174d113ce7"
     },
     {
       "path": "packages/remote-tools/THIRD-PARTY-NOTICES.md",
@@ -2922,6 +3197,11 @@
       "sha256": "9830ee57f00b502db2688a7495969f6bcf58bed3435a316596d869b8decd75a7"
     },
     {
+      "path": "tools/verify-gateway.mjs",
+      "bytes": 2170,
+      "sha256": "5ba78503bcdbd95a77deee11df37b2ab082cb8af37f92d2622425a2171c0f96e"
+    },
+    {
       "path": "tools/verify-mcp-package.mjs",
       "bytes": 2673,
       "sha256": "9d436a7bccdf191f3947d558442c0d99ad2847f7f0c6b85dbbd6d700b5ea16e5"
@@ -3018,8 +3298,8 @@
     },
     {
       "path": "website/downloads/RELEASE-STATUS.md",
-      "bytes": 2406,
-      "sha256": "e8d3ab6928b744c7ddd31c51c9c7d15363d525bd71184a62c0438bfd1cd06ed8"
+      "bytes": 2774,
+      "sha256": "ca7c6f1ae3a48139a1242f9b5c955c2bdd1780f44ab3527d853678244b3b7a67"
     },
     {
       "path": "website/downloads/SECURITY.md",
@@ -3443,8 +3723,8 @@
     },
     {
       "path": "website/index.html",
-      "bytes": 13289,
-      "sha256": "c31f9cc422ddca1e8b0b5ba5a1eb2959b4379a04f1032fc47147bb97a5fac611"
+      "bytes": 13282,
+      "sha256": "fd1540920fb3c7893e4ceefb9da9ebc22a3d7d2a8aa335e83be3f2ef32fd8924"
     },
     {
       "path": "website/source/.gitignore",

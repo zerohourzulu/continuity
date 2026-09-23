@@ -61,6 +61,12 @@ jobs:
           node tools/verify-shared-core.mjs
           node tools/remote-build/verify.mjs .
           node --test --test-concurrency=1 lab/*.test.mjs
+      - name: MCP gateway (supported Node versions)
+        if: matrix.node != '26'
+        run: |
+          npm ci --prefix packages/mcp-gateway --ignore-scripts --no-audit --no-fund
+          npm test --prefix packages/mcp-gateway
+          node tools/verify-gateway.mjs
       - name: Fresh tutorial and changed permission
         run: |
           node tutorial/start.mjs

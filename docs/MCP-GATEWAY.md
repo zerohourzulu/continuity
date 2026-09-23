@@ -1,0 +1,43 @@
+# Put approved MCP tools behind Continuity
+
+Start here if you want to connect tools your application already uses. The gateway checks the worker's current permission before forwarding a fixed business job. If the connection drops, repeating the job inspects the original attempt instead of automatically sending it again.
+
+## Try it in a few minutes
+
+Use Node 22.18+ on the 22 line, or Node 24, and npm. From the complete source download:
+
+```sh
+cd packages/mcp-gateway
+npm ci --ignore-scripts
+npm run demo
+```
+
+Expect one local ticket, the original reply on repetition, and a refused retired worker. The demo uses synthetic data, temporary keys and two ordinary local MCP servers. No model subscription, account, API key, chain or paid service is needed. Installation downloads locked dependencies.
+
+Try `npm run demo:http` for separate caller bindings, `npm run demo:recovery` for a cooperating service, and `npm run demo:tasks` for long-running work. To inspect or change the tests, run `npm test` in the same folder.
+
+The npm package is `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.6`. Install the release tarball or use the exact npm version:
+
+```sh
+npm install --save-exact @ramex-labs/continuity-mcp-gateway@0.3.0-preview.6
+node node_modules/@ramex-labs/continuity-mcp-gateway/examples/demo.mjs
+```
+
+For a real client, first [create a private case and configure the gateway](../packages/mcp-gateway/README.md#connect-your-mcp-client). The executable requires `--config`; invoking it without configuration intentionally refuses startup. Do not paste keys into client tool arguments.
+
+## Which MCP package do I want?
+
+| Need | Package | Scope |
+| --- | --- | --- |
+| A small evidence-collection example | [continuity-mcp](MCP-PACKAGE.md) | One configured evidence tool; existing Registry entry `continuity-evidence`. |
+| Several approved tools and durable jobs | [continuity-mcp-gateway](../packages/mcp-gateway/README.md) | Operator-defined jobs, stdio or authenticated loopback HTTP, original-attempt inspection and selected cooperating recovery. |
+
+Both use the same published Core. Installing the gateway does not replace the evidence server or its Registry listing. A separate gateway Registry entry has not been published.
+
+## Know the boundary
+
+Ordinary upstream tools may finish after permission changes. The gateway cannot undo an already sent request, make an arbitrary provider transactional, or prove business success from a returned reply. Stronger status, cancellation and fencing require a cooperating service. The host, clock, upstream executables and private storage remain trusted. Separate agents from keys and direct bypass routes; this package is not an agent sandbox.
+
+This release is for local development: fixed jobs, finite histories (Core 256 events, observations 128), no automatic history migration or safe rollback of backups. Internet-facing HTTP is deferred. Resources, prompts, sampling, elicitation and arbitrary protocol extensions are not offered.
+
+Read the [tested client/server combinations](../packages/mcp-gateway/COMPATIBILITY.md), [HTTP contract](../packages/mcp-gateway/HTTP.md), [operating guide](../packages/mcp-gateway/OPERATIONS.md), [real login experiment and its limits](../packages/mcp-gateway/IDENTITY.md), and [persistent operator revocations](../packages/mcp-gateway/ACCESS-POLICY.md). The real Keycloak experiment is a selected fixed-audience profile, not complete modern MCP OAuth interoperability. Inspector and mcpc were tested with configured credentials, not interactive login.

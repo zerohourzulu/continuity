@@ -79,7 +79,7 @@ After a process crash, exact dead-PID lock recovery is available. Missing/corrup
 
 Signed results identify which configured service made a claim. They do not establish outside truth. Only the synthetic local effect shares the service's atomic storage transaction. External APIs need their own idempotency, fencing and outcome contract. Non-loopback transport, production TLS/credential custody, hostile-process isolation and fresh remote Cedar/OpenFGA composition are outside this package's supported profile.
 
-`createLocalOwner` retains E5; `createLocalReviewOwner` explicitly starts a fresh E6 history. Existing histories are not upgraded in place. E6 evidence reviews bind the complete current observation set and assignee. New evidence or reassignment requires a fresh review, while the business duty remains OPEN.
+`createLocalOwner` preserves the original profile; `createLocalAttemptOwner` selects E5; `createLocalReviewOwner` explicitly starts a fresh E6 history. Existing histories are not upgraded in place. E6 evidence reviews bind the complete current observation set and assignee. New evidence or reassignment requires a fresh review, while the business duty remains OPEN.
 
 ## License
 
