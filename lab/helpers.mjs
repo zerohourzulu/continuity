@@ -18,9 +18,11 @@ export async function setup(t, mode='normal') {
   owner.appoint({agent:'bea',role:'operator',tenure:'shift:1',number:1});
   owner.admitRuntime({agent:'bea',session:'session:1',epoch:1,key:'key:1',address:account.address,expiresAt:10000});
   owner.grant({id:'tools',to:'bea',actions:Object.values(LAB_TOOLS).map(x=>x.action),resources:[...new Set(Object.values(LAB_TOOLS).map(x=>x.resource))],expiresAt:9999});
+  // These semantic tests perform synchronous replay while a reply is held.
+  // Allow slower CI CPUs the existing bounded maximum; explicit timeout tests override it.
   const options={...config,session:'session:1',signHash:hash=>account.signMessage({message:{raw:hash}}),epoch:1,
     role:'operator',tenure:'shift:1',storage,target:service.url,serviceIdentity:'synthetic-provider/1',
-    account:'synthetic-tenant',enforcement:'DISPATCH_ONLY',timeoutMs:1000};
+    account:'synthetic-tenant',enforcement:'DISPATCH_ONLY',timeoutMs:5000};
   const request={operationId:'job:1',tool:'ticket.create',arguments:{title:'Investigate synthetic incident'}};
   const childConfig=join(dir,'child.json');
   writeFileSync(childConfig,JSON.stringify({...options,signHash:undefined,now:undefined,key,request}),{mode:0o600});

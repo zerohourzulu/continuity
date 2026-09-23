@@ -25,7 +25,9 @@ export async function cooperativeSetup(t,tools=REFERENCE_TOOLS){
   const destinationOptions={directory,domain:local.domain,serviceId,coordinatorPublicKey:coordinator.publicKey,servicePrivateKey:provider.privateKey,
     now:()=>clock,validateOperation:registry.validateOperation};
   let destination=await createCooperativeDestination(destinationOptions);
-  const makeClient=url=>createCooperativeClient({url,serviceId,coordinatorPrivateKey:coordinator.privateKey,servicePublicKey:provider.publicKey,timeoutMs:5000});
+  // Full signed-history replay can exceed five seconds on shared CI CPUs.
+  // Use the existing maximum for this fixture; production defaults and timeout tests stay unchanged.
+  const makeClient=url=>createCooperativeClient({url,serviceId,coordinatorPrivateKey:coordinator.privateKey,servicePublicKey:provider.publicKey,timeoutMs:10000});
   let client=makeClient(destination.url);
   t.after(async()=>{await destination.close();rmSync(dir,{recursive:true,force:true});});
   const executor=createCooperativeExecutor({local,client,registry,role:'operator',tenure:'shift:1'});
