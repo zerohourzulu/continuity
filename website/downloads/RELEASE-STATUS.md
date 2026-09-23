@@ -1,6 +1,6 @@
 # Core 0.3 — managed finite capacity
 
-[Release and downloads](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.8) · [Quickstart](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-QUICKSTART.md) · [Capacity guide](https://github.com/zerohourzulu/continuity/blob/main/docs/LOCAL-CAPACITY.md) · [Tests](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-TESTING.md).
+[Release and downloads](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.8.1) · [Quickstart](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-QUICKSTART.md) · [Capacity guide](https://github.com/zerohourzulu/continuity/blob/main/docs/LOCAL-CAPACITY.md) · [Tests](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-TESTING.md).
 
 Use Core `@ramex-labs/continuity@0.3.0-preview.8`, remote `@ramex-labs/continuity-remote@0.3.0-preview.3`, evidence MCP `@ramex-labs/continuity-mcp@0.3.0-preview.9` and optional gateway `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.8`. All wrappers use that exact shared Core and contain no engine copies.
 

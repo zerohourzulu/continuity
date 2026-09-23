@@ -78,13 +78,13 @@
     },
     {
       "path": "RELEASE-NOTES.md",
-      "bytes": 1295,
-      "sha256": "97d3ac69cfd8fb44a2babcecdc1e21915aea92a6160886a94ea159a298cf4c56"
+      "bytes": 1540,
+      "sha256": "efdc5865784b4ad36f74503f218e951bf8dc7903717b0a3692f97517fa1fb0fa"
     },
     {
       "path": "RELEASE-STATUS.md",
-      "bytes": 1491,
-      "sha256": "5baaf5d1f434fa74a3dcc6a664eb0fde3ff201d28607f6cb52db11fac3addf16"
+      "bytes": 1493,
+      "sha256": "1cad76696bf34bca9d682fd4a6bb6d3211379833b28d8a0a4e2a3637e4546a8e"
     },
     {
       "path": "SECURITY.md",
@@ -1648,13 +1648,13 @@
     },
     {
       "path": "package-lock.json",
-      "bytes": 12865,
-      "sha256": "843bc0e5b48caab0bb13f27c4b9ae78710de58ba6fa845da1eb99c8facdfbf94"
+      "bytes": 12869,
+      "sha256": "b9888d7bbb382abf90faf2b2bd57eb45508760bfb156b9bff274b10a556950a5"
     },
     {
       "path": "package.json",
-      "bytes": 1671,
-      "sha256": "957e487c7abd4c3f4753a449057722e5a15fde7ee7613dae86538df52b675fcf"
+      "bytes": 1673,
+      "sha256": "0ed1e3b4b3b9b465d64bb03b6daa63a80050cf9c65fa9a1e08faa7969f08bda5"
     },
     {
       "path": "packages/core/package.json",
@@ -2168,8 +2168,8 @@
     },
     {
       "path": "packages/mcp-gateway/test/http.test.mjs",
-      "bytes": 15889,
-      "sha256": "a63813a53c4b959d2fb9e1fbd30110df797d6044554d6f44ff0ad47573e3f972"
+      "bytes": 16316,
+      "sha256": "71f67d4c0d57924c8eda47079fad8adfb75d4622949d2ca63b328a253a054300"
     },
     {
       "path": "packages/mcp-gateway/test/operations.test.mjs",
@@ -3633,8 +3633,8 @@
     },
     {
       "path": "website/downloads/RELEASE-STATUS.md",
-      "bytes": 1650,
-      "sha256": "cf2fa50bb1134db0dc689ddcb9eadb9dd1711ed7861a59d34118a11be8b0e9b7"
+      "bytes": 1652,
+      "sha256": "ff744daf6dd400ced8ea14853b6b4d68527aa16bec4d36b7537b1dd82f3f7898"
     },
     {
       "path": "website/downloads/SECURITY.md",
@@ -4058,8 +4058,8 @@
     },
     {
       "path": "website/index.html",
-      "bytes": 13268,
-      "sha256": "88ee84433b967805dbc476e28a5786083876b0a6f468222aa0dd144590a0d390"
+      "bytes": 13282,
+      "sha256": "a87b562bc0656e7bf685d3f7b5b84cf610c70f466ddc5ce777d261dfee85918b"
     },
     {
       "path": "website/source/.gitignore",

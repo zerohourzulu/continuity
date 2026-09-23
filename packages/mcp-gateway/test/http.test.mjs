@@ -66,8 +66,15 @@ test('wrong issuer, audience, caller, client and binding cannot authenticate',as
 
 test('expiry, future issuance, not-before, lifetime and required claim checks fail closed',async t=>{
  const f=await fixture(t),at=Math.floor(Date.now()/1000);
- for(const claims of [{exp:at},{iat:at+60},{nbf:at+60},{exp:at+301},{exp:at+0.5},{jti:''},{continuity_binding:null},{exp:null}])assert.equal((await f.raw(await f.token(claims))).status,401);
- const r=await f.raw(await f.token({scope:'profile'}));assert.equal(r.status,403);assert.equal((await r.json()).error,'insufficient_scope');
+ // Issuer and verifier must use the same instant: signing across a wall-clock
+ // second must not turn a 301-second rejection fixture into a valid 300 seconds.
+ f.setClock(()=>at*1000);
+ const token=(claims={})=>f.token({iat:at,exp:at+300,...claims});
+ for(const claims of [{exp:at},{iat:at+60},{nbf:at+60},{exp:at+301},{exp:at+0.5},{jti:''},{continuity_binding:null},{exp:null}])assert.equal((await f.raw(await token(claims))).status,401,JSON.stringify(claims));
+ const r=await f.raw(await token({scope:'profile'}));assert.equal(r.status,403);assert.equal((await r.json()).error,'insufficient_scope');
+ // The old fixture could accidentally issue this valid boundary token.
+ f.setClock(()=>(at+1)*1000);
+ await f.client(await token({iat:at+1,exp:at+301}));
 });
 
 test('token signature, type, unknown key, embedded key URLs and duplicate claims are refused',async t=>{

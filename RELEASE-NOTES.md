@@ -4,6 +4,8 @@ Core preview.8 adds a managed finite-capacity profile. Each declared job reserve
 
 The profile holds at most 96 bounded events. Existing incompatible histories remain readable but cannot silently opt into managed writes. There is no pruning, automatic migration, rollback protection against the host administrator or unlimited-history claim. Read [the capacity guide](docs/LOCAL-CAPACITY.md) before upgrading a case.
 
-Exact packages: Core `@ramex-labs/continuity@0.3.0-preview.8`, remote `@ramex-labs/continuity-remote@0.3.0-preview.3`, evidence `@ramex-labs/continuity-mcp@0.3.0-preview.9`, gateway `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.8`. Each wrapper uses that exact shared Core. Source edition: `v0.3.0-preview.8`.
+Exact packages: Core `@ramex-labs/continuity@0.3.0-preview.8`, remote `@ramex-labs/continuity-remote@0.3.0-preview.3`, evidence `@ramex-labs/continuity-mcp@0.3.0-preview.9`, gateway `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.8`. Each wrapper uses that exact shared Core. Source edition: `v0.3.0-preview.8.1`.
 
 Cancellation still needs its own permission and job budget. Inspection and repeat calls never create a fresh business attempt. Raw Core0.2 writers, older binaries and manual history changes are outside the managed guarantee.
+
+Source preview.8.1 fixes a timing-dependent token-lifetime test: issuer and verifier timestamps are explicit, and the valid 300-second boundary is checked. All four npm packages and their runtime behavior are unchanged from source preview.8.
