@@ -25,6 +25,8 @@ node node_modules/@ramex-labs/continuity-mcp-gateway/examples/demo.mjs
 
 For a real client, first [create a private case and configure the gateway](../packages/mcp-gateway/README.md#connect-your-mcp-client). The executable requires `--config`; invoking it without configuration intentionally refuses startup. Do not paste keys into client tool arguments.
 
+Need settings for a desktop client? Use the [local client-configuration helper](MCP-CLIENT-SETUP.md). It prints the correct JSON shape and full paths without editing your settings.
+
 ## Which MCP package do I want?
 
 | Need | Package | Scope |

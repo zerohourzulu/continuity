@@ -1,6 +1,6 @@
 # Current edition — Core 0.3 developer preview
 
-[Release and downloads](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.7.7) · [Quickstart](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-QUICKSTART.md) · [Shared packages](https://github.com/zerohourzulu/continuity/blob/main/docs/SHARED-CORE.md) · [Remote tutorial](https://github.com/zerohourzulu/continuity/blob/main/packages/remote-tools/README.md) · [Tests](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-TESTING.md).
+[Release and downloads](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.7.8) · [Quickstart](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-QUICKSTART.md) · [Shared packages](https://github.com/zerohourzulu/continuity/blob/main/docs/SHARED-CORE.md) · [Remote tutorial](https://github.com/zerohourzulu/continuity/blob/main/packages/remote-tools/README.md) · [Tests](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-TESTING.md).
 
 Use Core `@ramex-labs/continuity@0.3.0-preview.7`, remote `@ramex-labs/continuity-remote@0.3.0-preview.2` and MCP `@ramex-labs/continuity-mcp@0.3.0-preview.8`. Both integrations depend on exactly that Core and contain no engine copies. The evidence server is `io.github.zerohourzulu/continuity-evidence` in the official MCP Registry.
 
@@ -14,4 +14,4 @@ Source preview.7.5 corrects installation references and local HTTP connection ha
 
 ## New optional gateway
 
-Source preview.7.7 adds the [local MCP gateway](https://github.com/zerohourzulu/continuity/blob/main/docs/MCP-GATEWAY.md), npm preview.7. The original three packages and evidence listing stay unchanged. Consult the exact release and npm version for distribution availability. Public HTTP remains deferred. Gateway discovery uses its separate continuity-gateway identity; private operator configuration is required.
+Source preview.7.8 adds a client-configuration helper for the [local MCP gateway](https://github.com/zerohourzulu/continuity/blob/main/docs/MCP-GATEWAY.md), npm preview.7. The original three packages and evidence listing stay unchanged. Consult the exact release and npm version for distribution availability. Public HTTP remains deferred. Gateway discovery uses its separate continuity-gateway identity; private operator configuration is required.

@@ -1,7 +1,5 @@
-# MCP gateway discovery metadata
+# Easier local MCP client setup
 
-Gateway `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.7` adds the ownership metadata for `io.github.zerohourzulu/continuity-gateway` and a [Registry setup guide](packages/mcp-gateway/REGISTRY.md). Runtime, tests, examples and dependency versions are unchanged from preview.6.
+Source `v0.3.0-preview.7.8` adds a [client-configuration helper and walkthrough](docs/MCP-CLIENT-SETUP.md). It prints VS Code, Claude Desktop or portable JSON with full Node/program/configuration paths. It reads installed package metadata and checks case-file privacy, but does not read keys or case contents, start tools, edit settings or create permissions.
 
-The listing describes a local stdio program, not a hosted service. An operator must create and protect a case and supply its absolute configuration path. Discovery grants no permissions. The existing continuity-evidence server and its listing remain separate.
-
-Source edition: `v0.3.0-preview.7.7`. Check the exact npm version and Registry for publication availability. Public HTTP remains deferred. Existing trusted-host, fixed-job, finite-history and recovery limits are unchanged.
+The helper supports the existing gateway npm preview.7 on Node 22.18+ (22.x) and Node 24, macOS/Linux. Generated launch commands are tested through the SDK, including paths with spaces. These are not desktop GUI compatibility claims. Existing npm packages, gateway runtime and Registry entries remain unchanged; no new npm installation prompt or public HTTP service is introduced.

@@ -13,8 +13,8 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "bytes": 3229,
-      "sha256": "74faf977c9b594938b1ed6563372700a35c55bbdfdb62932115a6523564873ae"
+      "bytes": 3279,
+      "sha256": "c3661e29f5407ada1f4ab74677c48975bc555a31f43379c8a14c72f7ed92e809"
     },
     {
       "path": ".github/workflows/pages.yml",
@@ -78,13 +78,13 @@
     },
     {
       "path": "RELEASE-NOTES.md",
-      "bytes": 799,
-      "sha256": "fb1dc9b82567ce1f78c0cef880e2b8b06c9cbe3d922d3875178d8584649f96d7"
+      "bytes": 775,
+      "sha256": "92433111ffc348a710ce86d75f9f277e430a74a9eb84376a12284c5d255d30e9"
     },
     {
       "path": "RELEASE-STATUS.md",
-      "bytes": 2582,
-      "sha256": "edfe876267477c2ceb25b9f0d19b37b708e4e9a2144b83bc9861dd442117d900"
+      "bytes": 2616,
+      "sha256": "25d412e779ea4708c2d8af13ca3d788e8ac2ba9e54a772d9e7a0a9690659e05a"
     },
     {
       "path": "SECURITY.md",
@@ -362,9 +362,14 @@
       "sha256": "f2daefab75ba12f89d269bc3309fed36e3d07049a9ce883ffc0fa4c61098eb2b"
     },
     {
+      "path": "docs/MCP-CLIENT-SETUP.md",
+      "bytes": 5455,
+      "sha256": "629c34fca9456c575323eef2339296260e13f6dc274b26dd753f386039eae0d5"
+    },
+    {
       "path": "docs/MCP-GATEWAY.md",
-      "bytes": 3744,
-      "sha256": "3fe31804503e48a00f4fe220bb338a82012e27af8e945428a459b9912cf3da26"
+      "bytes": 3926,
+      "sha256": "b7dd1bb8b80e8020140ed1a8449b39b0784a232eccffc7aa793953026ba169a6"
     },
     {
       "path": "docs/MCP-PACKAGE.md",
@@ -3082,6 +3087,11 @@
       "sha256": "7f73f3b0dfe7ed0907a1613df7505c044f31ccf6c03b7784c7824bd2366a4172"
     },
     {
+      "path": "tools/client-setup/test.mjs",
+      "bytes": 3622,
+      "sha256": "6fa15cbb01fe6ea73c1548db3269a9a2b7d00cdb469c9b24cd006dc26cbddecf"
+    },
+    {
       "path": "tools/doctor.mjs",
       "bytes": 858,
       "sha256": "7a66ab9f644b0bb7cc7e3599d8c496ef2f08e67c27b1b4a0642824da8d80b0d1"
@@ -3090,6 +3100,11 @@
       "path": "tools/environment.mjs",
       "bytes": 2749,
       "sha256": "0c91d29622fae6c98edce3f93ca3754762193cf8f529182bd9ce58afa4b5b7cb"
+    },
+    {
+      "path": "tools/mcp-client-config.mjs",
+      "bytes": 3114,
+      "sha256": "90628626a0c73fc5de6a7f072e60cb3fccab4382f3e5d2e6cc36b15297a48cf8"
     },
     {
       "path": "tools/quickstart-content.mjs",
@@ -3313,8 +3328,8 @@
     },
     {
       "path": "website/downloads/RELEASE-STATUS.md",
-      "bytes": 2847,
-      "sha256": "6d7b256e11f1a6e6bdbd18269f0d2e33f5c469cd38d9330160208ae8d9167ee3"
+      "bytes": 2881,
+      "sha256": "285b55aaff163f36552ed30282d7d0f6fd70c1f3a71069d5ed0979386dabfc77"
     },
     {
       "path": "website/downloads/SECURITY.md",
@@ -3739,7 +3754,7 @@
     {
       "path": "website/index.html",
       "bytes": 13282,
-      "sha256": "6620ac07ce9f425e838c139d8ab36bf581b7b36debe8994fc20595ed2af85350"
+      "sha256": "f53f976513f1d96eacc86de81ef138e1cd61fffed3f7e9342e47a45318395e86"
     },
     {
       "path": "website/source/.gitignore",

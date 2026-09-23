@@ -65,6 +65,7 @@ jobs:
         if: matrix.node != '26'
         run: |
           npm ci --prefix packages/mcp-gateway --ignore-scripts --no-audit --no-fund
+          node --test tools/client-setup/test.mjs
           npm test --prefix packages/mcp-gateway
           node tools/verify-gateway.mjs
       - name: Fresh tutorial and changed permission
