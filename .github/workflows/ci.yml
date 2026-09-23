@@ -10,7 +10,54 @@ concurrency:
   group: continuity-verification-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  changes:
+    name: Select checks
+    runs-on: ubuntu-latest
+    outputs:
+      level: ${{ steps.scope.outputs.level }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - id: scope
+        run: python3 -B tools/site-check/classify.py
+  website:
+    name: Website checks
+    needs: changes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: tools/site-check/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -B tools/site-check/test_classify.py
+      - run: python3 -B tools/site-check/links.py
+      - run: python3 -B tools/sync-public-docs.py --check
+      - run: node tools/render-quickstart.mjs --check
+      - if: github.event_name != 'pull_request'
+        run: node tools/verify-package.mjs
+      - run: npm ci --prefix tools/site-check --ignore-scripts --no-audit --no-fund
+      - run: tools/site-check/node_modules/.bin/playwright install --with-deps chromium
+      - run: node tools/site-check/browser.mjs
+      - name: Playground engine parity and scenarios
+        if: needs.changes.outputs.level != 'site'
+        run: |
+          node tools/build-playground.mjs --check
+          node --test tests/browser/model.test.mjs tests/browser/vectors.test.mjs
   verify:
+    needs: changes
+    if: needs.changes.outputs.level == 'full'
     name: ${{ matrix.os }} / Node${{ matrix.node }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -79,3 +126,24 @@ jobs:
       - name: Ensure checks did not change packaged files
         if: github.event_name != 'pull_request'
         run: node tools/verify-package.mjs
+
+  result:
+    name: Verification result
+    if: always()
+    needs: [changes, website, verify]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require the selected checks to pass
+        env:
+          LEVEL: ${{ needs.changes.outputs.level }}
+          CHANGES: ${{ needs.changes.result }}
+          WEBSITE: ${{ needs.website.result }}
+          FULL: ${{ needs.verify.result }}
+        run: |
+          test "$CHANGES" = success
+          test "$WEBSITE" = success
+          case "$LEVEL" in
+            full) test "$FULL" = success ;;
+            site|playground) test "$FULL" = skipped ;;
+            *) exit 1 ;;
+          esac

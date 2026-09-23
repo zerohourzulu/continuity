@@ -1,6 +1,6 @@
 # Website and release maintenance
 
-The static website/ directory retains the accepted Understand-first presentation, black-on-white graffiti, green Continuity/RAmEx Labs branding, optional local-or-chain explanation and recorded case comparison. The primary download points to the complete evaluation.6 archive and its separate Release checksum asset. Earlier release assets remain preserved. The old unlinked tutorial archive is omitted from the current source tree; the older website/source subset remains for recorded-guide links, with current public-facing notices updated.
+The static website/ directory retains the accepted Understand-first presentation, black-on-white graffiti, green Continuity/RAmEx Labs branding, optional local-or-chain explanation and recorded case comparison. The primary download points to the complete v0.3.0-preview.8.2 archive and its separate Release checksum asset. Earlier release assets remain preserved. The old unlinked tutorial archive is omitted from the current source tree; the older website/source subset remains for recorded-guide links, with current public-facing notices updated.
 
 ## Preview and hosting
 
@@ -32,3 +32,17 @@ The illustrated README is available from the newcomer guide and the website.
 ## Interactive playground
 
 The static `website/playground/` directory supplies a story and workshop over the same bounded JSON-only worker profile. [Its guide](../website/playground/README.md) explains the scope, local serving, build provenance and independent browser/Node checks. It uses the preserved Core 0.2.2 replay engine to answer hypothetical questions; it does not run the Core 0.3 gateway or admit live jobs. Keep its scenario/engine tests together. No server-side execution engine or new hosting account is required.
+
+## Routine website updates
+
+Small presentation changes use reviewed commits and Pages deployment. They do not need a new npm version, source release tag or replacement archive. Download links continue to identify the last packaged release; its bytes remain immutable. The live website can have newer navigation or copy than that archive.
+
+Public verification always starts and reports a final **Verification result**. A conservative changed-file selector chooses:
+
+- **Site:** known presentation files and selected reader guides. Check local HTML links, guide/quickstart consistency, the package manifest on main, and real Chromium navigation, keyboard access, responsive layout and playground smoke behavior.
+- **Playground:** scenario/worker/engine fixtures and browser tests also run the preserved engine build/parity and scenario suite.
+- **Full:** runtime, dependencies, shared tools, workflow/selector changes, unfamiliar paths, unavailable history or a manual workflow run retain the full Mac/Linux Node22/24/26 matrix. Gateway/remote tests retain their supported22/24 scope.
+
+Renames are treated as deletion plus addition. The manifest cannot select a lighter path by itself. The final result fails if selection or any required check fails or is canceled; a skipped full matrix is accepted only for the site/playground paths. No workflow-wide path filter leaves checks pending. Browser checks run with read-only repository permissions and no deployment credentials. Pull requests never deploy Pages.
+
+Keep VM staging, clean-tree and source-manifest checks, bounded private-data scanning and fast-forward-only synchronization. Verify the actual Pages deployment and live changed files. Changes to these routing rules receive full verification themselves. To request all tests for any commit, use the Public verification workflow's manual Run workflow action.

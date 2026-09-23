@@ -1,6 +1,5 @@
 'use strict';
 const tabs=[...document.querySelectorAll('[data-tab]')];
-document.querySelector('.tabs').setAttribute('role','tablist');
 function selectTab(button){document.body.dataset.view=button.dataset.tab;for(const tab of tabs){const selected=tab===button;tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;document.getElementById(tab.dataset.tab).hidden=!selected;}}
 for(const button of tabs){button.addEventListener('click',()=>selectTab(button));button.addEventListener('keydown',event=>{let i=tabs.indexOf(button);if(event.key==='ArrowRight')i=(i+1)%tabs.length;else if(event.key==='ArrowLeft')i=(i+tabs.length-1)%tabs.length;else if(event.key==='Home')i=0;else if(event.key==='End')i=tabs.length-1;else return;event.preventDefault();selectTab(tabs[i]);tabs[i].focus();});}
 const stages=[
