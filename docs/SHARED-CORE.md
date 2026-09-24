@@ -4,15 +4,16 @@ Continuity's Core decides what someone may do and what work remains. An integrat
 
 | Package | Responsibility | Preview version |
 | --- | --- | --- |
-| `@ramex-labs/continuity` | Shared authority, history, lifecycle and evidence rules | `0.3.0-preview.7` |
-| `@ramex-labs/continuity-remote` | Cooperating service transport, recovery and optional native LangChain tools | `0.3.0-preview.1` |
-| `@ramex-labs/continuity-mcp` | Bounded local evidence tool over MCP | `0.3.0-preview.8` |
+| `@ramex-labs/continuity` | Shared authority, history, lifecycle and evidence rules | `0.3.0-preview.8` |
+| `@ramex-labs/continuity-remote` | Cooperating service transport, recovery and optional native LangChain tools | `0.3.0-preview.3` |
+| `@ramex-labs/continuity-mcp` | Bounded local evidence tool over MCP | `0.3.0-preview.9` |
+| `@ramex-labs/continuity-mcp-gateway` | Gateway for approved tools, with operator-owned identities and jobs | `0.3.0-preview.8` |
 
-These packages form one coordinated developer preview. The two integration packages depend on exactly this Core version. A single application installing all three should resolve one Core installation. Older public releases remain unchanged; mixing incompatible preview versions may cause npm to install additional copies and is not this supported combination.
+These packages form one coordinated developer preview. All three integration packages depend on exactly this Core version. Install matching versions to use one shared Core installation. Older public releases remain unchanged; mixing incompatible preview versions may cause npm to install additional copies and is not this supported combination.
 
 ## Try the packages
 
-Build Core first, then its integrations:
+For a source build, build Core first, then the remote and evidence integrations below. Gateway setup and its build instructions are in [the gateway guide](../packages/mcp-gateway/README.md). Building packages locally does not replace the published archives.
 
 ```sh
 npm ci --ignore-scripts --no-audit --no-fund
@@ -25,7 +26,7 @@ npm run remote:verify
 npm run mcp:verify
 ```
 
-From npm, install `@ramex-labs/continuity-remote@0.3.0-preview.3` or `@ramex-labs/continuity-mcp@0.3.0-preview.9`; each pulls in the exact shared Core dependency. When testing the local release archives offline, install the Core archive alongside the integration archive in the same npm command. The verification helpers do this automatically. You do not need an npm account or a model subscription. The coordinated trio is checked on Node22.18 and Node24; no new Node26 or Windows validation is claimed here.
+From npm, choose `@ramex-labs/continuity-remote@0.3.0-preview.3`, `@ramex-labs/continuity-mcp@0.3.0-preview.9` or `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.8`; each pulls in the exact shared Core dependency. Gateway installation also needs private operator configuration; see [the gateway walkthrough](MCP-GATEWAY.md). When testing the local release archives offline, install the Core archive alongside the integration archive in the same npm command. The verification helpers do this automatically. You do not need an npm account or a model subscription. Use Node22.18+ (22.x) or24.x for remote/gateway work on macOS or Linux. Core also supports Node26; that does not extend the remote/gateway compatibility claim. Windows support is not claimed.
 
 ## Choose new history behavior deliberately
 

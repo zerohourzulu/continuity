@@ -3,7 +3,7 @@
 This version uses the [managed finite-capacity profile](https://github.com/zerohourzulu/continuity/blob/main/docs/LOCAL-CAPACITY.md).
 
 
-This preview adds a small application API and a protected local MCP tool around the unchanged 0.2.2 engine and history format. Install the supplied tarball; no npm publication or stable API compatibility promise is claimed. [Start with the three-minute example](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-QUICKSTART.md).
+Core 0.3 provides a small application API over the shared Continuity engine, with explicit profiles for signed operations, late reports and evidence review. Install `@ramex-labs/continuity@0.3.0-preview.8` from npm or use the archive included in source preview.8.2. Earlier histories keep their recorded profile; opening one does not upgrade it. The API remains a developer preview without a stable compatibility promise. [Start with the three-minute example](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-QUICKSTART.md).
 
 The package separates observation, owner administration, signed duty operations and effect-free simulation. `@ramex-labs/continuity` reads a captured history. `@ramex-labs/continuity/local` gives a trusted local application an owner handle for creating and changing a policy history. The package is published under the RAmEx Labs npm scope.
 
@@ -130,7 +130,7 @@ The protected tool and simulator accept an optional application-owned `additiona
 
 ## Shared Core and integration packages
 
-The coordinated preview uses `@ramex-labs/continuity@0.3.0-preview.7` as the shared engine. The remote and MCP previews depend on that exact version; they do not contain private engine copies. The previously published packages remain available and unchanged.
+The coordinated preview uses `@ramex-labs/continuity@0.3.0-preview.8` as the shared engine. Remote preview.3, evidence MCP preview.9 and gateway preview.8 depend on that exact Core version; they do not contain private engine copies. See [the current package table](https://github.com/zerohourzulu/continuity/blob/main/docs/SHARED-CORE.md). The previously published packages remain available and unchanged.
 
 `createLocalOwner` keeps the existing default policy. Import `createLocalAttemptOwner` from `/local` to explicitly start a fresh E5 history with attempt records, or `createLocalReviewOwner` to start E6 with evidence review. `openLocalOwner` preserves the history's recorded policy. There is no implicit migration. The new `/attempts` entry records signed observations, assigns investigation work and records evidence review. A completed evidence review does not discharge the duty or prove an outside outcome.
 

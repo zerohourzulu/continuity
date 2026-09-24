@@ -2,7 +2,20 @@
 
 Start here if you want to build with Continuity. This example runs in a new application, creates its own history and makes no network calls after installation. You need Node22.18+ (22.x),24.x or26.x on macOS or Linux. No model account, chain account, Python or global pnpm is needed.
 
-Download and extract the complete [Core 0.3 preview](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.7.5). Verify its published SHA-256. From the extracted directory:
+Download the **complete source archive** and its checksum from [Core 0.3 preview.8.2](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.8.2):
+
+- [continuity-v0.3.0-preview.8.2.tar.gz](https://github.com/zerohourzulu/continuity/releases/download/v0.3.0-preview.8.2/continuity-v0.3.0-preview.8.2.tar.gz)
+- [SHA-256 checksum](https://github.com/zerohourzulu/continuity/releases/download/v0.3.0-preview.8.2/continuity-v0.3.0-preview.8.2.tar.gz.sha256)
+
+Choose this named asset, rather than GitHub's automatically generated “Source code” download. In the directory containing both downloaded files:
+
+```sh
+shasum -a 256 -c continuity-v0.3.0-preview.8.2.tar.gz.sha256
+tar -xzf continuity-v0.3.0-preview.8.2.tar.gz
+cd continuity
+```
+
+Continue only if the checksum says `OK`. The source release is preview.8.2; its included Core npm package is preview.8. Those are different version numbers for different artifacts. From the extracted directory:
 
 ```sh
 package_dir="$PWD"
@@ -32,9 +45,11 @@ Try the [protected MCP evidence package](MCP-PACKAGE.md). Its fresh demo copies 
 
 ## Hand over work
 
-The source package includes `examples/core-0.3/handover.mjs`. It signs an effect-free operation, records a receipt and review duty, retires the first runtime, and separately assigns the surviving duty to a successor. From a new application directory:
+The source package includes `examples/core-0.3/handover.mjs`. It signs an effect-free operation, records a receipt and review duty, retires the first runtime, and separately assigns the surviving duty to a successor. In the same terminal, keep `package_dir` from the first example and create another application directory:
 
 ```sh
+handover_dir="$(mktemp -d)"
+cd "$handover_dir"
 cp "$package_dir/examples/core-0.3/handover.mjs" .
 cp "$package_dir/examples/core-0.3/signing/package.json" .
 cp "$package_dir/examples/core-0.3/signing/package-lock.json" .
