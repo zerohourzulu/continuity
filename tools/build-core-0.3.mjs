@@ -1,7 +1,7 @@
 // Explicit local build; never downloads tooling or runs package lifecycle hooks.
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, mkdtempSync, cpSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { join, relative, posix } from 'node:path';
+import { join, relative } from 'node:path';
 import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -27,7 +27,8 @@ try {
   const manifest = {name:'@ramex-labs/continuity',version:'0.3.0-preview.8',publishConfig:{access:'public',tag:'preview',registry:'https://registry.npmjs.org'},repository:{type:'git',url:'https://github.com/zerohourzulu/continuity.git'},type:'module',license:'Apache-2.0',description:'Continuity 0.3 signed local API and protected evidence tool preview',engines:{node:'^22.18.0 || ^24.0.0 || ^26.0.0'},exports,files:['dist','LICENSE','NOTICE','LICENSING.md','THIRD-PARTY-NOTICES.md','README.md','BUILD-PROVENANCE.json']};
   writeFileSync(join(scratch,'package.json'),JSON.stringify(manifest,null,2)+'\n');
   for (const name of ['LICENSE','NOTICE']) cpSync(join(root,name),join(scratch,name));
-  writeFileSync(join(scratch,'README.md'),readFileSync(join(root,'docs/CORE-0.3-API.md'),'utf8').replace(/\]\((?!https?:|#)([^)]+)\)/g, (_match, target) => '](https://github.com/zerohourzulu/continuity/blob/main/' + posix.normalize('docs/' + target) + ')'));
+  // Package docs are immutable versioned input; current API guides may evolve independently.
+  cpSync(join(root,'packages/core-0.3/package-docs',manifest.version+'.md'),join(scratch,'README.md'));
   writeFileSync(join(scratch,'LICENSING.md'),'# SDK licensing\n\nContinuity-authored SDK code and documentation are Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE). This archive contains no website assets or third-party runtime dependencies. Separate build tools retain their own licenses.\n');
   writeFileSync(join(scratch,'THIRD-PARTY-NOTICES.md'),'# SDK third-party scope\n\nNo third-party runtime code is bundled in this SDK archive. Node and build tooling are separately installed; their licenses remain applicable to those tools. The full evaluation distribution has its own dependency and website notices.\n');
   const sources = ['core-0.2','core-0.3'].flatMap(component=>files(join(root,'packages',component,'src')).map(path=>({path:component+'/src/'+path,sha256:sha(readFileSync(join(root,'packages',component,'src',path)))})));

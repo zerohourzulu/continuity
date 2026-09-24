@@ -128,8 +128,8 @@
     },
     {
       "path": "artifacts/gateway-package/HTTP.md",
-      "bytes": 8663,
-      "sha256": "373b9b3d5857737e8b2fe8ff26541b014605cc0cccffc276a83d86ff6c240744"
+      "bytes": 8373,
+      "sha256": "e3840c64aaaf2614a4994a512cb78e57804d67dba64faa4ea3ded5bf82382c13"
     },
     {
       "path": "artifacts/gateway-package/IDENTITY.md",
@@ -1827,6 +1827,16 @@
       "sha256": "ad47a02aa4b6ffab2607be19a78c1e9f3f83755acf9e5f90da994081684ee1a3"
     },
     {
+      "path": "packages/core-0.3/package-docs/0.3.0-preview.8.md",
+      "bytes": 15491,
+      "sha256": "e35999f6e0971ed72ded188499a980be8cdbd43c73e7c898ce3aec7264ae4732"
+    },
+    {
+      "path": "packages/core-0.3/package-docs/README.md",
+      "bytes": 1098,
+      "sha256": "6f735ca77603deea18c54ea9b8985f3c86e909c9dd02f2385886ff61b3dcf5dd"
+    },
+    {
       "path": "packages/core-0.3/src/adapter.ts",
       "bytes": 1220,
       "sha256": "08299d4d41c3beca7d94a33bdbdfd201a916c7c30412598f5fc8b32f95c10948"
@@ -2603,8 +2613,8 @@
     },
     {
       "path": "sdk/core-0.3/README.md",
-      "bytes": 15836,
-      "sha256": "186901272cb00b5cbc00ae01ab2414ca4651a7e874f09bd846f727ceb975a9ff"
+      "bytes": 15491,
+      "sha256": "e35999f6e0971ed72ded188499a980be8cdbd43c73e7c898ce3aec7264ae4732"
     },
     {
       "path": "sdk/core-0.3/THIRD-PARTY-NOTICES.md",
@@ -3398,8 +3408,8 @@
     },
     {
       "path": "tools/build-core-0.3.mjs",
-      "bytes": 5558,
-      "sha256": "0be03c6eea3020790b4792ac537153d32ac772875e8d4fffb0a25de8344438b5"
+      "bytes": 5490,
+      "sha256": "1a819bb132dd9762e748c71f0dac3e19e86b5501f5538b22a786ef21d7950d41"
     },
     {
       "path": "tools/build-gateway.mjs",
