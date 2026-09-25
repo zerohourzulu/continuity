@@ -7,7 +7,7 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--check', action='store_true')
 args = parser.parse_args()
 base = 'https://github.com/zerohourzulu/continuity/blob/main/'
-pairs = [(f, root/'docs'/f.name) for f in sorted((root/'website/docs').glob('*.md'))]
+pairs = [(f, root/'docs'/('CONTINUATION.md' if f.name == 'HISTORY-INTEGRATION.md' else f.name)) for f in sorted((root/'website/docs').glob('*.md'))]
 pairs += [(f, root/f.name) for f in sorted((root/'website/downloads').glob('*.md')) if (root/f.name).is_file()]
 failed = []
 for dest, source in pairs:

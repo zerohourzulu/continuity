@@ -1,6 +1,6 @@
 # Continue the same case across local tools and services
 
-This release candidate pairs Core `0.3.0-preview.10`, remote `0.3.0-preview.5`, MCP gateway `0.3.0-preview.10` and evidence MCP `0.3.0-preview.11`. It is prepared locally; publication is a separate decision. Existing downloaded archives keep their original limits. The fixed evidence workflow is runnable from `examples/protected-evidence/README.md`.
+This developer preview pairs Core `0.3.0-preview.10`, remote `0.3.0-preview.5`, MCP gateway `0.3.0-preview.10` and evidence MCP `0.3.0-preview.11`. Existing downloaded archives keep their original limits. The fixed evidence workflow is runnable from `examples/protected-evidence/README.md`.
 
 A case can now keep the same history, powers, spent limits, attempts and responsibilities when it grows beyond the old file profile. This profile is finite: 1,024 events and 6 MiB of canonical event data, with room reserved for records belonging to admitted jobs. Moving storage does not renew a grant or resolve an unfinished duty.
 

@@ -1,3 +1,7 @@
+# Source preview.10.1 — reproducible package documentation
+
+Public guides now have a separate path from the original document snapshot embedded in the npm packages. This fixes the hosted rebuild check after the preview.10 publication wording changed. The four npm versions, archive bytes and runtime behavior are unchanged. The combined Node suite also has a thirty-minute outer budget instead of ten for slower hosted runners, with every test and assertion retained. Earlier source and failed validation evidence remain available.
+
 # Preview.10 — keep the case, finish the investigation
 
 A case can survive replacement and restart without resetting revoked powers or spent allowances. The new investigation walkthrough shows completion under explicit policy, renewed review after later evidence and a persistent challenge, independently of restoration or the outside action's uncertain outcome.

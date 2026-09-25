@@ -1,8 +1,8 @@
 # Core 0.3 — continuation and investigation developer preview
 
-[Release and downloads](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.10) · [Exact package versions](docs/CURRENT-RELEASE.md) · [Investigation walkthrough](docs/INVESTIGATION-WALKTHROUGH.md) · [Supported profiles](docs/SUPPORTED-PROFILES.md) · [Public tests](docs/CORE-0.3-TESTING.md).
+[Release and downloads](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.10.1) · [Exact package versions](docs/CURRENT-RELEASE.md) · [Investigation walkthrough](docs/INVESTIGATION-WALKTHROUGH.md) · [Supported profiles](docs/SUPPORTED-PROFILES.md) · [Public tests](docs/CORE-0.3-TESTING.md).
 
-Source preview.10 coordinates Core preview.10, remote preview.5, MCP gateway preview.10 and evidence MCP preview.11. Every integration uses one shared Core. The native LangChain tools are included in the remote package.
+Source preview.10.1 coordinates Core preview.10, remote preview.5, MCP gateway preview.10 and evidence MCP preview.11. Every integration uses one shared Core. The native LangChain tools are included in the remote package.
 
 An existing case can continue beyond the original short history, with explicit migration and recovery that preserve revoked powers, used allowances and unfinished duties. A protected local example demonstrates actual access restriction, a lost reply, replacement while the old worker remains alive, restart, recovery without repeating the action, and separately permitted restoration.
 

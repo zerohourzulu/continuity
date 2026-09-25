@@ -1,4 +1,4 @@
-> **Current release:** Follow [supported profiles](SUPPORTED-PROFILES.md) and [the exact installed checks](HISTORY-INTEGRATION.md#reproduce-the-evaluation). All four versions are listed in [the release guide](CURRENT-RELEASE.md).
+> **Current release:** Follow [supported profiles](SUPPORTED-PROFILES.md) and [the exact installed checks](CONTINUATION.md#reproduce-the-evaluation). All four versions are listed in [the release guide](CURRENT-RELEASE.md).
 
 # Reproduce the Core 0.3 behavior
 

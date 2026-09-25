@@ -1,4 +1,4 @@
-> **Prepared continuation release:** To evaluate the new local archives in this source, follow [supported profiles](SUPPORTED-PROFILES.md) and [the exact installed checks](HISTORY-INTEGRATION.md#reproduce-the-evaluation). The public download/install commands below intentionally describe the preceding published release; they do not install this candidate.
+> **Prepared continuation release:** To evaluate the new local archives in this source, follow [supported profiles](SUPPORTED-PROFILES.md) and [the exact installed checks](CONTINUATION.md#reproduce-the-evaluation). The public download/install commands below intentionally describe the preceding published release; they do not install this candidate.
 
 # Put approved MCP tools behind Continuity
 

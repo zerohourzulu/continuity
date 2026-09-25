@@ -1,3 +1,7 @@
+# Source preview.10.1 — document snapshot correction
+
+The initial preview.10 hosted build found a package-document mismatch: the public guide had changed while the npm archives correctly retained the original snapshot. Source preview.10.1 separates the public guide from that build input. It changes no npm archive or engine/runtime code. The combined Node test-suite limit is thirty minutes instead of ten, because three original hosted lanes were terminated by the outer timeout; no test or assertion is removed. The initial hosted failure is retained in [run36197607438](https://github.com/zerohourzulu/continuity/actions/runs/36197607438). Current hosted results appear in Actions; do not treat this correction alone as a completed hosted result.
+
 # Preview.10 verification — 25 September 2026
 
 The four exact packages install into fresh applications on macOS Node22.18/24.21 and Linux Node24.19. Checks verify 213 installed files, one shared Core, strict public TypeScript, current investigation status through authenticated HTTP MCP, native LangChain tool use, evidence stdio, restart and recovery without repeating the action. Standard builds on clean Mac24 and Linux24 reproduce all four archives exactly.

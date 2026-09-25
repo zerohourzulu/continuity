@@ -10,8 +10,10 @@ try {
 } catch (error) { console.error(error.message); process.exit(2); }
 const commands = [[process.execPath, ['--test', 'tests/*.test.mjs', 'tests/core-0.3/*.test.mjs', 'packages/core-0.2/test/*.test.mjs']]];
 if (!nodeOnly) commands.push(['python3', ['-B', '-m', 'unittest', 'discover', '-s', 'conformance', '-p', 'test_runner.py', '-v']]);
+// The combined continuation/duty suite exceeds the original ten-minute outer
+// budget on hosted runners. Keep all tests; retain a bounded thirty-minute cap.
 for (const [command, commandArgs] of commands) {
-  const result = spawnSync(command, commandArgs, { cwd: ROOT, stdio: 'inherit', timeout: 600000,
+  const result = spawnSync(command, commandArgs, { cwd: ROOT, stdio: 'inherit', timeout: command === process.execPath ? 1800000 : 600000,
     env: { ...process.env, CONTINUITY_NODE: process.execPath, PYTHONDONTWRITEBYTECODE: '1' } });
   if (result.error || result.status !== 0) {
     console.error('Verification did not complete successfully:', result.error?.message ?? result.signal ?? `exit ${result.status}`);

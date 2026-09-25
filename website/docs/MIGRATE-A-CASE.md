@@ -34,7 +34,7 @@ node_modules/.bin/continuity-history-store inspect /private/case/continued
 
 Preparation validates the full source and capacity. Staging preserves original bytes and artifacts. Activation replaces the old writable path with a migration marker, creates the exact selected binding and enables the directory store. Keep the original plan and all migration files. Configure the host with `historyProfile: 'continuity-segmented-local/1'` and `historyBinding` pointing to that binding; remove `historyFile`. Do not fabricate another binding or run an old writer against the marker.
 
-A cooperating destination requires its own stopped-service migration. Follow [the destination procedure](https://github.com/zerohourzulu/continuity/blob/main/docs/HISTORY-INTEGRATION.md#the-cooperating-destination-is-a-separate-migration), using its actual captured identity. Case migration alone does not migrate that service, advance its checkpoint or execute anything. Verify both stores and their exact configuration before resuming dispatch.
+A cooperating destination requires its own stopped-service migration. Follow [the destination procedure](https://github.com/zerohourzulu/continuity/blob/main/docs/CONTINUATION.md#the-cooperating-destination-is-a-separate-migration), using its actual captured identity. Case migration alone does not migrate that service, advance its checkpoint or execute anything. Verify both stores and their exact configuration before resuming dispatch.
 
 ## If migration or a write is interrupted
 
@@ -50,4 +50,4 @@ Restart the destination with its existing identity, storage and host-held keys. 
 
 Use the gateway's recovery operation for the existing attempt. It asks for status and records available evidence; it does not resend the effect. An applied result remains applied even if the checkpoint later advances. Uploading history is not a fence: only the destination's durably acknowledged checkpoint fences pending work at an older head. If the answer remains unknown, preserve that uncertainty and the duty to investigate.
 
-Run the [installed integration checks](https://github.com/zerohourzulu/continuity/blob/main/docs/HISTORY-INTEGRATION.md#reproduce-the-evaluation) on a disposable case before operating your own. These procedures assume cooperative local writers and trusted storage; they do not provide automatic disaster recovery, key recovery or protection from a hostile host.
+Run the [installed integration checks](https://github.com/zerohourzulu/continuity/blob/main/docs/CONTINUATION.md#reproduce-the-evaluation) on a disposable case before operating your own. These procedures assume cooperative local writers and trusted storage; they do not provide automatic disaster recovery, key recovery or protection from a hostile host.
