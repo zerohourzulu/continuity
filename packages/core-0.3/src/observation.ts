@@ -1,3 +1,4 @@
+import { verifiedHistorySnapshot } from "../../core-0.2/src/history/index.ts";
 import * as core from "../../core-0.2/src/core/index.ts";
 import {
   captureData,
@@ -91,8 +92,14 @@ export function observeHistory(
   input: readonly core.PortableCanonicalEvent[],
   options: ObservationOptions = {},
 ): Observation {
+  return observeEvents(captureHistory(input), options);
+}
+/** Explicit larger historical interface; never imports serialized replay state. */
+export function observeContinuationHistory(history: unknown, options: ObservationOptions = {}): Observation {
+  return observeEvents(verifiedHistorySnapshot(history).events, options);
+}
+function observeEvents(events: readonly core.PortableCanonicalEvent[], options: ObservationOptions): Observation {
   const o = record(options, [], ["at"]);
-  const events = captureHistory(input);
   const replay = core.replayPortable({
     operationVersion: core.PORTABLE_REPLAY_VERSION,
     events,
@@ -100,6 +107,7 @@ export function observeHistory(
   if (replay.status !== "ACCEPTED")
     throw new ContinuityError("INVALID_HISTORY");
   const head = replay.head;
+  const extensions = events.some(event => event.type === "ATTEMPT_DUTY_POLICY_ACTIVATED") ? [core.DUTY_POLICY_VERSION] : [];
   const at = Object.hasOwn(o, "at") ? time(o.at) : head.canonicalTime;
   const genesis = events[0]!.data as unknown as {
     domain: core.PortableAuthorizationDomain;
@@ -143,14 +151,14 @@ export function observeHistory(
       return core.whyPortable({
         ...query,
         request: request(action, at),
-        disclosure: core.portablePublicQueryDisclosure("WHY"),
+        disclosure: core.portablePublicQueryDisclosure("WHY", extensions),
       });
     },
     responsible(action: Action) {
       return core.responsiblePortable({
         ...query,
         request: request(action, at),
-        disclosure: core.portablePublicQueryDisclosure("RESPONSIBLE"),
+        disclosure: core.portablePublicQueryDisclosure("RESPONSIBLE", extensions),
       });
     },
     survives(agent: string) {
@@ -159,7 +167,7 @@ export function observeHistory(
         observedEvents: events,
         targetAgentId: identifier(agent),
         evaluationTime: at,
-        disclosure: core.portablePublicQueryDisclosure("SURVIVES"),
+        disclosure: core.portablePublicQueryDisclosure("SURVIVES", extensions),
       });
     },
   });

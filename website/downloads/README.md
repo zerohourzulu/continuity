@@ -1,3 +1,9 @@
+> **Current developer preview:** [Exact versions and installation](https://github.com/zerohourzulu/continuity/blob/main/docs/CURRENT-RELEASE.md).
+
+> **Follow an investigation:** Follow one protected case through interruption, replacement, a signed completion, new evidence and a persistent challenge. [Run the walkthrough](https://github.com/zerohourzulu/continuity/blob/main/docs/INVESTIGATION-WALKTHROUGH.md).
+
+> **Continue an existing case:** Same case, longer history, preserved permissions and unfinished duties. Start with [supported profiles](https://github.com/zerohourzulu/continuity/blob/main/docs/SUPPORTED-PROFILES.md), [migration and recovery](https://github.com/zerohourzulu/continuity/blob/main/docs/MIGRATE-A-CASE.md), or the [protected evidence example](https://github.com/zerohourzulu/continuity/blob/main/examples/protected-evidence/README.md).
+
 > **Core 0.3 preview:** [Build a fresh case](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-QUICKSTART.md), [connect approved MCP tools](https://github.com/zerohourzulu/continuity/blob/main/docs/MCP-GATEWAY.md), or [run the public tests](https://github.com/zerohourzulu/continuity/blob/main/docs/CORE-0.3-TESTING.md). The original 0.2.2 evaluation releases remain available.
 
 [![it is 2 a.m. do you know what your agent is doing?](https://github.com/zerohourzulu/continuity/blob/main/website/images/agent-at-2am.png)](https://zerohourzulu.github.io/continuity/)
@@ -13,7 +19,7 @@
 
 A process supervisor can start Agent B. Continuity records which role B occupies, which powers it has, what happened before, and which unfinished duties survive the change. A replacement receives its explicitly granted powers; an unfinished duty does not silently grant more authority.
 
-The demonstration follows a security investigation interrupted by an agent replacement. The old request is refused, the investigation stays OPEN, and the successor’s review permission is checked independently.
+The original tutorial follows a security investigation interrupted by an agent replacement. The old request is refused, the investigation stays OPEN, and the successor’s review permission is checked independently.
 
 ## Choose your path
 

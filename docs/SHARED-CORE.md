@@ -26,7 +26,7 @@ npm run remote:verify
 npm run mcp:verify
 ```
 
-From npm, choose `@ramex-labs/continuity-remote@0.3.0-preview.3`, `@ramex-labs/continuity-mcp@0.3.0-preview.9` or `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.8`; each pulls in the exact shared Core dependency. Gateway installation also needs private operator configuration; see [the gateway walkthrough](MCP-GATEWAY.md). When testing the local release archives offline, install the Core archive alongside the integration archive in the same npm command. The verification helpers do this automatically. You do not need an npm account or a model subscription. Use Node22.18+ (22.x) or24.x for remote/gateway work on macOS or Linux. Core also supports Node26; that does not extend the remote/gateway compatibility claim. Windows support is not claimed.
+From npm, choose `@ramex-labs/continuity-remote@0.3.0-preview.5`, `@ramex-labs/continuity-mcp@0.3.0-preview.11` or `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.10`; each pulls in the exact shared Core dependency. Gateway installation also needs private operator configuration; see [the gateway walkthrough](MCP-GATEWAY.md). When testing the local release archives offline, install the Core archive alongside the integration archive in the same npm command. The verification helpers do this automatically. You do not need an npm account or a model subscription. Use Node22.18+ (22.x) or24.x for remote/gateway work on macOS or Linux. Core also supports Node26; that does not extend the remote/gateway compatibility claim. Windows support is not claimed.
 
 ## Choose new history behavior deliberately
 

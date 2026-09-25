@@ -1,6 +1,6 @@
 {
   "name": "@ramex-labs/continuity-mcp-gateway",
-  "version": "0.3.0-preview.8",
+  "version": "0.3.0-preview.10",
   "type": "module",
   "license": "Apache-2.0",
   "description": "MCP gateway preview with fixed jobs and authenticated loopback HTTP",
@@ -41,12 +41,12 @@
     "demo:tasks": "node examples/tasks-demo.mjs"
   },
   "dependencies": {
-    "@ramex-labs/continuity": "0.3.0-preview.8",
+    "@ramex-labs/continuity": "file:../../sdk/investigation-release/ramex-labs-continuity-0.3.0-preview.10.tgz",
     "@modelcontextprotocol/client": "2.0.0",
     "@modelcontextprotocol/server": "2.0.0",
     "viem": "2.55.19",
     "jose": "6.2.12",
-    "@ramex-labs/continuity-remote": "0.3.0-preview.3"
+    "@ramex-labs/continuity-remote": "file:../../sdk/investigation-release/ramex-labs-continuity-remote-0.3.0-preview.5.tgz"
   },
   "files": [
     "src",

@@ -14,7 +14,7 @@ Use Node22.18+,24.x or26.x on macOS/Linux. Install the exact preview from npm:
 mkdir my-continuity-demo
 cd my-continuity-demo
 npm init -y
-npm install --ignore-scripts @ramex-labs/continuity-mcp@0.3.0-preview.9
+npm install --ignore-scripts @ramex-labs/continuity-mcp@0.3.0-preview.11
 npx --no-install continuity-evidence-setup ./case
 npx --no-install continuity-evidence-demo ./case/gateway.json
 ```
@@ -31,8 +31,8 @@ The supported operation is a synchronous bounded local copy: at most8 files,64Ki
 
 Cedar/OpenFGA integration examples are separately installed from the source repository. They are not required dependencies of this package. The publisher scope is `@ramex-labs`. An official MCP Registry listing is separate from npm package availability.
 
-The package also supports `npx @ramex-labs/continuity-mcp@0.3.0-preview.9 --config /absolute/path/gateway.json`. The configuration must be created first. This launches the same protected server as `continuity-evidence`.
+The package also supports `npx @ramex-labs/continuity-mcp@0.3.0-preview.11 --config /absolute/path/gateway.json`. The configuration must be created first. This launches the same protected server as `continuity-evidence`.
 
 ## Shared Core
 
-This MCP preview depends on exactly `@ramex-labs/continuity@0.3.0-preview.8`; npm installs it automatically. The MCP archive contains no engine copy. Core owns the authority and history rules; this package connects them to the bounded evidence tool. The protocol, tool and Registry name remain unchanged.
+This MCP preview depends on exactly `@ramex-labs/continuity@0.3.0-preview.10`; npm installs it automatically. The MCP archive contains no engine copy. Core owns the authority and history rules; this package connects them to the bounded evidence tool. The protocol, tool and Registry name remain unchanged.

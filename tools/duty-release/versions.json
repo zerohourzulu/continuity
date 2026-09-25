@@ -1,0 +1,9 @@
+{
+  "source": "0.3.0-d04.1",
+  "core": "0.3.0-d04.1",
+  "remote": "0.3.0-d04.1",
+  "gateway": "0.3.0-d04.1",
+  "evidence": "0.3.0-d04.1",
+  "status": "private-integration",
+  "historyProfile": "continuity-segmented-local/1"
+}

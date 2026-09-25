@@ -1,0 +1,11 @@
+{
+  "kind": "continuity-protected-workflow/1",
+  "sourceIdentity": "continuity-protected-workflow-2026-09-24-r1",
+  "baselineArchive": "continuity-history-integration-2026-09-24-r1.tar.gz",
+  "baselineSha256": "a1c41f30346a8cd858e7f68b30012a6a212fe88f471493e081a140f2fd7ca49e",
+  "private": true,
+  "corePackage": "0.3.0-h04.1",
+  "remotePackage": "0.3.0-h05.1",
+  "entry": "examples/protected-evidence/README.md",
+  "publicReleaseChanged": false
+}

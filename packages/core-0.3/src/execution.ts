@@ -1,3 +1,4 @@
+import { openConfiguredEventStore, ConfiguredDirectoryEventStore } from "./configured-store.ts";
 import * as core from "../../core-0.2/src/core/index.ts";
 import { ManagedLocalEventStore as PortableFileEventStore } from "./capacity.ts";
 import { DurableAdmissionCoordinator } from "../../core-0.2/src/sdk/durable-admission.ts";
@@ -84,7 +85,7 @@ export function openLocalExecution(
     signHash = options.signHash;
   requireCondition(typeof signHash === "function");
   const additionalPolicy = capturePolicy(options.additionalPolicy);
-  const store = new PortableFileEventStore(config.historyFile);
+  const store = openConfiguredEventStore(config);
   const initial = stateOf(read(store, config));
   const session = initial.runtimeSessions.get(sessionId);
   requireCondition(
@@ -246,7 +247,7 @@ export function openLocalExecution(
         events = read(store, config);
         state = match(op, events);
       }
-      requireCondition(events.length <= 252, "HISTORY_LIMIT");
+      requireCondition(events.length <= (store instanceof ConfiguredDirectoryEventStore ? 1020 : 252), "HISTORY_LIMIT");
       at = config.now();
       current(events, at);
       const binding = {
@@ -371,7 +372,7 @@ export function openLocalExecution(
           eventId: existing.eventId,
           artifactAvailable: false as const,
         });
-      requireCondition(events.length < 256, "HISTORY_LIMIT");
+      requireCondition(events.length < (store instanceof ConfiguredDirectoryEventStore ? 1024 : 256), "HISTORY_LIMIT");
       const at = config.now();
       current(events, at);
       const artifact = await core.createPortableReceipt(

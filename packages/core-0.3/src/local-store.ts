@@ -1,3 +1,4 @@
+import { ConfiguredDirectoryEventStore, SEGMENTED_HISTORY_PROFILE } from "./configured-store.ts";
 import { randomUUID } from "node:crypto";
 import * as core from "../../core-0.2/src/core/index.ts";
 import {
@@ -21,7 +22,7 @@ import { captureHistory, observeHistory } from "./observation.ts";
 import { assertCapacityTransition } from "./capacity.ts";
 import type { LocalOwnerOptions, WriteResult } from "./local-owner.ts";
 export const POLICY = "continuity-local-owner/0.3-preview.1";
-export function configuration(input: LocalOwnerOptions) {
+export function configuration(input: LocalOwnerOptions): Readonly<LocalOwnerOptions> {
   // The clock is a trusted host callback. Capture all data independently; pin
   // its reference once, never interpret a callback received through MCP.
   requireCondition(input !== null && typeof input === "object");
@@ -29,18 +30,18 @@ export function configuration(input: LocalOwnerOptions) {
   requireCondition(typeof clock === "function");
   const data = record(
     {
-      historyFile: input.historyFile,
+      ...(input.historyProfile === undefined ? {historyFile: input.historyFile} : {historyBinding: input.historyBinding, historyProfile: input.historyProfile}),
       domain: input.domain,
       owner: input.owner,
       controller: input.controller,
     },
-    ["historyFile", "domain", "owner", "controller"],
+    ["domain", "owner", "controller"], ["historyFile", "historyBinding", "historyProfile"],
   );
-  requireCondition(
-    typeof data.historyFile === "string" &&
-      data.historyFile.length > 0 &&
-      !data.historyFile.includes("\0"),
-  );
+  const segmented = data.historyProfile === SEGMENTED_HISTORY_PROFILE;
+  requireCondition(segmented ? typeof data.historyBinding === "string" && data.historyFile === undefined && input.historyFile === undefined
+    : data.historyProfile === undefined && data.historyBinding === undefined && input.historyBinding === undefined && typeof data.historyFile === "string", "PROFILE_MISMATCH");
+  const location = (segmented ? data.historyBinding : data.historyFile) as string;
+  requireCondition(location.length > 0 && !location.includes("\0"));
   const domain = record(data.domain, [
     "protocol",
     "version",
@@ -66,7 +67,7 @@ export function configuration(input: LocalOwnerOptions) {
     }
   };
   return Object.freeze({
-    historyFile: data.historyFile,
+    ...(segmented ? {historyBinding: location, historyProfile: SEGMENTED_HISTORY_PROFILE} : {historyFile: location}),
     domain: Object.freeze(selected),
     owner: identifier(data.owner),
     controller: identifier(data.controller),
@@ -89,7 +90,7 @@ export function event(
 export function read(store: PortableFileEventStore, config: Config) {
   let events: readonly core.PortableCanonicalEvent[];
   try {
-    events = captureHistory(store.readAll());
+    events = store instanceof ConfiguredDirectoryEventStore ? store.readAll() : captureHistory(store.readAll());
   } catch (error) {
     if (error instanceof ContinuityError) throw error;
     throw new ContinuityError("READ_UNAVAILABLE");
@@ -129,8 +130,8 @@ export function append(
   next: core.PortableCanonicalEvent,
   events = read(store, config),
 ): WriteResult {
-  assertCapacityTransition(events, [next]);
-  const previous = observeHistory(events).head;
+  if (!(store instanceof ConfiguredDirectoryEventStore)) assertCapacityTransition(events, [next]);
+  const previous = stateOf(events).head;
   requireCondition(next.timestamp >= previous.canonicalTime, "CLOCK_INVALID");
   const checked = core.replayPortable({
     operationVersion: core.PORTABLE_REPLAY_VERSION,

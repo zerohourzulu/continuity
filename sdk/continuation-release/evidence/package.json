@@ -1,0 +1,42 @@
+{
+  "name": "@ramex-labs/continuity-mcp",
+  "version": "0.3.0-preview.10",
+  "type": "module",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zerohourzulu/continuity.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "preview",
+    "registry": "https://registry.npmjs.org"
+  },
+  "description": "A local MCP evidence tool with current permission checks and persistent case history",
+  "engines": {
+    "node": "^22.18.0 || ^24.0.0 || ^26.0.0"
+  },
+  "mcpName": "io.github.zerohourzulu/continuity-evidence",
+  "bin": {
+    "continuity-mcp": "./server.mjs",
+    "continuity-evidence": "./server.mjs",
+    "continuity-evidence-setup": "./setup.mjs",
+    "continuity-evidence-demo": "./client.mjs"
+  },
+  "files": [
+    "*.mjs",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "BUILD-PROVENANCE.json",
+    "HISTORY.md",
+    "THIRD-PARTY-NOTICES.md"
+  ],
+  "dependencies": {
+    "@ramex-labs/continuity": "0.3.0-preview.9",
+    "@modelcontextprotocol/client": "2.0.0",
+    "@modelcontextprotocol/server": "2.0.0",
+    "viem": "2.55.19",
+    "zod": "4.6.5"
+  }
+}

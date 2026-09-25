@@ -1,3 +1,4 @@
+import { inspectPortableDutyPolicy } from "./duty-policy.ts";
 /** Internal Contract 9.4 projection. The coordinator supplies replayed heads and recomputed authorization. */
 import { canonicalEncode, compareProtocolStrings, hashCanonical } from "./canonical.ts";
 import type { PortableAuthorizationResult } from "./portable-authority-engine.ts";
@@ -27,6 +28,7 @@ export const derivePortableResponsibility = (
     observedState.eventHistoryHashes[evaluationState.head.position] === evaluationState.head.hash);
   const writer = createPortableQueryProjectionWriter<PortableResponsibleAnswer>({
     authorizationDecision: authorization.decision, attributions: [],
+    ...(observedState.attemptDutyPolicies.size > 0 ? { attemptDuties: [] } : {}),
   });
   if (authorization.decision === "DENY") return writer.finish(() => {});
   const cache = createPortableQueryEvidenceCache();
@@ -110,6 +112,20 @@ export const derivePortableResponsibility = (
       const admissionEvent = observedState.events[admission.admissionEventPosition]!;
       if (canonicalEncode(data(admissionEvent).authorizationProof) === canonicalEncode(proof)) {
         const proofHash = hashCanonical(proof);
+        for (const [dutyId, duty] of observedState.attemptDuties) {
+          const record = duty.record, currentView = inspectPortableDutyPolicy(observedState, dutyId);
+          if (!currentView || record.sourceIntentId !== proof.intentId || record.sourceAdmissionEventId !== admission.admissionEventId) continue;
+          writer.row("attemptDuties", dutyId, { dutyId, sourceIntentId: record.sourceIntentId,
+            sourceAdmissionEventId: record.sourceAdmissionEventId, originalActorId: agent.id,
+            durableRoleId: record.durableRoleId, creationActorId: duty.creationActorId,
+            initialAssigneeId: record.performanceAssigneeId, currentAssigneeId: duty.currentAssigneeId,
+            deadline: record.deadline, currentView, externalOutcome: "NOT_PROVEN" }, [
+              eventReference(observedState, admission.admissionEventPosition), eventReference(observedState, duty.creationEventPosition),
+              eventReference(observedState, currentView.policy.eventPosition),
+              ...observedState.events.flatMap((event,position) => (event.type === "ATTEMPT_DUTY_DISPOSITION_RECORDED" || event.type === "ATTEMPT_DUTY_CONTEST_RECORDED") && event.data.dutyId === dutyId ? [eventReference(observedState,position)] : []),
+              ...duty.assignments.map(item => eventReference(observedState, item.eventPosition)),
+            ]);
+        }
         for (const obligation of observedState.obligations.values()) {
           const record = obligation.record;
           if (record.sourceIntentId !== proof.intentId) continue;
@@ -150,6 +166,7 @@ export const derivePortableResponsibility = (
     }
   }
   return writer.finish(answer => {
+    (answer.attemptDuties as import("./portable-query-codec.ts").PortableAttemptDutyProjection[] | undefined)?.sort((a,b) => compareProtocolStrings(a.dutyId,b.dutyId));
     (answer.attributions as PortableResponsibilityAttribution[]).sort((a, b) =>
       PORTABLE_RESPONSIBILITY_KINDS.indexOf(a.kind) - PORTABLE_RESPONSIBILITY_KINDS.indexOf(b.kind) ||
       compareProtocolStrings(a.subjectId, b.subjectId) || (a.temporalBasis === b.temporalBasis ? 0 : a.temporalBasis === "ACTION_PREFIX" ? -1 : 1));

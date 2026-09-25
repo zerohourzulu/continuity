@@ -1,3 +1,4 @@
+import { DUTY_POLICY_VERSION, type PortableDutyPolicyView } from "./duty-policy.ts";
 /** Internal Section 9 projection vocabulary; public query dispatch is staged separately. */
 import type { ContentHash } from "./canonical.ts";
 import { canonicalEncode, compareProtocolStrings, immutableProtocolValue } from "./canonical.ts";
@@ -36,6 +37,7 @@ export type PortableResponsibilityAttribution = Readonly<{
 export type PortableResponsibleAnswer = Readonly<{
   authorizationDecision: "ALLOW" | "DENY";
   attributions: readonly PortableResponsibilityAttribution[];
+  attemptDuties?: readonly PortableAttemptDutyProjection[];
 }>;
 export type PortableRoleTenureProjection = Readonly<{
   roleId: string; agentId: string; roleTenureId: string; tenureNumber: number;
@@ -81,7 +83,8 @@ export type PortableAttemptDutyProjection = Readonly<{
   dutyId: string; sourceIntentId: string; sourceAdmissionEventId: string;
   originalActorId: string; durableRoleId: string; creationActorId: string;
   initialAssigneeId: string; currentAssigneeId: string; deadline: number;
-  status: "OPEN"; externalOutcome: "NOT_PROVEN"; evidence: readonly PortableReplayEvidenceReference[];
+  status?: "OPEN"; currentView?: PortableDutyPolicyView;
+  externalOutcome: "NOT_PROVEN"; evidence: readonly PortableReplayEvidenceReference[];
   reviewStatus?: "UNREVIEWED" | "REVIEW_CLOSED" | "NEEDS_REVIEW";
   reviews?: readonly PortableAttemptDutyReviewProjection[];
 }>;
@@ -156,6 +159,7 @@ export type PortableQueryIdentity = Readonly<{
   policyVersion: string; rootRecognitionPolicy: "declared-principal-root/0.2";
   recognizedRootIds: readonly string[]; canonicalLineageId: string;
   evaluationHead: PortableHistoryHead; observedHead: PortableHistoryHead;
+  recognizedExtensions?: readonly Readonly<{ version: typeof DUTY_POLICY_VERSION; rulesHash: ContentHash }>[];
 }>;
 export type PortableQueryScope = PortableQueryIdentity & Readonly<{
   headRelationship: "SAME_HEAD" | "STRICT_EXTENSION" | "UNVERIFIED";
@@ -278,11 +282,28 @@ for (const path of ["unresolvedIntents", "obligations", "currentPerformanceAssig
   fields(`${path}.evidence`, evidenceFields);
 }
 export const PORTABLE_QUERY_ANSWER_FIELD_PATHS: readonly string[] = Object.freeze([...answerFields].sort(compareProtocolStrings));
+/** D1 vocabulary is opt-in so every unextended default disclosure retains its original bytes. */
+export const PORTABLE_DUTY_QUERY_FIELD_PATHS: readonly string[] = (() => {
+  const result = new Set<string>();
+  const add = (prefix: string, names: string) => { for (const key of names.split(" ")) result.add(`${prefix}.${key}`); };
+  add("attemptDuties", "currentView");
+  add("attemptDuties.currentView", "version dutyId dutyDisposition outstanding externalOutcome policy observedHead currentAssigneeId latestAssignmentEventId lastRecordedDisposition reasons evidenceScope");
+  add("attemptDuties.currentView.policy", "descriptor descriptorHash activationAuthorityId actorId eventId eventPosition activatedAt priorHead dispositionCount contestCount");
+  add("attemptDuties.currentView.policy.descriptor", "version rulesHash criteriaProfile domain genesisHash baseAdapterPolicyHash dutyId dutyCreationEventId dutyRecordHash sourceIntentId sourceAdmissionEventId durableRoleId principalId incidentSourceDigest acceptedAttesterRoleId dispositionLimit contestLimit");
+  add("attemptDuties.currentView.policy.descriptor.domain", domainFields);
+  add("attemptDuties.currentView.policy.descriptor.incidentSourceDigest", "algorithm value");
+  for (const head of ["observedHead", "policy.priorHead", "evidenceScope.head"]) add(`attemptDuties.currentView.${head}`, "hash position canonicalTime");
+  add("attemptDuties.currentView.evidenceScope", "kind head");
+  add("attemptDuties.currentView.lastRecordedDisposition", "eventId eventPosition timestamp disposition findingHash evidenceIndexHash reportDigest");
+  add("attemptDuties.currentView.lastRecordedDisposition.reportDigest", "algorithm value");
+  return Object.freeze([...result].sort(compareProtocolStrings));
+})();
 /** A complete per-kind default within the generic disclosure-list bound. */
-export const portablePublicQueryDisclosure = (kind: PortableQueryKind): PortableDisclosureScope => immutableProtocolValue({
-  mode: "PUBLIC_MINIMAL", includedFields: PORTABLE_QUERY_ANSWER_FIELD_PATHS.filter(path =>
+export const portablePublicQueryDisclosure = (kind: PortableQueryKind, extensions: readonly typeof DUTY_POLICY_VERSION[] = []): PortableDisclosureScope => immutableProtocolValue({
+  mode: "PUBLIC_MINIMAL", includedFields: [...PORTABLE_QUERY_ANSWER_FIELD_PATHS, ...(extensions.includes(DUTY_POLICY_VERSION) ? PORTABLE_DUTY_QUERY_FIELD_PATHS : [])].sort(compareProtocolStrings).filter(path =>
     kind === "WHY" ? path === "presentConsequentialUse" || path === "authorization" || path.startsWith("authorization.") :
-    kind === "RESPONSIBLE" ? path === "authorizationDecision" || path === "attributions" || path.startsWith("attributions.") :
+    kind === "RESPONSIBLE" ? path === "authorizationDecision" || path === "attributions" || path.startsWith("attributions.") ||
+      (extensions.includes(DUTY_POLICY_VERSION) && (path === "attemptDuties" || path.startsWith("attemptDuties."))) :
     path !== "presentConsequentialUse" && path !== "authorizationDecision" && path !== "authorization" &&
       !path.startsWith("authorization.") && path !== "attributions" && !path.startsWith("attributions.")),
   withheldFields: [],

@@ -1,3 +1,7 @@
+import { openConfiguredEventStore, ConfiguredDirectoryEventStore, type HistoryLocation } from "./configured-store.ts";
+import { appendContinuationEvent } from "./history.ts";
+import { historyCapacity } from "./history-store/capacity.ts";
+import { observeContinuationHistory } from "./observation.ts";
 import { assertCapacityTransition, capacityOf } from "./capacity.ts";
 import { openSync, closeSync } from "node:fs";
 import { randomUUID } from "node:crypto";
@@ -28,8 +32,7 @@ import {
   stateOf,
   type Config,
 } from "./local-store.ts";
-export type LocalOwnerOptions = Readonly<{
-  historyFile: string;
+export type LocalOwnerOptions = HistoryLocation & Readonly<{
   domain: core.PortableAuthorizationDomain;
   owner: string;
   controller: string;
@@ -101,7 +104,7 @@ export interface LocalOwner {
   why(action: Action): ReturnType<Observation["why"]>;
   responsible(action: Action): ReturnType<Observation["responsible"]>;
   survives(agent: string): ReturnType<Observation["survives"]>;
-  capacity(): ReturnType<typeof capacityOf>;
+  capacity(): ReturnType<typeof capacityOf> | ReturnType<ConfiguredDirectoryEventStore["directoryStore"]["snapshot"]>["capacity"];
   exportHistory(): readonly core.PortableCanonicalEvent[];
 }
 function attach(store: PortableFileEventStore, config: Config): LocalOwner {
@@ -114,7 +117,7 @@ function attach(store: PortableFileEventStore, config: Config): LocalOwner {
     return append(store, config, event(type, config.now(), data), events);
   };
   const observe = (options: ObservationOptions = {}) =>
-    observeHistory(read(store, config), options);
+    store instanceof ConfiguredDirectoryEventStore ? observeContinuationHistory(store.directoryStore.snapshot().history, options) : observeHistory(read(store, config), options);
   return Object.freeze({
     createAgent(input: Readonly<{ id: string }>) {
       const r = record(input, ["id"]);
@@ -286,7 +289,7 @@ function attach(store: PortableFileEventStore, config: Config): LocalOwner {
           (step) => ({ ...step, timestamp: at }) as core.PortableCanonicalEvent,
         );
         requireCondition(
-          events.length + prospective.length <= 256,
+          events.length + prospective.length <= (store instanceof ConfiguredDirectoryEventStore ? 1024 : 256),
           "HISTORY_LIMIT",
         );
         requireCondition(
@@ -296,7 +299,12 @@ function attach(store: PortableFileEventStore, config: Config): LocalOwner {
           }).status === "ACCEPTED",
           "TRANSITION_REJECTED",
         );
-        assertCapacityTransition(events, prospective);
+        if (store instanceof ConfiguredDirectoryEventStore) {
+          const snapshot = store.directoryStore.snapshot();
+          let history = snapshot.history;
+          for (const next of prospective) history = appendContinuationEvent(history, next);
+          requireCondition(historyCapacity(history, snapshot.manifest.segments.length + prospective.length).compatible, "CAPACITY_RESERVED");
+        } else assertCapacityTransition(events, prospective);
         // Each durable event is visible. Resume this exact command after an
         // interrupted handover; never roll retirement back.
         for (const next of prospective) {
@@ -359,7 +367,7 @@ function attach(store: PortableFileEventStore, config: Config): LocalOwner {
     survives(agent: string) {
       return observe({ at: config.now() }).survives(agent);
     },
-    capacity() { return capacityOf(read(store, config)); },
+    capacity() { return store instanceof ConfiguredDirectoryEventStore ? store.directoryStore.snapshot().capacity : capacityOf(read(store, config)); },
     exportHistory() {
       return read(store, config);
     },
@@ -379,6 +387,7 @@ export function createLocalReviewOwner(options: LocalOwnerOptions): LocalOwner {
 }
 function createLocalOwnerWithPolicy(options: LocalOwnerOptions, adapterPolicyHash: core.ContentHash): LocalOwner {
   const config = configuration(options);
+  requireCondition(config.historyProfile === undefined, "PROFILE_MISMATCH");
   const timestamp = config.now();
   const initial = [
     event("DEPLOYMENT_INITIALIZED", timestamp, {
@@ -423,7 +432,7 @@ function createLocalOwnerWithPolicy(options: LocalOwnerOptions, adapterPolicyHas
 /** Reopen only the explicitly selected local profile. Does not prove global freshness. */
 export function openLocalOwner(options: LocalOwnerOptions): LocalOwner {
   const config = configuration(options);
-  return attach(new PortableFileEventStore(config.historyFile), config);
+  return attach(openConfiguredEventStore(config), config);
 }
 
 /** Fresh local namespace; the legacy chain/address fields carry no chain claim. */

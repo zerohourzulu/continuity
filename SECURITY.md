@@ -1,3 +1,5 @@
+> **Prepared continuation profile:** See [supported profiles](docs/SUPPORTED-PROFILES.md) and [migration/recovery](docs/MIGRATE-A-CASE.md) for the new explicit directory-store and fixed evidence-service boundaries. The original profiles and their limits remain available. Publication status: [release status](RELEASE-STATUS.md).
+
 # Security and evidence scope
 
 ## Core 0.3 preview

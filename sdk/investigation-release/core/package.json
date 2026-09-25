@@ -1,0 +1,78 @@
+{
+  "name": "@ramex-labs/continuity",
+  "version": "0.3.0-preview.10",
+  "private": false,
+  "type": "module",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zerohourzulu/continuity.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "preview",
+    "registry": "https://registry.npmjs.org"
+  },
+  "description": "Signed local authority, continuing case history and responsibility APIs",
+  "engines": {
+    "node": "^22.18.0 || ^24.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/core-0.3/src/index.d.ts",
+      "import": "./dist/core-0.3/src/index.js"
+    },
+    "./history": {
+      "types": "./dist/core-0.3/src/history.d.ts",
+      "import": "./dist/core-0.3/src/history.js"
+    },
+    "./history-store": {
+      "types": "./dist/core-0.3/src/history-store/index.d.ts",
+      "import": "./dist/core-0.3/src/history-store/index.js"
+    },
+    "./local": {
+      "types": "./dist/core-0.3/src/local-owner.d.ts",
+      "import": "./dist/core-0.3/src/local-owner.js"
+    },
+    "./simulation": {
+      "types": "./dist/core-0.3/src/simulation.d.ts",
+      "import": "./dist/core-0.3/src/simulation.js"
+    },
+    "./runtime": {
+      "types": "./dist/core-0.3/src/runtime.d.ts",
+      "import": "./dist/core-0.3/src/runtime.js"
+    },
+    "./attempts": {
+      "types": "./dist/core-0.3/src/attempts.d.ts",
+      "import": "./dist/core-0.3/src/attempts.js"
+    },
+    "./duties": {
+      "types": "./dist/core-0.3/src/duties.d.ts",
+      "import": "./dist/core-0.3/src/duties.js"
+    },
+    "./evidence": {
+      "types": "./dist/core-0.3/src/evidence.d.ts",
+      "import": "./dist/core-0.3/src/evidence.js"
+    },
+    "./policy": {
+      "types": "./dist/core-0.3/src/policy.d.ts",
+      "import": "./dist/core-0.3/src/policy.js"
+    },
+    "./adapter": {
+      "types": "./dist/core-0.3/src/adapter.d.ts",
+      "import": "./dist/core-0.3/src/adapter.js"
+    }
+  },
+  "bin": {
+    "continuity-history-store": "dist/core-0.3/src/history-store/cli.js"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "NOTICE",
+    "LICENSING.md",
+    "THIRD-PARTY-NOTICES.md",
+    "README.md",
+    "BUILD-PROVENANCE.json"
+  ]
+}

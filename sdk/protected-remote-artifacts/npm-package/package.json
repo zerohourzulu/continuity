@@ -1,0 +1,63 @@
+{
+  "name": "@ramex-labs/continuity-remote",
+  "version": "0.3.0-h05.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zerohourzulu/continuity.git"
+  },
+  "type": "module",
+  "license": "Apache-2.0",
+  "description": "Cooperating tool execution, recovery and evidence review; local evaluation profile",
+  "engines": {
+    "node": "^22.18.0 || ^24.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/remote-tools/index.d.mts",
+      "import": "./dist/remote-tools/index.mjs"
+    },
+    "./langchain": {
+      "types": "./dist/remote-tools/langchain.d.mts",
+      "import": "./dist/remote-tools/langchain.mjs"
+    },
+    "./local": {
+      "types": "./dist/remote-tools/local.d.mts",
+      "import": "./dist/remote-tools/local.mjs"
+    },
+    "./runtime": {
+      "types": "./dist/remote-tools/runtime.d.mts",
+      "import": "./dist/remote-tools/runtime.mjs"
+    },
+    "./attempts": {
+      "types": "./dist/remote-tools/attempts.d.mts",
+      "import": "./dist/remote-tools/attempts.mjs"
+    }
+  },
+  "dependencies": {
+    "@ramex-labs/continuity": "0.3.0-h04.1"
+  },
+  "peerDependencies": {
+    "@langchain/core": "1.2.12",
+    "zod": "4.6.5"
+  },
+  "peerDependenciesMeta": {
+    "@langchain/core": {
+      "optional": true
+    },
+    "zod": {
+      "optional": true
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "NOTICE",
+    "LICENSING.md",
+    "THIRD-PARTY-NOTICES.md",
+    "README.md",
+    "BUILD-PROVENANCE.json",
+    "HISTORY.md",
+    "examples"
+  ]
+}

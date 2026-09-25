@@ -1,3 +1,4 @@
+import {createHistoryTransfer} from '../core-0.3/src/history-store/transfer.ts';
 import { randomBytes } from 'node:crypto';
 import { capture, textId, hashId, encodeTransport, decodeTransport, canonicalDigest, signRequest, verifyResponse, MAX_WIRE_BYTES, publicKeyIdentity } from './wire.mjs';
 
@@ -29,6 +30,20 @@ export function createCooperativeClient({url,serviceId,coordinatorPrivateKey,ser
   };
   return Object.freeze({
     checkpoint:events=>call('checkpoint',{events}),
+    checkpointBegin:(manifest,transferId)=>call('checkpoint-begin',{manifest,transferId}),
+    checkpointChunk:(transferId,index,bytes)=>call('checkpoint-chunk',{transferId,index,bytes}),
+    checkpointCommit:transferId=>call('checkpoint-commit',{transferId}),
+    abortCheckpointTransfer:transferId=>call('checkpoint-abort',{transferId}),
+    async checkpointHistory(history){
+      const transfer=createHistoryTransfer(history), {transferId}=transfer;
+      let reply=await call('checkpoint-begin',{manifest:transfer.manifest,transferId});
+      if(reply.result.state!=='CHECKPOINT_STAGED')return reply;
+      for(let index=0;index<transfer.chunks.length;index++){
+        reply=await call('checkpoint-chunk',{transferId,index,bytes:transfer.chunks[index]});
+        if(reply.result.state!=='CHECKPOINT_CHUNKED')return reply;
+      }
+      return call('checkpoint-commit',{transferId});
+    },
     prepare:operation=>call('prepare',{operation}),
     commit:key=>call('commit',{key}),
     status:key=>call('status',{key}),

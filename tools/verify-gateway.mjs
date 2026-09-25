@@ -10,10 +10,10 @@ const dir=realpathSync(mkdtempSync(join(tmpdir(),'continuity-gateway-consumer-')
 function run(command,args){const r=spawnSync(command,args,{cwd:dir,encoding:'utf8',timeout:180000});assert.equal(r.status,0,r.stderr||r.stdout||String(r.error));return r.stdout;}
 try{
  writeFileSync(join(dir,'package.json'),JSON.stringify({private:true,type:'module'}));
- run('npm',['install','--ignore-scripts','--no-audit','--no-fund',join(root,'sdk/ramex-labs-continuity-0.3.0-preview.8.tgz'),join(root,'artifacts/ramex-labs-continuity-remote-0.3.0-preview.3.tgz'),join(root,'artifacts/ramex-labs-continuity-mcp-gateway-0.3.0-preview.8.tgz')]);
+ run('npm',['install','--ignore-scripts','--no-audit','--no-fund',join(root,'sdk/investigation-release/ramex-labs-continuity-0.3.0-preview.10.tgz'),join(root,'sdk/investigation-release/ramex-labs-continuity-remote-0.3.0-preview.5.tgz'),join(root,'sdk/investigation-release/ramex-labs-continuity-mcp-gateway-0.3.0-preview.10.tgz')]);
  const pkg=join(dir,'node_modules/@ramex-labs/continuity-mcp-gateway');
  const meta=JSON.parse(readFileSync(join(pkg,'package.json')));
- assert.equal(meta.version,'0.3.0-preview.8');assert.notEqual(meta.private,true);
+ assert.equal(meta.version,'0.3.0-preview.10');assert.notEqual(meta.private,true);
  for(const bin of ['continuity-mcp-gateway','continuity-mcp-ops'])assert(existsSync(join(dir,'node_modules/.bin',bin)));
  assert.equal(run('npm',['ls','--all','--parseable','@ramex-labs/continuity']).trim().split('\n').length,1);
  for(const name of ['demo','http-demo','recovery-demo','tasks-demo'])console.log(run(process.execPath,[join(pkg,'examples',name+'.mjs')]));

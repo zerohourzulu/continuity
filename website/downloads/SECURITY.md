@@ -1,3 +1,5 @@
+> **Prepared continuation profile:** See [supported profiles](https://github.com/zerohourzulu/continuity/blob/main/docs/SUPPORTED-PROFILES.md) and [migration/recovery](https://github.com/zerohourzulu/continuity/blob/main/docs/MIGRATE-A-CASE.md) for the new explicit directory-store and fixed evidence-service boundaries. The original profiles and their limits remain available. Publication status: [release status](https://github.com/zerohourzulu/continuity/blob/main/RELEASE-STATUS.md).
+
 # Security and evidence scope
 
 ## Core 0.3 preview

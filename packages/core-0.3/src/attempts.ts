@@ -1,9 +1,13 @@
+import { commitHistoryAdministration } from "./history-store/index.ts";
+import { openConfiguredEventStore, ConfiguredDirectoryEventStore } from "./configured-store.ts";
 import * as core from "../../core-0.2/src/core/index.ts";
+import { inspectPortableDutyPolicy } from "../../core-0.2/src/core/duty-policy.ts";
 import { portableAttemptDutyReviewStatus } from "../../core-0.2/src/core/portable-attempt-review.ts";
 import { ManagedLocalEventStore as PortableFileEventStore } from "./capacity.ts";
 import { prepareAdministrativeEvent, produceAdministrativeEvent } from "../../core-0.2/src/administration/index.ts";
 import { ContinuityError, identifier, record, requireCondition, time } from "./input.ts";
 import { append, configuration, read, stateOf } from "./local-store.ts";
+import {exportContinuationEvents, type VerifiedHistory} from "./history.ts";
 import { captureHistory } from "./observation.ts";
 import type { LocalRuntimeOptions } from "./runtime.ts";
 import type { WriteResult } from "./local-owner.ts";
@@ -39,7 +43,7 @@ export function openLocalAttemptRecorder(options: LocalRuntimeOptions) {
   const sessionId = identifier(options.session);
   const signer = options.signHash;
   requireCondition(typeof signer === "function");
-  const store = new PortableFileEventStore(config.historyFile);
+  const store = openConfiguredEventStore(config);
   const initial = stateOf(read(store, config));
   requireCondition(attemptPolicy(initial.genesis.adapterPolicyHash), "PROFILE_MISMATCH");
   const session = initial.runtimeSessions.get(sessionId);
@@ -57,6 +61,13 @@ export function openLocalAttemptRecorder(options: LocalRuntimeOptions) {
       requireCondition(existing.type === type && core.canonicalEncode(effect) === core.canonicalEncode(data), "OPERATION_CONFLICT");
       // An exact repeat observes a prior event; it issues no new signature/write.
       return Object.freeze({ eventId: existing.id, head: stateOf(events).head });
+    }
+    if (store instanceof ConfiguredDirectoryEventStore) {
+      const committed = await commitHistoryAdministration(store.directoryStore, {
+        expectedDomain: config.domain, runtimeSessionId: sessionId,
+        transition: {id, type, timestamp: config.now(), data},
+      }, {signHash: signer, now: config.now});
+      return Object.freeze({eventId: id, head: committed.history.head});
     }
     requireCondition(events.length < 128, "HISTORY_LIMIT");
     const head = stateOf(events).head;
@@ -181,7 +192,13 @@ export type LocalAttemptRecorder = ReturnType<typeof openLocalAttemptRecorder>;
 
 /** Replay-only inspection. Recorded reports establish neither truth nor power. */
 export function inspectAttemptHistory(input: unknown) {
-  const events = captureHistory(input), state = stateOf(events);
+  return inspectAttempts(captureHistory(input));
+}
+export function inspectContinuationAttempts(history: VerifiedHistory) {
+  return inspectAttempts(exportContinuationEvents(history));
+}
+function inspectAttempts(events: readonly core.PortableCanonicalEvent[]) {
+  const state = stateOf(events);
   requireCondition(attemptPolicy(state.genesis.adapterPolicyHash), "PROFILE_MISMATCH");
   const attempts = [...state.intentAdmissions.values()]
     .filter(admission => state.intentDeclarations.get(admission.intentId)!.data.adapterProfile.profileId === "adapter:remote-service-report")
@@ -196,7 +213,9 @@ export function inspectAttemptHistory(input: unknown) {
         originalControlEpoch: admission.controlEpoch, durableRoleId: source.intent.roleId,
         observations, reportStatus: digests.size === 0 ? "NO_RECORDED_REPORTS" as const
           : digests.size === 1 ? "REPORT_RECORDED" as const : "DIVERGENT_REPORTS" as const,
-        duty: duty === undefined ? null : state.genesis.adapterPolicyHash === core.PORTABLE_ADAPTER_POLICY_E6_HASH
+        duty: duty === undefined ? null : state.attemptDutyPolicies.has(duty.record.dutyId)
+          ? { ...duty, disposition: inspectPortableDutyPolicy(state, duty.record.dutyId) }
+          : state.genesis.adapterPolicyHash === core.PORTABLE_ADAPTER_POLICY_E6_HASH
           ? { ...duty, reviews: state.attemptDutyReviews.get(duty.record.dutyId) ?? [],
             reviewStatus: portableAttemptDutyReviewStatus(state, duty.record.dutyId) } : duty,
         externalOutcome: "NOT_PROVEN" as const,

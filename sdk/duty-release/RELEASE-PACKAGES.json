@@ -1,0 +1,38 @@
+{
+  "status": "private-integration",
+  "sourceVersion": "0.3.0-d04.1",
+  "packages": [
+    {
+      "part": "core",
+      "name": "@ramex-labs/continuity",
+      "version": "0.3.0-d04.1",
+      "archive": "ramex-labs-continuity-0.3.0-d04.1.tgz",
+      "sha256": "e8998358399f06da7e19ecf56390763968f29ea0462b862cdb928bef282550da",
+      "files": 123
+    },
+    {
+      "part": "remote",
+      "name": "@ramex-labs/continuity-remote",
+      "version": "0.3.0-d04.1",
+      "archive": "ramex-labs-continuity-remote-0.3.0-d04.1.tgz",
+      "sha256": "72143ae024c1b5b7a516aa4192bb02be2261f52fbc05a69fd66b7f6e6058f252",
+      "files": 29
+    },
+    {
+      "part": "gateway",
+      "name": "@ramex-labs/continuity-mcp-gateway",
+      "version": "0.3.0-d04.1",
+      "archive": "ramex-labs-continuity-mcp-gateway-0.3.0-d04.1.tgz",
+      "sha256": "7dad3d06f84c9d84604a6b62bd82fba811e7d8634bfc5f3c4cd573a42189c7bc",
+      "files": 49
+    },
+    {
+      "part": "evidence",
+      "name": "@ramex-labs/continuity-mcp",
+      "version": "0.3.0-d04.1",
+      "archive": "ramex-labs-continuity-mcp-0.3.0-d04.1.tgz",
+      "sha256": "17e78080c5c5a09856f480ef600845d2c14fd7063769804a15e506f5053c66cc",
+      "files": 12
+    }
+  ]
+}

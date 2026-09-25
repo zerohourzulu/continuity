@@ -1,3 +1,5 @@
+> **Current release:** Follow [supported profiles](SUPPORTED-PROFILES.md) and [the exact installed checks](HISTORY-INTEGRATION.md#reproduce-the-evaluation). All four versions are listed in [the release guide](CURRENT-RELEASE.md).
+
 # Reproduce the Core 0.3 behavior
 
 The tests use synthetic data, fresh disposable keys and real local libraries. No private project files, paid model, chain account or cloud service is needed.

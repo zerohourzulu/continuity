@@ -1,0 +1,22 @@
+import {observeContinuationHistory,inspectContinuationAttempts} from '@ramex-labs/continuity';
+import {openLocalOwner} from '@ramex-labs/continuity/local';
+import type {HistoryLocation,LocalExecutionOptions,VerifiedHistory} from '@ramex-labs/continuity/adapter';
+import {createCooperativeExecutor,createCooperativeRecovery,createCooperativeClient,createCooperativeDestination,migrateDestinationHistory} from '@ramex-labs/continuity-remote';
+import {createContinuityTool} from '@ramex-labs/continuity-remote/langchain';
+import {createCooperativeGateway} from '@ramex-labs/continuity-mcp-gateway/cooperative';
+import {inspectCase} from '@ramex-labs/continuity-mcp-gateway/operations';
+declare const history:VerifiedHistory;
+declare const local:LocalExecutionOptions;
+declare const remote:Parameters<typeof createCooperativeExecutor>[0];
+declare const client:ReturnType<typeof createCooperativeClient>;
+const location:HistoryLocation={historyProfile:'continuity-segmented-local/1',historyBinding:'/private/binding.json'};
+const {historyFile,historyBinding,historyProfile,additionalPolicy,...common}=local;
+openLocalOwner({...common,...location});
+const executor=createCooperativeExecutor({...remote,local:{...common,...location}});
+createCooperativeRecovery({local:{...location,domain:local.domain},client,registry:remote.registry});
+client.checkpointHistory(history);client.abortCheckpointTransfer('abcd');
+createContinuityTool({registry:remote.registry,executor,tool:'tool',operationId:'job',businessKey:'business'});
+observeContinuationHistory(history);inspectContinuationAttempts(history);inspectCase({...location,storage:'/private/records'});
+const gateway:Parameters<typeof createCooperativeGateway>[0]['local']={...common,...location};
+// @ts-expect-error mixed file/binding selection must fail statically
+const ambiguous:HistoryLocation={historyFile:'old',historyProfile:'continuity-segmented-local/1',historyBinding:'new'};

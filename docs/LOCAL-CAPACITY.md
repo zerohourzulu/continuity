@@ -1,3 +1,5 @@
+> This guide describes the unchanged managed file profile. The new explicitly selected directory profile has different finite limits: see [supported profiles](SUPPORTED-PROFILES.md) and [migration](MIGRATE-A-CASE.md). A larger store does not renew permissions or spent limits.
+
 # Leave room to finish the work
 
 A full record book is a poor place to discover that you still need to record a result or withdraw permission. This local preview stops taking new jobs before its record book fills.

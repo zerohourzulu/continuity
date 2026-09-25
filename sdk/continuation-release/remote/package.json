@@ -1,0 +1,67 @@
+{
+  "name": "@ramex-labs/continuity-remote",
+  "version": "0.3.0-preview.4",
+  "type": "module",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zerohourzulu/continuity.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "preview",
+    "registry": "https://registry.npmjs.org"
+  },
+  "description": "Cooperating tools, durable outcome recovery and a fixed local evidence service",
+  "engines": {
+    "node": "^22.18.0 || ^24.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/remote-tools/index.d.mts",
+      "import": "./dist/remote-tools/index.mjs"
+    },
+    "./langchain": {
+      "types": "./dist/remote-tools/langchain.d.mts",
+      "import": "./dist/remote-tools/langchain.mjs"
+    },
+    "./local": {
+      "types": "./dist/remote-tools/local.d.mts",
+      "import": "./dist/remote-tools/local.mjs"
+    },
+    "./runtime": {
+      "types": "./dist/remote-tools/runtime.d.mts",
+      "import": "./dist/remote-tools/runtime.mjs"
+    },
+    "./attempts": {
+      "types": "./dist/remote-tools/attempts.d.mts",
+      "import": "./dist/remote-tools/attempts.mjs"
+    }
+  },
+  "dependencies": {
+    "@ramex-labs/continuity": "0.3.0-preview.9"
+  },
+  "peerDependencies": {
+    "@langchain/core": "1.2.12",
+    "zod": "4.6.5"
+  },
+  "peerDependenciesMeta": {
+    "@langchain/core": {
+      "optional": true
+    },
+    "zod": {
+      "optional": true
+    }
+  },
+  "files": [
+    "dist",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "LICENSING.md",
+    "THIRD-PARTY-NOTICES.md",
+    "BUILD-PROVENANCE.json",
+    "HISTORY.md"
+  ]
+}

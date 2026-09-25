@@ -91,6 +91,9 @@ function requestBody(body) {
   textId(body.serviceId);
   switch(body.operation) {
     case 'checkpoint': exact(body.payload,['events']); if(!Array.isArray(body.payload.events)||body.payload.events.length<1||body.payload.events.length>256)fail('INVALID_HISTORY'); break;
+    case 'checkpoint-begin': exact(body.payload,['manifest','transferId']); if(typeof body.payload.transferId!=='string'||! /^[0-9a-f]{64}$/.test(body.payload.transferId))fail('INVALID_TRANSFER'); break;
+    case 'checkpoint-chunk': exact(body.payload,['transferId','index','bytes']); if(typeof body.payload.transferId!=='string'||! /^[0-9a-f]{64}$/.test(body.payload.transferId)||!Array.isArray(body.payload.bytes)||body.payload.bytes.length<1||body.payload.bytes.length>683||body.payload.bytes.some(p=>typeof p!=='string'||p.length<1||p.length>4096))fail('INVALID_TRANSFER'); integer(body.payload.index); if(body.payload.index>=1024)fail('INVALID_TRANSFER');break;
+    case 'checkpoint-abort': case 'checkpoint-commit': exact(body.payload,['transferId']); if(typeof body.payload.transferId!=='string'||! /^[0-9a-f]{64}$/.test(body.payload.transferId))fail('INVALID_TRANSFER');break;
     case 'prepare': exact(body.payload,['operation']); validateOperationShape(body.payload.operation); break;
     case 'commit': case 'status': case 'cancel': exact(body.payload,['key']);hashId(body.payload.key);break;
     default: fail('UNSUPPORTED_OPERATION');
@@ -115,12 +118,16 @@ function responseBody(body) {
   if(result?.state==='CHECKPOINTED') {
     exact(result,['state','head']);exact(result.head,['hash','position','canonicalTime']);
     hashId(result.head.hash);integer(result.head.position);integer(result.head.canonicalTime);
+  } else if((result?.state==='CHECKPOINT_STAGED'||result?.state==='CHECKPOINT_ABORTED')) {
+    exact(result,['state','transferId']); if(typeof result.transferId!=='string'||! /^[0-9a-f]{64}$/.test(result.transferId))fail('INVALID_TRANSFER');
+  } else if(result?.state==='CHECKPOINT_CHUNKED') {
+    exact(result,['state','transferId','index']); if(typeof result.transferId!=='string'||! /^[0-9a-f]{64}$/.test(result.transferId))fail('INVALID_TRANSFER');integer(result.index);
   } else if(result?.state==='UNKNOWN') {exact(result,['state','key']);hashId(result.key);}
   else if(result?.state==='TOO_LATE') {exact(result,['state','report']);validateReport(result.report);if(result.report.state!=='APPLIED')fail('INVALID_REPORT');}
   else if(result?.state==='REFUSED') {
     exact(result,['state','code']);
     if(!['NO_CHECKPOINT','CHECKPOINT_CONFLICT','CHECKPOINT_CHANGED','OPERATION_CONFLICT','BUSINESS_KEY_CONFLICT',
-      'AUTHORIZATION_REFUSED','CLOCK_INVALID','CAPACITY_EXHAUSTED','INVALID_OPERATION','STORAGE_UNAVAILABLE'].includes(result.code))fail('INVALID_REFUSAL');
+      'AUTHORIZATION_REFUSED','CLOCK_INVALID','CAPACITY_EXHAUSTED','INVALID_OPERATION','STORAGE_UNAVAILABLE','UNSUPPORTED_HISTORY_PROFILE','TRANSFER_INVALID','TRANSFER_CONFLICT','TRANSFER_CHUNK_INVALID','TRANSFER_STORAGE_LIMIT'].includes(result.code))fail('INVALID_REFUSAL');
   } else validateReport(result);
   return body;
 }

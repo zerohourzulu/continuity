@@ -1,10 +1,10 @@
 {
   "name": "continuity-core-evaluation",
-  "version": "0.3.0-preview.8.2",
+  "version": "0.3.0-preview.10",
   "private": true,
   "type": "module",
   "engines": {
-    "node": "^22.18.0 || ^24.0.0 || ^26.0.0"
+    "node": "^22.18.0 || ^24.0.0"
   },
   "packageManager": "pnpm@11.19.0",
   "scripts": {
@@ -26,12 +26,20 @@
     "api:verify": "node tools/verify-core-0.3.mjs",
     "mcp:build": "node tools/build-mcp.mjs",
     "mcp:verify": "node tools/verify-mcp-package.mjs",
-    "remote:build": "node tools/remote-build/build.mjs .",
+    "remote:build": "node tools/release/build.mjs",
     "remote:test": "node --experimental-strip-types --test --test-concurrency=1 lab/*.test.mjs",
     "remote:verify": "node tools/remote-build/verify.mjs .",
     "shared:verify": "node tools/verify-shared-core.mjs",
     "gateway:test": "npm test --prefix packages/mcp-gateway",
-    "gateway:demo": "npm run demo --prefix packages/mcp-gateway"
+    "gateway:demo": "npm run demo --prefix packages/mcp-gateway",
+    "release:build": "node tools/release/build.mjs",
+    "release:check": "node tools/release/build.mjs --check",
+    "duty:build": "node tools/release/build.mjs",
+    "duty:verify": "node tools/release/verify.mjs",
+    "test:duty": "node --test tests/core-0.3/duty-*.test.mjs",
+    "disposition:build": "node tools/build-duty-disposition.mjs",
+    "disposition:verify": "node tools/build-duty-disposition.mjs --check",
+    "release:verify": "node tools/release/verify.mjs"
   },
   "dependencies": {
     "viem": "2.55.19"

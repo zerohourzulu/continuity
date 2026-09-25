@@ -1,13 +1,13 @@
 import {createHash} from 'node:crypto';
 import * as core from '../core-0.2/src/core/index.ts';
-import {PortableFileEventStore} from '../core-0.2/src/indexer/portable-file-event-store.ts';
+import {openConfiguredEventStore,ConfiguredDirectoryEventStore} from '../core-0.3/src/configured-store.ts';
 import {openLocalExecution} from '../core-0.3/src/execution.ts';
 import {record,identifier,requireCondition} from '../core-0.3/src/input.ts';
 
 /** Trusted application factory. Model arguments cannot select identity or client. */
 export function createCooperativeExecutor({local,client,registry,role,tenure}) {
   requireCondition(local.additionalPolicy === undefined, "UNSUPPORTED_ADDITIONAL_POLICY");
-  const store=new PortableFileEventStore(local.historyFile);
+  const store=openConfiguredEventStore(local);
   const profile=core.approvedPortableAdapterProfileForPolicy(core.PORTABLE_ADAPTER_POLICY_E5_HASH,core.REMOTE_SERVICE_REPORT_ADAPTER_ID);
   role=identifier(role);tenure=identifier(tenure);
   const select=input=>{
@@ -39,7 +39,7 @@ export function createCooperativeExecutor({local,client,registry,role,tenure}) {
       async submit(submission) {
         const i=core.derivePortableAdapterIdentity(submission);
         try {
-          const checkpoint=await client.checkpoint(store.readAll());
+          const checkpoint=await (store instanceof ConfiguredDirectoryEventStore ? client.checkpointHistory(store.directoryStore.snapshot().history) : client.checkpoint(store.readAll()));
           if(checkpoint.result.state!=='CHECKPOINTED')return unknown(i);
           const prepared=await client.prepare(selected.wire);
           if(prepared.result.state==='APPLIED')return convert(prepared,i,'RETRY');
@@ -62,6 +62,6 @@ export function createCooperativeExecutor({local,client,registry,role,tenure}) {
         externalOutcome:'NOT_PROVEN',revocationBoundary:'DESTINATION_ACKNOWLEDGED_CHECKPOINT'});
     },
     // Publishing a checkpoint is an owner/application action, not an agent tool.
-    checkpoint(){return client.checkpoint(store.readAll());},
+    checkpoint(){return (store instanceof ConfiguredDirectoryEventStore ? client.checkpointHistory(store.directoryStore.snapshot().history) : client.checkpoint(store.readAll()));},
   });
 }

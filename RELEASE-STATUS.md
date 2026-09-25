@@ -1,13 +1,13 @@
-# Core 0.3 — developer preview
+# Core 0.3 — continuation and investigation developer preview
 
-[Release and downloads](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.8.2) · [Quickstart](docs/CORE-0.3-QUICKSTART.md) · [Capacity guide](docs/LOCAL-CAPACITY.md) · [Tests](docs/CORE-0.3-TESTING.md).
+[Release and downloads](https://github.com/zerohourzulu/continuity/releases/tag/v0.3.0-preview.10) · [Exact package versions](docs/CURRENT-RELEASE.md) · [Investigation walkthrough](docs/INVESTIGATION-WALKTHROUGH.md) · [Supported profiles](docs/SUPPORTED-PROFILES.md) · [Public tests](docs/CORE-0.3-TESTING.md).
 
-The [browser playground](https://continuity.ramex.com/playground/) adds a story and workshop for trying hypothetical permission choices. It runs locally in the browser over the preserved Core 0.2.2 example; it does not execute live gateway jobs. [Scope and independent checks](website/playground/README.md).
+Source preview.10 coordinates Core preview.10, remote preview.5, MCP gateway preview.10 and evidence MCP preview.11. Every integration uses one shared Core. The native LangChain tools are included in the remote package.
 
-Use Core `@ramex-labs/continuity@0.3.0-preview.8`, remote `@ramex-labs/continuity-remote@0.3.0-preview.3`, evidence MCP `@ramex-labs/continuity-mcp@0.3.0-preview.9` and optional gateway `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.8`. All wrappers use that exact shared Core and contain no engine copies.
+An existing case can continue beyond the original short history, with explicit migration and recovery that preserve revoked powers, used allowances and unfinished duties. A protected local example demonstrates actual access restriction, a lost reply, replacement while the old worker remains alive, restart, recovery without repeating the action, and separately permitted restoration.
 
-New jobs reserve room for their first supported lifecycle records. Eight shared control slots support bounded revocation/replacement work. The managed profile has 96 bounded events; physical free space is not permission to admit another job. Existing incompatible histories remain readable but cannot silently continue managed execution. There is no pruning, automatic migration or administrator-rollback protection.
+The investigation can finish under its declared policy. Later relevant evidence requires another review; an authorized challenge remains visible. Completing a report does not prove outside success, restore a permission or erase the challenge. Local source/report digests are checked, but a truthful finding still depends on the trusted host and its sources.
 
-The gateway and evidence server use separate Registry identities. Registry discovery grants no permission and runs no service; private operator configuration is required. Check the exact listed version before installation. Public HTTP and broad desktop/OAuth compatibility remain outside this release.
+Use Node22.18+ on22.x or Node24.x for this coordinated release. History and investigation transitions have finite limits; consult the profiles before deployment. This is not an unlimited ledger, hostile-host sandbox, public HTTP service or stable0.3 promise. The original tutorial and browser playground preserve their earlier bounded story; the new investigation walkthrough is a separate runnable example.
 
-Earlier source/npm releases, including the frozen Core0.2.2 evaluation, remain available. This is a finite local developer preview, not a claim of production availability or unlimited history.
+Registry discovery uses separate evidence and gateway identities, grants no authority and still requires private operator configuration. Earlier releases and their validation records remain available.

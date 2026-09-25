@@ -1,0 +1,45 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {join} from 'node:path';
+import {cooperativeSetup} from '../../lab/cooperative-helpers.mjs';
+import {migrateDestinationHistory} from '../../packages/remote-tools/durable-store.mjs';
+import {createCooperativeDestination} from '../../packages/remote-tools/destination.mjs';
+import {createCooperativeClient} from '../../packages/remote-tools/client.mjs';
+import {canonicalEncode} from '../../packages/core-0.2/src/core/index.ts';
+const profile='continuity-segmented-local/1';
+const identity=s=>Object.fromEntries(['version','domain','serviceId','coordinatorKey','serviceKey'].map(k=>[k,s[k]]));
+test('explicit destination migration preserves applied and pending work, business keys, sequence and old bytes',async t=>{
+ const cleanup=[],s=await cooperativeSetup({after:fn=>cleanup.push(fn)});let next;
+ t.after(async()=>{await next?.close();for(const f of cleanup)await f();});
+ const applied=await s.executor.run(s.request);assert.equal(applied.serviceReport.result.state,'APPLIED');
+ const cancelled={...s.request,operationId:'job:cancelled',businessKey:'case:cancelled'};
+ const cancelledKey=await s.admitOnly(cancelled);await s.client.checkpoint(s.owner.exportHistory());await s.client.prepare(s.wire(cancelled));assert.equal((await s.client.cancel(cancelledKey)).result.state,'CANCELLED');
+ const input={...s.request,operationId:'job:pending',businessKey:'case:pending'};
+ const key=await s.admitOnly(input);assert.equal((await s.client.checkpoint(s.owner.exportHistory())).result.state,'CHECKPOINTED');
+ assert.equal((await s.client.prepare(s.wire(input))).result.state,'PENDING');
+ const before=s.destination.inspect(),id=identity(before),oldIdentity=readFileSync(join(s.directory,'identity.bin')),oldSnapshot=readFileSync(join(s.directory,'snapshot.bin'));
+ await assert.rejects(migrateDestinationHistory({directory:s.directory,quiesced:true,expectedIdentity:id}),/EEXIST|LOCKED/);
+ await s.destination.close();
+ await assert.rejects(migrateDestinationHistory({directory:s.directory,quiesced:false,expectedIdentity:id}),/QUIESCENCE/);
+ await assert.rejects(migrateDestinationHistory({directory:s.directory,quiesced:true,expectedIdentity:{...id,serviceId:'wrong'}}),/IDENTITY_MISMATCH/);
+ const migrated=await migrateDestinationHistory({directory:s.directory,quiesced:true,expectedIdentity:id});
+ assert.equal(migrated.status,'DESTINATION_MIGRATED');assert.equal(migrated.sequence,before.sequence);assert.equal(migrated.automaticEffectReplay,false);
+ assert.deepEqual(readFileSync(join(s.directory,'migration-v2/identity-original.bin')),oldIdentity);
+ assert.deepEqual(readFileSync(join(s.directory,'migration-v2/snapshot-original.bin')),oldSnapshot);
+ await assert.rejects(createCooperativeDestination(s.destinationOptions),/IDENTITY_MISMATCH/);
+ next=await createCooperativeDestination({...s.destinationOptions,historyProfile:profile});const after=next.inspect();
+ for(const field of ['sequence','lastTime','attempts','businessKeys','effects'])assert.equal(canonicalEncode(after[field]),canonicalEncode(before[field]),field);
+ assert.equal(canonicalEncode(after.checkpoint.head),canonicalEncode(before.checkpoint.head));assert.equal(Object.hasOwn(after.checkpoint,'events'),false);
+ const client=createCooperativeClient({url:next.url,serviceId:s.serviceId,coordinatorPrivateKey:s.coordinator.privateKey,servicePublicKey:s.provider.publicKey,timeoutMs:10000});
+ assert.equal((await client.status(before.attempts[0].key)).result.state,'APPLIED');
+ assert.equal((await client.commit(cancelledKey)).result.state,'CANCELLED');
+ assert.equal((await client.commit(key)).result.state,'APPLIED');assert.equal(next.inspect().effects.length,2);
+ await next.close();next=null;
+ await assert.rejects(migrateDestinationHistory({directory:s.directory,quiesced:true,expectedIdentity:id}),/MIGRATION_CHANGED/);
+});
+
+test('legacy identical checkpoint retry does not rewrite the destination when time advances',async t=>{
+ const s=await cooperativeSetup(t);await s.client.checkpoint(s.owner.exportHistory());const before=s.destination.inspect();s.setTime(101);
+ assert.equal((await s.client.checkpoint(s.owner.exportHistory())).result.state,'CHECKPOINTED');assert.equal(s.destination.inspect().sequence,before.sequence);assert.equal(s.destination.inspect().lastTime,before.lastTime);
+});

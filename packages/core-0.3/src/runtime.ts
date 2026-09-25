@@ -1,3 +1,5 @@
+import { commitHistoryAdministration } from "./history-store/index.ts";
+import { openConfiguredEventStore, ConfiguredDirectoryEventStore } from "./configured-store.ts";
 import * as core from "../../core-0.2/src/core/index.ts";
 import { ManagedLocalEventStore as PortableFileEventStore } from "./capacity.ts";
 import {
@@ -32,7 +34,7 @@ export function openLocalRuntime(options: LocalRuntimeOptions) {
     sessionId = identifier(options.session),
     signer = options.signHash;
   requireCondition(typeof signer === "function");
-  const store = new PortableFileEventStore(config.historyFile);
+  const store = openConfiguredEventStore(config);
   const session = stateOf(read(store, config)).runtimeSessions.get(sessionId);
   requireCondition(
     session && session.controllerId === config.controller,
@@ -57,6 +59,13 @@ export function openLocalRuntime(options: LocalRuntimeOptions) {
         eventId: existing.id,
         head: stateOf(events).head,
       });
+    }
+    if (store instanceof ConfiguredDirectoryEventStore) {
+      const committed = await commitHistoryAdministration(store.directoryStore, {
+        expectedDomain: config.domain, runtimeSessionId: sessionId,
+        transition: {id, type, timestamp: config.now(), data},
+      }, {signHash: signer, now: config.now});
+      return Object.freeze({eventId: id, head: committed.history.head});
     }
     requireCondition(events.length < 128, "HISTORY_LIMIT");
     const head = stateOf(events).head;

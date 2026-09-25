@@ -1,3 +1,5 @@
+> **Prepared continuation release:** To evaluate the new local archives in this source, follow [supported profiles](SUPPORTED-PROFILES.md) and [the exact installed checks](HISTORY-INTEGRATION.md#reproduce-the-evaluation). The public download/install commands below intentionally describe the preceding published release; they do not install this candidate.
+
 # Put approved MCP tools behind Continuity
 
 This version uses the [managed finite-capacity profile](LOCAL-CAPACITY.md).
@@ -19,10 +21,10 @@ Expect one local ticket, the original reply on repetition, and a refused retired
 
 Try `npm run demo:http` for separate caller bindings, `npm run demo:recovery` for a cooperating service, and `npm run demo:tasks` for long-running work. To inspect or change the tests, run `npm test` in the same folder.
 
-The gateway package is `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.8`. Install the release tarball or use the exact npm version:
+The gateway package is `@ramex-labs/continuity-mcp-gateway@0.3.0-preview.10`. Install the release tarball or use the exact npm version:
 
 ```sh
-npm install --save-exact @ramex-labs/continuity-mcp-gateway@0.3.0-preview.8
+npm install --save-exact @ramex-labs/continuity-mcp-gateway@0.3.0-preview.10
 node node_modules/@ramex-labs/continuity-mcp-gateway/examples/demo.mjs
 ```
 

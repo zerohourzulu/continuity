@@ -1,12 +1,12 @@
 import {createHash} from 'node:crypto';
 import * as core from '../core-0.2/src/core/index.ts';
-import {PortableFileEventStore} from '../core-0.2/src/indexer/portable-file-event-store.ts';
+import {openConfiguredEventStore,ConfiguredDirectoryEventStore} from '../core-0.3/src/configured-store.ts';
 import {stateOf} from '../core-0.3/src/local-store.ts';
 import {record,requireCondition} from '../core-0.3/src/input.ts';
 
 /** Application-owned recovery. Neither method dispatches or re-prepares work. */
 export function createCooperativeRecovery({local,client,registry}) {
-  const store=new PortableFileEventStore(local.historyFile);
+  const store=openConfiguredEventStore(local);
   const select=input=>{
     const value=record(input,['operationId','businessKey','tool','arguments']);
     const selected=registry.capture({intentId:value.operationId,businessKey:value.businessKey,

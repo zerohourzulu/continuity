@@ -10,12 +10,12 @@ const run=(command,args)=>{const r=spawnSync(command,args,{cwd:dir,encoding:'utf
 try {
  writeFileSync(join(dir,'package.json'),JSON.stringify({private:true,type:'module'}));
  run('npm',['install','--prefer-offline','--ignore-scripts','--no-audit','--no-fund',
- join(root,'sdk/ramex-labs-continuity-0.3.0-preview.8.tgz'),join(root,'artifacts/ramex-labs-continuity-remote-0.3.0-preview.3.tgz'),join(root,'sdk/ramex-labs-continuity-mcp-0.3.0-preview.9.tgz')]);
+ join(root,'sdk/investigation-release/ramex-labs-continuity-0.3.0-preview.10.tgz'),join(root,'sdk/investigation-release/ramex-labs-continuity-remote-0.3.0-preview.5.tgz'),join(root,'sdk/investigation-release/ramex-labs-continuity-mcp-0.3.0-preview.11.tgz')]);
  const paths=run('npm',['ls','--all','--parseable','@ramex-labs/continuity']).trim().split('\n').filter(Boolean);
  assert.equal(paths.length,1,'The supported combination must resolve exactly one Core installation');
  const remote=join(dir,'node_modules/@ramex-labs/continuity-remote'),mcp=join(dir,'node_modules/@ramex-labs/continuity-mcp');
  for(const path of [remote,mcp]){
-  const pkg=JSON.parse(readFileSync(join(path,'package.json')));assert.equal(pkg.dependencies['@ramex-labs/continuity'],'0.3.0-preview.8');
+  const pkg=JSON.parse(readFileSync(join(path,'package.json')));assert.equal(pkg.dependencies['@ramex-labs/continuity'],'0.3.0-preview.10');
   const walk=d=>readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(join(d,e.name)):[join(d,e.name)]);
   assert(!walk(path).some(p=>/core-0\.[23]\/|portable-replay\.|portable-authority-engine\./.test(p)),'An integration must not bundle engine files');
  }

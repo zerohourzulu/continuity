@@ -1,0 +1,7 @@
+import type {HistoryLocation,historyCapacity} from '@ramex-labs/continuity/adapter';
+export type CaseLocation = HistoryLocation & {storage:string};
+export declare function acquireHostLease(storage:string):Readonly<{assertOwned():void;release():void}>;
+export declare function recoverDeadHost(storage:string):Readonly<{status:'DEAD_HOST_LEASE_REMOVED';historyChanged:false;authorityChanged:false}>;
+export declare function inspectCase(location:CaseLocation):Readonly<{profile:string;eventCount:number;limits:{coreEvents:number;observationEvents:number;recordEntries:number};remainingCoreEvents:number;capacity:ReturnType<typeof historyCapacity>|Readonly<{profile:string;eventCount:number;maxEvents:number;declaredJobs:number;reservedByRecordType:Readonly<Record<string,number>>;lifecycleReserved:number;controlReserved:number;unreservedEvents:number;compatible:boolean;mode:string;canDeclareJob:boolean;remainingPhysicalEvents:number;pointInTimeOnly:true;grantsAuthority:false}>;observedHeadHash:string;lateObservationCapacityAvailable:boolean;recordFiles:number;recordBytes:number;taskRequests:number;leasePresent:boolean;warnings:string[];pointInTimeOnly:true;restoreAuthorization:false}>;
+export declare function snapshotCase(location:CaseLocation&{directory:string}):Readonly<{status:'PRIVATE_SNAPSHOT_CREATED';files:number;restoreAuthorized:false}>;
+export declare function verifySnapshot(directory:string):Readonly<{status:'PRIVATE_SNAPSHOT_VERIFIED';files:number;eventCount:number;currentnessEstablished:false;restoreAuthorized:false}>;

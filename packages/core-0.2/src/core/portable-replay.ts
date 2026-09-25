@@ -1,3 +1,6 @@
+import { validatePortableDutyFinding, portableDutyRequirements, type DutyUnsignedTransition } from "./duty-disposition.ts";
+import { portableDutyPolicyActivationRequirements, portableDutyPolicyActivationProofMatches,
+  type PortableDutyPolicyActivation, type PortableDutyPolicyActivatedData } from "./duty-policy.ts";
 import {
   canonicalEncode,
   compareProtocolStrings,
@@ -73,6 +76,7 @@ import {
   mapSet,
   numberIsSafeInteger,
   objectDefineDataProperty,
+  objectDefineProperty,
   objectFreeze,
   objectHasOwn,
   reflectApply,
@@ -640,6 +644,7 @@ type PortableReplayDraft = {
   readonly outcomeObservations: Map<string, readonly PortableOutcomeObservation[]>;
   readonly attemptDuties: Map<string, PortableAttemptDutyState>;
   readonly attemptDutyReviews: Map<string, readonly PortableAttemptDutyReview[]>;
+  readonly attemptDutyPolicies: Map<string, PortableDutyPolicyActivation>;
   readonly attemptDutyIdsBySourceIntent: Map<string, string>;
   readonly receiptCommitments: Map<ContentHash, PortableReceiptCommitmentRecord>;
   readonly obligations: Map<string, PortableObligationState>;
@@ -678,6 +683,7 @@ export type PortableReplayState = Readonly<{
   readonly outcomeObservations: ReadonlyMap<string, readonly PortableOutcomeObservation[]>;
   readonly attemptDuties: ReadonlyMap<string, PortableAttemptDutyState>;
   readonly attemptDutyReviews: ReadonlyMap<string, readonly PortableAttemptDutyReview[]>;
+  readonly attemptDutyPolicies: ReadonlyMap<string, PortableDutyPolicyActivation>;
   readonly receiptCommitments: ReadonlyMap<ContentHash, PortableReceiptCommitmentRecord>;
   readonly obligations: ReadonlyMap<string, PortableObligationState>;
   readonly nonceReservationsByActor: ReadonlyMap<
@@ -856,6 +862,7 @@ const newDraft = (): PortableReplayDraft => ({
   outcomeObservations: createMap<string, readonly PortableOutcomeObservation[]>(),
   attemptDuties: createMap<string, PortableAttemptDutyState>(),
   attemptDutyReviews: createMap<string, readonly PortableAttemptDutyReview[]>(),
+  attemptDutyPolicies: createMap<string, PortableDutyPolicyActivation>(),
   attemptDutyIdsBySourceIntent: createMap<string, string>(),
   receiptCommitments: createMap<ContentHash, PortableReceiptCommitmentRecord>(),
   obligations: createMap<string, PortableObligationState>(),
@@ -2064,6 +2071,36 @@ const applyAttemptDutyCreated = (draft: PortableReplayDraft, event: AcceptedCano
   mapSet(draft.attemptDutyIdsBySourceIntent, record.sourceIntentId, record.dutyId);
   return true;
 };
+const applyAttemptDutyPolicyActivated = (draft: PortableReplayDraft, event: AcceptedCanonicalEventShape): boolean => {
+  const authorityState = authorityStateForDraft(draft);
+  if (!authorityState) return false;
+  const data = event.data as unknown as PortableDutyPolicyActivatedData;
+  const state = { ...authorityState, attemptDuties: draft.attemptDuties, attemptDutyPolicies: draft.attemptDutyPolicies };
+  const requirements = portableDutyPolicyActivationRequirements(state, data, event.timestamp);
+  if (!requirements || !validatePortableAdministrativeTransition(authorityState, event, requirements) ||
+      !portableDutyPolicyActivationProofMatches(data.administrativeAuthorization.authorityProof, data.activationAuthorityId)) return false;
+  mapSet(draft.attemptDutyPolicies, data.descriptor.dutyId, Object.freeze({
+    descriptor: data.descriptor, descriptorHash: data.descriptorHash, activationAuthorityId: data.activationAuthorityId,
+    actorId: data.actorId, eventId: event.id, eventPosition: draft.acceptedEvents.length, activatedAt: event.timestamp,
+    priorHead: authorityState.head, dispositionCount: 0, contestCount: 0,
+  }));
+  return true;
+};
+
+const applyAttemptDutyDisposition = (draft: PortableReplayDraft,event:AcceptedCanonicalEventShape):boolean => {
+ const base=authorityStateForDraft(draft);if(!base)return false;
+ const state={...base,attemptDuties:draft.attemptDuties,attemptDutyPolicies:draft.attemptDutyPolicies};
+ const e=event as unknown as DutyUnsignedTransition;
+ if(!validatePortableDutyFinding(state,e))return false;
+ const req=portableDutyRequirements(state,e.data.dutyId,e.data.actorId,e.data.dispositionAuthorityId,false,event.timestamp);
+ if(!req||!validatePortableAdministrativeTransition(base,event,req))return false;
+ const policy=mapGet(draft.attemptDutyPolicies,e.data.dutyId)!;
+ mapSet(draft.attemptDutyPolicies,e.data.dutyId,Object.freeze({...policy,
+   dispositionCount:policy.dispositionCount+(event.type==="ATTEMPT_DUTY_DISPOSITION_RECORDED"?1:0),
+   contestCount:policy.contestCount+(event.type==="ATTEMPT_DUTY_CONTEST_RECORDED"?1:0)}));
+ return true;
+};
+
 const applyAttemptDutyReviewClosed = (draft: PortableReplayDraft, event: AcceptedCanonicalEventShape): boolean => {
   if (draft.genesis?.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E6_HASH) return false;
   const data = event.data as unknown as PortableAttemptDutyReviewClosedData;
@@ -2414,6 +2451,11 @@ const applyTransition = (
       return applyAttemptDutyAssigned(draft, event);
     case "ATTEMPT_DUTY_REVIEW_CLOSED":
       return applyAttemptDutyReviewClosed(draft, event);
+    case "ATTEMPT_DUTY_DISPOSITION_RECORDED":
+    case "ATTEMPT_DUTY_CONTEST_RECORDED":
+      return applyAttemptDutyDisposition(draft,event);
+    case "ATTEMPT_DUTY_POLICY_ACTIVATED":
+      return applyAttemptDutyPolicyActivated(draft, event);
     case "OBLIGATION_CREATED":
       return applyObligationCreated(draft, event, nextHead);
     case "OBLIGATION_PERFORMANCE_ASSIGNED":
@@ -2468,6 +2510,7 @@ const freezeState = (
   const outcomeObservations = copyMap(draft.outcomeObservations);
   const attemptDuties = copyMap(draft.attemptDuties);
   const attemptDutyReviews = copyMap(draft.attemptDutyReviews);
+  const attemptDutyPolicies = copyMap(draft.attemptDutyPolicies);
   const receiptCommitments = copyMap(draft.receiptCommitments);
   const obligations = copyMap(draft.obligations);
   const nonceReservationsByActor = createMap<
@@ -2482,7 +2525,7 @@ const freezeState = (
   const authorityUsage = copyMap(draft.authorityUsage);
   // Freezing a Map does not freeze its entry slots. Keep the reducer snapshots
   // closure-private and expose a fresh detached Map for every inspection.
-  const state: PortableReplayState = Object.freeze({
+  const state = {
     [portableReplayStateBrand]: true as const,
     events: Object.freeze(copyArray(draft.acceptedEvents)),
     eventHistoryHashes: Object.freeze(copyArray(draft.eventHistoryHashes)),
@@ -2524,6 +2567,7 @@ const freezeState = (
     get outcomeObservations() { return detachedMapView(outcomeObservations); },
     get attemptDuties() { return detachedMapView(attemptDuties); },
     get attemptDutyReviews() { return detachedMapView(attemptDutyReviews); },
+
     get receiptCommitments() {
       return detachedMapView(receiptCommitments);
     },
@@ -2542,9 +2586,15 @@ const freezeState = (
     get authorityUsage() {
       return detachedMapView(authorityUsage);
     },
+  };
+  // An unactivated state retains the previous enumerable snapshot vocabulary.
+  objectDefineProperty(state, "attemptDutyPolicies", {
+    enumerable: attemptDutyPolicies.size > 0, configurable: false,
+    get: () => detachedMapView(attemptDutyPolicies),
   });
+  Object.freeze(state);
   weakSetAdd(PORTABLE_REPLAY_STATES, state);
-  return state;
+  return state as PortableReplayState;
 };
 
 const eventFailure = (

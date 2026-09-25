@@ -1,3 +1,4 @@
+import { DUTY_POLICY_VERSION, DUTY_POLICY_RULES_HASH } from "./duty-policy.ts";
 /** Total Section9 query operations over captured canonical event histories. */
 import {
   canonicalEncode, captureBoundedCanonicalReplayBodyIncrementally, compareProtocolStrings,
@@ -15,7 +16,7 @@ import { findPortableQueryConflict } from "./portable-query-conflicts.ts";
 import { derivePortableResponsibility } from "./portable-query-responsibility.ts";
 import { derivePortableSurvives } from "./portable-query-survives.ts";
 import {
-  PORTABLE_QUERY_VERSION, PORTABLE_QUERY_EXTERNAL_ASSUMPTIONS, PORTABLE_QUERY_ANSWER_FIELD_PATHS,
+  PORTABLE_QUERY_VERSION, PORTABLE_QUERY_EXTERNAL_ASSUMPTIONS, PORTABLE_QUERY_ANSWER_FIELD_PATHS, PORTABLE_DUTY_QUERY_FIELD_PATHS,
   queryEventReference, queryEvidence,
   type PortableQueryKind, type PortableQueryFailureCode, type PortableDisclosureScope,
   type PortablePartialQueryScope, type PortableQueryIdentity, type PortableQueryScope,
@@ -46,6 +47,9 @@ const identityFor = (evaluation: PortableReplayState, observed: PortableReplaySt
   recognizedRootIds: [...evaluation.recognizedRoots.keys()].sort(compareProtocolStrings),
   canonicalLineageId: evaluation.genesis.canonicalLineageId,
   evaluationHead: evaluation.head, observedHead: observed.head,
+  ...((evaluation.attemptDutyPolicies.size > 0 || observed.attemptDutyPolicies.size > 0) ? {
+    recognizedExtensions: [{ version: DUTY_POLICY_VERSION, rulesHash: DUTY_POLICY_RULES_HASH }],
+  } : {}),
 });
 const compactIdentity = ({recognizedRootIds: _roots, ...identity}: PortableQueryIdentity): Partial<PortableQueryIdentity> => identity;
 const replay = (events: readonly unknown[]) => {
@@ -90,7 +94,9 @@ const answerFieldPaths = (answer: unknown): readonly string[] => {
   };
   visit(answer, ""); return [...fields].sort(compareProtocolStrings);
 };
-const coreFields = new Set(PORTABLE_QUERY_ANSWER_FIELD_PATHS);
+const coreFields = new Set([...PORTABLE_QUERY_ANSWER_FIELD_PATHS, ...PORTABLE_DUTY_QUERY_FIELD_PATHS]);
+for (const key of PORTABLE_DUTY_QUERY_FIELD_PATHS) coreFields.add(`answer.${key}`);
+for (const key of ["recognizedExtensions", "recognizedExtensions.version", "recognizedExtensions.rulesHash"]) coreFields.add(`scope.${key}`);
 for (const key of ["version", "kind", "epistemicStatus", "scope", "answer", "code", "evidence", "externalAssumptions"]) coreFields.add(key);
 for (const key of PORTABLE_QUERY_ANSWER_FIELD_PATHS) coreFields.add(`answer.${key}`);
 for (const key of ["domain", "versions", "policyVersion", "rootRecognitionPolicy", "recognizedRootIds", "canonicalLineageId", "evaluationHead", "observedHead", "headRelationship", "freshness", "finality", "disclosure", "unavailableEvidence", "withheldEvidence", "externalAssumptions"]) coreFields.add(`scope.${key}`);

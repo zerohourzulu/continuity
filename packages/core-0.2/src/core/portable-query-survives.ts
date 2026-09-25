@@ -1,3 +1,4 @@
+import { inspectPortableDutyPolicy } from "./duty-policy.ts";
 // Package-internal projection over an already accepted replay snapshot. The
 // query coordinator owns capture, replay provenance, time and output limits.
 import { portableAttemptDutyReviewStatus } from "./portable-attempt-review.ts";
@@ -154,15 +155,18 @@ const walkPortableSurvives = (state: PortableReplayState, targetAgentId: string,
     const originalActorId = state.intentDeclarations.get(record.sourceIntentId)!.data.actorId;
     if (originalActorId !== targetAgentId && record.performanceAssigneeId !== targetAgentId &&
         !duty.assignments.some(item => item.fromAgentId === targetAgentId || item.toAgentId === targetAgentId)) continue;
+    const currentView = inspectPortableDutyPolicy(state, dutyId);
     writer.row("attemptDuties", dutyId, {
       dutyId, sourceIntentId: record.sourceIntentId, sourceAdmissionEventId: record.sourceAdmissionEventId,
       originalActorId, durableRoleId: record.durableRoleId, creationActorId: duty.creationActorId,
       initialAssigneeId: record.performanceAssigneeId, currentAssigneeId: duty.currentAssigneeId,
-      deadline: record.deadline, status: record.status, externalOutcome: "NOT_PROVEN",
+      deadline: record.deadline, ...(currentView ? { currentView } : { status: record.status }), externalOutcome: "NOT_PROVEN",
       ...(state.genesis.adapterPolicyHash === PORTABLE_ADAPTER_POLICY_E6_HASH ? {
         reviewStatus: portableAttemptDutyReviewStatus(state, dutyId), reviews: state.attemptDutyReviews.get(dutyId) ?? [],
       } : {}),
     }, [eventReference(source.admissionEventPosition), eventReference(duty.creationEventPosition),
+      ...(currentView ? [eventReference(currentView.policy.eventPosition), ...state.events.flatMap((event,position) =>
+        (event.type === "ATTEMPT_DUTY_DISPOSITION_RECORDED" || event.type === "ATTEMPT_DUTY_CONTEST_RECORDED") && event.data.dutyId === dutyId ? [eventReference(position)] : [])] : []),
       ...duty.assignments.map(item => eventReference(item.eventPosition)),
       ...(state.genesis.adapterPolicyHash === PORTABLE_ADAPTER_POLICY_E6_HASH ? [
         ...(state.attemptDutyReviews.get(dutyId) ?? []).map(item => eventReference(item.eventPosition)),

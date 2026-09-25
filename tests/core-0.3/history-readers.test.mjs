@@ -1,0 +1,26 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {join} from 'node:path';
+import {fixture,padded,capture} from './fixtures/history-fixture.mjs';
+import {PortableFileEventStore} from '../../packages/core-0.2/src/indexer/portable-file-event-store.ts';
+import {prepareMigration,stageMigration,activateMigration} from '../../packages/core-0.3/src/history-store/index.ts';
+import {openConfiguredEventStore} from '../../packages/core-0.3/src/configured-store.ts';
+import {openLocalAttemptRecorder,inspectContinuationAttempts,inspectAttemptHistory} from '../../packages/core-0.3/src/attempts.ts';
+import {observeContinuationHistory} from '../../packages/core-0.3/src/observation.ts';
+import {decodeHistory} from '../../lib/history-source.mjs';
+import {readFileSync} from 'node:fs';
+test('new historical readers and signed E6 review work beyond256; legacy arrays and old source path refuse explicitly',async t=>{
+ const f=await fixture(t,{policy:'E6'}),events=padded(f.events,270);new PortableFileEventStore(f.config.historyFile).appendAll(events.slice(f.events.length));
+ const binding=join(f.config.historyFile,'..','binding.json'),planFile=join(f.config.historyFile,'..','plan.json');
+ prepareMigration({sourceFile:f.config.historyFile,targetDirectory:join(f.config.historyFile,'..','directory'),planFile,expectedHead:capture(events).head,configurationFiles:[binding],artifactFiles:[],quiesced:true});stageMigration(planFile,{quiesced:true});activateMigration(planFile,{quiesced:true});
+ const {historyFile,...rest}=f.options,local={...rest,historyProfile:'continuity-segmented-local/1',historyBinding:binding};
+ const store=openConfiguredEventStore(local),before=store.directoryStore.snapshot().history;
+ assert.equal(inspectContinuationAttempts(before).attempts[0].duty.reviewStatus,'UNREVIEWED');
+ const o=observeContinuationHistory(before);assert.equal(o.authorize({actor:'worker',action:'export',resource:'incident'}).decision,'DENY');
+ for(const operation of ['why','responsible'])assert.ok(o[operation]({actor:'worker',action:'export',resource:'incident'}));assert.ok(o.survives('worker'));
+ const recorder=openLocalAttemptRecorder(local);await recorder.reviewDuty({id:'review:1',duty:'duty',summaryDigest:'0x'+'a'.repeat(64)});
+ const after=store.directoryStore.snapshot().history;assert.equal(after.eventCount,271);assert.equal(inspectContinuationAttempts(after).attempts[0].duty.reviewStatus,'REVIEW_CLOSED');
+ assert.throws(()=>inspectAttemptHistory(events));assert.throws(()=>inspectContinuationAttempts({...after}));
+ assert.throws(()=>decodeHistory(readFileSync(f.config.historyFile)),e=>e.code==='UNSUPPORTED_HISTORY_PROFILE');
+ assert.throws(()=>openConfiguredEventStore({...local,historyFile}),/PROFILE_MISMATCH/);
+});

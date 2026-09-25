@@ -1,0 +1,132 @@
+{
+  "format": "continuity-coordinated-build/1",
+  "part": "evidence",
+  "version": "0.3.0-d04.1",
+  "compiler": "5.9.3",
+  "buildInputs": [
+    {
+      "path": "tools/duty-release/build.mjs",
+      "sha256": "2e89b2236b711b4898db234cd1d470ceae2e4c828f7e21dc04a010949ed6369e"
+    },
+    {
+      "path": "tools/duty-release/npm.mjs",
+      "sha256": "2d331358504c46996059346803ee4a59e9b50eb722c8984af945cefd0edc63c3"
+    },
+    {
+      "path": "tools/duty-release/versions.json",
+      "sha256": "c2c43442e568cca13542a3b2897dcc1754e31a695f09753e9add7863bc10110d"
+    },
+    {
+      "path": "tools/sdk-build/tsconfig-core-0.3.json",
+      "sha256": "e284412668b8d64b8dd02510fd2d70e58538be5f48456e11797fe5136ebad3d6"
+    },
+    {
+      "path": "docs/releases/evidence-0.3.0-d04.1.md",
+      "sha256": "09e943878641092c446c92bae977a9b72629eaea4b22a51dd35d2d55e3488736"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "integrations/protected-evidence-mcp/client.mjs",
+      "sha256": "7d18be52763a100f4a35270dca05e2c721b1e23fd6001430be33c150977ea8b2"
+    },
+    {
+      "path": "integrations/protected-evidence-mcp/config.mjs",
+      "sha256": "f809f3041f53c661ff1d3550ef635c74c74b9a30c3054d2dee22ff8d9ab48449"
+    },
+    {
+      "path": "integrations/protected-evidence-mcp/linux/agent-client.mjs",
+      "sha256": "a558555a99032c917aac6260c6eee46ff645e41787a77afe751db8f7efef0e3c"
+    },
+    {
+      "path": "integrations/protected-evidence-mcp/linux/prove-isolation.mjs",
+      "sha256": "094aa2c765e65a2c698b63a929a70fdefd882b3df0c9d3779f4ae1d0ffda5733"
+    },
+    {
+      "path": "integrations/protected-evidence-mcp/linux/README.md",
+      "sha256": "ec95ec3c34afad3bdcb74f1ad4199e4aab040fb0d4cd9fdb79bc060a69cafcda"
+    },
+    {
+      "path": "integrations/protected-evidence-mcp/linux/socket-bridge.mjs",
+      "sha256": "8ed4059cc5854d82df7397fe6e1ce01d76a36ce7112426fe5aa9fbed5ac8e3f1"
+    },
+    {
+      "path": "integrations/protected-evidence-mcp/linux/socket-server.mjs",
+      "sha256": "b9bd9be555a61f57539eb9137bed1b554bde8c66dd5b0feaa8513567f841decf"
+    },
+    {
+      "path": "integrations/protected-evidence-mcp/package-lock.json",
+      "sha256": "77b6996a6ce996cb5e7c113c2b522f2c5d5281634fd317cf7c95300e532344d8"
+    },
+    {
+      "path": "integrations/protected-evidence-mcp/package.json",
+      "sha256": "489469af1f363771836d88b3c433fb12425f8f5bc7aecc701310cf27e9459edf"
+    },
+    {
+      "path": "integrations/protected-evidence-mcp/README.md",
+      "sha256": "513bf324c79d2e8b7ab4df64ecc2872c5382fcbd79336dc4e52389127dc8a992"
+    },
+    {
+      "path": "integrations/protected-evidence-mcp/server.mjs",
+      "sha256": "72ca7aa6019dcbc60baec41449ff9b2ea0dab61fd0add05c00a03f3e13c62ac3"
+    },
+    {
+      "path": "integrations/protected-evidence-mcp/setup.mjs",
+      "sha256": "1430580f1609b6cbd587f20994d6b7209021d30d54841b6aa02af7a068eb9880"
+    },
+    {
+      "path": "integrations/protected-evidence-mcp/strict-json.mjs",
+      "sha256": "efadbaf7513423e4c47360d33c1a6ff9b7bd2c300bf4c96fac4e561e940f369a"
+    },
+    {
+      "path": "integrations/protected-evidence-mcp/tests/wire.test.mjs",
+      "sha256": "cd0836ea8bbfadbea1d68d9e7e23b694bcf59cc9cd652f5a68879fb42295b8c1"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "client.mjs",
+      "sha256": "7d18be52763a100f4a35270dca05e2c721b1e23fd6001430be33c150977ea8b2"
+    },
+    {
+      "path": "config.mjs",
+      "sha256": "f809f3041f53c661ff1d3550ef635c74c74b9a30c3054d2dee22ff8d9ab48449"
+    },
+    {
+      "path": "HISTORY.md",
+      "sha256": "70e52db6e80983bb9ea9509191b2cedc78d7c5518f2963033db02dae525e81d2"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "bfb2131be616bebf277cfcb08f3927c1c360e114f7e51e46a77b490bcbdef59a"
+    },
+    {
+      "path": "package.json",
+      "sha256": "989428d9fdb73e326a1081f5962c9704ff225574b417f16747ba93dcd7f16157"
+    },
+    {
+      "path": "README.md",
+      "sha256": "09e943878641092c446c92bae977a9b72629eaea4b22a51dd35d2d55e3488736"
+    },
+    {
+      "path": "server.mjs",
+      "sha256": "72ca7aa6019dcbc60baec41449ff9b2ea0dab61fd0add05c00a03f3e13c62ac3"
+    },
+    {
+      "path": "setup.mjs",
+      "sha256": "1430580f1609b6cbd587f20994d6b7209021d30d54841b6aa02af7a068eb9880"
+    },
+    {
+      "path": "strict-json.mjs",
+      "sha256": "efadbaf7513423e4c47360d33c1a6ff9b7bd2c300bf4c96fac4e561e940f369a"
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.md",
+      "sha256": "3f88256fdb80cf60a9602b03d7a6ff1d1dfa2184aed9688eace4e87ac0d3b2cc"
+    }
+  ]
+}

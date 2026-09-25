@@ -1,0 +1,42 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {fork} from 'node:child_process';
+import {once} from 'node:events';
+import {cooperativeSetup} from '../../lab/cooperative-helpers.mjs';
+import {capture} from './fixtures/history-fixture.mjs';
+import {createHistoryTransfer} from '../../packages/core-0.3/src/history-store/transfer.ts';
+import {createCooperativeDestination} from '../../packages/remote-tools/destination.mjs';
+import {createCooperativeClient} from '../../packages/remote-tools/client.mjs';
+import {inspectDestinationLock,recoverDestinationLock,migrateDestinationHistory} from '../../packages/remote-tools/durable-store.mjs';
+const profile='continuity-segmented-local/1';
+const identity=s=>Object.fromEntries(['version','domain','serviceId','coordinatorKey','serviceKey'].map(k=>[k,s[k]]));
+const start=input=>{const child=fork(new URL('./fixtures/history-destination-worker.mjs',import.meta.url),[],{serialization:'advanced',stdio:['ignore','ignore','pipe','ipc']});let stderr='';child.stderr.on('data',b=>stderr+=b);const exit=once(child,'exit');child.send(input);return {child,exit,stderr:()=>stderr};};
+const recover=directory=>{const lock=inspectDestinationLock({directory});assert.equal(recoverDestinationLock({directory,expectedLock:lock}).recovered,true);};
+for(const cut of ['transfer-chunk-synced','before-checkpoint-reference','checkpoint-reference-synced'])test('actual checkpoint process death at '+cut,async t=>{
+ const cleanup=[],s=await cooperativeSetup({after:f=>cleanup.push(f)});await s.destination.close();let next;
+ t.after(async()=>{await next?.close();for(const f of cleanup)await f();});
+ // Explicitly migrate the old empty destination, then start the process to be killed.
+ const id=identity({version:'continuity-cooperative-destination/1',...await (async()=>{const d=await createCooperativeDestination(s.destinationOptions);const st=d.inspect();await d.close();return st;})()});
+ await migrateDestinationHistory({directory:s.directory,quiesced:true,expectedIdentity:id});
+ const p=start({cut,options:{directory:s.directory,domain:s.local.domain,serviceId:s.serviceId,historyProfile:profile,coordinatorPublicKey:s.coordinator.publicKey.export({format:'pem',type:'spki'}),servicePrivateKey:s.provider.privateKey.export({format:'pem',type:'pkcs8'})},registry:{serviceId:s.serviceId,account:'synthetic',tools:s.registry.tools}});
+ t.after(()=>{if(p.child.exitCode===null&&p.child.signalCode===null)p.child.kill('SIGKILL');});
+ const [ready]=await once(p.child,'message');assert.ok(ready.url,JSON.stringify(ready)+p.stderr());
+ const client=createCooperativeClient({url:ready.url,serviceId:s.serviceId,coordinatorPrivateKey:s.coordinator.privateKey,servicePublicKey:s.provider.publicKey,timeoutMs:10000});
+ const history=capture(s.owner.exportHistory()),transfer=createHistoryTransfer(history);
+ await assert.rejects(client.checkpointHistory(history));
+ const [,signal]=await p.exit;assert.equal(signal,'SIGKILL',p.stderr());recover(s.directory);
+ next=await createCooperativeDestination({...s.destinationOptions,historyProfile:profile});
+ assert.equal(next.inspect().checkpoint?.head.hash??null,cut==='checkpoint-reference-synced'?history.head.hash:null);
+ const retry=createCooperativeClient({url:next.url,serviceId:s.serviceId,coordinatorPrivateKey:s.coordinator.privateKey,servicePublicKey:s.provider.publicKey,timeoutMs:10000});
+ assert.equal((await retry.checkpointHistory(history)).result.state,'CHECKPOINTED');assert.equal(next.inspect().checkpoint.reference,transfer.transferId);assert.equal(next.inspect().effects.length,0);
+});
+for(const cut of ['destination-migration-staged','before-destination-version-fence','destination-version-fenced','destination-migration-active'])test('actual destination migration death at '+cut,async t=>{
+ const cleanup=[],s=await cooperativeSetup({after:f=>cleanup.push(f)});let next;
+ t.after(async()=>{await next?.close();for(const f of cleanup)await f();});
+ await s.executor.run(s.request);const before=s.destination.inspect(),id=identity(before);await s.destination.close();
+ const p=start({mode:'migrate',cut,options:{directory:s.directory,quiesced:true,expectedIdentity:id}});
+ const [,signal]=await p.exit;assert.equal(signal,'SIGKILL',p.stderr());recover(s.directory);
+ if(['destination-version-fenced','destination-migration-active'].includes(cut))await assert.rejects(createCooperativeDestination(s.destinationOptions));
+ const result=await migrateDestinationHistory({directory:s.directory,quiesced:true,expectedIdentity:id});assert.equal(result.sequence,before.sequence);
+ next=await createCooperativeDestination({...s.destinationOptions,historyProfile:profile});assert.equal(next.inspect().effects.length,1);assert.equal(next.inspect().attempts[0].report.state,'APPLIED');
+});

@@ -1,3 +1,4 @@
+import { DUTY_POLICY_VERSION, DUTY_POLICY_RULES_HASH } from "./duty-policy.ts";
 import {
   resolvePortableAdapterPolicy, validateKnownPortableAdapterProfile,
   validatePortableAdapterAcknowledgmentShape, validatePortableAdapterNoEffectShape,
@@ -109,6 +110,9 @@ export const CORE_EVENT_TYPES = Object.freeze([
   "ATTEMPT_DUTY_CREATED",
   "ATTEMPT_DUTY_ASSIGNED",
   "ATTEMPT_DUTY_REVIEW_CLOSED",
+  "ATTEMPT_DUTY_POLICY_ACTIVATED",
+  "ATTEMPT_DUTY_DISPOSITION_RECORDED",
+  "ATTEMPT_DUTY_CONTEST_RECORDED",
 ] as const);
 
 export type CoreEventType = (typeof CORE_EVENT_TYPES)[number];
@@ -1167,6 +1171,9 @@ const ADMINISTRATIVE_EVENT_TYPES = [
   "ATTEMPT_DUTY_CREATED",
   "ATTEMPT_DUTY_ASSIGNED",
   "ATTEMPT_DUTY_REVIEW_CLOSED",
+  "ATTEMPT_DUTY_POLICY_ACTIVATED",
+  "ATTEMPT_DUTY_DISPOSITION_RECORDED",
+  "ATTEMPT_DUTY_CONTEST_RECORDED",
 ] as const;
 
 const administrativeChallenge = (v: ShapeValidator, value: unknown, path: string): boolean => {
@@ -1231,6 +1238,55 @@ const obligationCreatedData = (v: ShapeValidator, value: unknown, path: string):
     obligationRecord(v, record.record, `${path}.record`) &&
     identifier(v, record.actorId, `${path}.actorId`) &&
     administrativeAuthorization(v, record.administrativeAuthorization, `${path}.administrativeAuthorization`);
+};
+
+const dutyText = (v: ShapeValidator, value: unknown, path: string, max: number): boolean =>
+  typeof value === "string" && boundedWellFormedUtf8Status(value, max) === "VALID" || v.fail(path, "must be bounded UTF-8 text");
+const dutyDigest = (v: ShapeValidator, value: unknown, path: string): boolean => {
+ const r=v.record(value,path,["algorithm","value"]);
+ return r!==undefined&&r.algorithm==="sha256"&&contentHash(v,r.value,`${path}.value`);
+};
+const dutyFinding = (v: ShapeValidator, value: unknown, path: string): boolean => {
+ const f=v.record(value,path,["challenge","runtimeSignature"]);if(!f||!signature65(v,f.runtimeSignature,`${path}.runtimeSignature`))return false;
+ const c=v.record(f.challenge,`${path}.challenge`,["version","purpose","domain","rulesHash","descriptorHash","activationEventId","dutyId","sourceAdmissionEventId","transitionEventId","transitionEventType","evaluationTime","priorHead","latestAssignmentEventId","previousDispositionEventId","evidenceIndexHash","operation","attesterId","runtimeSessionId","credentialKeyId","controlEpoch","roleId","roleTenureId","attestationAuthorityId","dispositionAuthorityId","authorityProofHash"]);
+ if(!c||c.version!=="continuity-duty-finding/1"||c.rulesHash!==DUTY_POLICY_RULES_HASH||
+   !authorizationDomain(v,c.domain,`${path}.domain`)||!historyHead(v,c.priorHead,`${path}.priorHead`)||
+   !u53(v,c.evaluationTime,`${path}.evaluationTime`)||!u53(v,c.controlEpoch,`${path}.controlEpoch`))return false;
+ for(const key of ["descriptorHash","evidenceIndexHash","authorityProofHash"])if(!contentHash(v,c[key],`${path}.${key}`))return false;
+ for(const key of ["activationEventId","dutyId","sourceAdmissionEventId","transitionEventId","latestAssignmentEventId","attesterId","runtimeSessionId","credentialKeyId","roleId","roleTenureId","attestationAuthorityId","dispositionAuthorityId"])if(!identifier(v,c[key],`${path}.${key}`))return false;
+ if(c.previousDispositionEventId!==null&&!identifier(v,c.previousDispositionEventId,`${path}.previousDispositionEventId`))return false;
+ if(c.purpose==="DISPOSITION"&&c.transitionEventType==="ATTEMPT_DUTY_DISPOSITION_RECORDED") {
+  const o=v.record(c.operation,`${path}.operation`,["disposition","checklist","reportDigest","nextStep"]);
+  if(!o||!literal(v,o.disposition,`${path}.disposition`,["COMPLETED_UNDER_POLICY","ESCALATED"])||!dutyDigest(v,o.reportDigest,`${path}.reportDigest`)||
+    (o.nextStep!==null&&!dutyText(v,o.nextStep,`${path}.nextStep`,512)))return false;
+  const keys=["SOURCE_REVIEWED","HISTORY_REVIEWED","FINDING_RECORDED","CONTROL_REVIEWED"];
+  const checklist=v.record(o.checklist,`${path}.checklist`,keys);if(!checklist)return false;
+  for(const key of keys){const r=v.record(checklist[key],`${path}.${key}`,["state","reason"]);if(!r||!literal(v,r.state,`${path}.state`,["SATISFIED","UNAVAILABLE","UNRESOLVED"])||!dutyText(v,r.reason,`${path}.reason`,256))return false;}
+  return true;
+ }
+ if(c.purpose==="CONTEST"&&c.transitionEventType==="ATTEMPT_DUTY_CONTEST_RECORDED") {
+  const o=v.record(c.operation,`${path}.operation`,["targetDispositionEventId","reason","reportDigest"]);
+  return o!==undefined&&identifier(v,o.targetDispositionEventId,`${path}.targetDispositionEventId`)&&dutyText(v,o.reason,`${path}.reason`,256)&&
+    typeof o.reason==="string"&&o.reason.trim().length>0&&dutyDigest(v,o.reportDigest,`${path}.reportDigest`);
+ }
+ return false;
+};
+
+const dutyPolicyDescriptor = (v: ShapeValidator, value: unknown, path: string): boolean => {
+  const r = v.record(value, path, ["version", "rulesHash", "criteriaProfile", "domain", "genesisHash",
+    "baseAdapterPolicyHash", "dutyId", "dutyCreationEventId", "dutyRecordHash", "sourceIntentId",
+    "sourceAdmissionEventId", "durableRoleId", "principalId", "incidentSourceDigest", "acceptedAttesterRoleId",
+    "dispositionLimit", "contestLimit"]);
+  if (!r || r.version !== DUTY_POLICY_VERSION || r.rulesHash !== DUTY_POLICY_RULES_HASH ||
+      r.criteriaProfile !== "local-investigation/1" || r.dispositionLimit !== 4 || r.contestLimit !== 2) return false;
+  const digest = v.record(r.incidentSourceDigest, `${path}.incidentSourceDigest`, ["algorithm", "value"]);
+  return digest !== undefined && digest.algorithm === "sha256" && contentHash(v, digest.value, `${path}.incidentSourceDigest.value`) &&
+    authorizationDomain(v, r.domain, `${path}.domain`) && contentHash(v, r.genesisHash, `${path}.genesisHash`) &&
+    contentHash(v, r.baseAdapterPolicyHash, `${path}.baseAdapterPolicyHash`) && contentHash(v, r.dutyRecordHash, `${path}.dutyRecordHash`) &&
+    identifier(v, r.dutyId, `${path}.dutyId`) && identifier(v, r.dutyCreationEventId, `${path}.dutyCreationEventId`) &&
+    identifier(v, r.sourceIntentId, `${path}.sourceIntentId`) && identifier(v, r.sourceAdmissionEventId, `${path}.sourceAdmissionEventId`) &&
+    identifier(v, r.durableRoleId, `${path}.durableRoleId`) && identifier(v, r.principalId, `${path}.principalId`) &&
+    identifier(v, r.acceptedAttesterRoleId, `${path}.acceptedAttesterRoleId`);
 };
 
 const attemptDutyRecord = (v: ShapeValidator, value: unknown, path: string): boolean => {
@@ -1748,6 +1804,19 @@ mapSet(
   ),
 );
 mapSet(CORE_EVENT_NAMED_LIMITS, "OBLIGATION_CREATED", LIMIT_OBLIGATION_CREATED_DATA);
+for (const type of ["ATTEMPT_DUTY_DISPOSITION_RECORDED", "ATTEMPT_DUTY_CONTEST_RECORDED"] as const) {
+ mapSet(CORE_EVENT_NAMED_LIMITS,type,limitRecord(limitField("actorId",LIMIT_IDENTIFIER),limitField("dutyId",LIMIT_IDENTIFIER),limitField("dispositionAuthorityId",LIMIT_IDENTIFIER),
+  limitField("administrativeAuthorization",LIMIT_ADMINISTRATIVE_AUTHORIZATION),limitField("finding",limitRecord(limitField("challenge",limitRecord(
+   limitField("domain",LIMIT_DOMAIN),... ["activationEventId","dutyId","sourceAdmissionEventId","transitionEventId","latestAssignmentEventId","previousDispositionEventId","attesterId","runtimeSessionId","credentialKeyId","roleId","roleTenureId","attestationAuthorityId","dispositionAuthorityId"].map(key=>limitField(key,LIMIT_IDENTIFIER))))))));
+}
+mapSet(CORE_EVENT_NAMED_LIMITS, "ATTEMPT_DUTY_POLICY_ACTIVATED", limitRecord(
+  limitField("actorId", LIMIT_IDENTIFIER), limitField("activationAuthorityId", LIMIT_IDENTIFIER),
+  limitField("descriptor", limitRecord(limitField("domain", LIMIT_DOMAIN), limitField("dutyId", LIMIT_IDENTIFIER),
+    limitField("dutyCreationEventId", LIMIT_IDENTIFIER), limitField("sourceIntentId", LIMIT_IDENTIFIER),
+    limitField("sourceAdmissionEventId", LIMIT_IDENTIFIER), limitField("durableRoleId", LIMIT_IDENTIFIER),
+    limitField("principalId", LIMIT_IDENTIFIER), limitField("acceptedAttesterRoleId", LIMIT_IDENTIFIER))),
+  limitField("administrativeAuthorization", LIMIT_ADMINISTRATIVE_AUTHORIZATION),
+));
 mapSet(CORE_EVENT_NAMED_LIMITS, "ATTEMPT_DUTY_REVIEW_CLOSED", limitRecord(
   limitField("dutyId", LIMIT_IDENTIFIER), limitField("actorId", LIMIT_IDENTIFIER),
   limitField("observationEventIds", limitList(LIMIT_IDENTIFIER, 128, "attempt-review-observations")),
@@ -2386,6 +2455,20 @@ const validateEventData = (
         record.acknowledgment.schemaVersion === REMOTE_SERVICE_REPORT_ACKNOWLEDGMENT_VERSION &&
         adapterEvidence(v, record.acknowledgment, `${path}.acknowledgment`) &&
         identifier(v, record.actorId, `${path}.actorId`) &&
+        administrativeAuthorization(v, record.administrativeAuthorization, `${path}.administrativeAuthorization`);
+    }
+    case "ATTEMPT_DUTY_DISPOSITION_RECORDED":
+    case "ATTEMPT_DUTY_CONTEST_RECORDED": {
+      const r=v.record(value,path,["version","rulesHash","dutyId","actorId","dispositionAuthorityId","finding","administrativeAuthorization"]);
+      return r!==undefined&&r.version===DUTY_POLICY_VERSION&&r.rulesHash===DUTY_POLICY_RULES_HASH&&
+        identifier(v,r.dutyId,`${path}.dutyId`)&&identifier(v,r.actorId,`${path}.actorId`)&&identifier(v,r.dispositionAuthorityId,`${path}.dispositionAuthorityId`)&&
+        dutyFinding(v,r.finding,`${path}.finding`)&&administrativeAuthorization(v,r.administrativeAuthorization,`${path}.administrativeAuthorization`);
+    }
+    case "ATTEMPT_DUTY_POLICY_ACTIVATED": {
+      const record = v.record(value, path, ["actorId", "descriptor", "descriptorHash", "activationAuthorityId", "administrativeAuthorization"]);
+      return record !== undefined && identifier(v, record.actorId, `${path}.actorId`) &&
+        dutyPolicyDescriptor(v, record.descriptor, `${path}.descriptor`) && contentHash(v, record.descriptorHash, `${path}.descriptorHash`) &&
+        identifier(v, record.activationAuthorityId, `${path}.activationAuthorityId`) &&
         administrativeAuthorization(v, record.administrativeAuthorization, `${path}.administrativeAuthorization`);
     }
     case "ATTEMPT_DUTY_CREATED": {

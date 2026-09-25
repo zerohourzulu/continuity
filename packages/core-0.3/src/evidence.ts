@@ -57,7 +57,7 @@ export function openLocalEvidenceTool(options: EvidenceToolOptions) {
   });
   const additionalPolicy = capturePolicy(options.additionalPolicy);
   const config = {
-    historyFile: options.historyFile,
+    ...(options.historyProfile === undefined ? {historyFile: options.historyFile} : {historyProfile: options.historyProfile, historyBinding: options.historyBinding}),
     domain: options.domain,
     owner: options.owner,
     controller: options.controller,

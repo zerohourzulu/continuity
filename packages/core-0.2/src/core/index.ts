@@ -68,3 +68,12 @@ export {
 } from "./portable-adapter-engine.ts";
 export type { PortableAdapterProfile, PortableAdapterAcknowledgment, PortableAdapterNoEffect, PortableAdapterIdentity,
   RemoteServiceReportAcknowledgment, LocalDocumentReleaseAcknowledgment, ImmutablePolicy, PortableSimulatedAdapterAcknowledgment, PortableLocalPacketAdapterAcknowledgment, LocalSyntheticEndpointStateAcknowledgment } from "./portable-adapter-engine.ts";
+
+export { DUTY_POLICY_VERSION, DUTY_POLICY_RULES_HASH, DUTY_POLICY_RULES, DUTY_VIEW_VERSION,
+  buildPortableDutyPolicyDescriptor, inspectPortableDutyPolicy } from "./duty-policy.ts";
+export type { PortableDutyPolicyDescriptor, PortableDutyPolicySelection, PortableDutyDocumentDigest,
+  PortableDutyPolicyActivation, PortableDutyPolicyActivatedData, PortableDutyPolicyView } from "./duty-policy.ts";
+
+export { DUTY_FINDING_VERSION, DUTY_CRITERIA } from './duty-disposition.ts';
+export type { PortableDutyChecklist, PortableDutyDispositionOperation, PortableDutyContestOperation,
+  PortableDutyFindingChallenge, PortableDutyFinding, PortableDutyTransitionType } from './duty-disposition.ts';

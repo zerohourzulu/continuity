@@ -1,0 +1,81 @@
+{
+  "name": "@ramex-labs/continuity-mcp-gateway",
+  "version": "0.3.0-preview.10",
+  "type": "module",
+  "license": "Apache-2.0",
+  "description": "MCP gateway preview with fixed jobs and authenticated loopback HTTP",
+  "engines": {
+    "node": "^22.18.0 || ^24.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/gateway.d.ts",
+      "import": "./src/gateway.mjs"
+    },
+    "./http": {
+      "types": "./src/http.d.ts",
+      "import": "./src/http.mjs"
+    },
+    "./cooperative": {
+      "types": "./src/cooperative.d.ts",
+      "import": "./src/cooperative.mjs"
+    },
+    "./operations": {
+      "types": "./src/operations.d.ts",
+      "import": "./src/operations.mjs"
+    },
+    "./access-policy": {
+      "types": "./src/access-policy.d.ts",
+      "import": "./src/access-policy.mjs"
+    }
+  },
+  "bin": {
+    "continuity-mcp-gateway": "./src/cli.mjs",
+    "continuity-mcp-ops": "./src/ops-cli.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "demo": "node examples/demo.mjs",
+    "demo:http": "node examples/http-demo.mjs",
+    "demo:recovery": "node examples/recovery-demo.mjs",
+    "demo:tasks": "node examples/tasks-demo.mjs"
+  },
+  "dependencies": {
+    "@ramex-labs/continuity": "0.3.0-preview.10",
+    "@modelcontextprotocol/client": "2.0.0",
+    "@modelcontextprotocol/server": "2.0.0",
+    "viem": "2.55.19",
+    "jose": "6.2.12",
+    "@ramex-labs/continuity-remote": "0.3.0-preview.5"
+  },
+  "files": [
+    "src",
+    "examples",
+    "README.md",
+    "CONTRACT.md",
+    "LICENSE",
+    "NOTICE",
+    "HTTP.md",
+    "RECOVERY.md",
+    "TASKS.md",
+    "OPERATIONS.md",
+    "COMPATIBILITY.md",
+    "ACCESS-POLICY.md",
+    "IDENTITY.md",
+    "REGISTRY.md",
+    "CAPACITY.md",
+    "HISTORY.md",
+    "BUILD-PROVENANCE.json"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "tag": "preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zerohourzulu/continuity.git",
+    "directory": "packages/mcp-gateway"
+  },
+  "mcpName": "io.github.zerohourzulu/continuity-gateway",
+  "private": false
+}

@@ -16,3 +16,14 @@ export {captureHistory} from "./observation.ts";
 export {captureData, record, identifier, requireCondition} from "./input.ts";
 
 export {capacityOf, LOCAL_CAPACITY_PROFILE} from "./capacity.ts";
+
+export {openConfiguredEventStore, ConfiguredDirectoryEventStore, SEGMENTED_HISTORY_PROFILE, observeConfiguredStore} from "./configured-store.ts";
+export {observeContinuationHistory} from "./observation.ts";
+
+export {createHistoryTransfer, openCheckpointStorage, TRANSFER_VERSION, TRANSFER_STORAGE_LIMITS} from "./history-store/transfer.ts";
+export {captureContinuationHistory, CONTINUATION_HISTORY_VERSION, exportContinuationEvents, continuationPrefix, CONTINUATION_PROFILE} from "./history.ts";
+
+export type {HistoryLocation} from "./configured-store.ts";
+export type {VerifiedHistory} from "./history.ts";
+export {historyCapacity} from "./history-store/capacity.ts";
+export {observeHistory} from "./observation.ts";

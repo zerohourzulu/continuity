@@ -1,3 +1,5 @@
+> **Prepared continuation release:** To evaluate the new local archives in this source, follow [supported profiles](SUPPORTED-PROFILES.md) and [the exact installed checks](HISTORY-INTEGRATION.md#reproduce-the-evaluation). The public download/install commands below intentionally describe the preceding published release; they do not install this candidate.
+
 # Give an agent permission, then take it away
 
 Start here if you want to build with Continuity. This example runs in a new application, creates its own history and makes no network calls after installation. You need Node22.18+ (22.x),24.x or26.x on macOS or Linux. No model account, chain account, Python or global pnpm is needed.
@@ -69,4 +71,4 @@ Expect `Old live process: RUNTIME_NOT_CURRENT`, `Replacement can read? DENY`, `D
 - [Public tests](CORE-0.3-TESTING.md): reproduce the behavior independently.
 - [Compatibility and migration](CORE-0.3-MIGRATION.md): what is supported and what remains your application's responsibility.
 
-The npm package is `@ramex-labs/continuity`. Install the exact preview with `npm install --ignore-scripts @ramex-labs/continuity@0.3.0-preview.8`, or use the supplied archive. If a command fails, keep the exact error and your Node version; the repository's Issues page welcomes synthetic reproductions without keys or private incident data.
+The npm package is `@ramex-labs/continuity`. Install the exact preview with `npm install --ignore-scripts @ramex-labs/continuity@0.3.0-preview.10`, or use the supplied archive. If a command fails, keep the exact error and your Node version; the repository's Issues page welcomes synthetic reproductions without keys or private incident data.

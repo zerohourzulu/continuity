@@ -1,3 +1,11 @@
+# Preview.10 verification — 25 September 2026
+
+The four exact packages install into fresh applications on macOS Node22.18/24.21 and Linux Node24.19. Checks verify 213 installed files, one shared Core, strict public TypeScript, current investigation status through authenticated HTTP MCP, native LangChain tool use, evidence stdio, restart and recovery without repeating the action. Standard builds on clean Mac24 and Linux24 reproduce all four archives exactly.
+
+The public source edition changes release wording, links and website guide copies without changing tested npm bytes. Earlier continuation/investigation semantic and isolated Linux workflow evidence is reused; it was not rerun merely for these editorial changes. Current CI targets macOS/Linux Node22.18 and24. Hosted results are available in [GitHub Actions](https://github.com/zerohourzulu/continuity/actions); this local record does not assert a hosted result before completion. Historical Node26 checks below apply to earlier releases.
+
+Archive inventories, local references and bounded sensitive-pattern checks pass locally. These checks are not an exhaustive security audit or production assurance. The dated records below keep their original scope.
+
 # Browser playground integration — 23 September 2026
 
 Source preview.8.2 adds the previously developed static playground to the current release. The Core 0.3 runtime, all four npm archives and the original Node SDK are unchanged.

@@ -70,9 +70,9 @@ function readIdentity(path) {
     exact(value.identity,IDENTITY_KEYS)&&value.checksum===canonicalDigest({version:value.version,identity:value.identity}),'DESTINATION_IDENTITY_INVALID');
   return value.identity;
 }
-function validateState(input,identity) {
+function validateState(input,identity,checkpointResolver) {
   const state=capture(input);
-  check(exact(state,STATE_KEYS)&&state.version===STATE_VERSION&&integer(state.sequence)&&integer(state.lastTime));
+  check(exact(state,STATE_KEYS)&&[STATE_VERSION,"continuity-cooperative-destination/2"].includes(state.version)&&integer(state.sequence)&&integer(state.lastTime));
   check(exact(state.domain,['protocol','version','deploymentId','chainId','verifyingContract'])&&
     state.domain.protocol==='continuity'&&state.domain.version==='0.2'&&identifier(state.domain.deploymentId)&&
     typeof state.domain.chainId==='string'&&/^[1-9][0-9]*$/.test(state.domain.chainId)&&state.domain.chainId.length<=78&&
@@ -82,11 +82,15 @@ function validateState(input,identity) {
   if(identity)check(equal(identityOf(state),identity),'DESTINATION_IDENTITY_MISMATCH');
   for(const key of ['attempts','businessKeys','effects'])check(Array.isArray(state[key])&&state[key].length<=RECORD_LIMIT,'DESTINATION_RECORD_LIMIT');
   if(state.checkpoint!==null){
-    check(exact(state.checkpoint,['head','events'])&&Array.isArray(state.checkpoint.events)&&state.checkpoint.events.length>0&&state.checkpoint.events.length<=256);
+    const segmented=state.version==='continuity-cooperative-destination/2';
+    check(exact(state.checkpoint,segmented?['head','reference']:['head','events']));
+    const events=segmented?checkpointResolver?.(state.checkpoint.reference):state.checkpoint.events;
+    check(Array.isArray(events)&&events.length>0&&events.length<=(segmented?1024:256));
     const head=state.checkpoint.head;
     check(exact(head,['hash','position','canonicalTime'])&&typeof head.hash==='string'&&HASH.test(head.hash)&&integer(head.position)&&integer(head.canonicalTime)&&
-      head.position===state.checkpoint.events.length-1&&head.canonicalTime<=state.lastTime);
+      head.position===events.length-1&&head.canonicalTime<=state.lastTime);
   }
+
   const attemptKeys=new Set(),businessKeys=new Set(),effectKeys=new Set();
   for(const attempt of state.attempts){
     check(exact(attempt,['key','fingerprint','intentId','operation','normalized','checkpointHead','preparedAt','report']));
@@ -107,7 +111,7 @@ function validateState(input,identity) {
   }
   return state;
 }
-function monotonic(previous,next) {
+function monotonic(previous,next,checkpointResolver) {
   check(next.sequence===previous.sequence,'DESTINATION_SEQUENCE_OWNED_BY_STORE');
   check(next.lastTime>=previous.lastTime,'DESTINATION_TIME_ROLLBACK');
   for(const key of ['attempts','businessKeys','effects'])check(next[key].length>=previous[key].length,'DESTINATION_PRUNING_FORBIDDEN');
@@ -119,19 +123,24 @@ function monotonic(previous,next) {
   }
   for(const key of ['businessKeys','effects'])for(let index=0;index<previous[key].length;index++)check(equal(previous[key][index],next[key][index]),'DESTINATION_RETAINED_RECORD_CHANGED');
   if(previous.checkpoint!==null){
-    check(next.checkpoint!==null&&next.checkpoint.events.length>=previous.checkpoint.events.length,'DESTINATION_CHECKPOINT_ROLLBACK');
-    for(let index=0;index<previous.checkpoint.events.length;index++)check(equal(previous.checkpoint.events[index],next.checkpoint.events[index]),'DESTINATION_CHECKPOINT_FORK');
+    check(next.checkpoint!==null,'DESTINATION_CHECKPOINT_ROLLBACK');
+    if(!equal(previous.checkpoint,next.checkpoint)){
+      const events=c=>previous.version==='continuity-cooperative-destination/2'?checkpointResolver(c.reference):c.events;
+      const prior=events(previous.checkpoint),after=events(next.checkpoint);
+      check(after.length>=prior.length,'DESTINATION_CHECKPOINT_ROLLBACK');
+      for(let index=0;index<prior.length;index++)check(equal(prior[index],after[index]),'DESTINATION_CHECKPOINT_FORK');
+    }
   }
 }
 function snapshotEnvelope(state,identityHash) {
   const body={version:SNAPSHOT_VERSION,identityHash,state};
   return {...body,checksum:canonicalDigest(body)};
 }
-function loadSnapshot(path,identity) {
+function loadSnapshot(path,identity,checkpointResolver) {
   const value=readFile(path);
   check(exact(value,['version','identityHash','state','checksum'])&&value.version===SNAPSHOT_VERSION&&
     value.identityHash===canonicalDigest(identity)&&value.checksum===canonicalDigest({version:value.version,identityHash:value.identityHash,state:value.state}),'DESTINATION_INTEGRITY_INVALID');
-  return validateState(value.state,identity);
+  return validateState(value.state,identity,checkpointResolver);
 }
 function lockRecord() {return {version:LOCK_VERSION,hostname:hostname(),pid:process.pid,instance:randomUUID()}}
 function validateLock(value) {
@@ -168,8 +177,8 @@ export function recoverDestinationLock({directory,expectedLock}) {
 }
 
 /** One lifetime lock, no pruning or implicit unlock/reinitialization. */
-export function openDestinationStore({directory,initial}) {
-  const root=checkedDirectory(directory),initialState=validateState(initial);
+export function openDestinationStore({directory,initial,checkpointResolver}) {
+  const root=checkedDirectory(directory),initialState=validateState(initial,undefined,checkpointResolver);
   check(initialState.sequence===0&&initialState.lastTime===0&&initialState.checkpoint===null&&
     initialState.attempts.length===0&&initialState.businessKeys.length===0&&initialState.effects.length===0,'DESTINATION_INITIAL_INVALID');
   const identity=identityOf(initialState),lock=lockRecord();
@@ -194,13 +203,13 @@ export function openDestinationStore({directory,initial}) {
       writeSnapshot(initialState);poisoned=false;
     } else check(hasIdentity&&hasSnapshot,'DESTINATION_STATE_MISSING');
     check(equal(readIdentity(identityPath),identity),'DESTINATION_IDENTITY_MISMATCH');
-    current=loadSnapshot(snapshotPath,identity);
+    current=loadSnapshot(snapshotPath,identity,checkpointResolver);
   }catch(error){if(!poisoned)release();throw error}
   const active=()=>{check(!closed,'DESTINATION_STORE_CLOSED');check(!poisoned,'DESTINATION_STORE_UNCERTAIN');check(!busy,'DESTINATION_STORE_BUSY')};
   const verify=()=>{
     try{
       assertOwnLock(lockPath,lock);check(equal(readIdentity(identityPath),identity),'DESTINATION_IDENTITY_MISMATCH');
-      const stored=loadSnapshot(snapshotPath,identity);
+      const stored=loadSnapshot(snapshotPath,identity,checkpointResolver);
       check(equal(stored,current),'DESTINATION_EXTERNAL_STATE_CHANGE');return stored;
     }catch(error){poisoned=true;throw error}
   };
@@ -214,10 +223,10 @@ export function openDestinationStore({directory,initial}) {
         check(!types.isPromise(answer),'DESTINATION_ASYNC_TRANSACTION');
         const captured=capture(answer);
         check(exact(captured,['state','result']),'DESTINATION_TRANSACTION_INVALID');
-        let next=validateState(captured.state,identity);monotonic(previous,next);
+        let next=validateState(captured.state,identity,checkpointResolver);monotonic(previous,next,checkpointResolver);
         if(equal(previous,next))return Object.freeze({state:previous,result:captured.result});
         check(previous.sequence<Number.MAX_SAFE_INTEGER,'DESTINATION_SEQUENCE_LIMIT');
-        next=validateState({...next,sequence:previous.sequence+1},identity);
+        next=validateState({...next,sequence:previous.sequence+1},identity,checkpointResolver);
         try{writeSnapshot(next);current=next}catch(error){poisoned=true;throw Object.assign(new Error('DESTINATION_COMMIT_UNCERTAIN'),{code:'DESTINATION_COMMIT_UNCERTAIN',cause:error})}
         return Object.freeze({state:current,result:captured.result});
       }finally{busy=false}
@@ -229,4 +238,67 @@ export function openDestinationStore({directory,initial}) {
       if(!poisoned)release();
     },
   });
+}
+
+/** Explicit quiesced, in-place destination format migration. No new checkpoint fence. */
+export async function migrateDestinationHistory({directory,quiesced,expectedIdentity,hooks={}}){
+  check(quiesced===true,'DESTINATION_QUIESCENCE_REQUIRED');
+  const root=checkedDirectory(directory),lock=lockRecord(),lockPath=join(root,'destination.lock');
+  check(!existsSync(join(root,'recovery.lock')),'DESTINATION_RECOVERY_LOCKED');
+  createFile(lockPath,lock,65536);syncDirectory(root);
+  let uncertain=false;
+  try{
+    const {mkdirSync}=await import('node:fs');
+    const {captureContinuationHistory,CONTINUATION_HISTORY_VERSION,exportContinuationEvents}=await import('../core-0.3/src/history.ts');
+    const {createHistoryTransfer,openCheckpointStorage}=await import('../core-0.3/src/history-store/transfer.ts');
+    const staged=join(root,'migration-v2'),planPath=join(staged,'plan.bin');
+    if(!existsSync(staged)){mkdirSync(staged,{mode:0o700});syncDirectory(root);}
+    checkedDirectory(staged);
+    const identityPath=join(root,'identity.bin'),snapshotPath=join(root,'snapshot.bin');
+    const oldIdentityPath=join(staged,'identity-original.bin'),oldSnapshotPath=join(staged,'snapshot-original.bin');
+    const newIdentityPath=join(staged,'identity-next.bin'),newSnapshotPath=join(staged,'snapshot-next.bin');
+    let plan;
+    if(!existsSync(planPath)){
+      check(readdirSync(staged).length===0,'DESTINATION_MIGRATION_PARTIAL');
+      const identity=readIdentity(identityPath);check(identity.version===STATE_VERSION&&equal(identity,expectedIdentity),'DESTINATION_IDENTITY_MISMATCH');
+      const original=readFile(snapshotPath),state=loadSnapshot(snapshotPath,identity);
+      const nextIdentity={...identity,version:'continuity-cooperative-destination/2'},storage=openCheckpointStorage(root);
+      let checkpoint=null;
+      if(state.checkpoint){
+        const history=captureContinuationHistory({operationVersion:CONTINUATION_HISTORY_VERSION,events:state.checkpoint.events,expectedHead:state.checkpoint.head});
+        const transfer=createHistoryTransfer(history);storage.begin(transfer.manifest,transfer.transferId,null);
+        for(let i=0;i<transfer.chunks.length;i++)storage.chunk(transfer.transferId,i,transfer.chunks[i]);
+        storage.ready(transfer.transferId);checkpoint={head:state.checkpoint.head,reference:transfer.transferId};
+      }
+      const next={...state,version:nextIdentity.version,checkpoint};
+      validateState(next,nextIdentity,id=>exportContinuationEvents(storage.load(id)));
+      const identityEnvelopeNext=identityEnvelope(nextIdentity),snapshotNext=snapshotEnvelope(next,canonicalDigest(nextIdentity));
+      createFile(oldIdentityPath,readFile(identityPath));createFile(oldSnapshotPath,original);
+      createFile(newIdentityPath,identityEnvelopeNext);createFile(newSnapshotPath,snapshotNext);
+      plan={version:'continuity-destination-migration/1',sourceIdentity:identity,targetIdentity:nextIdentity,
+        sourceIdentityDigest:canonicalDigest(readFile(oldIdentityPath)),sourceSnapshotDigest:canonicalDigest(original),
+        targetIdentityDigest:canonicalDigest(identityEnvelopeNext),targetSnapshotDigest:canonicalDigest(snapshotNext)};
+      createFile(planPath,plan,65536);syncDirectory(staged);hooks.point?.('destination-migration-staged');
+    }else plan=readFile(planPath,65536);
+    check(exact(plan,['version','sourceIdentity','targetIdentity','sourceIdentityDigest','sourceSnapshotDigest','targetIdentityDigest','targetSnapshotDigest'])&&
+      plan.version==='continuity-destination-migration/1'&&equal(plan.sourceIdentity,expectedIdentity),'DESTINATION_MIGRATION_INVALID');
+    for(const [path,digest] of [[oldIdentityPath,plan.sourceIdentityDigest],[oldSnapshotPath,plan.sourceSnapshotDigest],[newIdentityPath,plan.targetIdentityDigest],[newSnapshotPath,plan.targetSnapshotDigest]])
+      check(canonicalDigest(readFile(path))===digest,'DESTINATION_MIGRATION_CHANGED');
+    const identityDigest=canonicalDigest(readFile(identityPath)),snapshotDigest=canonicalDigest(readFile(snapshotPath));
+    check([plan.sourceIdentityDigest,plan.targetIdentityDigest].includes(identityDigest)&&[plan.sourceSnapshotDigest,plan.targetSnapshotDigest].includes(snapshotDigest),'DESTINATION_MIGRATION_CHANGED');
+    check(identityDigest===plan.targetIdentityDigest||snapshotDigest===plan.sourceSnapshotDigest,'DESTINATION_MIGRATION_CHANGED');
+    const replace=(source,target,name)=>{
+      const value=readFile(source),temporary=join(root,name);
+      if(existsSync(temporary))check(equal(readFile(temporary),value),'DESTINATION_MIGRATION_CHANGED');else createFile(temporary,value);
+      renameSync(temporary,target);syncDirectory(root);
+    };
+    uncertain=true;hooks.point?.('before-destination-version-fence');
+    if(identityDigest!==plan.targetIdentityDigest)replace(newIdentityPath,identityPath,'migration-identity.tmp');
+    hooks.point?.('destination-version-fenced');
+    if(snapshotDigest!==plan.targetSnapshotDigest)replace(newSnapshotPath,snapshotPath,'migration-snapshot.tmp');
+    hooks.point?.('destination-migration-active');
+    const storage=openCheckpointStorage(root),state=loadSnapshot(snapshotPath,plan.targetIdentity,id=>exportContinuationEvents(storage.load(id)));
+    check(canonicalDigest(readFile(identityPath))===plan.targetIdentityDigest,'DESTINATION_MIGRATION_CHANGED');
+    uncertain=false;return Object.freeze({status:'DESTINATION_MIGRATED',sequence:state.sequence,checkpointHead:state.checkpoint?.head??null,attempts:state.attempts.length,automaticEffectReplay:false});
+  }finally{if(!uncertain){assertOwnLock(lockPath,lock);unlinkSync(lockPath);syncDirectory(root);}}
 }

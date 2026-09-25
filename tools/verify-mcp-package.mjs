@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const temp = mkdtempSync(join(tmpdir(), "continuity-packed-mcp-"));
+let completed = false;
 const run = (cmd, args) => {
   const r = spawnSync(cmd, args, {
     cwd: temp,
@@ -26,8 +27,8 @@ try {
     "--ignore-scripts",
     "--no-audit",
     "--no-fund",
-    join(root, "sdk/ramex-labs-continuity-0.3.0-preview.8.tgz"),
-    join(root, "sdk/ramex-labs-continuity-mcp-0.3.0-preview.9.tgz"),
+    join(root, "sdk/investigation-release/ramex-labs-continuity-0.3.0-preview.10.tgz"),
+    join(root, "sdk/investigation-release/ramex-labs-continuity-mcp-0.3.0-preview.11.tgz"),
   ]);
   const pkg = join(temp, "node_modules/@ramex-labs/continuity-mcp");
   assert.equal(
@@ -49,6 +50,7 @@ try {
   // Verify the package-name launch used by Registry clients, not only named bins.
   run(process.execPath, [join(temp, "node_modules/.bin/continuity-evidence-setup"), join(temp, "registry-case")]);
   const clientSource = readFileSync(join(pkg, "client.mjs"), "utf8")
+    .replace("new URL('./package.json', import.meta.url)", "new URL('./node_modules/@ramex-labs/continuity-mcp/package.json', import.meta.url)")
     .replace('command: process.execPath,', 'command: "npx",')
     .replace('fileURLToPath(new URL("./server.mjs", import.meta.url)),', '"--no-install", "@ramex-labs/continuity-mcp",');
   writeFileSync(join(temp, "registry-client.mjs"), clientSource);
@@ -59,6 +61,8 @@ try {
   console.log(
     "PASS: independently installed MCP tarball, compiled Core, fresh keys, actual client/server and one-attempt retry.",
   );
+  completed = true;
 } finally {
-  rmSync(temp, { recursive: true, force: true });
+  if (completed) rmSync(temp, { recursive: true, force: true });
+  else console.error("Failed consumer retained:", temp);
 }

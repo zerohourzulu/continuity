@@ -4244,10 +4244,12 @@ export const validatePortableAdministrativeTransition = (
     event.type !== "OUTCOME_OBSERVATION_RECORDED" &&
     event.type !== "ATTEMPT_DUTY_CREATED" &&
     event.type !== "ATTEMPT_DUTY_ASSIGNED" &&
-    event.type !== "ATTEMPT_DUTY_REVIEW_CLOSED"
+    event.type !== "ATTEMPT_DUTY_REVIEW_CLOSED" &&
+    event.type !== "ATTEMPT_DUTY_POLICY_ACTIVATED" &&
+    event.type !== "ATTEMPT_DUTY_DISPOSITION_RECORDED" && event.type !== "ATTEMPT_DUTY_CONTEST_RECORDED"
   ) return false;
   if ((event.type === "OUTCOME_OBSERVATION_RECORDED" || event.type === "ATTEMPT_DUTY_CREATED" ||
-      event.type === "ATTEMPT_DUTY_ASSIGNED") && state.genesis.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E5_HASH &&
+      event.type === "ATTEMPT_DUTY_ASSIGNED" || event.type === "ATTEMPT_DUTY_POLICY_ACTIVATED") && state.genesis.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E5_HASH &&
       state.genesis.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E6_HASH) return false;
   if (event.type === "ATTEMPT_DUTY_REVIEW_CLOSED" && state.genesis.adapterPolicyHash !== PORTABLE_ADAPTER_POLICY_E6_HASH) return false;
   const data = event.data as Readonly<Record<string, unknown>>;

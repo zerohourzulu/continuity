@@ -1,3 +1,5 @@
+import type { PortableDutyDispositionData } from "./duty-disposition.ts";
+import type { PortableDutyPolicyDescriptor } from "./duty-policy.ts";
 import type { ContentHash } from "./canonical.ts";
 import type { AcceptedCanonicalEventShape } from "./event-schema.ts";
 import { objectFreeze } from "./host-intrinsics.ts";
@@ -76,6 +78,9 @@ export type PortableAttemptDutyReviewClosedData = Readonly<{
 }>;
 
 export type PortableAdministrativeTransitionEffect =
+  | (PortableDutyDispositionData & Readonly<{transitionEventType:"ATTEMPT_DUTY_DISPOSITION_RECORDED"|"ATTEMPT_DUTY_CONTEST_RECORDED"}>)
+  | Readonly<{ transitionEventType: "ATTEMPT_DUTY_POLICY_ACTIVATED"; actorId: string;
+      descriptor: PortableDutyPolicyDescriptor; descriptorHash: ContentHash; activationAuthorityId: string; }>
   | Readonly<{ transitionEventType: "ATTEMPT_DUTY_REVIEW_CLOSED";
       dutyId: string; actorId: string; observationEventIds: readonly string[]; summaryDigest: ContentHash; }>
 
@@ -160,6 +165,13 @@ export const portableAdministrativeTransitionEffect = (
 ): PortableAdministrativeTransitionEffect => {
   const data = event.data;
   switch (event.type) {
+    case "ATTEMPT_DUTY_DISPOSITION_RECORDED":
+    case "ATTEMPT_DUTY_CONTEST_RECORDED":
+      return objectFreeze({transitionEventType:event.type,version:data.version,rulesHash:data.rulesHash,dutyId:data.dutyId,actorId:data.actorId,dispositionAuthorityId:data.dispositionAuthorityId,finding:data.finding} as PortableAdministrativeTransitionEffect);
+    case "ATTEMPT_DUTY_POLICY_ACTIVATED":
+      return objectFreeze({ transitionEventType: event.type, actorId: data.actorId as string,
+        descriptor: data.descriptor as PortableDutyPolicyDescriptor, descriptorHash: data.descriptorHash as ContentHash,
+        activationAuthorityId: data.activationAuthorityId as string });
     case "OUTCOME_OBSERVATION_RECORDED":
       return objectFreeze({
         transitionEventType: event.type,
