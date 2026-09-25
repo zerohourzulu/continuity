@@ -190,7 +190,8 @@ test('E1–E5 hashes and ranks remain frozen; E5 keeps its output shape and reje
   assert.deepEqual([core.PORTABLE_ADAPTER_POLICY_HASH, core.PORTABLE_ADAPTER_POLICY_E2_HASH, core.PORTABLE_ADAPTER_POLICY_E3_HASH, core.PORTABLE_ADAPTER_POLICY_E4_HASH, core.PORTABLE_ADAPTER_POLICY_E5_HASH], hashes);
   assert.equal(core.resolvePortableAdapterPolicy(core.PORTABLE_ADAPTER_POLICY_E6_HASH).edition, 'E6');
   assert.deepEqual(core.resolvePortableAdapterPolicy(core.PORTABLE_ADAPTER_POLICY_E6_HASH).semanticExtensions, ['continuity-attempt-observation-duty/1', 'continuity-attempt-duty-review/1']);
-  assert.equal(CORE_EVENT_TYPES.at(-1), 'ATTEMPT_DUTY_REVIEW_CLOSED'); assert.equal(coreEventTypeRank('ATTEMPT_DUTY_ASSIGNED'), 23); assert.equal(coreEventTypeRank('ATTEMPT_DUTY_REVIEW_CLOSED'), 24);
+  // Later policy editions append events; the E6 event must keep its original rank.
+  assert.equal(CORE_EVENT_TYPES[24], 'ATTEMPT_DUTY_REVIEW_CLOSED'); assert.equal(coreEventTypeRank('ATTEMPT_DUTY_ASSIGNED'), 23); assert.equal(coreEventTypeRank('ATTEMPT_DUTY_REVIEW_CLOSED'), 24);
   const e5 = await setup(t, { e5: true }); await e5.recorder.observe({ id: 'legacy', intent: 'job:1', acknowledgment: e5.acknowledgment() });
   assert.equal(Object.hasOwn(e5.view().duty, 'reviews'), false); assert.equal(Object.hasOwn(e5.owner.survives('first').answer.attemptDuties[0], 'reviewStatus'), false);
   await assert.rejects(e5.recorder.reviewDuty(review), e => e.code === 'PROFILE_MISMATCH');

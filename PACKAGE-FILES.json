@@ -33,8 +33,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 6318,
-      "sha256": "d19fdf7600f44976190f39dfdb4ff3d9d832c45cdc98cd5d432dd9d090821020"
+      "bytes": 6831,
+      "sha256": "4541d8c3b350cc536d4de96957d41d229067ef98da8194163208b647a6904b76"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -93,13 +93,13 @@
     },
     {
       "path": "RELEASE-NOTES.md",
-      "bytes": 1433,
-      "sha256": "3e27551367ccc12095386ecf16cd6443b2ddf75e2c3a08de7dcc6740ca0f65bd"
+      "bytes": 1946,
+      "sha256": "a4ebf7724c4074f2f0fc49fd8143e2a61a0dd796e1b3e4e7076b600e7e1d7c40"
     },
     {
       "path": "RELEASE-STATUS.md",
       "bytes": 1961,
-      "sha256": "7240f88dd05c602ea3d026b50ede671772e6e11202583d8bbf30474f093ad240"
+      "sha256": "83980cd243003adf1e7a4322a4e67bf9bfa15b5250ebda75540288d531d9e56a"
     },
     {
       "path": "SECURITY.md",
@@ -118,8 +118,8 @@
     },
     {
       "path": "VALIDATION.md",
-      "bytes": 13264,
-      "sha256": "0e10415ee688a4300b6bbcb10b55e0cbb3470ec5d7ebb59e0d5ad409ddb99f9f"
+      "bytes": 13777,
+      "sha256": "1896e3b8ebcc2a9eeda56215911216ae822810704a043cf5e537a224e94bfba0"
     },
     {
       "path": "artifacts/gateway-package/ACCESS-POLICY.md",
@@ -604,7 +604,7 @@
     {
       "path": "docs/CURRENT-RELEASE.md",
       "bytes": 2571,
-      "sha256": "c778548c85527587f73c100254e33d9c34e1e7bb484e7877ff46611f026bf6ac"
+      "sha256": "1b7b0f572fe5ffa1e00287cd72d18aebd943b7783af7adc39b7d55f842d00996"
     },
     {
       "path": "docs/DEVELOPER.md",
@@ -1658,8 +1658,8 @@
     },
     {
       "path": "lab/duty-review.test.mjs",
-      "bytes": 23267,
-      "sha256": "5794e8eab515c57f3a231977e711690cfa2b6072b0b36782afaef56904b0ccb6"
+      "bytes": 23348,
+      "sha256": "5cf8c432f16209e65c296f052e87e9d1633cf27af230e1a0d1bc789bcad89328"
     },
     {
       "path": "lab/fixtures/cooperative-destination-child.mjs",
@@ -1799,12 +1799,12 @@
     {
       "path": "package-lock.json",
       "bytes": 12860,
-      "sha256": "05c7bc9b40295a4342183d2184abef507aa5ff7e9ba0e183cca9d5028ada5ec4"
+      "sha256": "78ab678abf873cb9991f725345adeb1acf9192ae67dfe04c5c8c256c08d6c4bf"
     },
     {
       "path": "package.json",
       "bytes": 2131,
-      "sha256": "805647e7b364a20ee48726c2f6c460026cc004bc7b7f18f492921523cc67c961"
+      "sha256": "e642d7746f9e162c56ecf5f24a11e111332718894ae9732e7cf4ccaf42bbd45e"
     },
     {
       "path": "packages/core/package.json",
@@ -10888,8 +10888,8 @@
     },
     {
       "path": "website/downloads/CHANGELOG.md",
-      "bytes": 6742,
-      "sha256": "6caf44ce785314be2e468c530f8b9cb4df2cf75a8b8e6ba27612d0c6f445242e"
+      "bytes": 7255,
+      "sha256": "50f2a6ae135a98c5476a07f720eb5101e65a4ce646c4c2712ba5e8e3abd91a21"
     },
     {
       "path": "website/downloads/LICENSE",
@@ -10914,7 +10914,7 @@
     {
       "path": "website/downloads/RELEASE-STATUS.md",
       "bytes": 2173,
-      "sha256": "d55a94820cb65e96c49d37455c231473013a1f8d8e789d296a27e3c28c10271c"
+      "sha256": "41685f9fd75d8bdfc54119dcb822abd8c22e57a28e64ce2c357ec7e13d3a9ae3"
     },
     {
       "path": "website/downloads/SECURITY.md",
@@ -10928,8 +10928,8 @@
     },
     {
       "path": "website/downloads/VALIDATION.md",
-      "bytes": 13688,
-      "sha256": "5b8db6ccbf4e7e93ac0345f787f6b1c3aa137978b422ef5ceda6e7bd5e19d0a0"
+      "bytes": 14201,
+      "sha256": "f4ee3c2d408cd0a4360147306c9170e6b9b64533955e6633044f3426094e2aa0"
     },
     {
       "path": "website/evidence/simulated-allow/authority-after.json",
@@ -11344,7 +11344,7 @@
     {
       "path": "website/index.html",
       "bytes": 13525,
-      "sha256": "df1740149820969ccf36a225af05a3738606a415b5ee716c8eaf282ef6e6c3d5"
+      "sha256": "84051ccb9075da2a977117ce56a92abfc55c10d7416718e1ca56b6d000e2a6a6"
     },
     {
       "path": "website/playground/ENGINE-PROVENANCE.json",

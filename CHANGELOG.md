@@ -1,3 +1,7 @@
+# Source preview.10.2 — compatibility test correction
+
+The E6 compatibility test now checks that its review event remains at rank 24, rather than assuming it is the last event after newer policy editions append events. Frozen policy hashes, rank checks and older-profile rejection checks remain. Runtime source and all four published npm packages are unchanged. The previous failed [hosted run](https://github.com/zerohourzulu/continuity/actions/runs/36198876668) is preserved; current results are in Actions.
+
 # Source preview.10.1 — reproducible package documentation
 
 Public guides now have a separate path from the original document snapshot embedded in the npm packages. This fixes the hosted rebuild check after the preview.10 publication wording changed. The four npm versions, archive bytes and runtime behavior are unchanged. The combined Node suite also has a thirty-minute outer budget instead of ten for slower hosted runners, with every test and assertion retained. Earlier source and failed validation evidence remain available.
