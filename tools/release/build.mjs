@@ -9,14 +9,14 @@ import {requireNpm} from './npm.mjs';
 const root=fileURLToPath(new URL('../../',import.meta.url)),versions=JSON.parse(readFileSync(new URL('./versions.json',import.meta.url)));
 const check=process.argv.includes('--check');if(process.argv.slice(2).some(x=>!['--check','--pack'].includes(x)))throw Error('Use [--check|--pack]');
 const npm=requireNpm({env:{...process.env,npm_config_cache:join(tmpdir(),'continuity-release-npm-cache')}});
-const out=join(root,'sdk/investigation-release'),scratch=mkdtempSync(join(tmpdir(),'continuity-release-build-'));
+const out=join(root,'sdk/message-release'),scratch=mkdtempSync(join(tmpdir(),'continuity-release-build-'));
 const sha=x=>createHash('sha256').update(x).digest('hex');
 const files=(dir,prefix='')=>readdirSync(dir,{withFileTypes:true}).filter(e=>!['node_modules','.DS_Store'].includes(e.name)).sort((a,b)=>a.name.localeCompare(b.name)).flatMap(e=>{if(e.isSymbolicLink())throw Error('Symlink in build');return e.isDirectory()?files(join(dir,e.name),prefix+e.name+'/'):[prefix+e.name];});
 const json=(path,value)=>writeFileSync(path,JSON.stringify(value,null,2)+'\n');
 const run=(args,cwd=root)=>{const p=spawnSync(process.execPath,args,{cwd,encoding:'utf8',env:{...process.env,PATH:dirname(process.execPath)+':'+process.env.PATH,npm_config_cache:join(tmpdir(),'continuity-release-npm-cache')}});if(p.status!==0||p.error)throw Error(p.stdout+p.stderr+String(p.error??''));return p.stdout;};
 const names={core:'continuity',remote:'continuity-remote',gateway:'continuity-mcp-gateway',evidence:'continuity-mcp'};
 const base=(part,extra)=>({name:'@ramex-labs/'+names[part],version:versions[part],private:false,type:'module',license:'Apache-2.0',repository:{type:'git',url:'https://github.com/zerohourzulu/continuity.git'},publishConfig:{access:'public',tag:'preview',registry:'https://registry.npmjs.org'},...extra});
-const provenance=(part,inputRoots)=>{const dir=join(scratch,part);json(join(dir,'BUILD-PROVENANCE.json'),{format:'continuity-coordinated-build/1',part,version:versions[part],compiler:'5.9.3',buildInputs:['tools/release/build.mjs','tools/release/npm.mjs','tools/release/versions.json','tools/sdk-build/tsconfig-core-0.3.json','docs/releases/'+part+'-'+versions[part]+'.md'].map(path=>({path,sha256:sha(readFileSync(join(root,path)))})),inputs:inputRoots.flatMap(path=>{const p=join(root,path);return files(p).map(f=>({path:path+'/'+f,sha256:sha(readFileSync(join(p,f)))}));}),outputs:files(dir).map(path=>({path,sha256:sha(readFileSync(join(dir,path)))}))});};
+const provenance=(part,inputRoots)=>{const dir=join(scratch,part);json(join(dir,'BUILD-PROVENANCE.json'),{format:'continuity-coordinated-build/1',part,version:versions[part],compiler:'5.9.3',buildInputs:['tools/release/build.mjs','tools/release/npm.mjs','tools/release/versions.json','tools/sdk-build/tsconfig-core-0.3.json','docs/releases/'+part+'-'+versions[part]+'.md'].map(path=>({path,sha256:sha(readFileSync(join(root,path)))})),inputs:inputRoots.flatMap(path=>{const p=join(root,path);return files(p).filter(f=>!(part==='evidence'&&f==='package-lock.json')).map(f=>({path:path+'/'+f,sha256:sha(readFileSync(join(p,f)))}));}),outputs:files(dir).map(path=>({path,sha256:sha(readFileSync(join(dir,path)))}))});};
 try{
  const compiler=join(root,'tools/sdk-build/node_modules/typescript');if(JSON.parse(readFileSync(join(compiler,'package.json'))).version!=='5.9.3')throw Error('Pinned TypeScript 5.9.3 required');
  for(const part of Object.keys(names)){mkdirSync(join(scratch,part),{recursive:true});for(const name of ['LICENSE','NOTICE'])cpSync(join(root,name),join(scratch,part,name));cpSync(join(root,'docs/releases',part+'-'+versions[part]+'.md'),join(scratch,part,'README.md'));}
@@ -24,7 +24,13 @@ try{
  const exports=Object.fromEntries(Object.entries({'.':'index','./history':'history','./history-store':'history-store/index','./local':'local-owner','./simulation':'simulation','./runtime':'runtime','./attempts':'attempts','./duties':'duties','./evidence':'evidence','./policy':'policy','./adapter':'adapter'}).map(([key,path])=>[key,{types:`./dist/core-0.3/src/${path}.d.ts`,import:`./dist/core-0.3/src/${path}.js`}]));
  json(join(core,'package.json'),base('core',{description:'Signed local authority, continuing case history and responsibility APIs',engines:{node:'^22.18.0 || ^24.0.0'},exports,bin:{'continuity-history-store':'dist/core-0.3/src/history-store/cli.js'},files:['dist','LICENSE','NOTICE','LICENSING.md','THIRD-PARTY-NOTICES.md','README.md','BUILD-PROVENANCE.json']}));
  for(const name of ['LICENSING.md','THIRD-PARTY-NOTICES.md'])cpSync(join(root,'sdk/core-0.3',name),join(core,name));
- provenance('core',['packages/core-0.2/src','packages/core-0.3/src']);
+ const messages=join(core,'messages');mkdirSync(messages);
+ for(const name of ['explain.mjs','strict-json.mjs','typed-description.mjs','catalogue.json','additional.json','index.d.mts'])cpSync(join(root,'messages',name),join(messages,name));
+ const coreManifest=JSON.parse(readFileSync(join(core,'package.json')));
+ coreManifest.exports['./messages']={types:'./messages/index.d.mts',import:'./messages/explain.mjs'};
+ coreManifest.bin['continuity-explain']='messages/explain.mjs';coreManifest.files.push('messages');
+ json(join(core,'package.json'),coreManifest);
+ provenance('core',['packages/core-0.2/src','packages/core-0.3/src','messages']);
  const remote=join(scratch,'remote'),remoteDist=join(remote,'dist/remote-tools');mkdirSync(remoteDist,{recursive:true});
  for(const name of ['wire.mjs','destination.mjs','protected-evidence.mjs','client.mjs','durable-store.mjs','validation.mjs','executor.mjs','recovery.mjs','langchain.mjs']){
   let code=readFileSync(join(root,'packages/remote-tools',name),'utf8').replace(/(['"])\.\.\/core-0\.[23]\/src\/[^'"]+\.ts\1/g,"'@ramex-labs/continuity/adapter'").replaceAll("'../../lab/strict-json.mjs'","'./strict-json.mjs'");writeFileSync(join(remoteDist,name),code);

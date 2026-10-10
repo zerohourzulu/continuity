@@ -8,7 +8,7 @@ for(const file of ['integrations/protected-evidence-mcp/package-lock.json','inte
  const lock=JSON.parse(readFileSync(resolve(root,file)));
  for(const [name,row] of Object.entries(lock.packages)) {
   if(!name.startsWith('node_modules/@ramex-labs/')||!row.resolved?.startsWith('file:'))continue;
-  const path=file==='tools/release/consumer-lock.json'?resolve(root,'sdk/investigation-release',row.resolved.slice('file:packages/'.length)):resolve(root,dirname(file),row.resolved.slice(5));
+  const path=file==='tools/release/consumer-lock.json'?resolve(root,'sdk/message-release',row.resolved.slice('file:packages/'.length)):resolve(root,dirname(file),row.resolved.slice(5));
   const integrity='sha512-'+createHash('sha512').update(readFileSync(path)).digest('base64');
   if(row.integrity!==integrity)throw Error('Local archive integrity mismatch: '+file+' '+name);
  }

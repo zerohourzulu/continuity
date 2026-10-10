@@ -80,7 +80,7 @@ npm ci --prefix tools/sdk-build --ignore-scripts --no-audit --no-fund
 node tools/release/build.mjs --check
 ```
 
-You do not need a global TypeScript or pnpm installation. To rebuild after changing source, run `node tools/release/build.mjs`. This compiles one shared Core and packs all four integrations under `sdk/investigation-release/`; it never logs in or publishes. Historical SDK outputs remain unchanged. `tools/release/versions.json` selects versions, and `RELEASE-PACKAGES.json` records exact package hashes. If you change package bytes, update the corresponding local dependency lock integrities before running the installer; `node tools/release/check-locks.mjs` detects a stale lock.
+You do not need a global TypeScript or pnpm installation. To rebuild after changing source, run `node tools/release/build.mjs`. This compiles one shared Core and packs all four integrations under `sdk/message-release/`; it never logs in or publishes. Historical SDK outputs remain unchanged. `tools/release/versions.json` selects versions, and `RELEASE-PACKAGES.json` records exact package hashes. If you change package bytes, update the corresponding local dependency lock integrities before running the installer; `node tools/release/check-locks.mjs` detects a stale lock.
 
 Use `node tools/release/install.mjs /absolute/empty/consumer-directory` to install those exact archives together. Registry access may be needed for pinned third-party dependencies; no lifecycle scripts run. Set `CONTINUITY_OFFLINE=1` with a populated `npm_config_cache` to require offline resolution. The installer refuses a nonempty destination and verifies package bytes and the single shared Core. See `docs/SUPPORTED-PROFILES.md` and `docs/MIGRATE-A-CASE.md` before moving a working case.
 

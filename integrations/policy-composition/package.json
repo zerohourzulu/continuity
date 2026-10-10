@@ -9,6 +9,6 @@
   "dependencies": {
     "@cedar-policy/cedar-wasm": "4.13.0",
     "@openfga/sdk": "0.9.7",
-    "@ramex-labs/continuity": "file:../../sdk/investigation-release/ramex-labs-continuity-0.3.0-preview.10.tgz"
+    "@ramex-labs/continuity": "file:../../sdk/message-release/ramex-labs-continuity-0.3.0-preview.11.tgz"
   }
 }

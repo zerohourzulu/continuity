@@ -6,12 +6,12 @@
     "url": "https://github.com/zerohourzulu/continuity",
     "source": "github"
   },
-  "version": "0.3.0-preview.10",
+  "version": "0.3.0-preview.11",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "@ramex-labs/continuity-mcp-gateway",
-      "version": "0.3.0-preview.10",
+      "version": "0.3.0-preview.11",
       "transport": {
         "type": "stdio"
       },

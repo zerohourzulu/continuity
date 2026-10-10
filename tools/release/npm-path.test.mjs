@@ -31,7 +31,7 @@ test('release commands support split Node/npm and fail before writes without npm
       assert.deepEqual(readdirSync(consumer),[]);
     });
     await t.test('missing npm fails before replacing prepared packages',()=>{
-      const index=join(root,'sdk/investigation-release/RELEASE-PACKAGES.json'),before=readFileSync(index);
+      const index=join(root,'sdk/message-release/RELEASE-PACKAGES.json'),before=readFileSync(index);
       const result=run(['tools/release/build.mjs'],nodeDir);
       assert.notEqual(result.status,0);assert.match(result.stderr,/working npm executable is required on PATH/);
       assert.deepEqual(readFileSync(index),before);

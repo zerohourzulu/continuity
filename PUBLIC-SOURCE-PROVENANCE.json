@@ -1,6 +1,6 @@
 {
-  "at": "2026-10-10T03:41:45.581391+00:00",
-  "basePublicCommit": "2d6a74a5d35ae9e117a5098018ba684c9b8dff99",
+  "at": "2026-10-10T22:50:27.406407+00:00",
+  "basePublicCommit": "fe384ed2cf708f980c62f3e5b0b7902990accbf4",
   "editorialChanges": [
     "release/version/entry-point documents",
     "public result summaries omit private operational records"
@@ -51,8 +51,8 @@
     {
       "originalSha256": "4541d8c3b350cc536d4de96957d41d229067ef98da8194163208b647a6904b76",
       "path": "CHANGELOG.md",
-      "publishedSha256": "520552439adfa0c9f015f2529a79aa253181b72a9a5dfce18980980445aeb0f3",
-      "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
+      "publishedSha256": "4552c13a795a847ca80d6bb44d2e703fd67f872166e5516b7cc5e5e18ed87c4e",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -128,22 +128,22 @@
     {
       "originalSha256": "375063ef2c2f0af1b8e93ab0f07095134cdcb76ab9167eba1873ed61bc2e70b3",
       "path": "README.md",
-      "publishedSha256": "a02e2d19089d3a8f2b23d64629ba5de9466748eebc2641b51fd9d1d65fa9712f",
-      "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
+      "publishedSha256": "ed7f6e0311ddd309989c336324216b8ec4815e711aea7b22d497a1df4b986811",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "a4ebf7724c4074f2f0fc49fd8143e2a61a0dd796e1b3e4e7076b600e7e1d7c40",
       "path": "RELEASE-NOTES.md",
-      "publishedSha256": "cc1d4f684c1eed4de80621e89e1637ddf880d2ce2e4c8c304ef2e3405ee93491",
-      "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
+      "publishedSha256": "7764d9498a1468a5041b079bdde0bbdf473d2ce4122c43d5ab920acd29a48afd",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "83980cd243003adf1e7a4322a4e67bf9bfa15b5250ebda75540288d531d9e56a",
       "path": "RELEASE-STATUS.md",
-      "publishedSha256": "cc1d4f684c1eed4de80621e89e1637ddf880d2ce2e4c8c304ef2e3405ee93491",
-      "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
+      "publishedSha256": "7764d9498a1468a5041b079bdde0bbdf473d2ce4122c43d5ab920acd29a48afd",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -814,8 +814,8 @@
     {
       "originalSha256": "e90767ae063935035f373f9152a387998a428c4266f19d099f2032331deb174f",
       "path": "docs/CONTINUATION.md",
-      "publishedSha256": "e90767ae063935035f373f9152a387998a428c4266f19d099f2032331deb174f",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "38ec79d95c8351d63c25226e04b3c43f30c604b9730c1ac60f6735076963df24",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -849,8 +849,8 @@
     {
       "originalSha256": "1b7b0f572fe5ffa1e00287cd72d18aebd943b7783af7adc39b7d55f842d00996",
       "path": "docs/CURRENT-RELEASE.md",
-      "publishedSha256": "d68816ac34d21f8ff4134a8e9493da27b9c610db838b97266fc6fdaa0bcc311a",
-      "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
+      "publishedSha256": "9d9b4f9889a372133649c6b74a4d11961f927775ad708887a8b27a4ac54ba1ca",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -950,6 +950,13 @@
       "publishedSha256": "fdb76c6738057b4a45bf4738ee8bff7263b2f584522c82f01fad3b355622d776",
       "sourceCopyStatus": "EXACT",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
+    },
+    {
+      "path": "docs/MESSAGE-PACKAGES.md",
+      "originalSha256": "79691af38d0a5e6b3fee91acb40960f05bdcb33c572727a382e9f42f22947ebb",
+      "publishedSha256": "79691af38d0a5e6b3fee91acb40960f05bdcb33c572727a382e9f42f22947ebb",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
     },
     {
       "originalSha256": "bfbe6f9e1b75a6e3464bb394ef9ea3c9f0fb8ee02a5ca68cee7e5fd29a32399b",
@@ -1052,8 +1059,8 @@
     {
       "originalSha256": "62a62e9e11fa5c0162c11f5d25636f76706c1318894d1f19661b1dcb1c7c9706",
       "path": "docs/SUPPORTED-PROFILES.md",
-      "publishedSha256": "62a62e9e11fa5c0162c11f5d25636f76706c1318894d1f19661b1dcb1c7c9706",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "2ee7fdd706623794c99d94073c01055c3806f64a6ca21f1c7e27541f89d85e14",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -1085,6 +1092,13 @@
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
+      "path": "docs/ZK-EXPERIMENTS.md",
+      "originalSha256": "098e30ce57f3b03371118fdbb19ee44160897f108129a069e105027e1edbfebe",
+      "publishedSha256": "098e30ce57f3b03371118fdbb19ee44160897f108129a069e105027e1edbfebe",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
       "originalSha256": "0ca32a6958a95084ef86db02748dc4376cba5e712e816fbd36bfee843cf734b1",
       "path": "docs/releases/core-0.3.0-d04.1.md",
       "publishedSha256": "0ca32a6958a95084ef86db02748dc4376cba5e712e816fbd36bfee843cf734b1",
@@ -1097,6 +1111,13 @@
       "publishedSha256": "f7685499beed690797ea784f9c769f73bf103b22a0b6645ad349f7529743e21f",
       "sourceCopyStatus": "EXACT",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
+    },
+    {
+      "path": "docs/releases/core-0.3.0-preview.11.md",
+      "originalSha256": "ec93858e6960a290f4cd9d7c20142acf8cbc6de978f4fd3245d84e728b39dbe9",
+      "publishedSha256": "ec93858e6960a290f4cd9d7c20142acf8cbc6de978f4fd3245d84e728b39dbe9",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
     },
     {
       "originalSha256": "c248a31aea9adf476462fbbc73cea81f6deec1857bcac59e960aa29778e59adf",
@@ -1127,6 +1148,13 @@
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
+      "path": "docs/releases/evidence-0.3.0-preview.12.md",
+      "originalSha256": "e14237ae5e96e91da4474bb3fa661d13dbbd35cbb2202e27b5e1b936919c8ec9",
+      "publishedSha256": "e14237ae5e96e91da4474bb3fa661d13dbbd35cbb2202e27b5e1b936919c8ec9",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
       "originalSha256": "1d9a751fd1b889cbb31e753d659905246cd14a6092aedee6160e441adf488a00",
       "path": "docs/releases/gateway-0.3.0-d04.1.md",
       "publishedSha256": "1d9a751fd1b889cbb31e753d659905246cd14a6092aedee6160e441adf488a00",
@@ -1139,6 +1167,13 @@
       "publishedSha256": "44cfdeef25a4160f736eb581665f9c5ffaf8969558dbe5c49d4dd750b118b16d",
       "sourceCopyStatus": "EXACT",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
+    },
+    {
+      "path": "docs/releases/gateway-0.3.0-preview.11.md",
+      "originalSha256": "6d8647f1c8d4cdf3b8f88504b81f5c883e0fbb3056a8ef7a976b8c97ab262b7a",
+      "publishedSha256": "6d8647f1c8d4cdf3b8f88504b81f5c883e0fbb3056a8ef7a976b8c97ab262b7a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
     },
     {
       "originalSha256": "896028c1ea0fccbff82a2d3671e94d6c922bc3da8ab223b415081d569bfdf65d",
@@ -1167,6 +1202,13 @@
       "publishedSha256": "763b956f3a6166c1dc296c65ff66167f0c3935fc96e05ecea25a384238f817c6",
       "sourceCopyStatus": "EXACT",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
+    },
+    {
+      "path": "docs/releases/remote-0.3.0-preview.6.md",
+      "originalSha256": "3e08678affb04d7ae2271a92e125902e72ce74368703267be7f21b258d00408e",
+      "publishedSha256": "3e08678affb04d7ae2271a92e125902e72ce74368703267be7f21b258d00408e",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
     },
     {
       "originalSha256": "debb404443850354244a5f2373d0272bcb108ba129510bfd3f60e3a7f04463fa",
@@ -1279,6 +1321,13 @@
       "publishedSha256": "b76985a42525a3930cf457a5cce483abd660d7731fc07b079181d2d5b0bb42d8",
       "sourceCopyStatus": "EXACT",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
+    },
+    {
+      "path": "examples/retained-receipt/README.md",
+      "originalSha256": "4ff85ab48ba86a478d7e96426e7e8f56ff2d3e8619c8ba215415f751d6f18a77",
+      "publishedSha256": "4ff85ab48ba86a478d7e96426e7e8f56ff2d3e8619c8ba215415f751d6f18a77",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
     },
     {
       "originalSha256": "f096d41a78e1d73e2195345f8c6cf9234a5fdf56b862c37f827f2aca3897a644",
@@ -1976,15 +2025,15 @@
     {
       "originalSha256": "f605efc58b9e0743286841fcf9ff3d6c65a3a94d27778ba348c14f7397091e99",
       "path": "integrations/langchain-evidence/package-lock.json",
-      "publishedSha256": "f605efc58b9e0743286841fcf9ff3d6c65a3a94d27778ba348c14f7397091e99",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "c9f4829b1fe207227ff77c024003a2fd543ca6da2b9b6f89a724aff69793b382",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "808e7b1601a0c4e0b4b9dc0e11ebbe2c3c9ba284d06db52c69aab69d86839eb0",
       "path": "integrations/langchain-evidence/package.json",
-      "publishedSha256": "808e7b1601a0c4e0b4b9dc0e11ebbe2c3c9ba284d06db52c69aab69d86839eb0",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "3776c021e50d04918133a9f416737afc6484f728cf90d65d87a11a24806fa23a",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -2060,15 +2109,15 @@
     {
       "originalSha256": "41e3233c48c6d0cda4d76611221bc7e7ab7a6cefba01968b81ec2b2c92465ab6",
       "path": "integrations/policy-composition/package-lock.json",
-      "publishedSha256": "41e3233c48c6d0cda4d76611221bc7e7ab7a6cefba01968b81ec2b2c92465ab6",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "345be69dbc3141d1b515ca0a15c6d4a2c4d53d3ced495e194a0df70888b457cc",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "921ef68d9911a9a2b767d596d7709e6ce186e5ee12f5ac13d791b35d9fe6deae",
       "path": "integrations/policy-composition/package.json",
-      "publishedSha256": "921ef68d9911a9a2b767d596d7709e6ce186e5ee12f5ac13d791b35d9fe6deae",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "93094e3be2dd0604661e6f794b6d3b5b88110199d17d0d395d66b609f3c82f7d",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -2158,15 +2207,15 @@
     {
       "originalSha256": "9a96c8d1201e62ff3d78deef14ebfbb702d5401e0d395818974c6fff9be6aab3",
       "path": "integrations/protected-evidence-mcp/package-lock.json",
-      "publishedSha256": "9a96c8d1201e62ff3d78deef14ebfbb702d5401e0d395818974c6fff9be6aab3",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "9861ad3447558ed3eec02e55972aae6adc407f3359351c2e2e57ce5944b61fe8",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "60133fc32e60b1c0439ceb1a476eecb51436b464ef91f93cf2b6da43b85ec216",
       "path": "integrations/protected-evidence-mcp/package.json",
-      "publishedSha256": "60133fc32e60b1c0439ceb1a476eecb51436b464ef91f93cf2b6da43b85ec216",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "27c6a96b9c8d907d7dbc95669aa936c74817268b3a53c3c8d9215246498c4645",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -2562,6 +2611,13 @@
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
+      "path": "messages/README.md",
+      "originalSha256": "5464a860fe24baac0d055f6cc70f76374dcd908a5b055116956e26218e4d6355",
+      "publishedSha256": "5464a860fe24baac0d055f6cc70f76374dcd908a5b055116956e26218e4d6355",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
       "originalSha256": "93c1f6fce1c0d30d59eed6abd94ed7523ccfc503e6084b248cc4859b046fcf34",
       "path": "messages/additional.json",
       "publishedSha256": "93c1f6fce1c0d30d59eed6abd94ed7523ccfc503e6084b248cc4859b046fcf34",
@@ -2616,9 +2672,16 @@
     {
       "originalSha256": "008429a940d22ec795042b6af6cf152c5c3a3a7ce4d9fdffe10257883e66f1d1",
       "path": "messages/explain.mjs",
-      "publishedSha256": "008429a940d22ec795042b6af6cf152c5c3a3a7ce4d9fdffe10257883e66f1d1",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "77731bb15357607710d85ae0aab432d37c951243bed632ae946e12b7e882788d",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
+    },
+    {
+      "path": "messages/index.d.mts",
+      "originalSha256": "cd78926d352c304bccff0b47a36bc12db8a2aed3068c82530a1bfaf2ede37c26",
+      "publishedSha256": "cd78926d352c304bccff0b47a36bc12db8a2aed3068c82530a1bfaf2ede37c26",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
     },
     {
       "originalSha256": "fc531135a4bddb2057bd2b5afe456da200b9a0335b37411f388417584a18d64c",
@@ -2644,8 +2707,8 @@
     {
       "originalSha256": "0121e555c3ad745ee213cc8ac3769280ccd9d83b400de6befdd09561c3322627",
       "path": "package.json",
-      "publishedSha256": "022c78510ba4d7896989aa07431ad1f835b5afd77dc16fdd837de0165eaa10f7",
-      "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
+      "publishedSha256": "6f3f9eca875db3887737bbf32769dea9b9b929562776b889ba6b064baa7eb28f",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -3323,22 +3386,22 @@
     {
       "originalSha256": "610c675e27131e321dd94c3b084632d48d8a843d8fd7d1a86c1e727a9ca62240",
       "path": "packages/mcp-gateway/npm-shrinkwrap.json",
-      "publishedSha256": "610c675e27131e321dd94c3b084632d48d8a843d8fd7d1a86c1e727a9ca62240",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "3405155b024d737164fb2bb9df19ce1f4b841c4a0b33d8af3cfb3a7f383fc6f8",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "530325ad44628370ac2dc49feaa8b1016c03774e2ebd883e9aa66ce587f93ddf",
       "path": "packages/mcp-gateway/package.json",
-      "publishedSha256": "530325ad44628370ac2dc49feaa8b1016c03774e2ebd883e9aa66ce587f93ddf",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "56bc3289c2d9e6acf5fb0f721449a9ca9dfb9df836300fa8fe031abc446850f2",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "215512eb5082403df62a187da7aa285e26c073253e177065a097d1a967ac2dad",
       "path": "packages/mcp-gateway/server.json",
-      "publishedSha256": "215512eb5082403df62a187da7aa285e26c073253e177065a097d1a967ac2dad",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "57c027de8d9b88f3cbe3b3ce5eda5d97fa977a65dbe1fd4f7c083b8f22bae62d",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -3676,6 +3739,13 @@
       "publishedSha256": "810f8156a3f56f00962df618e1cd08937952bbfcc2c21bc4598b5e9ce49761f6",
       "sourceCopyStatus": "EXACT",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
+    },
+    {
+      "path": "research/messages/README.md",
+      "originalSha256": "f09484f007920c0d218e3e47f5420cb7fcfeac1dcafb1834077db0d9d2500be9",
+      "publishedSha256": "f09484f007920c0d218e3e47f5420cb7fcfeac1dcafb1834077db0d9d2500be9",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
     },
     {
       "originalSha256": "9a9255adff3a0bd1f1d0d9fced53bb79abc87b0083627bfb6306aa08ddbc37ca",
@@ -5085,11 +5155,32 @@
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
+      "path": "research/zk/README.md",
+      "originalSha256": "5f5a3b62ba76f0d28a8b9170eb5ce27adfc1a36c5d0d8052bd0f75056383112f",
+      "publishedSha256": "5f5a3b62ba76f0d28a8b9170eb5ce27adfc1a36c5d0d8052bd0f75056383112f",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "research/zk/RESULTS.json",
+      "originalSha256": "89e3621f075ee697a8c4d02208c91ee94b775487176adb02345f06af07c54371",
+      "publishedSha256": "89e3621f075ee697a8c4d02208c91ee94b775487176adb02345f06af07c54371",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
       "originalSha256": "dbd1973b47057b4f9bce50aee88663abe538465d9f77fbcb6b846a98a83f7bdc",
       "path": "research/zk/fingerprint-format/FIXTURE.json",
       "publishedSha256": "dbd1973b47057b4f9bce50aee88663abe538465d9f77fbcb6b846a98a83f7bdc",
       "sourceCopyStatus": "EXACT",
       "sourceEdition": "continuity-fingerprint-format-test-2026-10-07-r1"
+    },
+    {
+      "path": "research/zk/fingerprint-format/RESULTS.json",
+      "originalSha256": "6b9988cba750f657d9044049e0e806d78158fde7842874446cb903d1f2c8cb71",
+      "publishedSha256": "6b9988cba750f657d9044049e0e806d78158fde7842874446cb903d1f2c8cb71",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
     },
     {
       "originalSha256": "781de2b4f8e0545c85e5e074e2dfe35ca03474bc739c349c191c88756eb7db66",
@@ -15438,6 +15529,1574 @@
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
+      "path": "sdk/message-release/RELEASE-PACKAGES.json",
+      "originalSha256": "097e52b4846b77d77c5f9e2db920a9fd2d4640311fafa76e5a68666cc8a300c7",
+      "publishedSha256": "0297437d91ad5a7735d527d058b4b081cd7aa93788d5595bf27c698b730d4ac1",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/BUILD-PROVENANCE.json",
+      "originalSha256": "62b0a749ae2fcd96fa88ff2388b5a4f504659a5b381ee7c704b9f7a2f6ca0289",
+      "publishedSha256": "4c8d5d87b8c222019689717252b638da315d2703f430a2dbd0d18ab670e6093a",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/LICENSE",
+      "originalSha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "publishedSha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/LICENSING.md",
+      "originalSha256": "3f0f53f5c4327d66fdf263a2d6c35f3bf7ad6ce01a7a096f1457883484a07bdb",
+      "publishedSha256": "3f0f53f5c4327d66fdf263a2d6c35f3bf7ad6ce01a7a096f1457883484a07bdb",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/NOTICE",
+      "originalSha256": "bfb2131be616bebf277cfcb08f3927c1c360e114f7e51e46a77b490bcbdef59a",
+      "publishedSha256": "bfb2131be616bebf277cfcb08f3927c1c360e114f7e51e46a77b490bcbdef59a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/README.md",
+      "originalSha256": "ec93858e6960a290f4cd9d7c20142acf8cbc6de978f4fd3245d84e728b39dbe9",
+      "publishedSha256": "ec93858e6960a290f4cd9d7c20142acf8cbc6de978f4fd3245d84e728b39dbe9",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/THIRD-PARTY-NOTICES.md",
+      "originalSha256": "7f306cab160b1e3802753e898b79f6396c02567581dc0432f7a9fda3378580f8",
+      "publishedSha256": "7f306cab160b1e3802753e898b79f6396c02567581dc0432f7a9fda3378580f8",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/adapters/index.d.ts",
+      "originalSha256": "41c6092949584d050cfa9a7bee76a944dd73d2e70c52c8f5c287ccf7cd533c47",
+      "publishedSha256": "41c6092949584d050cfa9a7bee76a944dd73d2e70c52c8f5c287ccf7cd533c47",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/adapters/index.js",
+      "originalSha256": "22497ba227cc28c30898094f42102c9854c2e42be1c25e5dedafa4fb5284d864",
+      "publishedSha256": "22497ba227cc28c30898094f42102c9854c2e42be1c25e5dedafa4fb5284d864",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/adapters/simulated-adapter.d.ts",
+      "originalSha256": "2c5815205023305b2bafea1fabca8b2a2a2fa4c57c91c532beb9d4db5aee7684",
+      "publishedSha256": "2c5815205023305b2bafea1fabca8b2a2a2fa4c57c91c532beb9d4db5aee7684",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/adapters/simulated-adapter.js",
+      "originalSha256": "681ab486f76f209f5d46512e754ddb7812c3a7fe29804a24f0611277c6870dba",
+      "publishedSha256": "681ab486f76f209f5d46512e754ddb7812c3a7fe29804a24f0611277c6870dba",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/administration/index.d.ts",
+      "originalSha256": "a16e552a6c9c9d87696783c54065601bdce98b86ed2f4f6238cc4031e4fb9179",
+      "publishedSha256": "a16e552a6c9c9d87696783c54065601bdce98b86ed2f4f6238cc4031e4fb9179",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/administration/index.js",
+      "originalSha256": "af5b854c135284f54990cb95cc654bbc0d223baeb38c3552a68b4431559f9d9b",
+      "publishedSha256": "af5b854c135284f54990cb95cc654bbc0d223baeb38c3552a68b4431559f9d9b",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/canonical.d.ts",
+      "originalSha256": "b767592dad4d7b2c1a67d58cb65b6a315f8fe443b6945cedd9400f6aa2947b48",
+      "publishedSha256": "b767592dad4d7b2c1a67d58cb65b6a315f8fe443b6945cedd9400f6aa2947b48",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/canonical.js",
+      "originalSha256": "950b50e1851152861f14672cb9f0e1d718f254b8801f7754e24709cfd6948b84",
+      "publishedSha256": "950b50e1851152861f14672cb9f0e1d718f254b8801f7754e24709cfd6948b84",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/duty-disposition.d.ts",
+      "originalSha256": "ef08845bee8977d8a224543f612fb8e06f426bf4a55e70f4e7bbb32576ca2b72",
+      "publishedSha256": "ef08845bee8977d8a224543f612fb8e06f426bf4a55e70f4e7bbb32576ca2b72",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/duty-disposition.js",
+      "originalSha256": "8ca964206a17baff73da1ad3fdf4b5dd671d0d5f0fde3a46844150507e493a2c",
+      "publishedSha256": "8ca964206a17baff73da1ad3fdf4b5dd671d0d5f0fde3a46844150507e493a2c",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/duty-policy.d.ts",
+      "originalSha256": "aca37bf813cc45084dca19d8cbe27f845a9a6b23613266bfea039283d736c89d",
+      "publishedSha256": "aca37bf813cc45084dca19d8cbe27f845a9a6b23613266bfea039283d736c89d",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/duty-policy.js",
+      "originalSha256": "50d58964933530fc2c63d2fdaf72bfb64bf4e314d177e59105e2e8060f8593cb",
+      "publishedSha256": "50d58964933530fc2c63d2fdaf72bfb64bf4e314d177e59105e2e8060f8593cb",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/event-schema.d.ts",
+      "originalSha256": "53d1f361cdaac6de88aba56c08972d4973189aa4caec9e0a3b5c80db8000e23e",
+      "publishedSha256": "53d1f361cdaac6de88aba56c08972d4973189aa4caec9e0a3b5c80db8000e23e",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/event-schema.js",
+      "originalSha256": "6707767dbf71981e8f5181da0cbbd4879580655c8aa438735b49631e58162bdf",
+      "publishedSha256": "6707767dbf71981e8f5181da0cbbd4879580655c8aa438735b49631e58162bdf",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/host-intrinsics.d.ts",
+      "originalSha256": "603634d3fb9ce2160f71065d74b3fb48a37b7de7a0aab33029fc55bf2e31c82d",
+      "publishedSha256": "603634d3fb9ce2160f71065d74b3fb48a37b7de7a0aab33029fc55bf2e31c82d",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/host-intrinsics.js",
+      "originalSha256": "72a464f2e2223540a5f501e9c4955baad9667d3c133de5cd9ccd2bcf2b7e2d62",
+      "publishedSha256": "72a464f2e2223540a5f501e9c4955baad9667d3c133de5cd9ccd2bcf2b7e2d62",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/index.d.ts",
+      "originalSha256": "d2c6c0fd55d782f2789788e90f95a4a0d1cb592f23efea43d35dd98cf9e3ae5c",
+      "publishedSha256": "d2c6c0fd55d782f2789788e90f95a4a0d1cb592f23efea43d35dd98cf9e3ae5c",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/index.js",
+      "originalSha256": "4eb3d9e9a9353f74d9edfb99689596655667faec8defa68e9642e7b5067ed626",
+      "publishedSha256": "4eb3d9e9a9353f74d9edfb99689596655667faec8defa68e9642e7b5067ed626",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-adapter-engine.d.ts",
+      "originalSha256": "318af85426eb16dd28609c06c71e656659b4cd043e9438d6fe1b4221a7de4819",
+      "publishedSha256": "318af85426eb16dd28609c06c71e656659b4cd043e9438d6fe1b4221a7de4819",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-adapter-engine.js",
+      "originalSha256": "dc237e3a6110cbd8a6456079e677022d7cd91ebd5b8fc77b673c325f5a49b298",
+      "publishedSha256": "dc237e3a6110cbd8a6456079e677022d7cd91ebd5b8fc77b673c325f5a49b298",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-administration-codec.d.ts",
+      "originalSha256": "ed3c6a37bc2d73d2c41c14e122803aaa0523355d34f7647b461a3c7180f480f5",
+      "publishedSha256": "ed3c6a37bc2d73d2c41c14e122803aaa0523355d34f7647b461a3c7180f480f5",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-administration-codec.js",
+      "originalSha256": "f44e96c4d2a950efb38e2bdfaa13c0d8c6d6e7174a5a193f99b32fb72d6fe353",
+      "publishedSha256": "f44e96c4d2a950efb38e2bdfaa13c0d8c6d6e7174a5a193f99b32fb72d6fe353",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-admission.d.ts",
+      "originalSha256": "fd719c34f93bda7215bde9543c3079b9e9b10df545500de30330bcb4ff9909f9",
+      "publishedSha256": "fd719c34f93bda7215bde9543c3079b9e9b10df545500de30330bcb4ff9909f9",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-admission.js",
+      "originalSha256": "bc5a3d0054e5838441c8236f1c95d0a8b63f15e2fc03f533be669cd7f4488935",
+      "publishedSha256": "bc5a3d0054e5838441c8236f1c95d0a8b63f15e2fc03f533be669cd7f4488935",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-attempt-review.d.ts",
+      "originalSha256": "591967fce4fd79f73664918da624d1080c4ae8457b089f458b3b2af2d708a1d6",
+      "publishedSha256": "591967fce4fd79f73664918da624d1080c4ae8457b089f458b3b2af2d708a1d6",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-attempt-review.js",
+      "originalSha256": "2f34be78b74dd605a062dccc5bedb96cee37ba53e595f9a27f535997cdf86a45",
+      "publishedSha256": "2f34be78b74dd605a062dccc5bedb96cee37ba53e595f9a27f535997cdf86a45",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-authority-engine.d.ts",
+      "originalSha256": "9063d7aa62e0d5aab0eb728000f8775594b1fdd9df0c1064647ed9482dc6d8b1",
+      "publishedSha256": "9063d7aa62e0d5aab0eb728000f8775594b1fdd9df0c1064647ed9482dc6d8b1",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-authority-engine.js",
+      "originalSha256": "2aeff0f5667c97f451278cbdf21c4e7200a4ae36164e6fabe2a8d917bbf87b1b",
+      "publishedSha256": "2aeff0f5667c97f451278cbdf21c4e7200a4ae36164e6fabe2a8d917bbf87b1b",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-authority.d.ts",
+      "originalSha256": "8885a191fa641e6781e26cc367be6a1dbe1b61b0e34b83a76703a67cf5b4e3cc",
+      "publishedSha256": "8885a191fa641e6781e26cc367be6a1dbe1b61b0e34b83a76703a67cf5b4e3cc",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-authority.js",
+      "originalSha256": "362458bdf7679c30689b89b0bc65c59809435247787056d9f725cdfd005aabfa",
+      "publishedSha256": "362458bdf7679c30689b89b0bc65c59809435247787056d9f725cdfd005aabfa",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-integration.d.ts",
+      "originalSha256": "019247912a25e6be8ebc1583c4aa59df71d7d878533b516a0e576ae9eb01ae4b",
+      "publishedSha256": "019247912a25e6be8ebc1583c4aa59df71d7d878533b516a0e576ae9eb01ae4b",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-integration.js",
+      "originalSha256": "0f7e4b069fa47eaad058c8b2fca410042e0f0694f82cc1dd04ff9095c5d14f37",
+      "publishedSha256": "0f7e4b069fa47eaad058c8b2fca410042e0f0694f82cc1dd04ff9095c5d14f37",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-queries.d.ts",
+      "originalSha256": "d93058263979451e8f55763f415433c7c6b1e9dcf4cc92e21f62a7a9f25672e4",
+      "publishedSha256": "d93058263979451e8f55763f415433c7c6b1e9dcf4cc92e21f62a7a9f25672e4",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-queries.js",
+      "originalSha256": "df9d987c1892199de476ef2c93d293fb3bf77628b654e650fdeb30ac008f44ef",
+      "publishedSha256": "df9d987c1892199de476ef2c93d293fb3bf77628b654e650fdeb30ac008f44ef",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-query-capture.d.ts",
+      "originalSha256": "2920bc15f0c9943f41cc5006c56fd61df02e86b86988d02e4c7a9df0cf28c072",
+      "publishedSha256": "2920bc15f0c9943f41cc5006c56fd61df02e86b86988d02e4c7a9df0cf28c072",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-query-capture.js",
+      "originalSha256": "78c0314ec6aac9e54b5ebe8db75efec65200f82da191d973de2589e714686f4b",
+      "publishedSha256": "78c0314ec6aac9e54b5ebe8db75efec65200f82da191d973de2589e714686f4b",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-query-codec.d.ts",
+      "originalSha256": "615cb2b720f9cdba5fe7011067ef2dd0bce84671abcd264d441caa447a5eb0a5",
+      "publishedSha256": "615cb2b720f9cdba5fe7011067ef2dd0bce84671abcd264d441caa447a5eb0a5",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-query-codec.js",
+      "originalSha256": "a61ed5899d893450cddf64b461661f71fa7db3d828b6287a74e1c44895c6fe89",
+      "publishedSha256": "a61ed5899d893450cddf64b461661f71fa7db3d828b6287a74e1c44895c6fe89",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-query-conflicts.d.ts",
+      "originalSha256": "ff0670c252df4b56dd6fd32376cac688ea69b898a7be7c077c8ab74a7947eb29",
+      "publishedSha256": "ff0670c252df4b56dd6fd32376cac688ea69b898a7be7c077c8ab74a7947eb29",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-query-conflicts.js",
+      "originalSha256": "b2d13bcf2e6985e994b38211cefc4bb915e65c70ac1c7944c24a42c9c94d5cdb",
+      "publishedSha256": "b2d13bcf2e6985e994b38211cefc4bb915e65c70ac1c7944c24a42c9c94d5cdb",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-query-output.d.ts",
+      "originalSha256": "678440bb1a8d482b1268b94bb82b5d99faf7471270170547142de4d9495a2ccd",
+      "publishedSha256": "678440bb1a8d482b1268b94bb82b5d99faf7471270170547142de4d9495a2ccd",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-query-output.js",
+      "originalSha256": "a953983325d80398258798354a007afda8af8f9a4a84cc0ff4e7ce42cc1109f6",
+      "publishedSha256": "a953983325d80398258798354a007afda8af8f9a4a84cc0ff4e7ce42cc1109f6",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-query-responsibility.d.ts",
+      "originalSha256": "5c8bc7a41361855e49d38a52bf7b8043a9fb522d4ce23c9d3dd0094709437c12",
+      "publishedSha256": "5c8bc7a41361855e49d38a52bf7b8043a9fb522d4ce23c9d3dd0094709437c12",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-query-responsibility.js",
+      "originalSha256": "bd53e05450882b8cfc1ec61b9d13f2c346b537985d70ddaa412648fd9a361b4a",
+      "publishedSha256": "bd53e05450882b8cfc1ec61b9d13f2c346b537985d70ddaa412648fd9a361b4a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-query-survives.d.ts",
+      "originalSha256": "24caba369b24d3162151c95b83df35fb7b6a0794df754c070701a9915120cd99",
+      "publishedSha256": "24caba369b24d3162151c95b83df35fb7b6a0794df754c070701a9915120cd99",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-query-survives.js",
+      "originalSha256": "df135fa719221eca0ff47f8b381f09278e96de9ccb4798cfb7b5daa6c51469b6",
+      "publishedSha256": "df135fa719221eca0ff47f8b381f09278e96de9ccb4798cfb7b5daa6c51469b6",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-receipt-capture.d.ts",
+      "originalSha256": "c63f813159369e7ef20fcc0d660fd94281c9b36fc9e0e47e0456b6556047ec15",
+      "publishedSha256": "c63f813159369e7ef20fcc0d660fd94281c9b36fc9e0e47e0456b6556047ec15",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-receipt-capture.js",
+      "originalSha256": "e39f47ec97662afc2b4d5eb0c03ff6a863c96230e32d94c6ff651dbd30beebb2",
+      "publishedSha256": "e39f47ec97662afc2b4d5eb0c03ff6a863c96230e32d94c6ff651dbd30beebb2",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-receipt-codec.d.ts",
+      "originalSha256": "6462cdd10b9f175acdfef1cab150e367a2341c8419c234b7da88a267943a225b",
+      "publishedSha256": "6462cdd10b9f175acdfef1cab150e367a2341c8419c234b7da88a267943a225b",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-receipt-codec.js",
+      "originalSha256": "df416525d8d3d1ac1b8e005f485ca2f6c2ce720b28bd4456450d72fe4b51c4be",
+      "publishedSha256": "df416525d8d3d1ac1b8e005f485ca2f6c2ce720b28bd4456450d72fe4b51c4be",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-receipts.d.ts",
+      "originalSha256": "c3ad4b1c4579ab9e771615ebc8b04785aaa769d4fa3cc5166d53630fc5031873",
+      "publishedSha256": "c3ad4b1c4579ab9e771615ebc8b04785aaa769d4fa3cc5166d53630fc5031873",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-receipts.js",
+      "originalSha256": "cd4695f1ecb7e04734a28f284538075ca374a5bf17edf12b72e7f9b0e7d50e1a",
+      "publishedSha256": "cd4695f1ecb7e04734a28f284538075ca374a5bf17edf12b72e7f9b0e7d50e1a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-replay.d.ts",
+      "originalSha256": "94d9145492f21910f84318c3a0ded0c4af06936050d1c75e7d04bbe0c0c1d7b0",
+      "publishedSha256": "94d9145492f21910f84318c3a0ded0c4af06936050d1c75e7d04bbe0c0c1d7b0",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/portable-replay.js",
+      "originalSha256": "d7078613258b8e0c16c1e3fe5b341c6fed33cc63900a90909a72f063c484b164",
+      "publishedSha256": "d7078613258b8e0c16c1e3fe5b341c6fed33cc63900a90909a72f063c484b164",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/reference-output-budget.d.ts",
+      "originalSha256": "5923f83715c8874e3ea69f8a18c56afddfac58987f716f4328a7925f8f6bf847",
+      "publishedSha256": "5923f83715c8874e3ea69f8a18c56afddfac58987f716f4328a7925f8f6bf847",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/core/reference-output-budget.js",
+      "originalSha256": "bb2f995580dd41593de85b091f4df1382a114c7e7bf025766976f915ac39a915",
+      "publishedSha256": "bb2f995580dd41593de85b091f4df1382a114c7e7bf025766976f915ac39a915",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/history/index.d.ts",
+      "originalSha256": "0fd512d09216a418500f445fac358e03fc90f1510049fc6fbb67005355a9444a",
+      "publishedSha256": "0fd512d09216a418500f445fac358e03fc90f1510049fc6fbb67005355a9444a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/history/index.js",
+      "originalSha256": "914be66fb39c8ec4db2bdfe2398ec32e04be60703b391ae79622c83fa1999026",
+      "publishedSha256": "914be66fb39c8ec4db2bdfe2398ec32e04be60703b391ae79622c83fa1999026",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/indexer/portable-file-event-store.d.ts",
+      "originalSha256": "6a7e9330d89c3dcf9f8f98ae50894abd4afc6957e8985843987c7ee68491f7d6",
+      "publishedSha256": "6a7e9330d89c3dcf9f8f98ae50894abd4afc6957e8985843987c7ee68491f7d6",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/indexer/portable-file-event-store.js",
+      "originalSha256": "6c5689552bdbfddb2e693bde5c4a84cb883c859c3f7df2a55e12031a6977e25d",
+      "publishedSha256": "6c5689552bdbfddb2e693bde5c4a84cb883c859c3f7df2a55e12031a6977e25d",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/sdk/durable-admission.d.ts",
+      "originalSha256": "1da91a62c0b15ceb5213c77d5b930372317d563631a297a218bc653597f2b1da",
+      "publishedSha256": "1da91a62c0b15ceb5213c77d5b930372317d563631a297a218bc653597f2b1da",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/sdk/durable-admission.js",
+      "originalSha256": "7e9f74d058c0df1a73dc476503f96e430fde4ac1834b9c49baeaf27fd88624d2",
+      "publishedSha256": "7e9f74d058c0df1a73dc476503f96e430fde4ac1834b9c49baeaf27fd88624d2",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/sdk/durable-receipt.d.ts",
+      "originalSha256": "495dc7723945141d806c528d81e4246d1e189772f009455c3698a11fe3e4db18",
+      "publishedSha256": "495dc7723945141d806c528d81e4246d1e189772f009455c3698a11fe3e4db18",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.2/src/sdk/durable-receipt.js",
+      "originalSha256": "819973cbde0b8f4e53a6f6ff69cd99644adcb7b418f622254bee63c602d41303",
+      "publishedSha256": "819973cbde0b8f4e53a6f6ff69cd99644adcb7b418f622254bee63c602d41303",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/adapter.d.ts",
+      "originalSha256": "a623274a3fb0416028a47bfc1e79e2cddbcd5ab2679500071674ade53dc28b02",
+      "publishedSha256": "a623274a3fb0416028a47bfc1e79e2cddbcd5ab2679500071674ade53dc28b02",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/adapter.js",
+      "originalSha256": "d1a8b1cf0ed63b316e5471c0abe1d6c36c4f4bdea2366c8d002de7faba146dd3",
+      "publishedSha256": "d1a8b1cf0ed63b316e5471c0abe1d6c36c4f4bdea2366c8d002de7faba146dd3",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/adapters/packet-executor.d.mts",
+      "originalSha256": "578282669c9b083fe25413a9749bc9fedf3571271009dab108723d78d2eaeb0b",
+      "publishedSha256": "578282669c9b083fe25413a9749bc9fedf3571271009dab108723d78d2eaeb0b",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/adapters/packet-executor.mjs",
+      "originalSha256": "479f4639fab7affa0858f19d789367dcf008d6ce5226397c05d4dab7ad2a5339",
+      "publishedSha256": "479f4639fab7affa0858f19d789367dcf008d6ce5226397c05d4dab7ad2a5339",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/attempts.d.ts",
+      "originalSha256": "8a646438e6140f22c13edd31664fb2494b56e86b02fe1d332f1ad26854db08b9",
+      "publishedSha256": "8a646438e6140f22c13edd31664fb2494b56e86b02fe1d332f1ad26854db08b9",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/attempts.js",
+      "originalSha256": "7cb01234ee2db84aa1c42e19b995369c4c6cddd23eab4053c6fc6e6fe2ff1d88",
+      "publishedSha256": "7cb01234ee2db84aa1c42e19b995369c4c6cddd23eab4053c6fc6e6fe2ff1d88",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/capacity.d.ts",
+      "originalSha256": "f3f7bd5d51f2b985bda66df8b2c04c4cb94ce4889c66a55879f9dc50e2788162",
+      "publishedSha256": "f3f7bd5d51f2b985bda66df8b2c04c4cb94ce4889c66a55879f9dc50e2788162",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/capacity.js",
+      "originalSha256": "2a3d485079c4827008584ab961ded58d84d5d165ebc76242a80b1a626a317e39",
+      "publishedSha256": "2a3d485079c4827008584ab961ded58d84d5d165ebc76242a80b1a626a317e39",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/configured-store.d.ts",
+      "originalSha256": "b876c0f5254c3c297e6defa63e8b1f6c4bb387cc5fc533a5007be42b4c7abb79",
+      "publishedSha256": "b876c0f5254c3c297e6defa63e8b1f6c4bb387cc5fc533a5007be42b4c7abb79",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/configured-store.js",
+      "originalSha256": "d0b753d21a4861827d5361f69a45db8276c6da7b25b160cfe073ced2825d7df2",
+      "publishedSha256": "d0b753d21a4861827d5361f69a45db8276c6da7b25b160cfe073ced2825d7df2",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/duties.d.ts",
+      "originalSha256": "d320cc1bbe673dd85f0ce7503831b4f3722027e453221836ba6384ea8cd3e2fa",
+      "publishedSha256": "d320cc1bbe673dd85f0ce7503831b4f3722027e453221836ba6384ea8cd3e2fa",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/duties.js",
+      "originalSha256": "0334ce50a1a0bf2b92f3b63e181bd8ab876161ba796926e951c34f4d616f9d08",
+      "publishedSha256": "0334ce50a1a0bf2b92f3b63e181bd8ab876161ba796926e951c34f4d616f9d08",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/evidence.d.ts",
+      "originalSha256": "515c9d01b8014a60a16d756d089209724c13ff8cce71ee9d47e562fe5900ae45",
+      "publishedSha256": "515c9d01b8014a60a16d756d089209724c13ff8cce71ee9d47e562fe5900ae45",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/evidence.js",
+      "originalSha256": "d4fa72ee433fa45be222cacdf4f406b4af9f5f8f88a1030c0243678e52426d0a",
+      "publishedSha256": "d4fa72ee433fa45be222cacdf4f406b4af9f5f8f88a1030c0243678e52426d0a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/execution.d.ts",
+      "originalSha256": "2c8d7f6bd809e948693122edec0ff366de6de9bb63414822d1ead76928fa732d",
+      "publishedSha256": "2c8d7f6bd809e948693122edec0ff366de6de9bb63414822d1ead76928fa732d",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/execution.js",
+      "originalSha256": "be9da91b19b40f9bf74ae96f0347d71325d3599b85c26111b861be96b198a5f3",
+      "publishedSha256": "be9da91b19b40f9bf74ae96f0347d71325d3599b85c26111b861be96b198a5f3",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/capacity.d.ts",
+      "originalSha256": "9b444742be9a4ed0a480f240ced9ad9663da5f7a9b53f4ec664a9edc9b6ae394",
+      "publishedSha256": "9b444742be9a4ed0a480f240ced9ad9663da5f7a9b53f4ec664a9edc9b6ae394",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/capacity.js",
+      "originalSha256": "734eb489af16d060b91327584b4fbc64e1349ff11472022012e92c9d3f787c72",
+      "publishedSha256": "734eb489af16d060b91327584b4fbc64e1349ff11472022012e92c9d3f787c72",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/cli.d.ts",
+      "originalSha256": "43e818adf60173644896298637f47b01d5819b17eda46eaa32d0c7d64724d012",
+      "publishedSha256": "43e818adf60173644896298637f47b01d5819b17eda46eaa32d0c7d64724d012",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/cli.js",
+      "originalSha256": "fb84be859918b2ec35d897cbf9babd5335450e75823cb04d4eaf7cdfb4b65d9a",
+      "publishedSha256": "fb84be859918b2ec35d897cbf9babd5335450e75823cb04d4eaf7cdfb4b65d9a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/codec.d.ts",
+      "originalSha256": "e05c43b57f3d0c6da1bfb36ce484677d175b6ddc3b88626fe98ac3994eb37200",
+      "publishedSha256": "e05c43b57f3d0c6da1bfb36ce484677d175b6ddc3b88626fe98ac3994eb37200",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/codec.js",
+      "originalSha256": "f4924751b0cfba2521ffd35ab23e699c340d30e03d642564d284f079925d063b",
+      "publishedSha256": "f4924751b0cfba2521ffd35ab23e699c340d30e03d642564d284f079925d063b",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/duty-writer.d.ts",
+      "originalSha256": "7f08c946c1a932849ca3b84004244ed264c19a02ed930a69fb6cad55645fa6e0",
+      "publishedSha256": "7f08c946c1a932849ca3b84004244ed264c19a02ed930a69fb6cad55645fa6e0",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/duty-writer.js",
+      "originalSha256": "d88218026acc155d21fcbf27412cc943a0bda88ec26ad21d094622bd248664ec",
+      "publishedSha256": "d88218026acc155d21fcbf27412cc943a0bda88ec26ad21d094622bd248664ec",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/files.d.ts",
+      "originalSha256": "a072c64f4300c3ccd2d2d64eaab7d6decb97799fc5b81a3ed7ec4d3cb78d1fea",
+      "publishedSha256": "a072c64f4300c3ccd2d2d64eaab7d6decb97799fc5b81a3ed7ec4d3cb78d1fea",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/files.js",
+      "originalSha256": "f4771b308d73cbc4e66d7792157bf844bf9015e1cbb92a81ab492849038d353b",
+      "publishedSha256": "f4771b308d73cbc4e66d7792157bf844bf9015e1cbb92a81ab492849038d353b",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/index.d.ts",
+      "originalSha256": "6074062b4c0f289021a0fe3badcd5ad8b081b259bea72af71435174dce4bd027",
+      "publishedSha256": "6074062b4c0f289021a0fe3badcd5ad8b081b259bea72af71435174dce4bd027",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/index.js",
+      "originalSha256": "f4bfaedb24d07643eda412c7ad9be49591745895cf5a8684a30bc23e536ab01d",
+      "publishedSha256": "f4bfaedb24d07643eda412c7ad9be49591745895cf5a8684a30bc23e536ab01d",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/migration.d.ts",
+      "originalSha256": "37b18ccfd5223a7c9a2ca245784862278cbd4cc06f6c7964e8b9b812aa59aecc",
+      "publishedSha256": "37b18ccfd5223a7c9a2ca245784862278cbd4cc06f6c7964e8b9b812aa59aecc",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/migration.js",
+      "originalSha256": "bd468c6711b76eea6a8f1af891a6c0c1e6b9cbb9e2d43f4646effe4956222153",
+      "publishedSha256": "bd468c6711b76eea6a8f1af891a6c0c1e6b9cbb9e2d43f4646effe4956222153",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/store.d.ts",
+      "originalSha256": "c024741f42415a1d918c0f9fc21e3fe8ac1a7bf83abb0e7bd68f4f8b2d7e366f",
+      "publishedSha256": "c024741f42415a1d918c0f9fc21e3fe8ac1a7bf83abb0e7bd68f4f8b2d7e366f",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/store.js",
+      "originalSha256": "2e14d9001441aa7cb690b1b0a6a9d8f1351f17c62b379bcbc87f041de2d5176a",
+      "publishedSha256": "2e14d9001441aa7cb690b1b0a6a9d8f1351f17c62b379bcbc87f041de2d5176a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/transfer.d.ts",
+      "originalSha256": "a4a02d9866fb339f1ff84c5f56ba81df1378641a94938d10717a5fa71f5f0a44",
+      "publishedSha256": "a4a02d9866fb339f1ff84c5f56ba81df1378641a94938d10717a5fa71f5f0a44",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history-store/transfer.js",
+      "originalSha256": "89a2237ac8ed6d71da8d54406e33149db7719805e954dea42feb070efb8e2b31",
+      "publishedSha256": "89a2237ac8ed6d71da8d54406e33149db7719805e954dea42feb070efb8e2b31",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history.d.ts",
+      "originalSha256": "f0abfbd4840c4df61a5740cd590a5d5dc5de3f67574fd913505136b5784c232e",
+      "publishedSha256": "f0abfbd4840c4df61a5740cd590a5d5dc5de3f67574fd913505136b5784c232e",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/history.js",
+      "originalSha256": "967d279f92ff92869430a25d54b3f19360cbcc7bd5b166a0e0f2cee5ba2446f3",
+      "publishedSha256": "967d279f92ff92869430a25d54b3f19360cbcc7bd5b166a0e0f2cee5ba2446f3",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/index.d.ts",
+      "originalSha256": "002f5176cfe7281e05df17a1b50ddc58169a0b5b6f1fe8b78afdc50876a93dfa",
+      "publishedSha256": "002f5176cfe7281e05df17a1b50ddc58169a0b5b6f1fe8b78afdc50876a93dfa",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/index.js",
+      "originalSha256": "b5335d43d8b299713ba8ea72cba3543a26df6137deaf3c3adfa09531c8426684",
+      "publishedSha256": "b5335d43d8b299713ba8ea72cba3543a26df6137deaf3c3adfa09531c8426684",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/input.d.ts",
+      "originalSha256": "09f2c1d9d66499ccbfe8fc0606d8d8a6a4b93ab21908887a5bb2643daf582cc9",
+      "publishedSha256": "09f2c1d9d66499ccbfe8fc0606d8d8a6a4b93ab21908887a5bb2643daf582cc9",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/input.js",
+      "originalSha256": "941a1d6a5cf30bf82e07aad5819cb096b36dc460637907129a068b2631d8c1d5",
+      "publishedSha256": "941a1d6a5cf30bf82e07aad5819cb096b36dc460637907129a068b2631d8c1d5",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/local-owner.d.ts",
+      "originalSha256": "15fa41d17b7e79cb1ad54d288a23e77122af65963ff4ab162592c995fc2cd736",
+      "publishedSha256": "15fa41d17b7e79cb1ad54d288a23e77122af65963ff4ab162592c995fc2cd736",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/local-owner.js",
+      "originalSha256": "c6fb99b1ab72fbd2d17d122a52f794f0db296b14b35edc27df04cdac190dd01a",
+      "publishedSha256": "c6fb99b1ab72fbd2d17d122a52f794f0db296b14b35edc27df04cdac190dd01a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/local-store.d.ts",
+      "originalSha256": "d6d7b7173ff743037324df77d90328bdc4aca3afc9366189501d697ee5959d0e",
+      "publishedSha256": "d6d7b7173ff743037324df77d90328bdc4aca3afc9366189501d697ee5959d0e",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/local-store.js",
+      "originalSha256": "54994487b15676a0c2372536a927fad76c8a1b356d4fe4521744c4ef507ebff1",
+      "publishedSha256": "54994487b15676a0c2372536a927fad76c8a1b356d4fe4521744c4ef507ebff1",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/observation.d.ts",
+      "originalSha256": "d42e38b36d63636ec297fb613cc5ed40f2bfc69fe18199c4ca41c5f662132be9",
+      "publishedSha256": "d42e38b36d63636ec297fb613cc5ed40f2bfc69fe18199c4ca41c5f662132be9",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/observation.js",
+      "originalSha256": "9c10176b57858dc4b230a26474ee00835f364ba8c2f961d1e81639c96c4c6882",
+      "publishedSha256": "9c10176b57858dc4b230a26474ee00835f364ba8c2f961d1e81639c96c4c6882",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/policy.d.ts",
+      "originalSha256": "bfe6f02e931d68cad1477e4a8d52c44c2d7bf065aad599bccdd7148932d4b087",
+      "publishedSha256": "bfe6f02e931d68cad1477e4a8d52c44c2d7bf065aad599bccdd7148932d4b087",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/policy.js",
+      "originalSha256": "bb1191c71c87f26233dd849bc1615ff8545d6be695ee86c2e4c3c1d0c9839a02",
+      "publishedSha256": "bb1191c71c87f26233dd849bc1615ff8545d6be695ee86c2e4c3c1d0c9839a02",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/runtime.d.ts",
+      "originalSha256": "ed0dab8ebfc44b13c960897876a9db08ad1da58c7c1486338dc04cee29b31755",
+      "publishedSha256": "ed0dab8ebfc44b13c960897876a9db08ad1da58c7c1486338dc04cee29b31755",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/runtime.js",
+      "originalSha256": "46344f85d275eaba680c21d692e0897ece051e2010d81dc8c293cd44ee8244ac",
+      "publishedSha256": "46344f85d275eaba680c21d692e0897ece051e2010d81dc8c293cd44ee8244ac",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/simulation.d.ts",
+      "originalSha256": "c1b7036a28ce5a0dc254fbc582da9aa80c8ab6894981393cd47bc871eb2995b7",
+      "publishedSha256": "c1b7036a28ce5a0dc254fbc582da9aa80c8ab6894981393cd47bc871eb2995b7",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/dist/core-0.3/src/simulation.js",
+      "originalSha256": "8df658c1b694b0a534e8009396fcd838f34378221effc267fd129a9d382ea844",
+      "publishedSha256": "8df658c1b694b0a534e8009396fcd838f34378221effc267fd129a9d382ea844",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/messages/additional.json",
+      "originalSha256": "93c1f6fce1c0d30d59eed6abd94ed7523ccfc503e6084b248cc4859b046fcf34",
+      "publishedSha256": "93c1f6fce1c0d30d59eed6abd94ed7523ccfc503e6084b248cc4859b046fcf34",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/messages/catalogue.json",
+      "originalSha256": "6303d5e8c416ef01584cdcc243ef457ba2cc143a5ec74fb067d539a67d993b7d",
+      "publishedSha256": "6303d5e8c416ef01584cdcc243ef457ba2cc143a5ec74fb067d539a67d993b7d",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/messages/explain.mjs",
+      "originalSha256": "77731bb15357607710d85ae0aab432d37c951243bed632ae946e12b7e882788d",
+      "publishedSha256": "77731bb15357607710d85ae0aab432d37c951243bed632ae946e12b7e882788d",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/messages/index.d.mts",
+      "originalSha256": "cd78926d352c304bccff0b47a36bc12db8a2aed3068c82530a1bfaf2ede37c26",
+      "publishedSha256": "cd78926d352c304bccff0b47a36bc12db8a2aed3068c82530a1bfaf2ede37c26",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/messages/strict-json.mjs",
+      "originalSha256": "fc531135a4bddb2057bd2b5afe456da200b9a0335b37411f388417584a18d64c",
+      "publishedSha256": "fc531135a4bddb2057bd2b5afe456da200b9a0335b37411f388417584a18d64c",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/messages/typed-description.mjs",
+      "originalSha256": "ae514ce98433d6466fbb9cbcf1e6be3e24fdd07b1d36110b54f880c560c745d3",
+      "publishedSha256": "ae514ce98433d6466fbb9cbcf1e6be3e24fdd07b1d36110b54f880c560c745d3",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/core/package.json",
+      "originalSha256": "99082b9f29c83872676c4d0482b0d37e6b50321e0815caafbaae73dada97f3fc",
+      "publishedSha256": "99082b9f29c83872676c4d0482b0d37e6b50321e0815caafbaae73dada97f3fc",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/evidence/BUILD-PROVENANCE.json",
+      "originalSha256": "3752f8752d41226131adf58e9ee98e34372a3469fb7ca639ca9e2988e8b099af",
+      "publishedSha256": "beae98c311a79abeb7d5c0f82b10835aae92692f89ab74801e94f04a8fb7f5e8",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/evidence/HISTORY.md",
+      "originalSha256": "40a7ccefbc58e8e8212597d8177bbd98b0322d8626bf69164f336f2ab623fcf7",
+      "publishedSha256": "40a7ccefbc58e8e8212597d8177bbd98b0322d8626bf69164f336f2ab623fcf7",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/evidence/LICENSE",
+      "originalSha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "publishedSha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/evidence/NOTICE",
+      "originalSha256": "bfb2131be616bebf277cfcb08f3927c1c360e114f7e51e46a77b490bcbdef59a",
+      "publishedSha256": "bfb2131be616bebf277cfcb08f3927c1c360e114f7e51e46a77b490bcbdef59a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/evidence/README.md",
+      "originalSha256": "e14237ae5e96e91da4474bb3fa661d13dbbd35cbb2202e27b5e1b936919c8ec9",
+      "publishedSha256": "e14237ae5e96e91da4474bb3fa661d13dbbd35cbb2202e27b5e1b936919c8ec9",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/evidence/THIRD-PARTY-NOTICES.md",
+      "originalSha256": "3f88256fdb80cf60a9602b03d7a6ff1d1dfa2184aed9688eace4e87ac0d3b2cc",
+      "publishedSha256": "3f88256fdb80cf60a9602b03d7a6ff1d1dfa2184aed9688eace4e87ac0d3b2cc",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/evidence/client.mjs",
+      "originalSha256": "7d18be52763a100f4a35270dca05e2c721b1e23fd6001430be33c150977ea8b2",
+      "publishedSha256": "7d18be52763a100f4a35270dca05e2c721b1e23fd6001430be33c150977ea8b2",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/evidence/config.mjs",
+      "originalSha256": "f809f3041f53c661ff1d3550ef635c74c74b9a30c3054d2dee22ff8d9ab48449",
+      "publishedSha256": "f809f3041f53c661ff1d3550ef635c74c74b9a30c3054d2dee22ff8d9ab48449",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/evidence/package.json",
+      "originalSha256": "e2f46153a28e7ca18de3ff414e509cc01f566c4efb96bb3faff34bc4a086d626",
+      "publishedSha256": "e2f46153a28e7ca18de3ff414e509cc01f566c4efb96bb3faff34bc4a086d626",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/evidence/server.mjs",
+      "originalSha256": "72ca7aa6019dcbc60baec41449ff9b2ea0dab61fd0add05c00a03f3e13c62ac3",
+      "publishedSha256": "72ca7aa6019dcbc60baec41449ff9b2ea0dab61fd0add05c00a03f3e13c62ac3",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/evidence/setup.mjs",
+      "originalSha256": "1430580f1609b6cbd587f20994d6b7209021d30d54841b6aa02af7a068eb9880",
+      "publishedSha256": "1430580f1609b6cbd587f20994d6b7209021d30d54841b6aa02af7a068eb9880",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/evidence/strict-json.mjs",
+      "originalSha256": "efadbaf7513423e4c47360d33c1a6ff9b7bd2c300bf4c96fac4e561e940f369a",
+      "publishedSha256": "efadbaf7513423e4c47360d33c1a6ff9b7bd2c300bf4c96fac4e561e940f369a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/ACCESS-POLICY.md",
+      "originalSha256": "ecdd2a906a91d333fda52f78f1fe8a71e565898fc58a059d940133e233aafcb1",
+      "publishedSha256": "ecdd2a906a91d333fda52f78f1fe8a71e565898fc58a059d940133e233aafcb1",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/BUILD-PROVENANCE.json",
+      "originalSha256": "baeb65ff612737f34ca31d9544cc8f3afe860c8faf6d0f3ef4f0ceeae6cf7096",
+      "publishedSha256": "492a13918c7b85df654b9b8779bee502c979ae73d4c1a7be5d29080af96e679f",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/CAPACITY.md",
+      "originalSha256": "6342d099b53bf2c8ad517d06b5b9e3c7c27c6333912a7d3a852c327655099be5",
+      "publishedSha256": "6342d099b53bf2c8ad517d06b5b9e3c7c27c6333912a7d3a852c327655099be5",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/COMPATIBILITY.md",
+      "originalSha256": "856c7207dfb9f1e30d358d8826e25a9153435118418161f6684c28f7ddc02669",
+      "publishedSha256": "856c7207dfb9f1e30d358d8826e25a9153435118418161f6684c28f7ddc02669",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/CONTRACT.md",
+      "originalSha256": "5a7c16c761f9892c66a150394fe34171749e4018961f3d089c9f208c38644e1b",
+      "publishedSha256": "5a7c16c761f9892c66a150394fe34171749e4018961f3d089c9f208c38644e1b",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/HISTORY.md",
+      "originalSha256": "40a7ccefbc58e8e8212597d8177bbd98b0322d8626bf69164f336f2ab623fcf7",
+      "publishedSha256": "40a7ccefbc58e8e8212597d8177bbd98b0322d8626bf69164f336f2ab623fcf7",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/HTTP.md",
+      "originalSha256": "373b9b3d5857737e8b2fe8ff26541b014605cc0cccffc276a83d86ff6c240744",
+      "publishedSha256": "373b9b3d5857737e8b2fe8ff26541b014605cc0cccffc276a83d86ff6c240744",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/IDENTITY.md",
+      "originalSha256": "033f8683fcd3ca377ae6d2baa6b298a22e8aa92997535cd392e53fd2fa2aff4e",
+      "publishedSha256": "033f8683fcd3ca377ae6d2baa6b298a22e8aa92997535cd392e53fd2fa2aff4e",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/LICENSE",
+      "originalSha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "publishedSha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/NOTICE",
+      "originalSha256": "bfb2131be616bebf277cfcb08f3927c1c360e114f7e51e46a77b490bcbdef59a",
+      "publishedSha256": "bfb2131be616bebf277cfcb08f3927c1c360e114f7e51e46a77b490bcbdef59a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/OPERATIONS.md",
+      "originalSha256": "0af148fa32ae8ceca11e77f8cb75c18fd94a13b4eb2c5a82f6f5126fe185e6c7",
+      "publishedSha256": "0af148fa32ae8ceca11e77f8cb75c18fd94a13b4eb2c5a82f6f5126fe185e6c7",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/README.md",
+      "originalSha256": "6d8647f1c8d4cdf3b8f88504b81f5c883e0fbb3056a8ef7a976b8c97ab262b7a",
+      "publishedSha256": "6d8647f1c8d4cdf3b8f88504b81f5c883e0fbb3056a8ef7a976b8c97ab262b7a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/RECOVERY.md",
+      "originalSha256": "b32b93bee233f86d6ff3ae1f29f99f875cccabd5208c0b2c67a1dc5a43e788a5",
+      "publishedSha256": "b32b93bee233f86d6ff3ae1f29f99f875cccabd5208c0b2c67a1dc5a43e788a5",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/REGISTRY.md",
+      "originalSha256": "5f789f47878228aea5f17a55ee70bf7d8df5dda432203b8883bfe659fcd6ef05",
+      "publishedSha256": "5f789f47878228aea5f17a55ee70bf7d8df5dda432203b8883bfe659fcd6ef05",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/TASKS.md",
+      "originalSha256": "5d3d49bde95e3ea075ba47763cc24e052363d92e9252c34dc62f0e8a836c9c5f",
+      "publishedSha256": "5d3d49bde95e3ea075ba47763cc24e052363d92e9252c34dc62f0e8a836c9c5f",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/examples/cooperative-setup.mjs",
+      "originalSha256": "384802e5273bd48530bb214c71fee8357cdc146e6ce2fe6f62e9d843b7092aa9",
+      "publishedSha256": "384802e5273bd48530bb214c71fee8357cdc146e6ce2fe6f62e9d843b7092aa9",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/examples/demo.mjs",
+      "originalSha256": "d504898a50a2400193287f3374ab83b971fa1b036f695a2f5a60790d225d89d2",
+      "publishedSha256": "d504898a50a2400193287f3374ab83b971fa1b036f695a2f5a60790d225d89d2",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/examples/host-compatibility.mjs",
+      "originalSha256": "75b50977a1313639c6455b52c139c36db84e7892732f5ebb8e91b9d541710650",
+      "publishedSha256": "75b50977a1313639c6455b52c139c36db84e7892732f5ebb8e91b9d541710650",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/examples/http-demo.mjs",
+      "originalSha256": "60b0ed87f61cc713157e00e9f35bb9e37ddf10229993b869241bb0737f9abc32",
+      "publishedSha256": "60b0ed87f61cc713157e00e9f35bb9e37ddf10229993b869241bb0737f9abc32",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/examples/keycloak-realm.json",
+      "originalSha256": "7d0ef31ec0095238626ba36670c91f06b9770dbe41e610ea109b829e2a4e8301",
+      "publishedSha256": "7d0ef31ec0095238626ba36670c91f06b9770dbe41e610ea109b829e2a4e8301",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/examples/linux-isolation.mjs",
+      "originalSha256": "0353e11cfc80d1984408338d61f2e6c0f7864abb10533d8988d57b7bea64f812",
+      "publishedSha256": "0353e11cfc80d1984408338d61f2e6c0f7864abb10533d8988d57b7bea64f812",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/examples/lossy-relay.mjs",
+      "originalSha256": "ef7366840ffc0a39861639c9b5ebcc4f686ea57c44904c328f6805a5d0bf08f4",
+      "publishedSha256": "ef7366840ffc0a39861639c9b5ebcc4f686ea57c44904c328f6805a5d0bf08f4",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/examples/recovery-demo.mjs",
+      "originalSha256": "2174016a7ba218fc01e170f137f170b72e8e6681ebbaaa4260144a894748bd2a",
+      "publishedSha256": "2174016a7ba218fc01e170f137f170b72e8e6681ebbaaa4260144a894748bd2a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/examples/setup.mjs",
+      "originalSha256": "e2581673a6be43efb84c2dc3591c638ca04277a3cac47298a4f02355cf192109",
+      "publishedSha256": "e2581673a6be43efb84c2dc3591c638ca04277a3cac47298a4f02355cf192109",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/examples/task-client.mjs",
+      "originalSha256": "b506eb0f5102134d7508c21092040aa25877c4e85aa7f327ad8fbe60aab5725f",
+      "publishedSha256": "b506eb0f5102134d7508c21092040aa25877c4e85aa7f327ad8fbe60aab5725f",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/examples/tasks-demo.mjs",
+      "originalSha256": "7e1d6eac9f95649c125d3171e85d16c4f5e4a4b51f3bd39833091d9f08153fd2",
+      "publishedSha256": "7e1d6eac9f95649c125d3171e85d16c4f5e4a4b51f3bd39833091d9f08153fd2",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/examples/test-issuer.mjs",
+      "originalSha256": "f3abbba4d390d7b6bab248ea345a7dd3c06bf956d377f5e5f9b53411334f4674",
+      "publishedSha256": "f3abbba4d390d7b6bab248ea345a7dd3c06bf956d377f5e5f9b53411334f4674",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/examples/upstream.mjs",
+      "originalSha256": "5f349813af9e55fc13e7f8c583e82332604156463fae371bc35e081ead972650",
+      "publishedSha256": "5f349813af9e55fc13e7f8c583e82332604156463fae371bc35e081ead972650",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/package.json",
+      "originalSha256": "a14f58924682ba0b1cd01bfd7cc0d8b24d81b7fdb22b2fa440c36469d73377df",
+      "publishedSha256": "a14f58924682ba0b1cd01bfd7cc0d8b24d81b7fdb22b2fa440c36469d73377df",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/access-policy.d.ts",
+      "originalSha256": "1857315d8314d193ef614c6b24878e9a728d2e04022e5721c7b6e06f639bca82",
+      "publishedSha256": "1857315d8314d193ef614c6b24878e9a728d2e04022e5721c7b6e06f639bca82",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/access-policy.mjs",
+      "originalSha256": "f153906a2af1b68ae6fb406bb2ba02ec7a1f8bf9744f382322f8008291301051",
+      "publishedSha256": "f153906a2af1b68ae6fb406bb2ba02ec7a1f8bf9744f382322f8008291301051",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/access.mjs",
+      "originalSha256": "ebd06e83b6dde6f3a8e5d72e3d753d79ff5e20c065aba0474b3e8bb467adbd70",
+      "publishedSha256": "ebd06e83b6dde6f3a8e5d72e3d753d79ff5e20c065aba0474b3e8bb467adbd70",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/cli.mjs",
+      "originalSha256": "81e2666bc80bd52833cd2b1f7bcbff3e0d3b59c715b794cf6c3b0c484a6a8ec0",
+      "publishedSha256": "81e2666bc80bd52833cd2b1f7bcbff3e0d3b59c715b794cf6c3b0c484a6a8ec0",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/cooperative.d.ts",
+      "originalSha256": "3fc8cecf5acbec85617b6953d8e600b9541f3d1acfd2271b2f7767b1d0444180",
+      "publishedSha256": "3fc8cecf5acbec85617b6953d8e600b9541f3d1acfd2271b2f7767b1d0444180",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/cooperative.mjs",
+      "originalSha256": "3d8b1029b959ced0285c7ffb482e3c342792a8055b53702f56f23872a11010e7",
+      "publishedSha256": "3d8b1029b959ced0285c7ffb482e3c342792a8055b53702f56f23872a11010e7",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/data.mjs",
+      "originalSha256": "a25d5aad3d68f1774be78b311f17baec388eed67708db4f0aa7be465d36f6fce",
+      "publishedSha256": "a25d5aad3d68f1774be78b311f17baec388eed67708db4f0aa7be465d36f6fce",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/gateway.d.ts",
+      "originalSha256": "2cd74bc849f468b779b99ee94a5c90a0109c15cfb92c3847853e55c053a61e5b",
+      "publishedSha256": "2cd74bc849f468b779b99ee94a5c90a0109c15cfb92c3847853e55c053a61e5b",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/gateway.mjs",
+      "originalSha256": "2bdf8d4fcd21a91f2e1c7e1920b3d942a2357b4f12dc6d4fcdb299eef5375662",
+      "publishedSha256": "2bdf8d4fcd21a91f2e1c7e1920b3d942a2357b4f12dc6d4fcdb299eef5375662",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/guard.mjs",
+      "originalSha256": "51729b376b5c1883ae906b261c120db0764bcda91041cd6dacd624e9af96457e",
+      "publishedSha256": "51729b376b5c1883ae906b261c120db0764bcda91041cd6dacd624e9af96457e",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/http.d.ts",
+      "originalSha256": "f18cd3bd93239bb26d2c48c73257593db1228952aec448190e61ea9eea07a874",
+      "publishedSha256": "f18cd3bd93239bb26d2c48c73257593db1228952aec448190e61ea9eea07a874",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/http.mjs",
+      "originalSha256": "258998377a00a4a875ce4302507b326afdba3cccff9bfe43afcc806a00c5dd81",
+      "publishedSha256": "258998377a00a4a875ce4302507b326afdba3cccff9bfe43afcc806a00c5dd81",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/operations.d.ts",
+      "originalSha256": "02c9cd711616fffd85f33cf24237fd1b2df2debea138cfcf8393fff47e1dbcc9",
+      "publishedSha256": "02c9cd711616fffd85f33cf24237fd1b2df2debea138cfcf8393fff47e1dbcc9",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/operations.mjs",
+      "originalSha256": "bd87843df4a0c73ce6ee642794594b0ab964839286f3b8abb5625f4e7a636bba",
+      "publishedSha256": "bd87843df4a0c73ce6ee642794594b0ab964839286f3b8abb5625f4e7a636bba",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/ops-cli.mjs",
+      "originalSha256": "48c66077154b73c63487ba2969810cb906610bb573fe1b9829e40790c756c5c3",
+      "publishedSha256": "48c66077154b73c63487ba2969810cb906610bb573fe1b9829e40790c756c5c3",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/server.mjs",
+      "originalSha256": "5174475b78b9a39b61ab8acb2e12f4512c4a1701e2641954f0710aaaf1b3b91a",
+      "publishedSha256": "5174475b78b9a39b61ab8acb2e12f4512c4a1701e2641954f0710aaaf1b3b91a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/stdio.mjs",
+      "originalSha256": "a30348027b8cc3198e4a03afaae93df3f7dc45583fea8c535c32e57e99dbf1fb",
+      "publishedSha256": "a30348027b8cc3198e4a03afaae93df3f7dc45583fea8c535c32e57e99dbf1fb",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/strict-json.mjs",
+      "originalSha256": "efadbaf7513423e4c47360d33c1a6ff9b7bd2c300bf4c96fac4e561e940f369a",
+      "publishedSha256": "efadbaf7513423e4c47360d33c1a6ff9b7bd2c300bf4c96fac4e561e940f369a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/tasks.mjs",
+      "originalSha256": "b6655306130091502bc298fbe4c1f87f79f224c2d1e13fde23c7f0ccebdd1e81",
+      "publishedSha256": "b6655306130091502bc298fbe4c1f87f79f224c2d1e13fde23c7f0ccebdd1e81",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/gateway/src/upstream.mjs",
+      "originalSha256": "dc7306d29c502fc4d4bdd61225984a04e7201432127df41ffb00c81e9355d9b9",
+      "publishedSha256": "dc7306d29c502fc4d4bdd61225984a04e7201432127df41ffb00c81e9355d9b9",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/ramex-labs-continuity-0.3.0-preview.11.tgz",
+      "originalSha256": "b005e2dce1eb2b1f4d5f2af2769d565e918ce162b43b288b3ab6a6e6dda96c21",
+      "publishedSha256": "585fd8f6e09ea1343968bc16797a9c55f7065c152652941b00ec98c489c68dc8",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/ramex-labs-continuity-mcp-0.3.0-preview.12.tgz",
+      "originalSha256": "09777e247230b6ade12f81f315fe0cdb2bec0851c00bc25ce2457fb8d8c54cb6",
+      "publishedSha256": "1a6bda8967d239bdd87fc3712e3d33bde0b8b8b63f8fcc3e95debe8e8b62bc17",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/ramex-labs-continuity-mcp-gateway-0.3.0-preview.11.tgz",
+      "originalSha256": "fa08818f89b126362a5a9fb5d922002f9f40f8e698ad77e59a2f7b3a0f0295df",
+      "publishedSha256": "fd5b12a93cb9bbb6cc8ed08f159a62d68d45fd573646d3ea2e11daa0b7ec560f",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/ramex-labs-continuity-remote-0.3.0-preview.6.tgz",
+      "originalSha256": "b1ec21905f6da5d23af2c465b2f2b1a33ae8e7ce36616faa033fd8a87ceaca12",
+      "publishedSha256": "d3b1bd1eb5f927aa96f59f407164a3aeb87a8b49943775ca1135dd0738799e09",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/BUILD-PROVENANCE.json",
+      "originalSha256": "d922a47f719148ba42b1f5f893ffd196ca55cfcbdfe5d5cc48a2d30834d7fdb1",
+      "publishedSha256": "48349ab6c8a0ad22acd5863b77c8503c272d64bdb06d676384b464e4e9907f1b",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/HISTORY.md",
+      "originalSha256": "40a7ccefbc58e8e8212597d8177bbd98b0322d8626bf69164f336f2ab623fcf7",
+      "publishedSha256": "40a7ccefbc58e8e8212597d8177bbd98b0322d8626bf69164f336f2ab623fcf7",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/LICENSE",
+      "originalSha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "publishedSha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/LICENSING.md",
+      "originalSha256": "951f62c81b479190303d2d4a322c098f5ee39604a149b01455c29e3d9330c1de",
+      "publishedSha256": "951f62c81b479190303d2d4a322c098f5ee39604a149b01455c29e3d9330c1de",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/NOTICE",
+      "originalSha256": "bfb2131be616bebf277cfcb08f3927c1c360e114f7e51e46a77b490bcbdef59a",
+      "publishedSha256": "bfb2131be616bebf277cfcb08f3927c1c360e114f7e51e46a77b490bcbdef59a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/README.md",
+      "originalSha256": "3e08678affb04d7ae2271a92e125902e72ce74368703267be7f21b258d00408e",
+      "publishedSha256": "3e08678affb04d7ae2271a92e125902e72ce74368703267be7f21b258d00408e",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/THIRD-PARTY-NOTICES.md",
+      "originalSha256": "9fac1b22fd197ee70215fdf57f8bb198ff171acdfd1abba67b9a852362afdcff",
+      "publishedSha256": "9fac1b22fd197ee70215fdf57f8bb198ff171acdfd1abba67b9a852362afdcff",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/attempts.d.mts",
+      "originalSha256": "db1faf0f3e005cb62a3acd74500da358bea05c7834e28a0f55fcf65102be0b7b",
+      "publishedSha256": "db1faf0f3e005cb62a3acd74500da358bea05c7834e28a0f55fcf65102be0b7b",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/attempts.mjs",
+      "originalSha256": "db1faf0f3e005cb62a3acd74500da358bea05c7834e28a0f55fcf65102be0b7b",
+      "publishedSha256": "db1faf0f3e005cb62a3acd74500da358bea05c7834e28a0f55fcf65102be0b7b",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/client.mjs",
+      "originalSha256": "46d4effb0cfa0ef10da9c90eec80a6478247f638fa0bcd46eb38a363d4a71102",
+      "publishedSha256": "46d4effb0cfa0ef10da9c90eec80a6478247f638fa0bcd46eb38a363d4a71102",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/destination.mjs",
+      "originalSha256": "36c5d908d02d57bee4a8d828573d841179c63b9b43b20addbc0afa58dccb55cf",
+      "publishedSha256": "36c5d908d02d57bee4a8d828573d841179c63b9b43b20addbc0afa58dccb55cf",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/durable-store.mjs",
+      "originalSha256": "47db0155f47bc39cbc0e6c6d5fe3713e9187a5885adc076d3ca7a80bb2f74462",
+      "publishedSha256": "47db0155f47bc39cbc0e6c6d5fe3713e9187a5885adc076d3ca7a80bb2f74462",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/executor.mjs",
+      "originalSha256": "8d53e3e160a8497955e0e02f728039fe223bd023d91b51d4b5e87f0e018c4ffe",
+      "publishedSha256": "8d53e3e160a8497955e0e02f728039fe223bd023d91b51d4b5e87f0e018c4ffe",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/index.d.mts",
+      "originalSha256": "7032801fcf117ca3d20e9844880601661370357b882012eba59cf61491ec9d49",
+      "publishedSha256": "7032801fcf117ca3d20e9844880601661370357b882012eba59cf61491ec9d49",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/index.mjs",
+      "originalSha256": "4437a87e2c3c4ea3da4720d5615217b7f3ba0bf52ecdb4a1f7f9c793bf89a01e",
+      "publishedSha256": "4437a87e2c3c4ea3da4720d5615217b7f3ba0bf52ecdb4a1f7f9c793bf89a01e",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/langchain.d.mts",
+      "originalSha256": "76bf0b24e94e072a3177524b47d71d7d558070c89ce6213bd24310ae40d8b9e8",
+      "publishedSha256": "76bf0b24e94e072a3177524b47d71d7d558070c89ce6213bd24310ae40d8b9e8",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/langchain.mjs",
+      "originalSha256": "6b3a9083ec138b4c1e519b06440a706daac6b3f2a149a0e9ecaf3ece19187934",
+      "publishedSha256": "6b3a9083ec138b4c1e519b06440a706daac6b3f2a149a0e9ecaf3ece19187934",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/local.d.mts",
+      "originalSha256": "b2637875a27143ac2407920749b965b8cc4ffa9e07696c524b4d249f1fcd1ace",
+      "publishedSha256": "b2637875a27143ac2407920749b965b8cc4ffa9e07696c524b4d249f1fcd1ace",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/local.mjs",
+      "originalSha256": "b2637875a27143ac2407920749b965b8cc4ffa9e07696c524b4d249f1fcd1ace",
+      "publishedSha256": "b2637875a27143ac2407920749b965b8cc4ffa9e07696c524b4d249f1fcd1ace",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/protected-evidence.mjs",
+      "originalSha256": "7ce7086c8da9eb6dea6820e79d0815a9d1c08c08bebeabae9503ed8d3ec800a8",
+      "publishedSha256": "7ce7086c8da9eb6dea6820e79d0815a9d1c08c08bebeabae9503ed8d3ec800a8",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/recovery.mjs",
+      "originalSha256": "8f94d775b27a865b3e0e206bd949f7d270a9884128967c8581aaff9d2be3ecec",
+      "publishedSha256": "8f94d775b27a865b3e0e206bd949f7d270a9884128967c8581aaff9d2be3ecec",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/runtime.d.mts",
+      "originalSha256": "9a060069565874be8bfa01b2d622850e5e238f1e1956a878c0177d2c1238a606",
+      "publishedSha256": "9a060069565874be8bfa01b2d622850e5e238f1e1956a878c0177d2c1238a606",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/runtime.mjs",
+      "originalSha256": "9a060069565874be8bfa01b2d622850e5e238f1e1956a878c0177d2c1238a606",
+      "publishedSha256": "9a060069565874be8bfa01b2d622850e5e238f1e1956a878c0177d2c1238a606",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/strict-json.mjs",
+      "originalSha256": "efadbaf7513423e4c47360d33c1a6ff9b7bd2c300bf4c96fac4e561e940f369a",
+      "publishedSha256": "efadbaf7513423e4c47360d33c1a6ff9b7bd2c300bf4c96fac4e561e940f369a",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/validation.mjs",
+      "originalSha256": "30fc4057944ef3ba5f914074131c535c4f8485611abfdfdae7829458155ab340",
+      "publishedSha256": "30fc4057944ef3ba5f914074131c535c4f8485611abfdfdae7829458155ab340",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/dist/remote-tools/wire.mjs",
+      "originalSha256": "672ce7f2b4af9188aa4d791a5e4cf808b89b6873b35dbe43fe4a09f5de5f1ae9",
+      "publishedSha256": "672ce7f2b4af9188aa4d791a5e4cf808b89b6873b35dbe43fe4a09f5de5f1ae9",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/examples/native-consumer.mjs",
+      "originalSha256": "d608a7800179264a1ecf9f41d4055f5e02d44eb8f1817a9db2d654a492d67afb",
+      "publishedSha256": "d608a7800179264a1ecf9f41d4055f5e02d44eb8f1817a9db2d654a492d67afb",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/examples/walkthrough.mjs",
+      "originalSha256": "b76985a42525a3930cf457a5cce483abd660d7731fc07b079181d2d5b0bb42d8",
+      "publishedSha256": "b76985a42525a3930cf457a5cce483abd660d7731fc07b079181d2d5b0bb42d8",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "sdk/message-release/remote/package.json",
+      "originalSha256": "85a5ee483d79f0d8e587071c06ad344a584cc3349c64a817bf910567ed46be73",
+      "publishedSha256": "85a5ee483d79f0d8e587071c06ad344a584cc3349c64a817bf910567ed46be73",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
       "originalSha256": "c915574f8d1e18ab25e8bb8b9ed0a7d459fe80cb8fc0e931bfa172bd31be7b3b",
       "path": "sdk/protected-remote-artifacts/npm-package/BUILD-PROVENANCE.json",
       "publishedSha256": "c915574f8d1e18ab25e8bb8b9ed0a7d459fe80cb8fc0e931bfa172bd31be7b3b",
@@ -15699,8 +17358,8 @@
     {
       "originalSha256": "a656243381e3d8c3871091dab445e4c88f3ba07ef018a0be894089aa2830582d",
       "path": "server.json",
-      "publishedSha256": "a656243381e3d8c3871091dab445e4c88f3ba07ef018a0be894089aa2830582d",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "91af8d8d7de673b2d20eb9d89b8a19c3595e82a45e06c9ae53513ed739b381cd",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -16201,6 +17860,13 @@
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
+      "path": "tests/message-readability.test.mjs",
+      "originalSha256": "499cb796a721083bd7dbfb843cfde7cb555fd7e28371fe59e8e9242777d8f33b",
+      "publishedSha256": "499cb796a721083bd7dbfb843cfde7cb555fd7e28371fe59e8e9242777d8f33b",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
       "originalSha256": "8f17e7e5500b620a1fa435b5d28822922c2fa0061c6b249ebe85439ca34c8edc",
       "path": "tests/onboarding.test.mjs",
       "publishedSha256": "3c05655805c08c7e5fa28433fe6b4c135fcb864760a57f5c05300697f880f0cb",
@@ -16539,29 +18205,29 @@
     {
       "originalSha256": "3ac818e656311f2f9f91efe8f5408a1868b0ca40f0d8eecfb7b26a4125158ff2",
       "path": "tools/release/build.mjs",
-      "publishedSha256": "3ac818e656311f2f9f91efe8f5408a1868b0ca40f0d8eecfb7b26a4125158ff2",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "ba4187d92ab6e35e3ead53e41ebbb9c0532d35650bb47352e40ee55db7aab90d",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "48be5b5613e8e6de1587209cdc146aafc0a976f2923637097750c82841817f96",
       "path": "tools/release/check-locks.mjs",
-      "publishedSha256": "48be5b5613e8e6de1587209cdc146aafc0a976f2923637097750c82841817f96",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "442c6cf0b4d028d57dc7c38084f08a5fee532f19110dc7d1f6a35f10b8f65d1b",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "3b1263df234f88dd368487d68f42773884f0caf8f9c05f79be4d094a4b4d3afb",
       "path": "tools/release/consumer-lock.json",
-      "publishedSha256": "3b1263df234f88dd368487d68f42773884f0caf8f9c05f79be4d094a4b4d3afb",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "4a7469e17373c1e275b6263a403b1dcaa26759f75939699fec71570a71576451",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "cbf7d67f3899752766c65e49ffa9c98cfb6b8e0ff81d438424ef686c8257eb8b",
       "path": "tools/release/duty-installed.mjs",
-      "publishedSha256": "cbf7d67f3899752766c65e49ffa9c98cfb6b8e0ff81d438424ef686c8257eb8b",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "806ab121c4c8a8da5145e824029dc1ba04a86b7586edfea91331e41d518c22c8",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -16574,15 +18240,29 @@
     {
       "originalSha256": "c76f8b52136661e94b320717b84695547b1baa9566c14efcac0e463ce560ef23",
       "path": "tools/release/install.mjs",
-      "publishedSha256": "c76f8b52136661e94b320717b84695547b1baa9566c14efcac0e463ce560ef23",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "a32fb4d4700ff56d4460a1b63fb1978a5f2963fc279acbc2ae1a6c403506c42e",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
+    },
+    {
+      "path": "tools/release/message-installed.mjs",
+      "originalSha256": "3af3866a340a34467bd06da99fe7f7a8533dc6610fe4f05ad91eecb43b3a1a8c",
+      "publishedSha256": "3af3866a340a34467bd06da99fe7f7a8533dc6610fe4f05ad91eecb43b3a1a8c",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
+      "path": "tools/release/message-installed.mts",
+      "originalSha256": "b62c439507c24e7c38b38a746e252252dddd3f47dacfaad2c597c7d2ee1a07f4",
+      "publishedSha256": "b62c439507c24e7c38b38a746e252252dddd3f47dacfaad2c597c7d2ee1a07f4",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
     },
     {
       "originalSha256": "f7325cacb7c401cc7bb69be50c524b59d45a14607bdd55e23e1ce4851dbb3415",
       "path": "tools/release/npm-path.test.mjs",
-      "publishedSha256": "f7325cacb7c401cc7bb69be50c524b59d45a14607bdd55e23e1ce4851dbb3415",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "3be920c420dd7671dbda95d9cefdbb59c8ef4ab6482fdb823b1120a7cff5b9ba",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -16595,22 +18275,22 @@
     {
       "originalSha256": "1183e6183bb0b373382e319cb8c451d6e05692710a07834ecb7b734c94d7bc18",
       "path": "tools/release/update-consumer-lock.mjs",
-      "publishedSha256": "1183e6183bb0b373382e319cb8c451d6e05692710a07834ecb7b734c94d7bc18",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "683a7868a0cb1dfb67151514a23a401f85bdfc1368b83249dc1e5332d3d0b3ee",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "a402eae8e9eedf53612d1f7c88bb649ba23ab84d5fa521a59337713eb5ce5887",
       "path": "tools/release/verify.mjs",
-      "publishedSha256": "a402eae8e9eedf53612d1f7c88bb649ba23ab84d5fa521a59337713eb5ce5887",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "fe97dec72098555412509c17fcf34b17e493aea077d18408b318209451c7fbdc",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "e7bde4c286db7cd087448b319f452186d742588769e7d59e1a720581434e4189",
       "path": "tools/release/versions.json",
-      "publishedSha256": "e7bde4c286db7cd087448b319f452186d742588769e7d59e1a720581434e4189",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "865f9ef54e38d08e8856a189dec56d64a072e1c6a4dc79b875599405f0f5fc20",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -16721,8 +18401,8 @@
     {
       "originalSha256": "e904d2a16d311a33908d2c902d616c54b404e6e9fb7b40de1c4defa16c031792",
       "path": "tools/remote-build/verify.mjs",
-      "publishedSha256": "e904d2a16d311a33908d2c902d616c54b404e6e9fb7b40de1c4defa16c031792",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "39e18ee9a5a647cecb5a4afb1555087d3a0cd2c7fb1dfdb9983857a0e803c331",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -16840,22 +18520,22 @@
     {
       "originalSha256": "1374db7d5335582edc9b2c9d4e6285c6c571591c31ce4db96aabda141224d221",
       "path": "tools/verify-core-0.3.mjs",
-      "publishedSha256": "1374db7d5335582edc9b2c9d4e6285c6c571591c31ce4db96aabda141224d221",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "c7d6d4c42ae5d18f86e6ef6e185ec126d2245f248c9e14dcb0a8caa9c6f14ecc",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "a3603e62b774e9d0f3ddd112833aa37ccd24eb705321182434d9de16a88508bf",
       "path": "tools/verify-gateway.mjs",
-      "publishedSha256": "a3603e62b774e9d0f3ddd112833aa37ccd24eb705321182434d9de16a88508bf",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "c8f91b7cac2eb334489477156091b50240511c79efb73f861cf5a5b49f471147",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "a2fc28330fc013bdbfac3fedb2240870720cd614c3fd9540547278aee167e048",
       "path": "tools/verify-mcp-package.mjs",
-      "publishedSha256": "a2fc28330fc013bdbfac3fedb2240870720cd614c3fd9540547278aee167e048",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "847d72204b8d457acf050ee1b1df1884d84183f9197660840e0aa643104f23c1",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -16875,8 +18555,8 @@
     {
       "originalSha256": "8e92f6e28e200b014b834ef84fd6280ee34dc3dc000773fdb42cdb5c1fc837fe",
       "path": "tools/verify-shared-core.mjs",
-      "publishedSha256": "8e92f6e28e200b014b834ef84fd6280ee34dc3dc000773fdb42cdb5c1fc837fe",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "674453573b367d94f366314eb1fe350ed559c13c6ea70b113838d9a2a5a812bd",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -16917,8 +18597,8 @@
     {
       "originalSha256": "e90767ae063935035f373f9152a387998a428c4266f19d099f2032331deb174f",
       "path": "website/docs/HISTORY-INTEGRATION.md",
-      "publishedSha256": "e90767ae063935035f373f9152a387998a428c4266f19d099f2032331deb174f",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "38ec79d95c8351d63c25226e04b3c43f30c604b9730c1ac60f6735076963df24",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -16952,8 +18632,8 @@
     {
       "originalSha256": "45634e81bed22c07981e9b7b633fef927527c51029effef014cf5b6333c17129",
       "path": "website/docs/SUPPORTED-PROFILES.md",
-      "publishedSha256": "45634e81bed22c07981e9b7b633fef927527c51029effef014cf5b6333c17129",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "171770538cb033339d10330b70620a2c0d65cd4ef7f1c76a96d34810a08588d1",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -16971,10 +18651,17 @@
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
+      "path": "website/docs/ZK-EXPERIMENTS.md",
+      "originalSha256": "650351d5a9f6811c589b879e5e4bebd8b7e8c67e107cb70e4b76266601459ffc",
+      "publishedSha256": "650351d5a9f6811c589b879e5e4bebd8b7e8c67e107cb70e4b76266601459ffc",
+      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "sourceEdition": "continuity-message-packages-2026-10-10-r1"
+    },
+    {
       "originalSha256": "50f2a6ae135a98c5476a07f720eb5101e65a4ce646c4c2712ba5e8e3abd91a21",
       "path": "website/downloads/CHANGELOG.md",
-      "publishedSha256": "5bc2ce497b87b9a5c4d87efb97a4be68407dd9ea51b076eb6f1baf0a6143a5bd",
-      "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
+      "publishedSha256": "703a42d36a9d14f5e67930cdc78c21a08ace24183ed81ad9e800fb9384b70209",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -17001,15 +18688,15 @@
     {
       "originalSha256": "dd18055bff3b3b91f5fa7fc1dc3a88dfb19e243e9b43c44eff7c9510a7f0d1a3",
       "path": "website/downloads/README.md",
-      "publishedSha256": "7ed6da49b9e832c4bd0965fbe1faecd266dd55ba41e1465c801dc04c4a6d6a24",
-      "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
+      "publishedSha256": "c90ecf70fd1709835426d0b313df14edf841050f06014b53053f5ab69c091a3c",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "41685f9fd75d8bdfc54119dcb822abd8c22e57a28e64ce2c357ec7e13d3a9ae3",
       "path": "website/downloads/RELEASE-STATUS.md",
-      "publishedSha256": "d6f98fa51f954886a5557407a89e42848ab56b60f5b726e2ab86e906bcae13e0",
-      "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
+      "publishedSha256": "473e04f2562cddf71e3fc3195617d4555c51750b098f949bd7b6d31d30084af4",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -17610,8 +19297,8 @@
     {
       "originalSha256": "84051ccb9075da2a977117ce56a92abfc55c10d7416718e1ca56b6d000e2a6a6",
       "path": "website/index.html",
-      "publishedSha256": "6a021b054738e2c61a01f00db3ab5956f0afa082149a741d94f4a3d7ab78c2ff",
-      "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
+      "publishedSha256": "9385615df96d86315058f40414cebbb1c4803be7a48440a96f181a9526b9faa5",
+      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -18946,7 +20633,7 @@
     "status": "REGENERATED_FOR_PUBLIC_EDITION"
   },
   "newProofOrGuestBuildCredit": false,
-  "npmArchivesUnchanged": true,
+  "npmArchivesUnchanged": false,
   "privacyScope": "Source and whitelisted result facts; no private bodies, credentials, keys/SRS, correspondence or account telemetry",
   "publicDiagnosticAdaptations": [
     {
@@ -18982,5 +20669,7 @@
       "scope": "Split a literal PEM header used only for file-format detection into concatenated strings. Detection values and signing behavior are unchanged; no private key body is published."
     }
   ],
-  "schema": "continuity.public-source-update-provenance.v1"
+  "schema": "continuity.public-source-update-provenance.v1",
+  "historicalNpmArchivesUnchanged": true,
+  "packageUpdateScope": "Optional pure saved-record explanation command/export and exact dependency tuple; existing runtime/type files byte-identical."
 }

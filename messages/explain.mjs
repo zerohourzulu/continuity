@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Explicit read-only human renderer. Saved records are untrusted, unauthenticated
 // reports. This module does not invoke commands, retry or inspect operator state.
-import { readFileSync } from 'node:fs';
+import { readFileSync, realpathSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { parseStrictJson } from './strict-json.mjs';
 import {describeUnavailable,validateCause} from './typed-description.mjs';
@@ -89,10 +89,10 @@ export function explainBytes(surface,bytes) {
 }
 export const help=`Explain one saved JSON object as human text.
 
-node messages/explain.mjs --surface reviewer|workflow|controller|recipient|service|reader|mcp|p-v9|proposal < saved-output.json
-node messages/explain.mjs --surface document-client --code DOCUMENT_CLIENT_FAILED_NO_AUTOMATIC_RETRY
-node messages/explain.mjs --surface gateway --code GATEWAY_CONFIGURATION_UNAVAILABLE
-node messages/explain.mjs --surface document-inspection --code DOCUMENT_EVIDENCE_INSPECTION_FAILED
+continuity-explain --surface reviewer|workflow|controller|recipient|service|reader|mcp|p-v9|proposal < saved-output.json
+continuity-explain --surface document-client --code DOCUMENT_CLIENT_FAILED_NO_AUTOMATIC_RETRY
+continuity-explain --surface gateway --code GATEWAY_CONFIGURATION_UNAVAILABLE
+continuity-explain --surface document-inspection --code DOCUMENT_EVIDENCE_INSPECTION_FAILED
 
 Only one UTF-8 JSON object is accepted: at most 65,536 bytes, 16 levels and
 2,048 values; duplicate keys and additional JSON values are refused. Unknown
@@ -109,7 +109,7 @@ retry, change trust, grant authority or inspect private state.
 Original commands, stdout JSON, RPC bytes and their exit codes are unchanged.
 Keep the original output and original command exit code separately.
 `;
-if (process.argv[1] && fileURLToPath(import.meta.url)===process.argv[1]) {
+if (process.argv[1] && fileURLToPath(import.meta.url)===realpathSync(process.argv[1])) {
   const args=process.argv.slice(2);
   if (args.length===1 && ['--help','-h'].includes(args[0])) process.stdout.write(help);
   else if(args.length===4 && args[0]==='--surface' && args[2]==='--code') {
@@ -117,7 +117,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url)===process.argv[1]) {
     catch { process.stderr.write('EXPLANATION_CONTEXT_REFUSED: Supply one enumerated code for the exact supported surface. No explanation was produced.\n');process.exitCode=2; }
   }
   else if (args.length!==2 || args[0]!=='--surface' || !surfaces.has(args[1])) {
-    process.stderr.write('EXPLANATION_USAGE: Use node messages/explain.mjs --help.\n');process.exitCode=2;
+    process.stderr.write('EXPLANATION_USAGE: Use continuity-explain --help.\n');process.exitCode=2;
   } else {
     const chunks=[];let count=0,refused=false;
     process.stdin.on('data',chunk=>{

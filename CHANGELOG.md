@@ -1,4 +1,6 @@
-# Source preview.11.2 — onboarding diagnostic checks
+Message package preview — 10 October2026: Core11, remote6, gateway11 and evidence12 add the optional saved-record explanation command. See [the current release guide](docs/CURRENT-RELEASE.md). Existing API/policy/proof behavior stays unchanged; older npm archives remain available.
+
+# Source preview.12 — onboarding diagnostic checks
 
 Update three legacy wording assertions and recognize the two exact tutorial error forms for an existing case and missing completed result. Preserve machine envelopes, refusal decisions, saved case files and unknown-context handling. No saved proof or npm archive changes.
 

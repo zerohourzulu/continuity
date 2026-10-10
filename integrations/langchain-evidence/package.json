@@ -7,6 +7,6 @@
     "@langchain/core": "1.2.12",
     "@modelcontextprotocol/client": "2.0.0",
     "zod": "4.6.5",
-    "@ramex-labs/continuity": "file:../../sdk/investigation-release/ramex-labs-continuity-0.3.0-preview.10.tgz"
+    "@ramex-labs/continuity": "file:../../sdk/message-release/ramex-labs-continuity-0.3.0-preview.11.tgz"
   }
 }

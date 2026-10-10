@@ -9,10 +9,10 @@
       "version": "0.3.0",
       "dependencies": {
         "@langchain/core": "1.2.12",
-        "@ramex-labs/continuity": "file:packages/ramex-labs-continuity-0.3.0-preview.10.tgz",
-        "@ramex-labs/continuity-mcp": "file:packages/ramex-labs-continuity-mcp-0.3.0-preview.11.tgz",
-        "@ramex-labs/continuity-mcp-gateway": "file:packages/ramex-labs-continuity-mcp-gateway-0.3.0-preview.10.tgz",
-        "@ramex-labs/continuity-remote": "file:packages/ramex-labs-continuity-remote-0.3.0-preview.5.tgz",
+        "@ramex-labs/continuity": "file:packages/ramex-labs-continuity-0.3.0-preview.11.tgz",
+        "@ramex-labs/continuity-mcp": "file:packages/ramex-labs-continuity-mcp-0.3.0-preview.12.tgz",
+        "@ramex-labs/continuity-mcp-gateway": "file:packages/ramex-labs-continuity-mcp-gateway-0.3.0-preview.11.tgz",
+        "@ramex-labs/continuity-remote": "file:packages/ramex-labs-continuity-remote-0.3.0-preview.6.tgz",
         "zod": "4.6.5"
       }
     },
@@ -129,24 +129,25 @@
       }
     },
     "node_modules/@ramex-labs/continuity": {
-      "version": "0.3.0-preview.10",
-      "resolved": "file:packages/ramex-labs-continuity-0.3.0-preview.10.tgz",
-      "integrity": "sha512-OepX/DS6PcGrU+1sJRB+exEEwYlrzJz03lC0O6Ul3t30Scz0EBj/gyiqGXIuSIqbBKDxAglWaNqt+euhaXWarg==",
+      "version": "0.3.0-preview.11",
+      "resolved": "file:packages/ramex-labs-continuity-0.3.0-preview.11.tgz",
+      "integrity": "sha512-RCQW+/mSfEcAydRgpzvZ6mcA1HuVQEAyXmTSOxVNOY9mGl9nrVmTmMpi1/oVoxGS/nLGRgCfvNY6rQl9WqAOVQ==",
       "license": "Apache-2.0",
       "bin": {
-        "continuity-history-store": "dist/core-0.3/src/history-store/cli.js"
+        "continuity-history-store": "dist/core-0.3/src/history-store/cli.js",
+        "continuity-explain": "messages/explain.mjs"
       },
       "engines": {
         "node": "^22.18.0 || ^24.0.0"
       }
     },
     "node_modules/@ramex-labs/continuity-mcp": {
-      "version": "0.3.0-preview.11",
-      "resolved": "file:packages/ramex-labs-continuity-mcp-0.3.0-preview.11.tgz",
-      "integrity": "sha512-wiUeSTZoEDc21vTlzxaYqJkHndp24Q/fXaiYCOHvSBzsFkaNLYEkZgpiumiJ2m9WGAZVkwQ9CZFOCpSkjoiDOg==",
+      "version": "0.3.0-preview.12",
+      "resolved": "file:packages/ramex-labs-continuity-mcp-0.3.0-preview.12.tgz",
+      "integrity": "sha512-TrPd3g6LaoZ+POP9RkQejO8vyc99g5rs+/u+z3LssX6t8+c1o+bYWCwL1UTl/QGY6T/qxLDmCb73TcmuhRIAVw==",
       "license": "Apache-2.0",
       "dependencies": {
-        "@ramex-labs/continuity": "0.3.0-preview.10",
+        "@ramex-labs/continuity": "0.3.0-preview.11",
         "@modelcontextprotocol/client": "2.0.0",
         "@modelcontextprotocol/server": "2.0.0",
         "viem": "2.55.19",
@@ -163,17 +164,17 @@
       }
     },
     "node_modules/@ramex-labs/continuity-mcp-gateway": {
-      "version": "0.3.0-preview.10",
-      "resolved": "file:packages/ramex-labs-continuity-mcp-gateway-0.3.0-preview.10.tgz",
-      "integrity": "sha512-W5Y0e7pkUALHAQ/Y4Bpg2kI+W8cYi67/Mj3rbZp27o9AntErpPPGU9TAVY9ZvI7yfkQGyewIU7LAGrekc0zk1w==",
+      "version": "0.3.0-preview.11",
+      "resolved": "file:packages/ramex-labs-continuity-mcp-gateway-0.3.0-preview.11.tgz",
+      "integrity": "sha512-oUodHauvPvRnrtJPt8Toth/eflWdMlUVqQdzD2MjoZQWdnmOaBUNgr6vxWChxsWFSV37fncZ0TmWawycutdJeQ==",
       "license": "Apache-2.0",
       "dependencies": {
-        "@ramex-labs/continuity": "0.3.0-preview.10",
+        "@ramex-labs/continuity": "0.3.0-preview.11",
         "@modelcontextprotocol/client": "2.0.0",
         "@modelcontextprotocol/server": "2.0.0",
         "viem": "2.55.19",
         "jose": "6.2.12",
-        "@ramex-labs/continuity-remote": "0.3.0-preview.5"
+        "@ramex-labs/continuity-remote": "0.3.0-preview.6"
       },
       "bin": {
         "continuity-mcp-gateway": "./src/cli.mjs",
@@ -184,12 +185,12 @@
       }
     },
     "node_modules/@ramex-labs/continuity-remote": {
-      "version": "0.3.0-preview.5",
-      "resolved": "file:packages/ramex-labs-continuity-remote-0.3.0-preview.5.tgz",
-      "integrity": "sha512-I/cUMRbhH4YOVWUR/5UG8ODGx6ffzOkuF/kZMSagrrf9kOKbrsbEhYofLkuGUyPj65kmW7qHwgkl9m+5mJWMqQ==",
+      "version": "0.3.0-preview.6",
+      "resolved": "file:packages/ramex-labs-continuity-remote-0.3.0-preview.6.tgz",
+      "integrity": "sha512-J2ruEJOOeZD9u3vworcZspNNLzs8WDJhw7A8TjcMxFTBgrTnBcHtOldvd3+k83iDPvNvu4EtiIKuIgV9ZRlR9g==",
       "license": "Apache-2.0",
       "dependencies": {
-        "@ramex-labs/continuity": "0.3.0-preview.10"
+        "@ramex-labs/continuity": "0.3.0-preview.11"
       },
       "engines": {
         "node": "^22.18.0 || ^24.0.0"

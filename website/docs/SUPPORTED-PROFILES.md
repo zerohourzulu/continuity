@@ -9,7 +9,7 @@ Continuity keeps permissions and unfinished work with the case when an agent cha
 | Original array and historical readers | Existing Core 0.2 examples and evaluation artifacts | Original 128/256 limits remain. Old readers refuse the new binding; they never show a suffix as the whole case. |
 | Browser playground | Learning and hypothetical scenarios | Preserved browser profile; no live execution or access to your case files. |
 
-Use the four packages together: Core `0.3.0-preview.10`, remote `0.3.0-preview.5`, gateway `0.3.0-preview.10`, evidence MCP `0.3.0-preview.11`. They share one Core. The source installer verifies their exact bytes; npm offers the same versions. Remote and gateway support Node 22.18 and 24. This tuple supports Node22.18 and24; Node26 results for earlier packages are historical. All profile claims concern trusted local POSIX storage; Windows durability is not established.
+Use the four packages together: Core `0.3.0-preview.11`, remote `0.3.0-preview.6`, gateway `0.3.0-preview.11`, evidence MCP `0.3.0-preview.12`. They share one Core. The source installer verifies their exact bytes; npm offers the same versions. Remote and gateway support Node 22.18 and 24. This tuple supports Node22.18 and24; Node26 results for earlier packages are historical. All profile claims concern trusted local POSIX storage; Windows durability is not established.
 
 The new profile supports local ownership, signed administration, runtime and attempt records, native LangChain tools, cooperating MCP jobs and the evidence MCP tool. The gateway exposes E5 outcome observations; E6 review remains a separate Core API. The gateway operations CLI can inspect a selected binding. Its old snapshot/restore interface refuses this profile.
 

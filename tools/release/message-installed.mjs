@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {spawnSync} from 'node:child_process';
+import {explainBytes,explainCode,explainRecord} from '@ramex-labs/continuity/messages';
+const marker='PRIVATE_PAYLOAD_SENTINEL';
+const input={jsonrpc:'2.0',error:{code:-32602,message:'INVALID_PARAMS'},secret:marker};
+const before=JSON.stringify(input),text=explainRecord('mcp',input);
+assert.match(text,/INVALID_PARAMS/);assert.doesNotMatch(text,/PRIVATE_PAYLOAD_SENTINEL/);assert.equal(JSON.stringify(input),before);
+assert.match(explainCode('gateway','GATEWAY_CONFIGURATION_UNAVAILABLE'),/does not establish that nothing started or that a restart is safe/);
+for(const bytes of ['{}','{"jsonrpc":"2.0","jsonrpc":"2.0"}',Buffer.from([255]),'x'.repeat(65537)])assert.throws(()=>explainBytes('mcp',bytes));
+assert.throws(()=>explainRecord('mcp',{jsonrpc:'2.0',error:{code:-32602,message:'UNKNOWN'}}));
+const invoke=(args,input)=>spawnSync(process.execPath,['node_modules/.bin/continuity-explain',...args],{input,encoding:'utf8'});
+let r=invoke(['--help']);assert.equal(r.status,0);assert.match(r.stdout,/continuity-explain/);
+r=invoke(['--surface','mcp'],JSON.stringify(input));assert.equal(r.status,0);assert.doesNotMatch(r.stdout,/PRIVATE_PAYLOAD_SENTINEL/);
+r=invoke(['--surface','mcp'],'{}');assert.equal(r.status,2);assert.equal(r.stdout,'');
+r=invoke(['--surface','mcp'],'x'.repeat(65537));assert.equal(r.status,2);assert.equal(r.stdout,'');
+console.log('PASS installed explanation API/CLI, symlink entry, refusal limits, unchanged inputs and private-payload exclusion');
