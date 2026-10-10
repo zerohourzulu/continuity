@@ -59,3 +59,20 @@ test('CLI emits bounded human guidance while malformed input exits with refusal'
   assert.equal(refused.stdout, '');
   assert.match(refused.stderr, /EXPLANATION_CONTEXT_REFUSED/);
 });
+
+
+test('published source provenance hashes match every named file', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const { createHash } = await import('node:crypto');
+  const root = new URL('../', import.meta.url);
+  const provenance = JSON.parse(await readFile(new URL('PUBLIC-SOURCE-PROVENANCE.json', root), 'utf8'));
+  const paths = new Set();
+  for (const row of provenance.files) {
+    assert.ok(!paths.has(row.path), row.path);
+    paths.add(row.path);
+    assert.notEqual(row.path, 'PACKAGE-FILES.json', 'generated manifest is authenticated by the external archive checksum');
+    const bytes = await readFile(new URL(row.path, root));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), row.publishedSha256, row.path);
+    if (row.sourceCopyStatus === 'EXACT') assert.equal(row.publishedSha256, row.originalSha256, row.path);
+  }
+});

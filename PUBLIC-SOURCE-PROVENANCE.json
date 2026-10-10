@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-10T03:34:55.662550+00:00",
+  "at": "2026-10-10T03:41:45.581391+00:00",
   "basePublicCommit": "2d6a74a5d35ae9e117a5098018ba684c9b8dff99",
   "editorialChanges": [
     "release/version/entry-point documents",
@@ -51,7 +51,7 @@
     {
       "originalSha256": "4541d8c3b350cc536d4de96957d41d229067ef98da8194163208b647a6904b76",
       "path": "CHANGELOG.md",
-      "publishedSha256": "953f24db115e752166b7ce3b5db28042dd2684eafb303e086d68fe82ee9cc1bb",
+      "publishedSha256": "2743c42969b851a6cf462fd7c2a1871991dff4436855305bdf86a38f2bacc755",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -105,13 +105,6 @@
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
-      "originalSha256": "14e7ca24668a7112d581948c9be6e153875ffd4db9c012c6636bf24c98d0aab9",
-      "path": "PACKAGE-FILES.json",
-      "publishedSha256": "fe9bbbf42f753ecac78117c3f29f9e24cc739780a8118d03cff1fe974f793dc5",
-      "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
-      "sourceEdition": "continuity-message-readability-2026-10-04-r3"
-    },
-    {
       "originalSha256": "23f032b48c7e97199268fb7b302c07f42595834a0b083cd0227a36054ca0afd6",
       "path": "PRESENTATION-PROVENANCE.json",
       "publishedSha256": "23f032b48c7e97199268fb7b302c07f42595834a0b083cd0227a36054ca0afd6",
@@ -135,21 +128,21 @@
     {
       "originalSha256": "375063ef2c2f0af1b8e93ab0f07095134cdcb76ab9167eba1873ed61bc2e70b3",
       "path": "README.md",
-      "publishedSha256": "122850cef2d7b63fa8c02cae446b2cd98972020e5c5e1c5aba0c63917d967d22",
+      "publishedSha256": "c86f4fad0d2a98a3243d252afdfe81fb4fa9e015387d58f065663628bf293f20",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "a4ebf7724c4074f2f0fc49fd8143e2a61a0dd796e1b3e4e7076b600e7e1d7c40",
       "path": "RELEASE-NOTES.md",
-      "publishedSha256": "2e9b696176072c9bceb4fd3a02df402a4f56ec8930ccb94a4fecbb89fffcaed6",
+      "publishedSha256": "effb1557c4cd2d30e1b064db5e6643e5d53bc58f91d1ec759a70e7b28a2c4d25",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "83980cd243003adf1e7a4322a4e67bf9bfa15b5250ebda75540288d531d9e56a",
       "path": "RELEASE-STATUS.md",
-      "publishedSha256": "2e9b696176072c9bceb4fd3a02df402a4f56ec8930ccb94a4fecbb89fffcaed6",
+      "publishedSha256": "effb1557c4cd2d30e1b064db5e6643e5d53bc58f91d1ec759a70e7b28a2c4d25",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -856,7 +849,7 @@
     {
       "originalSha256": "1b7b0f572fe5ffa1e00287cd72d18aebd943b7783af7adc39b7d55f842d00996",
       "path": "docs/CURRENT-RELEASE.md",
-      "publishedSha256": "805fff6d8160c3215578ee333558a215a071b1bac93637ed92518d0d272e8c10",
+      "publishedSha256": "9ba68b50f939ffb7f3c73a5512feb76e7e52ef87b4585456eec01d9bb632be98",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -2651,7 +2644,7 @@
     {
       "originalSha256": "0121e555c3ad745ee213cc8ac3769280ccd9d83b400de6befdd09561c3322627",
       "path": "package.json",
-      "publishedSha256": "299af20e1e27c6d4f3f171bcca9311d46d450c26307f0c46637a4cdfdc405e7d",
+      "publishedSha256": "804442db30aaf5732fc84a9c9ccdb775076919a1ced7eee8b305b9850fdf6677",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -16980,7 +16973,7 @@
     {
       "originalSha256": "50f2a6ae135a98c5476a07f720eb5101e65a4ce646c4c2712ba5e8e3abd91a21",
       "path": "website/downloads/CHANGELOG.md",
-      "publishedSha256": "3e643a6b3a79713fd30cffee70c5e8cfeac06a8254ccf60c09f93ad4a35d6add",
+      "publishedSha256": "f58b134144e6796643c941fdaa90b44539716f114b7749b30d46a548c2b12c27",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -17008,14 +17001,14 @@
     {
       "originalSha256": "dd18055bff3b3b91f5fa7fc1dc3a88dfb19e243e9b43c44eff7c9510a7f0d1a3",
       "path": "website/downloads/README.md",
-      "publishedSha256": "cb21fc8e01af2b28b1a395f2a2165e8f8ae6962240506d56b3145a9547c8c140",
+      "publishedSha256": "f03c8d6dda4bca4cc1ad1cbd086f0a6fda856a27e49e95efb5b783c310300da3",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "41685f9fd75d8bdfc54119dcb822abd8c22e57a28e64ce2c357ec7e13d3a9ae3",
       "path": "website/downloads/RELEASE-STATUS.md",
-      "publishedSha256": "2576bfd3b01cbe11d011fb0c4924196fbeffe50a0fdf8c10c48a806eb7c36811",
+      "publishedSha256": "3ff0243f2f4e205241fe57d3a363c86f98bc5a54d8653ec6acb89b449457bfeb",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -17617,7 +17610,7 @@
     {
       "originalSha256": "84051ccb9075da2a977117ce56a92abfc55c10d7416718e1ca56b6d000e2a6a6",
       "path": "website/index.html",
-      "publishedSha256": "adcced2adc2df3812ac6402d6e9f7f29d95663cadcf2fbe82f19bff37e6b1e25",
+      "publishedSha256": "34e136290d23dce7744fba070eb07e8fa55506ef97ed099d20c44c93d4ac39b4",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -18945,6 +18938,13 @@
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     }
   ],
+  "generatedManifestSource": {
+    "originalSha256": "14e7ca24668a7112d581948c9be6e153875ffd4db9c012c6636bf24c98d0aab9",
+    "path": "PACKAGE-FILES.json",
+    "publishedIntegrity": "Verified through the separately published archive checksum; no circular hash is recorded in this provenance file.",
+    "sourceEdition": "continuity-message-readability-2026-10-04-r3",
+    "status": "REGENERATED_FOR_PUBLIC_EDITION"
+  },
   "newProofOrGuestBuildCredit": false,
   "npmArchivesUnchanged": true,
   "privacyScope": "Source and whitelisted result facts; no private bodies, credentials, keys/SRS, correspondence or account telemetry",

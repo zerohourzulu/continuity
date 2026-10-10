@@ -1,4 +1,4 @@
-> **Source preview.11:** [Plain-language messages](https://github.com/zerohourzulu/continuity/blob/main/messages/README.md), [completed historical ZK experiments](https://github.com/zerohourzulu/continuity/blob/main/research/zk/README.md), and [retained-receipt reader source](https://github.com/zerohourzulu/continuity/blob/main/examples/retained-receipt/README.md). The npm/Registry package versions below remain unchanged.
+> **Source preview.11.1:** [Plain-language messages](https://github.com/zerohourzulu/continuity/blob/main/messages/README.md), [completed historical ZK experiments](https://github.com/zerohourzulu/continuity/blob/main/research/zk/README.md), and [retained-receipt reader source](https://github.com/zerohourzulu/continuity/blob/main/examples/retained-receipt/README.md). The npm/Registry package versions below remain unchanged.
 
 > **Current developer preview:** [Exact versions and installation](https://github.com/zerohourzulu/continuity/blob/main/docs/CURRENT-RELEASE.md).
 

@@ -1,3 +1,7 @@
+# Source preview.11.1 — provenance correction
+
+The regenerated PACKAGE-FILES.json is authenticated by the archive checksum, avoiding a circular hash in provenance. A release test checks every recorded public-source hash. Source/runtime/proof evidence and npm archives are unchanged from preview.11.
+
 # Source preview.11 — messages and completed ZK experiments
 
 Public command, tutorial and browser diagnostics explain what happened and what the operator can do, while preserving machine codes and authority/retry rules. The full saved-record message catalogue and source-family implementations are included.

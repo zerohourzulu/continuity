@@ -33,8 +33,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 8399,
-      "sha256": "953f24db115e752166b7ce3b5db28042dd2684eafb303e086d68fe82ee9cc1bb"
+      "bytes": 8701,
+      "sha256": "2743c42969b851a6cf462fd7c2a1871991dff4436855305bdf86a38f2bacc755"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -83,8 +83,8 @@
     },
     {
       "path": "PUBLIC-SOURCE-PROVENANCE.json",
-      "bytes": 1019038,
-      "sha256": "c09c003582d37cf49272aa5b0b51b4857fa62626367c466f8d70fe49d8feb15c"
+      "bytes": 1019096,
+      "sha256": "5c8df5b2de5a4bbef3932ddfdb86f40a34f576d3f1f3088e2802bd82c7abd9ad"
     },
     {
       "path": "README-ELI5.md",
@@ -93,18 +93,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 7575,
-      "sha256": "122850cef2d7b63fa8c02cae446b2cd98972020e5c5e1c5aba0c63917d967d22"
+      "bytes": 7577,
+      "sha256": "c86f4fad0d2a98a3243d252afdfe81fb4fa9e015387d58f065663628bf293f20"
     },
     {
       "path": "RELEASE-NOTES.md",
-      "bytes": 1567,
-      "sha256": "2e9b696176072c9bceb4fd3a02df402a4f56ec8930ccb94a4fecbb89fffcaed6"
+      "bytes": 1838,
+      "sha256": "effb1557c4cd2d30e1b064db5e6643e5d53bc58f91d1ec759a70e7b28a2c4d25"
     },
     {
       "path": "RELEASE-STATUS.md",
-      "bytes": 1567,
-      "sha256": "2e9b696176072c9bceb4fd3a02df402a4f56ec8930ccb94a4fecbb89fffcaed6"
+      "bytes": 1838,
+      "sha256": "effb1557c4cd2d30e1b064db5e6643e5d53bc58f91d1ec759a70e7b28a2c4d25"
     },
     {
       "path": "SECURITY.md",
@@ -608,8 +608,8 @@
     },
     {
       "path": "docs/CURRENT-RELEASE.md",
-      "bytes": 2685,
-      "sha256": "805fff6d8160c3215578ee333558a215a071b1bac93637ed92518d0d272e8c10"
+      "bytes": 2687,
+      "sha256": "9ba68b50f939ffb7f3c73a5512feb76e7e52ef87b4585456eec01d9bb632be98"
     },
     {
       "path": "docs/DEVELOPER.md",
@@ -1903,8 +1903,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 2200,
-      "sha256": "299af20e1e27c6d4f3f171bcca9311d46d450c26307f0c46637a4cdfdc405e7d"
+      "bytes": 2202,
+      "sha256": "804442db30aaf5732fc84a9c9ccdb775076919a1ced7eee8b305b9850fdf6677"
     },
     {
       "path": "packages/core/package.json",
@@ -11608,8 +11608,8 @@
     },
     {
       "path": "tests/message-readability.test.mjs",
-      "bytes": 3456,
-      "sha256": "eeb5d58ce7504e6ed80bb9942b0abb0a57c8bbf4d11f11fe6283714849e557cd"
+      "bytes": 4339,
+      "sha256": "13ce0a5f0c0445fb448f2095cc1d52c4e49ac066ec788e009cc2e5d8c54f03da"
     },
     {
       "path": "tests/onboarding.test.mjs",
@@ -12168,8 +12168,8 @@
     },
     {
       "path": "website/downloads/CHANGELOG.md",
-      "bytes": 8982,
-      "sha256": "3e643a6b3a79713fd30cffee70c5e8cfeac06a8254ccf60c09f93ad4a35d6add"
+      "bytes": 9284,
+      "sha256": "f58b134144e6796643c941fdaa90b44539716f114b7749b30d46a548c2b12c27"
     },
     {
       "path": "website/downloads/LICENSE",
@@ -12188,13 +12188,13 @@
     },
     {
       "path": "website/downloads/README.md",
-      "bytes": 10013,
-      "sha256": "cb21fc8e01af2b28b1a395f2a2165e8f8ae6962240506d56b3145a9547c8c140"
+      "bytes": 10015,
+      "sha256": "f03c8d6dda4bca4cc1ad1cbd086f0a6fda856a27e49e95efb5b783c310300da3"
     },
     {
       "path": "website/downloads/RELEASE-STATUS.md",
-      "bytes": 1726,
-      "sha256": "2576bfd3b01cbe11d011fb0c4924196fbeffe50a0fdf8c10c48a806eb7c36811"
+      "bytes": 1997,
+      "sha256": "3ff0243f2f4e205241fe57d3a363c86f98bc5a54d8653ec6acb89b449457bfeb"
     },
     {
       "path": "website/downloads/SECURITY.md",
@@ -12623,8 +12623,8 @@
     },
     {
       "path": "website/index.html",
-      "bytes": 13714,
-      "sha256": "adcced2adc2df3812ac6402d6e9f7f29d95663cadcf2fbe82f19bff37e6b1e25"
+      "bytes": 13728,
+      "sha256": "34e136290d23dce7744fba070eb07e8fa55506ef97ed099d20c44c93d4ac39b4"
     },
     {
       "path": "website/playground/ENGINE-PROVENANCE.json",
