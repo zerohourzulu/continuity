@@ -1,0 +1,7 @@
+# Read a historical receipt after replacement
+
+This synthetic example uses the existing public Core 0.3.0-preview.10. Produce a signed local receipt, replace its actor, then separately inspect the saved evidence. The recorded reader verified content, signature, issuer, historical authorization and canonical inclusion. Historical/authentic=true, current=false, freshness=STALE, finality=LOCAL_ONLY. The predecessor was terminated, the duty stayed OPEN and the successor's read was denied. Outside effects remain SIMULATED/UNVERIFIED.
+
+The complete four source modules are included. Their original proposal comments predate the subsequently accepted execution; source provenance records exact bytes. Recorded producer/reader/finite-controls command durations were 4.471177166, 0.619290125 and 2.016710084 seconds with owned cleanup. These results add no ZK proof or present authorization. Synthetic signed bodies, installed dependency trees and signing material are excluded.
+
+Install the exact public Core version plus viem 2.55.19 separately before using the producer. The reader has no signing dependency. Review the modules' explicit arguments, selected limits and local private output handling before running a new example; the historical run is already complete and has not been repeated for publication. Full runtime-loader completeness, independent-host replication and complete API equivalence remain outside the recorded scope.

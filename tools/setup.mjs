@@ -2,6 +2,7 @@
 import { spawnSync } from 'node:child_process';
 import { dirname, delimiter } from 'node:path';
 import { assertReady, ROOT } from './environment.mjs';
+import { humanLocalError } from '../lib/human-error.mjs';
 try {
   if (process.argv.length !== 2) throw Error('Use: node tools/setup.mjs (no arguments). See docs/QUICKSTART.md for the manual install command.');
   assertReady('setup');
@@ -13,4 +14,4 @@ try {
   if (result.error || result.status !== 0) throw Error('Installation did not finish. Check npm/registry access and free disk space, then rerun this command. Keep the lockfile and scripts-disabled options; no tutorial was started. See docs/TROUBLESHOOTING.md.');
   assertReady('tutorial');
   console.log('Setup complete. Next: node tutorial/start.mjs\nTo inspect recorded evidence without tutorial dependencies: node examples/recorded.mjs');
-} catch (error) { console.error(error.message); process.exitCode = 2; }
+} catch (error) { console.error(humanLocalError(error)+" Keep the current installation state. Check node tools/doctor.mjs --for setup, then ask the operator to diagnose before another installation. This diagnostic does not itself install or retry anything."); process.exitCode = 2; }

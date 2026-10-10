@@ -23,8 +23,8 @@
     },
     {
       "path": "integrations/core-0.2-reference/src/cli.mjs",
-      "sha256": "e0e8bf6ed999a8a6fab814edaf4fc2d0b697ac953e080351d188a060232ee5fd",
-      "origin": "accepted development source"
+      "sha256": "fa13a36c9e511ad85714070cc66beb41f6ed0b78e68fec69f867df808338b33b",
+      "origin": "Root-reviewed prospective human-display successor; original source provenance retained in parent dossier"
     },
     {
       "path": "integrations/core-0.2-reference/src/handover-plan.mjs",
@@ -89,8 +89,8 @@
     },
     {
       "path": "packages/core-0.2/src/administration/index.ts",
-      "sha256": "59d37537ac341bd4b5ef1a5ca13590abc74276e75b9daa1a1c3603441e1e2a72",
-      "origin": "accepted development source"
+      "sha256": "49fb03f0171626c6966f0d6ec0cdf1d137a4cf58c94574887817d6671055713f",
+      "origin": "Root-reviewed prospective human-display successor; original source provenance retained in parent dossier"
     },
     {
       "path": "packages/core-0.2/src/core/canonical.ts",
@@ -99,8 +99,8 @@
     },
     {
       "path": "packages/core-0.2/src/core/event-schema.ts",
-      "sha256": "7c5d7f3bf3cb4b62f48e723d54e2ef8ad0b29843530819212025e37da1d3f7e8",
-      "origin": "accepted development source"
+      "sha256": "7d250f086035bff3ed081c2125c330067536d1817527614b5fcbaef7c0c033bb",
+      "origin": "Root-reviewed prospective human-display successor; original source provenance retained in parent dossier"
     },
     {
       "path": "packages/core-0.2/src/core/host-intrinsics.ts",
@@ -109,18 +109,18 @@
     },
     {
       "path": "packages/core-0.2/src/core/index.ts",
-      "sha256": "1a420d59ebccc297947402a3ac4100c2f0c731b667d8d52910d1376d160a5ce5",
-      "origin": "accepted development source"
+      "sha256": "6df52552a6527367dff418efe8643806800999d439e9d8212ac5d8ce39c72e94",
+      "origin": "Root-reviewed prospective human-display successor; original source provenance retained in parent dossier"
     },
     {
       "path": "packages/core-0.2/src/core/portable-adapter-engine.ts",
-      "sha256": "80802b8727bb1f480d749feb738cc2c6b8feebf2f70077fe39211d6354018487",
-      "origin": "accepted development source"
+      "sha256": "2276e58fddf1f94770c944a67426fbd3960c7d5c4b3287991ae4910f5947c36a",
+      "origin": "Root-reviewed prospective human-display successor; original source provenance retained in parent dossier"
     },
     {
       "path": "packages/core-0.2/src/core/portable-administration-codec.ts",
-      "sha256": "35db0f282c04fbddbcc084efc70b94958fee32022902e5cd25853be2b762b2db",
-      "origin": "accepted development source"
+      "sha256": "6ce7795034f0c6391daf78f1a0017a482f9f89eab62a0ca21ec055fd20a860af",
+      "origin": "Root-reviewed prospective human-display successor; original source provenance retained in parent dossier"
     },
     {
       "path": "packages/core-0.2/src/core/portable-admission.ts",
@@ -129,8 +129,8 @@
     },
     {
       "path": "packages/core-0.2/src/core/portable-authority-engine.ts",
-      "sha256": "a9c0087fc41a2bce8b3cee1ed755b7976b370fd1e03b69f539393e566e498e47",
-      "origin": "accepted development source"
+      "sha256": "9ebb6ef69c2cdee633d890c1ffc98535a5b6a59623fe773de586d88c6323ee5f",
+      "origin": "Root-reviewed prospective human-display successor; original source provenance retained in parent dossier"
     },
     {
       "path": "packages/core-0.2/src/core/portable-authority.ts",
@@ -144,8 +144,8 @@
     },
     {
       "path": "packages/core-0.2/src/core/portable-queries.ts",
-      "sha256": "52862413c0dc0db6fa7e910aa8d0b320937bc58d3d24b014930ff65051905221",
-      "origin": "accepted development source"
+      "sha256": "0975ea08947df5ba317fa87e2d40bb827a88b1e1036c751b1f95eb6b44a9a8a3",
+      "origin": "Root-reviewed prospective human-display successor; original source provenance retained in parent dossier"
     },
     {
       "path": "packages/core-0.2/src/core/portable-query-capture.ts",
@@ -154,8 +154,8 @@
     },
     {
       "path": "packages/core-0.2/src/core/portable-query-codec.ts",
-      "sha256": "9324cebf1992881247be9f13a3d576bab16fc8fd3dbc8575093710ccb67f0e62",
-      "origin": "accepted development source"
+      "sha256": "b663fa3eebae499849fa924b4f1545b7ae8ec04c433516514694cb851065e4c0",
+      "origin": "Root-reviewed prospective human-display successor; original source provenance retained in parent dossier"
     },
     {
       "path": "packages/core-0.2/src/core/portable-query-conflicts.ts",
@@ -169,13 +169,13 @@
     },
     {
       "path": "packages/core-0.2/src/core/portable-query-responsibility.ts",
-      "sha256": "ff47c7371955883db51496b3db12c1ddf42fa15d7f04cfe12c345447b34443f6",
-      "origin": "accepted development source"
+      "sha256": "089cffc47f867e6d93daa6bcaa09bc8686b45b51dd50e33e3be11ab6e91543e4",
+      "origin": "Root-reviewed prospective human-display successor; original source provenance retained in parent dossier"
     },
     {
       "path": "packages/core-0.2/src/core/portable-query-survives.ts",
-      "sha256": "64999541aeaa3b6c0490995700d728c2aa56b7b8e0869c2e19f6e61b4e39d476",
-      "origin": "accepted development source"
+      "sha256": "c131c8972fba3c9d914d75fa976d2409b2da96c6bd055c3508f4dc5ec4e69049",
+      "origin": "Root-reviewed prospective human-display successor; original source provenance retained in parent dossier"
     },
     {
       "path": "packages/core-0.2/src/core/portable-receipt-capture.ts",
@@ -189,13 +189,13 @@
     },
     {
       "path": "packages/core-0.2/src/core/portable-receipts.ts",
-      "sha256": "0f6704ac05049ae4f739d77dff8a61467bee34a2496daece4893acc6dea4b372",
-      "origin": "accepted development source"
+      "sha256": "32e6a88efcad356acb23da64714291654954243969a9bb73051277c928620324",
+      "origin": "Root-reviewed prospective human-display successor; original source provenance retained in parent dossier"
     },
     {
       "path": "packages/core-0.2/src/core/portable-replay.ts",
-      "sha256": "ed2588cc6f608d7940e9ede5059302206ae53bca86a566167aa4606bb8e23ecd",
-      "origin": "accepted development source"
+      "sha256": "e882fa5678fa266efb2a55202f60769253676556ff23f0327bbcb71f13e6159b",
+      "origin": "Root-reviewed prospective human-display successor; original source provenance retained in parent dossier"
     },
     {
       "path": "packages/core-0.2/src/core/reference-output-budget.ts",

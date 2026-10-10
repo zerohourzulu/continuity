@@ -1,0 +1,172 @@
+{
+  "cases": [
+    {
+      "case": "r3-core-count-both",
+      "currentAuthorityAccepted": false,
+      "execution": {
+        "app_exe_commit": "0x0017f8d39deabb152b0fe1d25020a20b5e9d6307a712091213f6187abf57dc7c",
+        "app_vm_commit": "0x00664689458909ebe486a253ee0e3d67e8bc873b6d4a0f8a28090d0dbe99233e"
+      },
+      "finalNativePVerified": true,
+      "guestEdition": "r3",
+      "nativePComponentReportedSeconds": 0.720919084,
+      "originalDispositionSha256": "e94f34752776a8127ffd619f6ba58ffabe3238b5671799a6acf8a0d7e62ab2a7",
+      "permitsExecution": false,
+      "producerHostSeconds": 2293.3488818749997,
+      "recordedDisposition": "ACCEPT_SCOPED_R3_HISTORICAL_COUNT_BOTH_FRESH_NATIVE_COMPONENT_PROOF",
+      "successfulProducerStages": 4
+    },
+    {
+      "case": "r3-core-cumulative-both",
+      "currentAuthorityAccepted": false,
+      "execution": {
+        "app_exe_commit": "0x0017f8d39deabb152b0fe1d25020a20b5e9d6307a712091213f6187abf57dc7c",
+        "app_vm_commit": "0x00664689458909ebe486a253ee0e3d67e8bc873b6d4a0f8a28090d0dbe99233e"
+      },
+      "finalNativePVerified": true,
+      "guestEdition": "r3",
+      "nativePComponentReportedSeconds": 0.755220542,
+      "originalDispositionSha256": "495fb116f3464095fda3744d8df5209cd2f7daf739b2b0846bf0fb65b4e0dada",
+      "permitsExecution": false,
+      "producerHostSeconds": 2789.547813041,
+      "recordedDisposition": "ACCEPT_SCOPED_R3_CUMULATIVE_BOTH_FRESH_NATIVE_COMPONENT_PROOF",
+      "successfulProducerStages": 4
+    },
+    {
+      "case": "r3-handover-both",
+      "currentAuthorityAccepted": false,
+      "execution": {
+        "app_exe_commit": "0x0017f8d39deabb152b0fe1d25020a20b5e9d6307a712091213f6187abf57dc7c",
+        "app_vm_commit": "0x00664689458909ebe486a253ee0e3d67e8bc873b6d4a0f8a28090d0dbe99233e"
+      },
+      "finalNativePVerified": true,
+      "guestEdition": "r3",
+      "nativePComponentReportedSeconds": 0.805577042,
+      "originalDispositionSha256": "9856f6a8c61b1b12a8c5645eae1710cf975c0f971330b2dbea42fb6150cf8ecd",
+      "permitsExecution": false,
+      "producerHostSeconds": 8076.471737833,
+      "recordedDisposition": "ACCEPT_SCOPED_R3_HISTORICAL_HANDOVER_BOTH_FRESH_NATIVE_COMPONENT_PROOF",
+      "successfulProducerStages": 4
+    },
+    {
+      "case": "r3-handover-state",
+      "currentAuthorityAccepted": false,
+      "execution": {
+        "app_exe_commit": "0x0017f8d39deabb152b0fe1d25020a20b5e9d6307a712091213f6187abf57dc7c",
+        "app_vm_commit": "0x00664689458909ebe486a253ee0e3d67e8bc873b6d4a0f8a28090d0dbe99233e"
+      },
+      "finalNativePVerified": true,
+      "guestEdition": "r3",
+      "nativePComponentReportedSeconds": 0.738173542,
+      "originalDispositionSha256": "3f4e181121540958bd0088bfbda91bb193d2b398a99f683ae17bbadb9c735587",
+      "permitsExecution": false,
+      "producerHostSeconds": 8077.852959458,
+      "recordedDisposition": "ACCEPT_SCOPED_R3_HISTORICAL_HANDOVER_STATE_FRESH_NATIVE_COMPONENT_PROOF",
+      "successfulProducerStages": 4
+    },
+    {
+      "case": "r3-threeperiod-both",
+      "currentAuthorityAccepted": false,
+      "execution": {
+        "app_exe_commit": "0x0017f8d39deabb152b0fe1d25020a20b5e9d6307a712091213f6187abf57dc7c",
+        "app_vm_commit": "0x00664689458909ebe486a253ee0e3d67e8bc873b6d4a0f8a28090d0dbe99233e"
+      },
+      "finalNativePVerified": true,
+      "guestEdition": "r3",
+      "nativePComponentReportedSeconds": 0.743875417,
+      "originalDispositionSha256": "1d1368da4a6ef41de68f51935bf309bf9039d3732b5696f91237530793b2fd5c",
+      "permitsExecution": false,
+      "producerHostSeconds": 1404.227491167,
+      "recordedDisposition": "ACCEPT_SCOPED_R3_RETAINED_THREEPERIOD_BOTH_FRESH_NATIVE_COMPONENT_PROOF",
+      "successfulProducerStages": 4
+    },
+    {
+      "case": "r3-revocation-both",
+      "currentAuthorityAccepted": false,
+      "execution": {
+        "app_exe_commit": "0x0017f8d39deabb152b0fe1d25020a20b5e9d6307a712091213f6187abf57dc7c",
+        "app_vm_commit": "0x00664689458909ebe486a253ee0e3d67e8bc873b6d4a0f8a28090d0dbe99233e"
+      },
+      "finalNativePVerified": true,
+      "guestEdition": "r3",
+      "nativePComponentReportedSeconds": 0.7201548329999999,
+      "originalDispositionSha256": "275c958692100b8ce825975c6926d01da462745bc95a3eb9f413281aa355419b",
+      "permitsExecution": false,
+      "producerHostSeconds": 949.022346667,
+      "recordedDisposition": "ACCEPT_SCOPED_R3_RETAINED_REVOCATION_BOTH_FRESH_NATIVE_COMPONENT_PROOF",
+      "successfulProducerStages": 4
+    },
+    {
+      "case": "r3-full100-budget",
+      "currentAuthorityAccepted": false,
+      "execution": {
+        "app_exe_commit": "0x0017f8d39deabb152b0fe1d25020a20b5e9d6307a712091213f6187abf57dc7c",
+        "app_vm_commit": "0x00664689458909ebe486a253ee0e3d67e8bc873b6d4a0f8a28090d0dbe99233e"
+      },
+      "finalNativePVerified": true,
+      "guestEdition": "r3",
+      "nativePComponentReportedSeconds": 0.7880036669999999,
+      "originalDispositionSha256": "623fcb62059d7812c68b8202a36fc8276c7071371198f233297328e905eb7775",
+      "permitsExecution": false,
+      "producerHostSeconds": 35341.845796582995,
+      "recordedDisposition": "ACCEPT_SCOPED_R3_RETAINED_FULL100_BUDGET_FRESH_NATIVE_COMPONENT_PROOF",
+      "successfulProducerStages": 4
+    },
+    {
+      "case": "r3_1-headroom-exhaustion-both",
+      "currentAuthorityAccepted": false,
+      "execution": {
+        "app_exe_commit": "0x002212903b5c3c9d68ac8f4fc4075e1d09863790ec33c2753dd494ea48398e2d",
+        "app_vm_commit": "0x00664689458909ebe486a253ee0e3d67e8bc873b6d4a0f8a28090d0dbe99233e"
+      },
+      "finalNativePVerified": true,
+      "guestEdition": "r3.1",
+      "nativePReportedSeconds": 0.762381792,
+      "originalDispositionSha256": "26e5582963f3f8a6e1591c3551da88ce021a1be3405c40b59747cefbd65abaf4",
+      "permitsExecution": false,
+      "producerCommandSeconds": 5765.758102999999,
+      "recordedDisposition": "ROOT_ACCEPTED_SCOPED_SIGNED_EXHAUSTION_BOTH_Q_P_CASE",
+      "separateQCheckCounts": {
+        "numeric": 2,
+        "ordinary": 3
+      },
+      "successfulProducerStages": 4
+    }
+  ],
+  "currentExecutionAuthority": false,
+  "distinctHistoricalScenarioTotal": null,
+  "evidenceType": "Public summary derived from retained local engineering records; private proof bodies are not bundled",
+  "finalNativePVerifications": 8,
+  "founderAcceptedFiniteRoadmap": true,
+  "full100": {
+    "completed": true,
+    "edition": "r3-full100-budget",
+    "finalNativeComponentReportedSeconds": 0.7880036669999999,
+    "newRunPerformed": false,
+    "producerOwnedStageTotalSeconds": 35297.015439416005,
+    "producerStageSeconds": {
+      "application": 26367.381860542,
+      "root": 8738.261119041003,
+      "static": 96.22571658300149,
+      "wrap": 95.14674324999942
+    },
+    "producerTotalHostSeconds": 35341.845796582995,
+    "timingScope": "Recorded producer owner stage and total host durations; not CPU time or a new performance run. Distinct from older r2.2 and186minute application-only history. No15/23minute cutoff or performance promise is restored."
+  },
+  "generalPolicyCompositionVerifiedByComponent": false,
+  "limits": [
+    "Finite captured historical case, not generic or current Core authorization",
+    "Whole source-image, entropy, privacy, current Core/API, UTC/fullfault/service-performance and production remain open",
+    "Sampled cooperative resources; CPU timing unavailable",
+    "Previous build/source/oracle misses and old stopped attempts remain frozen",
+    "No private body or absent-byte review credit to peers"
+  ],
+  "literalQCryptographyInsideP": false,
+  "newProofsOrChecksForPublication": 0,
+  "originalFreezeNotesSha256": "264305239939ef26124b35b709f86ee9bb2de1625f2af41d5cd096a3824b45cd",
+  "quantitativeQVerifiedByGuest": false,
+  "reviewScope": "Source review and same-account sequential simulated reviewers; no independent human/platform assurance",
+  "schema": "continuity.public-zk-results.v1",
+  "successfulProducerStages": 32,
+  "wholeCoreApiPrivacyProductionComplete": false
+}

@@ -1,0 +1,17 @@
+{
+  "buildSeconds": 15.191,
+  "formatDifference": "UTF-16 versus UTF-8 object-key ordering; both hash UTF-8 canonical text",
+  "formatSwapRefusals": 3,
+  "nativeCommandSeconds": 0.383,
+  "newRunForPublication": false,
+  "originalControlResultsSha256": "393f6724263053287eb8b696694662c3f0ec95c821810412a5bb9eef2f553e5b",
+  "positiveControls": 2,
+  "productionGuestAndSavedProofsUnchanged": true,
+  "refusalCodes": [
+    "EXHAUSTION_REQUEST_RECORD_DIGEST",
+    "CUSTODY_RECORD_DIGEST",
+    "EXHAUSTION_SIGNED_FINAL_CUSTODY_HEAD"
+  ],
+  "scope": "Direct native guest-function test on public synthetic Unicode JSON; not a new zkVM proof or full signed-input evaluation",
+  "signatureCheckRepeated": false
+}

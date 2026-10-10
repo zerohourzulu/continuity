@@ -1,0 +1,6 @@
+{
+  "status": "UNVERIFIED",
+  "reason": "P_PROOF_CHECK_FAILED",
+  "componentReason": "ENROLLED_CHECK_FAILED",
+  "checkDetail": "FALLBACK_EMPTY_REVERT"
+}

@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import { createHash, randomBytes } from 'node:crypto';
 import assert from 'node:assert/strict';
 import { assertReady, NODE_RANGE } from '../tools/environment.mjs';
+import { humanLocalError } from '../lib/human-error.mjs';
 
 const ROOT=realpathSync(fileURLToPath(new URL('../',import.meta.url)));
 const help=`Continuity Core 0.2 — public evaluation tutorial
@@ -103,5 +104,5 @@ export async function inspect(name){
 }
 if(process.argv[1]&&realpathSync(process.argv[1])===fileURLToPath(import.meta.url)){
  try{const opts=parse(process.argv.slice(2));if(opts.command==='help')console.log(help);else if(opts.command==='run')await run(opts);else await inspect(opts.name);}
- catch(error){console.error(`Continuity: ${error.message}\nSee docs/TROUBLESHOOTING.md. Any partial case is retained; use a new case name after diagnosis.`);process.exitCode=1;}
+ catch(error){console.error(`Continuity tutorial stopped: ${humanLocalError(error)}\nKeep the existing case and any partial evidence. Inspect the original case before another run; this message does not establish how far a failed run got. After diagnosis, a fresh run needs a new name: node tutorial/cli.mjs run --case NEWNAME. Without --case, run chooses demo- plus 10 hex characters; node tutorial/start.mjs chooses 12. Neither recovers an old case. Check node tools/doctor.mjs --for tutorial for local prerequisites; a ready report does not identify an earlier failure. Give the command and safe code to the maintainer without private contents. See docs/TROUBLESHOOTING.md.`);process.exitCode=1;}
 }

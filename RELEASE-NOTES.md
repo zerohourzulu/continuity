@@ -1,16 +1,9 @@
-# Source preview.10.2 — compatibility test correction
+# Source preview.11 — messages and completed ZK experiments
 
-The E6 compatibility test now checks that its review event remains at rank 24, rather than assuming it is the last event after newer policy editions append events. Frozen policy hashes, rank checks and older-profile rejection checks remain. Runtime source and all four published npm packages are unchanged. The previous failed [hosted run](https://github.com/zerohourzulu/continuity/actions/runs/36198876668) is preserved; current results are in Actions.
+Public command, tutorial and browser diagnostics explain what happened and what the operator can do, while preserving machine codes and authority/retry rules. The full saved-record message catalogue and source-family implementations are included.
 
-# Source preview.10.1 — reproducible package documentation
+Experimental source and a bounded evidence summary cover the eight completed historical r3/r3.1 proof chains, 32 successful producer stages and 8 final native P checks. Full100 completed aggregation and wrapping; its recorded chain took about 9 hours 49 minutes. Five native fingerprint-format controls demonstrate correct-format acceptance and exact swapped-format refusal. A separate public-Core retained-receipt reader example records authentic historical evidence with current=false.
 
-Public guides now have a separate path from the original document snapshot embedded in the npm packages. This fixes the hosted rebuild check after the preview.10 publication wording changed. The four npm versions, archive bytes and runtime behavior are unchanged. The combined Node suite also has a thirty-minute outer budget instead of ten for slower hosted runners, with every test and assertion retained. Earlier source and failed validation evidence remain available.
+Read [ZK scope/results](research/zk/README.md), [message instructions](messages/README.md) and [receipt example](examples/retained-receipt/README.md). Source preview.11 is a GitHub source edition. npm remains Core preview.10, remote preview.5, gateway preview.10 and evidence MCP preview.11; no npm/Registry release is made. Earlier source versions and assets remain available.
 
-# Preview.10 — keep the case, finish the investigation
-
-A case can survive replacement and restart without resetting revoked powers or spent allowances. The new investigation walkthrough shows completion under explicit policy, renewed review after later evidence and a persistent challenge, independently of restoration or the outside action's uncertain outcome.
-
-This release brings the continued-history and investigation work to the same public package set: Core preview.10, remote/native LangChain preview.5, gateway preview.10 and evidence MCP preview.11. Standard builds, exact installation, current views and guides now agree. Use [the release guide](docs/CURRENT-RELEASE.md) or [run the walkthrough](docs/INVESTIGATION-WALKTHROUGH.md).
-
-These remain finite trusted-local profiles. Completing an investigation is not proof of outside truth or success. Existing releases remain available.
-
+The finite ZK roadmap is closed in its recorded engineering scope. This is not stable 0.3, a turnkey independent proof runner, present execution authority, or complete Core/API/privacy/production assurance. Private input/proof/key/custody bodies are omitted. Historical and new public source-path adaptations are distinguished by provenance; publication creates no new proof/test credit.

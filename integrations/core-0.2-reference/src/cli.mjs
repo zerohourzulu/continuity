@@ -1,4 +1,5 @@
 import { createCase, collectCase, handoverCase, attemptOldWorker, reviewCase, recordReviewProgress, inspectCase, exportCase, captureReviewSnapshot, attachReviewSupplement } from './application.mjs';
+import {humanCaseError} from './human-error.mjs';
 const help = `Continuity common Core 0.2 — two approved executor profiles, synthetic data
 
   node src/cli.mjs create CASE_ID INPUT_DIRECTORY [packet|simulated]
@@ -49,4 +50,4 @@ try {
   if(result!==undefined) {
     if(command==='status' && args[0]==='--json') console.log(JSON.stringify(result,null,2)); else display(result);
   }
-} catch(error) { console.error(`Continuity: ${error.message}`); process.exitCode=1; }
+} catch(error) { console.error(`Continuity: ${humanCaseError(error)}\nUse node src/cli.mjs status CASE_ID to observe retained state. Keep the existing case and inspect it before considering another operation; do not create a new case on this error alone.`); process.exitCode=1; }

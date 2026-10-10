@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Print a reviewed launch fragment. Never load gateway code or read case contents.
 import {accessSync,constants,lstatSync,readFileSync,realpathSync} from 'node:fs';
+import {humanClientSetupError} from '../lib/human-error.mjs';
 import {dirname,join,resolve,isAbsolute} from 'node:path';
 import {pathToFileURL} from 'node:url';
 const help='Usage: node tools/mcp-client-config.mjs --client vscode|claude|portable --gateway-dir PATH --config PATH\nPrints JSON only; does not edit settings, inspect keys or start tools. Use Node 22.18+ (22.x) or 24.x on macOS/Linux.';
@@ -35,6 +36,6 @@ export function clientConfig(args){
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
  if(process.argv.length===3&&process.argv[2]==='--help'){console.log(help);}else{
   try{process.stdout.write(JSON.stringify(clientConfig(process.argv.slice(2)),null,2)+'\n');}
-  catch(e){process.stderr.write(`${e.code??'SETUP_UNAVAILABLE'}: ${e.message}\n`);process.exitCode=2;}
+  catch(e){process.stderr.write(humanClientSetupError(e)+'\n');process.exitCode=2;}
  }
 }

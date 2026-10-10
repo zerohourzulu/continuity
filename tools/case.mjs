@@ -3,6 +3,7 @@ import { readFileSync, writeFileSync, existsSync, realpathSync, lstatSync } from
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runObservation } from '../lib/reader-runner.mjs';
+import { humanLocalError } from '../lib/human-error.mjs';
 const root=realpathSync(fileURLToPath(new URL('../',import.meta.url)));
 const usage='Use: node tools/case.mjs status CASE [--json] | check CASE review|collect [--json] | mcp-config CASE --disclosure summary|evidence';
 try {
@@ -40,4 +41,4 @@ try {
       console.log(value.scopeNote);
     }
   }
-} catch(error){console.error(`${error.code??error.message}\n${usage}\nUse the exact case name printed by node tutorial/start.mjs. Existing evidence is retained.`);process.exitCode=2;}
+} catch(error){console.error(`Case command stopped: ${humanLocalError(error)}\n${usage}\nUse the original case name from “Your new case:” or “Replay: node tutorial/cli.mjs inspect NAME”. Running node tutorial/start.mjs creates demo- plus 12 hex characters; it does not recover an old case. Use node tools/case.mjs status NAME or check to observe existing evidence. mcp-config creates configuration files and can leave one new file if a later write fails; inspect the existing files before an authorized repeat. Give the command and safe code to the maintainer without private contents.`);process.exitCode=2;}

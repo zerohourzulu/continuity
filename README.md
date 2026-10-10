@@ -1,3 +1,5 @@
+> **Source preview.11:** [Plain-language messages](messages/README.md), [completed historical ZK experiments](research/zk/README.md), and [retained-receipt reader source](examples/retained-receipt/README.md). The npm/Registry package versions below remain unchanged.
+
 > **Current developer preview:** [Exact versions and installation](docs/CURRENT-RELEASE.md).
 
 > **Follow an investigation:** Follow one protected case through interruption, replacement, a signed completion, new evidence and a persistent challenge. [Run the walkthrough](docs/INVESTIGATION-WALKTHROUGH.md).

@@ -18,7 +18,7 @@ const integer=(v,low,high)=>Number.isInteger(v)&&v>=low&&v<=high;
 const keys=(v,expected)=>v&&typeof v==='object'&&!Array.isArray(v)&&Object.keys(v).sort().join(',')===expected.sort().join(',');
 export function parseCase(raw){
  assert(typeof raw==='string','Send scenario JSON text only.');
- assert(raw.length<=LIMITS.inputBytes && new TextEncoder().encode(raw).length<=LIMITS.inputBytes,'The scenario is too large (32 KB maximum).');
+ assert(raw.length<=LIMITS.inputBytes && new TextEncoder().encode(raw).length<=LIMITS.inputBytes,'This scenario is too large. The limit is 32 KiB (32,768 bytes). Keep the saved scenario; changing it creates a different scenario.');
  const c=parseStrictJson(new TextEncoder().encode(raw),{maxBytes:32768,maxDepth:8,maxNodes:2048});
  assert(keys(c,['version','name','names','step','actor','operation','roles','grants','deny','withdrawReview']),'The scenario has unexpected or missing fields.');
  assert(c.version===1 && text(c.name,64),'Use a scenario version 1 and a case name of 1–64 characters.');

@@ -1,3 +1,5 @@
+> **Source preview.11:** [Plain-language messages](https://github.com/zerohourzulu/continuity/blob/main/messages/README.md), [completed historical ZK experiments](https://github.com/zerohourzulu/continuity/blob/main/research/zk/README.md), and [retained-receipt reader source](https://github.com/zerohourzulu/continuity/blob/main/examples/retained-receipt/README.md). The npm/Registry package versions below remain unchanged.
+
 > **Current developer preview:** [Exact versions and installation](https://github.com/zerohourzulu/continuity/blob/main/docs/CURRENT-RELEASE.md).
 
 > **Follow an investigation:** Follow one protected case through interruption, replacement, a signed completion, new evidence and a persistent challenge. [Run the walkthrough](https://github.com/zerohourzulu/continuity/blob/main/docs/INVESTIGATION-WALKTHROUGH.md).

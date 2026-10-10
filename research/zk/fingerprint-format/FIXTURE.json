@@ -1,0 +1,50 @@
+{
+  "schema": "continuity.fingerprint-format-control.fixture.v1",
+  "publicSynthetic": true,
+  "request": {
+    "kind": "SERVICE_REQUEST",
+    "request": {
+      "": "bmp-private-use",
+      "𐀀": "supplementary-plane"
+    }
+  },
+  "identity": {
+    "storeId": "1111111111111111111111111111111111111111111111111111111111111111",
+    "stream": "public-format-control-service"
+  },
+  "envelope": {
+    "schema": "continuity.custody.record.v1",
+    "storeId": "1111111111111111111111111111111111111111111111111111111111111111",
+    "stream": "public-format-control-service",
+    "sequence": 1,
+    "previousDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+    "operationId": "public-format-control:1",
+    "record": {
+      "kind": "SERVICE_REQUEST",
+      "request": {
+        "": "bmp-private-use",
+        "𐀀": "supplementary-plane"
+      }
+    }
+  },
+  "requestFormats": {
+    "legacyUtf16KeyOrder": {
+      "canonical": "{\"kind\":\"SERVICE_REQUEST\",\"request\":{\"𐀀\":\"supplementary-plane\",\"\":\"bmp-private-use\"}}",
+      "sha256": "67ae9cf68823e2d74da1c69e756b45946cbfaf6a00d7546863212275c2ff0319"
+    },
+    "engineUtf8KeyOrder": {
+      "canonical": "{\"kind\":\"SERVICE_REQUEST\",\"request\":{\"\":\"bmp-private-use\",\"𐀀\":\"supplementary-plane\"}}",
+      "sha256": "3edb1aec683ce86fc0792b00331ecc9f14b5224b64108f40e926564d6192689a"
+    }
+  },
+  "envelopeFormats": {
+    "legacyUtf16KeyOrder": {
+      "canonical": "{\"operationId\":\"public-format-control:1\",\"previousDigest\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"record\":{\"kind\":\"SERVICE_REQUEST\",\"request\":{\"𐀀\":\"supplementary-plane\",\"\":\"bmp-private-use\"}},\"schema\":\"continuity.custody.record.v1\",\"sequence\":1,\"storeId\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"stream\":\"public-format-control-service\"}",
+      "sha256": "c8cc29a903ad5cd0bc3ed5d793d4688fc24394d4c98dfc042fb332e9c2104bb0"
+    },
+    "engineUtf8KeyOrder": {
+      "canonical": "{\"operationId\":\"public-format-control:1\",\"previousDigest\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"record\":{\"kind\":\"SERVICE_REQUEST\",\"request\":{\"\":\"bmp-private-use\",\"𐀀\":\"supplementary-plane\"}},\"schema\":\"continuity.custody.record.v1\",\"sequence\":1,\"storeId\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"stream\":\"public-format-control-service\"}",
+      "sha256": "fd211837dc735ced466278489c7cf22e871b29ada1c886e4fe26850e9bbd9fe2"
+    }
+  }
+}
