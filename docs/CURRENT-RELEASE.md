@@ -9,7 +9,7 @@ This developer preview follows an existing case through replacement, restart and
 | MCP gateway | 0.3.0-preview.10 |
 | Evidence MCP | 0.3.0-preview.11 |
 
-Use Node 22.18+ on 22.x or Node 24.x. The source version is 0.3.0-preview.11.1. This source update adds corrected messages and an experimental ZK annex; the exact npm tuple below is unchanged. All four archives are in `sdk/investigation-release`; earlier SDK directories preserve historical releases.
+Use Node 22.18+ on 22.x or Node 24.x. The source version is 0.3.0-preview.11.2. This source update adds corrected messages and an experimental ZK annex; the exact npm tuple below is unchanged. All four archives are in `sdk/investigation-release`; earlier SDK directories preserve historical releases.
 
 Install from npm in a new application:
 

@@ -1,3 +1,7 @@
+# Source preview.11.2 — onboarding diagnostic checks
+
+Update three legacy wording assertions and recognize the two exact tutorial error forms for an existing case and missing completed result. Preserve machine envelopes, refusal decisions, saved case files and unknown-context handling. No saved proof or npm archive changes.
+
 # Source preview.11.1 — provenance correction
 
 The regenerated PACKAGE-FILES.json is authenticated by the archive checksum, avoiding a circular hash in provenance. A release test checks every recorded public-source hash. Source/runtime/proof evidence and npm archives are unchanged from preview.11.

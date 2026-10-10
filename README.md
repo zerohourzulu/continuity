@@ -1,4 +1,4 @@
-> **Source preview.11.1:** [Plain-language messages](messages/README.md), [completed historical ZK experiments](research/zk/README.md), and [retained-receipt reader source](examples/retained-receipt/README.md). The npm/Registry package versions below remain unchanged.
+> **Source preview.11.2:** [Plain-language messages](messages/README.md), [completed historical ZK experiments](research/zk/README.md), and [retained-receipt reader source](examples/retained-receipt/README.md). The npm/Registry package versions below remain unchanged.
 
 > **Current developer preview:** [Exact versions and installation](docs/CURRENT-RELEASE.md).
 

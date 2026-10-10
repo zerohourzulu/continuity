@@ -39,7 +39,9 @@ test('onboarding: missing dependencies fail before a case is created', () => {
 });
 test('onboarding: local hints preserve explicit JSON error envelopes', () => {
   const human = invoke(['bin/continuity.mjs','check']);
-  assert.equal(human.status, 2); assert.match(human.stderr, /--file PATH/);
+  assert.equal(human.status, 2); assert.deepEqual(JSON.parse(human.stderr.split('\n')[0]), {error:'FILE_REQUIRED'});
+  assert.match(human.stderr, /--file is missing, or its path is longer than 4,096 characters/);
+  assert.match(human.stderr, /Nothing was read/);
   const machine = invoke(['bin/continuity.mjs','check','--json']);
   assert.equal(machine.status, 2); assert.deepEqual(JSON.parse(machine.stderr), {error:'FILE_REQUIRED'});
 });
@@ -47,7 +49,8 @@ test('onboarding: setup rejects unknown arguments and missing npm without starti
   const invalid = invoke(['tools/setup.mjs','--erase']);
   assert.equal(invalid.status, 2); assert.match(invalid.stderr, /no arguments/);
   const missing = invoke(['tools/setup.mjs'], {...process.env, PATH:''});
-  assert.equal(missing.status, 2); assert.match(missing.stderr, /npm unavailable/);
+  assert.equal(missing.status, 2); assert.match(missing.stderr, /npm is unavailable/);
+  assert.match(missing.stderr, /does not itself install or retry anything/);
   assert(!existsSync(join(scratch,'runs')));
 });
 test('onboarding: immutable-package diagnosis is concise and does not rewrite the index', () => {
@@ -78,9 +81,12 @@ test('onboarding: repeat starter runs preserve prior evidence and print usable i
   assert.deepEqual(readFileSync(historyPath),before);
   assert.equal(readdirSync(join(scratch,'runs')).length,2);
   const collision = invoke(['tutorial/cli.mjs','run','--case',name]);
-  assert.equal(collision.status,1); assert.match(collision.stderr,/Inspect it:/);
+  assert.equal(collision.status,1); assert.match(collision.stderr,/Inspect it: node tutorial\/cli.mjs inspect CASE_NAME/);
+  assert.match(collision.stderr,/creation attempt overwrote nothing/);
+  assert.match(collision.stderr,/inspection is not a retry/);
   assert.deepEqual(readFileSync(historyPath),before);
   const missing = invoke(['tutorial/cli.mjs','inspect','absent']);
   assert.equal(missing.status,1); assert.match(missing.stderr,/No completed result/);
+  assert.match(missing.stderr,/does not show why the earlier run stopped or authorize another run/);
   clean = true;
 });

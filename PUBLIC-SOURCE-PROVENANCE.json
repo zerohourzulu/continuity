@@ -51,7 +51,7 @@
     {
       "originalSha256": "4541d8c3b350cc536d4de96957d41d229067ef98da8194163208b647a6904b76",
       "path": "CHANGELOG.md",
-      "publishedSha256": "2743c42969b851a6cf462fd7c2a1871991dff4436855305bdf86a38f2bacc755",
+      "publishedSha256": "520552439adfa0c9f015f2529a79aa253181b72a9a5dfce18980980445aeb0f3",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -128,21 +128,21 @@
     {
       "originalSha256": "375063ef2c2f0af1b8e93ab0f07095134cdcb76ab9167eba1873ed61bc2e70b3",
       "path": "README.md",
-      "publishedSha256": "c86f4fad0d2a98a3243d252afdfe81fb4fa9e015387d58f065663628bf293f20",
+      "publishedSha256": "a02e2d19089d3a8f2b23d64629ba5de9466748eebc2641b51fd9d1d65fa9712f",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "a4ebf7724c4074f2f0fc49fd8143e2a61a0dd796e1b3e4e7076b600e7e1d7c40",
       "path": "RELEASE-NOTES.md",
-      "publishedSha256": "effb1557c4cd2d30e1b064db5e6643e5d53bc58f91d1ec759a70e7b28a2c4d25",
+      "publishedSha256": "cc1d4f684c1eed4de80621e89e1637ddf880d2ce2e4c8c304ef2e3405ee93491",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "83980cd243003adf1e7a4322a4e67bf9bfa15b5250ebda75540288d531d9e56a",
       "path": "RELEASE-STATUS.md",
-      "publishedSha256": "effb1557c4cd2d30e1b064db5e6643e5d53bc58f91d1ec759a70e7b28a2c4d25",
+      "publishedSha256": "cc1d4f684c1eed4de80621e89e1637ddf880d2ce2e4c8c304ef2e3405ee93491",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -849,7 +849,7 @@
     {
       "originalSha256": "1b7b0f572fe5ffa1e00287cd72d18aebd943b7783af7adc39b7d55f842d00996",
       "path": "docs/CURRENT-RELEASE.md",
-      "publishedSha256": "9ba68b50f939ffb7f3c73a5512feb76e7e52ef87b4585456eec01d9bb632be98",
+      "publishedSha256": "d68816ac34d21f8ff4134a8e9493da27b9c610db838b97266fc6fdaa0bcc311a",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -2431,8 +2431,8 @@
     {
       "originalSha256": "187e859f601a590d6f80c3e0155dc45c3e1c3b6264cab48f70dfcfcffd8c3d37",
       "path": "lib/human-error.mjs",
-      "publishedSha256": "187e859f601a590d6f80c3e0155dc45c3e1c3b6264cab48f70dfcfcffd8c3d37",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "99d30672ac7ea66049ed1fc3414b1501cba2b925af5cb55c3947d13f7136b4a4",
+      "sourceCopyStatus": "PUBLIC_DIAGNOSTIC_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -2644,7 +2644,7 @@
     {
       "originalSha256": "0121e555c3ad745ee213cc8ac3769280ccd9d83b400de6befdd09561c3322627",
       "path": "package.json",
-      "publishedSha256": "804442db30aaf5732fc84a9c9ccdb775076919a1ced7eee8b305b9850fdf6677",
+      "publishedSha256": "022c78510ba4d7896989aa07431ad1f835b5afd77dc16fdd837de0165eaa10f7",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -16203,8 +16203,8 @@
     {
       "originalSha256": "8f17e7e5500b620a1fa435b5d28822922c2fa0061c6b249ebe85439ca34c8edc",
       "path": "tests/onboarding.test.mjs",
-      "publishedSha256": "8f17e7e5500b620a1fa435b5d28822922c2fa0061c6b249ebe85439ca34c8edc",
-      "sourceCopyStatus": "EXACT",
+      "publishedSha256": "3c05655805c08c7e5fa28433fe6b4c135fcb864760a57f5c05300697f880f0cb",
+      "sourceCopyStatus": "PUBLIC_DIAGNOSTIC_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -16973,7 +16973,7 @@
     {
       "originalSha256": "50f2a6ae135a98c5476a07f720eb5101e65a4ce646c4c2712ba5e8e3abd91a21",
       "path": "website/downloads/CHANGELOG.md",
-      "publishedSha256": "f58b134144e6796643c941fdaa90b44539716f114b7749b30d46a548c2b12c27",
+      "publishedSha256": "5bc2ce497b87b9a5c4d87efb97a4be68407dd9ea51b076eb6f1baf0a6143a5bd",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -17001,14 +17001,14 @@
     {
       "originalSha256": "dd18055bff3b3b91f5fa7fc1dc3a88dfb19e243e9b43c44eff7c9510a7f0d1a3",
       "path": "website/downloads/README.md",
-      "publishedSha256": "f03c8d6dda4bca4cc1ad1cbd086f0a6fda856a27e49e95efb5b783c310300da3",
+      "publishedSha256": "7ed6da49b9e832c4bd0965fbe1faecd266dd55ba41e1465c801dc04c4a6d6a24",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "41685f9fd75d8bdfc54119dcb822abd8c22e57a28e64ce2c357ec7e13d3a9ae3",
       "path": "website/downloads/RELEASE-STATUS.md",
-      "publishedSha256": "3ff0243f2f4e205241fe57d3a363c86f98bc5a54d8653ec6acb89b449457bfeb",
+      "publishedSha256": "d6f98fa51f954886a5557407a89e42848ab56b60f5b726e2ab86e906bcae13e0",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -17610,7 +17610,7 @@
     {
       "originalSha256": "84051ccb9075da2a977117ce56a92abfc55c10d7416718e1ca56b6d000e2a6a6",
       "path": "website/index.html",
-      "publishedSha256": "34e136290d23dce7744fba070eb07e8fa55506ef97ed099d20c44c93d4ac39b4",
+      "publishedSha256": "6a021b054738e2c61a01f00db3ab5956f0afa082149a741d94f4a3d7ab78c2ff",
       "sourceCopyStatus": "PUBLIC_EDITORIAL_ADAPTATION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
@@ -18948,6 +18948,16 @@
   "newProofOrGuestBuildCredit": false,
   "npmArchivesUnchanged": true,
   "privacyScope": "Source and whitelisted result facts; no private bodies, credentials, keys/SRS, correspondence or account telemetry",
+  "publicDiagnosticAdaptations": [
+    {
+      "path": "lib/human-error.mjs",
+      "scope": "Recognize two exact bounded tutorial-case error message forms and print fixed guidance; no case-name or raw exception echo. Machine exit/envelope and authority/proof behavior unchanged."
+    },
+    {
+      "path": "tests/onboarding.test.mjs",
+      "scope": "Retain exit/envelope/history assertions while checking current human guidance instead of obsolete wording."
+    }
+  ],
   "publicPathAdaptations": [
     {
       "path": "research/zk/native/src/controls.rs",

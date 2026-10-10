@@ -76,3 +76,17 @@ test('published source provenance hashes match every named file', async () => {
     if (row.sourceCopyStatus === 'EXACT') assert.equal(row.publishedSha256, row.originalSha256, row.path);
   }
 });
+
+
+test('tutorial error guidance accepts only exact bounded source forms and hides supplied names', async () => {
+  const { humanLocalError } = await import('../lib/human-error.mjs');
+  const collision = 'Case secret-case already exists; nothing was overwritten. Inspect it: node tutorial/cli.mjs inspect secret-case. Or create a fresh case: node tutorial/start.mjs';
+  const missing = 'No completed result for secret-case. Check the case name printed by your run; use node tutorial/start.mjs for a fresh case. A partial case, if present, is retained.';
+  const before = humanLocalError(new Error(collision));
+  assert.match(before, /creation attempt overwrote nothing/);
+  assert.doesNotMatch(before, /secret-case/);
+  assert.match(humanLocalError(new Error(missing)), /No completed result/);
+  for (const text of [collision.replace('inspect secret-case', 'inspect another-case'), collision + ' arbitrary payload', missing.replace('secret-case', '../secret')]) {
+    assert.match(humanLocalError(new Error(text)), /LOCAL_ERROR_UNKNOWN/);
+  }
+});

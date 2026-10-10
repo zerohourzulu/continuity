@@ -33,8 +33,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 8701,
-      "sha256": "2743c42969b851a6cf462fd7c2a1871991dff4436855305bdf86a38f2bacc755"
+      "bytes": 9030,
+      "sha256": "520552439adfa0c9f015f2529a79aa253181b72a9a5dfce18980980445aeb0f3"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -83,8 +83,8 @@
     },
     {
       "path": "PUBLIC-SOURCE-PROVENANCE.json",
-      "bytes": 1019096,
-      "sha256": "5c8df5b2de5a4bbef3932ddfdb86f40a34f576d3f1f3088e2802bd82c7abd9ad"
+      "bytes": 1019614,
+      "sha256": "4288f532ae164f31af023775c8eb2bc50aa68cb8ffa4caf94894e636f0bf49db"
     },
     {
       "path": "README-ELI5.md",
@@ -94,17 +94,17 @@
     {
       "path": "README.md",
       "bytes": 7577,
-      "sha256": "c86f4fad0d2a98a3243d252afdfe81fb4fa9e015387d58f065663628bf293f20"
+      "sha256": "a02e2d19089d3a8f2b23d64629ba5de9466748eebc2641b51fd9d1d65fa9712f"
     },
     {
       "path": "RELEASE-NOTES.md",
-      "bytes": 1838,
-      "sha256": "effb1557c4cd2d30e1b064db5e6643e5d53bc58f91d1ec759a70e7b28a2c4d25"
+      "bytes": 2235,
+      "sha256": "cc1d4f684c1eed4de80621e89e1637ddf880d2ce2e4c8c304ef2e3405ee93491"
     },
     {
       "path": "RELEASE-STATUS.md",
-      "bytes": 1838,
-      "sha256": "effb1557c4cd2d30e1b064db5e6643e5d53bc58f91d1ec759a70e7b28a2c4d25"
+      "bytes": 2235,
+      "sha256": "cc1d4f684c1eed4de80621e89e1637ddf880d2ce2e4c8c304ef2e3405ee93491"
     },
     {
       "path": "SECURITY.md",
@@ -609,7 +609,7 @@
     {
       "path": "docs/CURRENT-RELEASE.md",
       "bytes": 2687,
-      "sha256": "9ba68b50f939ffb7f3c73a5512feb76e7e52ef87b4585456eec01d9bb632be98"
+      "sha256": "d68816ac34d21f8ff4134a8e9493da27b9c610db838b97266fc6fdaa0bcc311a"
     },
     {
       "path": "docs/DEVELOPER.md",
@@ -1748,8 +1748,8 @@
     },
     {
       "path": "lib/human-error.mjs",
-      "bytes": 8256,
-      "sha256": "187e859f601a590d6f80c3e0155dc45c3e1c3b6264cab48f70dfcfcffd8c3d37"
+      "bytes": 9430,
+      "sha256": "99d30672ac7ea66049ed1fc3414b1501cba2b925af5cb55c3947d13f7136b4a4"
     },
     {
       "path": "lib/lens.mjs",
@@ -1904,7 +1904,7 @@
     {
       "path": "package.json",
       "bytes": 2202,
-      "sha256": "804442db30aaf5732fc84a9c9ccdb775076919a1ced7eee8b305b9850fdf6677"
+      "sha256": "022c78510ba4d7896989aa07431ad1f835b5afd77dc16fdd837de0165eaa10f7"
     },
     {
       "path": "packages/core/package.json",
@@ -11608,13 +11608,13 @@
     },
     {
       "path": "tests/message-readability.test.mjs",
-      "bytes": 4339,
-      "sha256": "13ce0a5f0c0445fb448f2095cc1d52c4e49ac066ec788e009cc2e5d8c54f03da"
+      "bytes": 5385,
+      "sha256": "499cb796a721083bd7dbfb843cfde7cb555fd7e28371fe59e8e9242777d8f33b"
     },
     {
       "path": "tests/onboarding.test.mjs",
-      "bytes": 5525,
-      "sha256": "8f17e7e5500b620a1fa435b5d28822922c2fa0061c6b249ebe85439ca34c8edc"
+      "bytes": 6067,
+      "sha256": "3c05655805c08c7e5fa28433fe6b4c135fcb864760a57f5c05300697f880f0cb"
     },
     {
       "path": "tests/quantitative.test.mjs",
@@ -12168,8 +12168,8 @@
     },
     {
       "path": "website/downloads/CHANGELOG.md",
-      "bytes": 9284,
-      "sha256": "f58b134144e6796643c941fdaa90b44539716f114b7749b30d46a548c2b12c27"
+      "bytes": 9613,
+      "sha256": "5bc2ce497b87b9a5c4d87efb97a4be68407dd9ea51b076eb6f1baf0a6143a5bd"
     },
     {
       "path": "website/downloads/LICENSE",
@@ -12189,12 +12189,12 @@
     {
       "path": "website/downloads/README.md",
       "bytes": 10015,
-      "sha256": "f03c8d6dda4bca4cc1ad1cbd086f0a6fda856a27e49e95efb5b783c310300da3"
+      "sha256": "7ed6da49b9e832c4bd0965fbe1faecd266dd55ba41e1465c801dc04c4a6d6a24"
     },
     {
       "path": "website/downloads/RELEASE-STATUS.md",
-      "bytes": 1997,
-      "sha256": "3ff0243f2f4e205241fe57d3a363c86f98bc5a54d8653ec6acb89b449457bfeb"
+      "bytes": 2394,
+      "sha256": "d6f98fa51f954886a5557407a89e42848ab56b60f5b726e2ab86e906bcae13e0"
     },
     {
       "path": "website/downloads/SECURITY.md",
@@ -12624,7 +12624,7 @@
     {
       "path": "website/index.html",
       "bytes": 13728,
-      "sha256": "34e136290d23dce7744fba070eb07e8fa55506ef97ed099d20c44c93d4ac39b4"
+      "sha256": "6a021b054738e2c61a01f00db3ab5956f0afa082149a741d94f4a3d7ab78c2ff"
     },
     {
       "path": "website/playground/ENGINE-PROVENANCE.json",
