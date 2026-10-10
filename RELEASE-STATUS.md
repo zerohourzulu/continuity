@@ -1,6 +1,6 @@
 # Message package preview — 10 October 2026
 
-Source preview.12 coordinates Core preview.11, remote preview.6, gateway preview.11 and evidence preview.12. All four integrations use one exact Core. Earlier package versions, archives and stable/latest tags stay available.
+Source preview.12.1 coordinates Core preview.11, remote preview.6, gateway preview.11 and evidence preview.12. All four integrations use one exact Core. Earlier package versions, archives and stable/latest tags stay available.
 
 The accepted plain-language saved-record renderer is now installable as `continuity-explain` and `@ramex-labs/continuity/messages`. It explains fixed, explicitly selected contexts, rejects malformed or ambiguous input, and excludes private payload fields. The optional command does not authenticate a record, inspect live state, check a proof, grant authority or make retry safe. Original outputs and exit codes must be retained.
 

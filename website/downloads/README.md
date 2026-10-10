@@ -1,6 +1,6 @@
 Message package preview — 10 October 2026: Core11, remote6, gateway11 and evidence12 add the optional saved-record explanation command. See [the current release guide](https://github.com/zerohourzulu/continuity/blob/main/docs/CURRENT-RELEASE.md). Existing API/policy/proof behavior stays unchanged; older npm archives remain available.
 
-> **Source preview.12:** [Plain-language messages](https://github.com/zerohourzulu/continuity/blob/main/messages/README.md), [completed historical ZK experiments](https://github.com/zerohourzulu/continuity/blob/main/research/zk/README.md), and [retained-receipt reader source](https://github.com/zerohourzulu/continuity/blob/main/examples/retained-receipt/README.md). The installable packages now include the optional saved-output explanation command; use the exact tuple in the release guide.
+> **Source preview.12.1:** [Plain-language messages](https://github.com/zerohourzulu/continuity/blob/main/messages/README.md), [completed historical ZK experiments](https://github.com/zerohourzulu/continuity/blob/main/research/zk/README.md), and [retained-receipt reader source](https://github.com/zerohourzulu/continuity/blob/main/examples/retained-receipt/README.md). The installable packages now include the optional saved-output explanation command; use the exact tuple in the release guide.
 
 > **Current developer preview:** [Exact versions and installation](https://github.com/zerohourzulu/continuity/blob/main/docs/CURRENT-RELEASE.md).
 

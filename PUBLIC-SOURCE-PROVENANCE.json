@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-10T22:50:27.406407+00:00",
+  "at": "2026-10-10T23:13:03.830117+00:00",
   "basePublicCommit": "fe384ed2cf708f980c62f3e5b0b7902990accbf4",
   "editorialChanges": [
     "release/version/entry-point documents",
@@ -51,8 +51,8 @@
     {
       "originalSha256": "4541d8c3b350cc536d4de96957d41d229067ef98da8194163208b647a6904b76",
       "path": "CHANGELOG.md",
-      "publishedSha256": "4552c13a795a847ca80d6bb44d2e703fd67f872166e5516b7cc5e5e18ed87c4e",
-      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "publishedSha256": "163117751146e200706ad41854c74d137792ddf28798cc33cfa19f51c0418436",
+      "sourceCopyStatus": "MESSAGE_ONBOARDING_DOCUMENT_CORRECTION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -128,22 +128,22 @@
     {
       "originalSha256": "375063ef2c2f0af1b8e93ab0f07095134cdcb76ab9167eba1873ed61bc2e70b3",
       "path": "README.md",
-      "publishedSha256": "ed7f6e0311ddd309989c336324216b8ec4815e711aea7b22d497a1df4b986811",
-      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "publishedSha256": "ac6ff3ab3cde3c7ebd7f9c33930968ce18700c0b20bb8472c78f3b5b30816faf",
+      "sourceCopyStatus": "MESSAGE_ONBOARDING_DOCUMENT_CORRECTION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "a4ebf7724c4074f2f0fc49fd8143e2a61a0dd796e1b3e4e7076b600e7e1d7c40",
       "path": "RELEASE-NOTES.md",
-      "publishedSha256": "7764d9498a1468a5041b079bdde0bbdf473d2ce4122c43d5ab920acd29a48afd",
-      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "publishedSha256": "37978393746cbcb9e41d001f9e8d467da502d6afef2878ad3d26dd9516ddfed4",
+      "sourceCopyStatus": "MESSAGE_ONBOARDING_DOCUMENT_CORRECTION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "83980cd243003adf1e7a4322a4e67bf9bfa15b5250ebda75540288d531d9e56a",
       "path": "RELEASE-STATUS.md",
-      "publishedSha256": "7764d9498a1468a5041b079bdde0bbdf473d2ce4122c43d5ab920acd29a48afd",
-      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "publishedSha256": "37978393746cbcb9e41d001f9e8d467da502d6afef2878ad3d26dd9516ddfed4",
+      "sourceCopyStatus": "MESSAGE_ONBOARDING_DOCUMENT_CORRECTION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -849,8 +849,8 @@
     {
       "originalSha256": "1b7b0f572fe5ffa1e00287cd72d18aebd943b7783af7adc39b7d55f842d00996",
       "path": "docs/CURRENT-RELEASE.md",
-      "publishedSha256": "9d9b4f9889a372133649c6b74a4d11961f927775ad708887a8b27a4ac54ba1ca",
-      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "publishedSha256": "e132c3fcbcd39eee8b305611945ce87e64f3462344996ebc01fb78edb27cc1fc",
+      "sourceCopyStatus": "MESSAGE_ONBOARDING_DOCUMENT_CORRECTION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -954,8 +954,8 @@
     {
       "path": "docs/MESSAGE-PACKAGES.md",
       "originalSha256": "79691af38d0a5e6b3fee91acb40960f05bdcb33c572727a382e9f42f22947ebb",
-      "publishedSha256": "79691af38d0a5e6b3fee91acb40960f05bdcb33c572727a382e9f42f22947ebb",
-      "sourceCopyStatus": "NEW_MESSAGE_PACKAGE_RELEASE",
+      "publishedSha256": "c507d20e1c5091c146a73dbe85461005e3f11031adaf6d632ed44011f5a1b143",
+      "sourceCopyStatus": "MESSAGE_ONBOARDING_DOCUMENT_CORRECTION",
       "sourceEdition": "continuity-message-packages-2026-10-10-r1"
     },
     {
@@ -2707,8 +2707,8 @@
     {
       "originalSha256": "0121e555c3ad745ee213cc8ac3769280ccd9d83b400de6befdd09561c3322627",
       "path": "package.json",
-      "publishedSha256": "6f3f9eca875db3887737bbf32769dea9b9b929562776b889ba6b064baa7eb28f",
-      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "publishedSha256": "8b1a2ba254ff8c5806711f4aa6fdf575a8284e6d9ee977de05ac3073634d5544",
+      "sourceCopyStatus": "MESSAGE_ONBOARDING_DOCUMENT_CORRECTION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -18660,8 +18660,8 @@
     {
       "originalSha256": "50f2a6ae135a98c5476a07f720eb5101e65a4ce646c4c2712ba5e8e3abd91a21",
       "path": "website/downloads/CHANGELOG.md",
-      "publishedSha256": "703a42d36a9d14f5e67930cdc78c21a08ace24183ed81ad9e800fb9384b70209",
-      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "publishedSha256": "08ff6dc4a935e714a870baab4edde101ec02c4d5a1c02038428441e2bbae31c6",
+      "sourceCopyStatus": "MESSAGE_ONBOARDING_DOCUMENT_CORRECTION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -18688,15 +18688,15 @@
     {
       "originalSha256": "dd18055bff3b3b91f5fa7fc1dc3a88dfb19e243e9b43c44eff7c9510a7f0d1a3",
       "path": "website/downloads/README.md",
-      "publishedSha256": "c90ecf70fd1709835426d0b313df14edf841050f06014b53053f5ab69c091a3c",
-      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "publishedSha256": "ee6dc2edc505115b917ab851520c485848ddf52b3015a177e6876c135178f540",
+      "sourceCopyStatus": "MESSAGE_ONBOARDING_DOCUMENT_CORRECTION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
       "originalSha256": "41685f9fd75d8bdfc54119dcb822abd8c22e57a28e64ce2c357ec7e13d3a9ae3",
       "path": "website/downloads/RELEASE-STATUS.md",
-      "publishedSha256": "473e04f2562cddf71e3fc3195617d4555c51750b098f949bd7b6d31d30084af4",
-      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "publishedSha256": "8af615c8a8e8a815ff96f9f07edf05604972c43e21d268c1f88d6baeae5647d8",
+      "sourceCopyStatus": "MESSAGE_ONBOARDING_DOCUMENT_CORRECTION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -19297,8 +19297,8 @@
     {
       "originalSha256": "84051ccb9075da2a977117ce56a92abfc55c10d7416718e1ca56b6d000e2a6a6",
       "path": "website/index.html",
-      "publishedSha256": "9385615df96d86315058f40414cebbb1c4803be7a48440a96f181a9526b9faa5",
-      "sourceCopyStatus": "MESSAGE_PACKAGE_RELEASE_ADAPTATION",
+      "publishedSha256": "9cedd23dbe42820d9b4c244c6f5bee0a7dac12842b0bd72a96c26d7f23296afd",
+      "sourceCopyStatus": "MESSAGE_ONBOARDING_DOCUMENT_CORRECTION",
       "sourceEdition": "continuity-message-readability-2026-10-04-r3"
     },
     {
@@ -20671,5 +20671,6 @@
   ],
   "schema": "continuity.public-source-update-provenance.v1",
   "historicalNpmArchivesUnchanged": true,
-  "packageUpdateScope": "Optional pure saved-record explanation command/export and exact dependency tuple; existing runtime/type files byte-identical."
+  "packageUpdateScope": "Optional pure saved-record explanation command/export and exact dependency tuple; existing runtime/type files byte-identical.",
+  "sourceCorrection": "preview.12.1 local npm command invocation; all npm archives unchanged"
 }

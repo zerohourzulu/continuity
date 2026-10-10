@@ -1,3 +1,7 @@
+# Source preview.12.1 — local command invocation
+
+Use `npx --no-install continuity-explain` after a local npm install. All four prepared/published npm archives and runtime/API behavior are unchanged. The source preview.12 guide and first authentication failure are preserved.
+
 Message package preview — 10 October2026: Core11, remote6, gateway11 and evidence12 add the optional saved-record explanation command. See [the current release guide](https://github.com/zerohourzulu/continuity/blob/main/docs/CURRENT-RELEASE.md). Existing API/policy/proof behavior stays unchanged; older npm archives remain available.
 
 # Source preview.12 — onboarding diagnostic checks
