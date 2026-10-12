@@ -1,3 +1,10 @@
+## Source 0.3.0-preview.13 — 12 October 2026
+
+- Pin current MCP client/server/core to 2.2.0, fixing GHSA-6qxp-vccf-f47h in the SDK OAuth client.
+- Refresh source and installed-consumer locks without changing unrelated dependency versions.
+- Add a synthetic issuer-substitution refusal test and matching-issuer control; preserve old SDK archives and proof evidence.
+- Prepare new MCP archives for source use. npm and Registry publication are separate and unchanged.
+
 # Source preview.12.1 — local command invocation
 
 Use `npx --no-install continuity-explain` after a local npm install. All four prepared/published npm archives and runtime/API behavior are unchanged. The source preview.12 guide and first authentication failure are preserved.

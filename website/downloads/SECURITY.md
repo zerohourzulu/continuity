@@ -1,3 +1,5 @@
+Current source dependencies were updated to MCP 2.2.0 for [GHSA-6qxp-vccf-f47h](https://github.com/zerohourzulu/continuity/blob/main/docs/MCP-SDK-SECURITY-UPDATE.md). That note distinguishes patched source-prepared packages from previously published npm/Registry versions and explains the additional issuer-binding requirements for OAuth integrations.
+
 > **Prepared continuation profile:** See [supported profiles](https://github.com/zerohourzulu/continuity/blob/main/docs/SUPPORTED-PROFILES.md) and [migration/recovery](https://github.com/zerohourzulu/continuity/blob/main/docs/MIGRATE-A-CASE.md) for the new explicit directory-store and fixed evidence-service boundaries. The original profiles and their limits remain available. Publication status: [release status](https://github.com/zerohourzulu/continuity/blob/main/RELEASE-STATUS.md).
 
 # Security and evidence scope

@@ -5,7 +5,7 @@
   "dependencies": {
     "langchain": "1.5.12",
     "@langchain/core": "1.2.12",
-    "@modelcontextprotocol/client": "2.0.0",
+    "@modelcontextprotocol/client": "2.2.0",
     "zod": "4.6.5",
     "@ramex-labs/continuity": "file:../../sdk/message-release/ramex-labs-continuity-0.3.0-preview.11.tgz"
   }

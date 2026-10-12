@@ -49,5 +49,5 @@
     "verify": "node tools/verify-package.mjs"
   },
   "type": "module",
-  "version": "0.3.0-preview.12.1"
+  "version": "0.3.0-preview.13"
 }

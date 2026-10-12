@@ -1,6 +1,6 @@
 {
   "name": "@ramex-labs/continuity-mcp",
-  "version": "0.3.0-preview.12",
+  "version": "0.3.0-preview.13",
   "private": true,
   "type": "module",
   "license": "Apache-2.0",
@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@ramex-labs/continuity": "file:../../sdk/message-release/ramex-labs-continuity-0.3.0-preview.11.tgz",
-    "@modelcontextprotocol/client": "2.0.0",
-    "@modelcontextprotocol/server": "2.0.0",
+    "@modelcontextprotocol/client": "2.2.0",
+    "@modelcontextprotocol/server": "2.2.0",
     "viem": "2.55.19",
     "zod": "4.6.5"
   }

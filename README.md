@@ -1,6 +1,8 @@
 Message package preview — 10 October 2026: Core11, remote6, gateway11 and evidence12 add the optional saved-record explanation command. See [the current release guide](docs/CURRENT-RELEASE.md). Existing API/policy/proof behavior stays unchanged; older npm archives remain available.
 
-> **Source preview.12.1:** [Plain-language messages](messages/README.md), [completed historical ZK experiments](research/zk/README.md), and [retained-receipt reader source](examples/retained-receipt/README.md). The installable packages now include the optional saved-output explanation command; use the exact tuple in the release guide.
+> **Source preview.13:** MCP client/server/core updated to 2.2.0 for [GHSA-6qxp-vccf-f47h](docs/MCP-SDK-SECURITY-UPDATE.md). New MCP archives are source-prepared; npm and Registry still select the earlier published tuple.
+
+> **Previous source preview.12.1:** [Plain-language messages](messages/README.md), [completed historical ZK experiments](research/zk/README.md), and [retained-receipt reader source](examples/retained-receipt/README.md). The installable packages now include the optional saved-output explanation command; use the exact tuple in the release guide.
 
 > **Current developer preview:** [Exact versions and installation](docs/CURRENT-RELEASE.md).
 

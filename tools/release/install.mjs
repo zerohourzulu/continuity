@@ -7,7 +7,7 @@ import {requireNpm} from './npm.mjs';
 const root=fileURLToPath(new URL('../../',import.meta.url));
 const directory=process.argv[2];if(process.argv.length!==3||!isAbsolute(directory))throw Error('Pass an absolute empty consumer directory');
 if(existsSync(directory)&&readdirSync(directory).length)throw Error('Consumer directory must be empty; no files were changed');
-const release=join(root,'sdk/message-release'),index=JSON.parse(readFileSync(join(release,'RELEASE-PACKAGES.json')));
+const release=join(root,'sdk/security-release'),index=JSON.parse(readFileSync(join(release,'RELEASE-PACKAGES.json')));
 const sha=b=>createHash('sha256').update(b).digest('hex');
 for(const p of index.packages)if(sha(readFileSync(join(release,p.archive)))!==p.sha256)throw Error('Archive hash mismatch: '+p.name);
 const lock=JSON.parse(readFileSync(new URL('./consumer-lock.json',import.meta.url))),manifest=lock.packages[''];

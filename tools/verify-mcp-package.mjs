@@ -27,8 +27,8 @@ try {
     "--ignore-scripts",
     "--no-audit",
     "--no-fund",
-    join(root, "sdk/message-release/ramex-labs-continuity-0.3.0-preview.11.tgz"),
-    join(root, "sdk/message-release/ramex-labs-continuity-mcp-0.3.0-preview.12.tgz"),
+    join(root, "sdk/security-release/ramex-labs-continuity-0.3.0-preview.11.tgz"),
+    join(root, "sdk/security-release/ramex-labs-continuity-mcp-0.3.0-preview.13.tgz"),
   ]);
   const pkg = join(temp, "node_modules/@ramex-labs/continuity-mcp");
   assert.equal(

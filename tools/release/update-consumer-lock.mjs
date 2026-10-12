@@ -2,14 +2,14 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 const root=new URL('../../',import.meta.url),read=path=>JSON.parse(readFileSync(new URL(path,root)));
-const lock=read('tools/release/consumer-lock.json'),index=read('sdk/message-release/RELEASE-PACKAGES.json');
+const lock=read('tools/release/consumer-lock.json'),index=read('sdk/security-release/RELEASE-PACKAGES.json');
 lock.name='continuity-duty-integration-consumer';lock.packages[''].name=lock.name;
 for(const p of index.packages){
- const manifest=read('sdk/message-release/'+p.part+'/package.json'),resolved='file:packages/'+p.archive;
+ const manifest=read('sdk/security-release/'+p.part+'/package.json'),resolved='file:packages/'+p.archive;
  if(manifest.private!==false)throw Error('Publishable build required');
  lock.packages[''].dependencies[p.name]=resolved;
  const row=lock.packages['node_modules/'+p.name];
- row.version=p.version;row.resolved=resolved;row.integrity='sha512-'+createHash('sha512').update(readFileSync(new URL('sdk/message-release/'+p.archive,root))).digest('base64');
+ row.version=p.version;row.resolved=resolved;row.integrity='sha512-'+createHash('sha512').update(readFileSync(new URL('sdk/security-release/'+p.archive,root))).digest('base64');
  for(const field of ['dependencies','peerDependencies','peerDependenciesMeta','engines','bin']){
   if(manifest[field]===undefined)delete row[field];else row[field]=manifest[field];
  }

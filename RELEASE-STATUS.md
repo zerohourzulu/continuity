@@ -1,3 +1,9 @@
+# Current source: MCP security update
+
+Source preview.13 updates active MCP client/server/core pins to 2.2.0 for GHSA-6qxp-vccf-f47h. See [scope and installation](docs/MCP-SDK-SECURITY-UPDATE.md).
+
+Gateway preview.12 and evidence preview.13 are prepared in `sdk/security-release` and have not been published to npm or the MCP Registry. Core preview.11 and remote preview.6 archives are unchanged. The earlier published package tuple and Registry descriptors remain available as historical immutable versions.
+
 # Message package preview — 10 October 2026
 
 Source preview.12.1 coordinates Core preview.11, remote preview.6, gateway preview.11 and evidence preview.12. All four integrations use one exact Core. Earlier package versions, archives and stable/latest tags stay available.

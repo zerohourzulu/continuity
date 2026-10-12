@@ -1,0 +1,9 @@
+{
+  "source": "0.3.0-preview.12",
+  "core": "0.3.0-preview.11",
+  "remote": "0.3.0-preview.6",
+  "gateway": "0.3.0-preview.11",
+  "evidence": "0.3.0-preview.12",
+  "status": "prepared-not-published",
+  "historyProfile": "continuity-segmented-local/1"
+}

@@ -1,3 +1,5 @@
+Current source dependencies were updated to MCP 2.2.0 for [GHSA-6qxp-vccf-f47h](docs/MCP-SDK-SECURITY-UPDATE.md). That note distinguishes patched source-prepared packages from previously published npm/Registry versions and explains the additional issuer-binding requirements for OAuth integrations.
+
 > **Prepared continuation profile:** See [supported profiles](docs/SUPPORTED-PROFILES.md) and [migration/recovery](docs/MIGRATE-A-CASE.md) for the new explicit directory-store and fixed evidence-service boundaries. The original profiles and their limits remain available. Publication status: [release status](RELEASE-STATUS.md).
 
 # Security and evidence scope

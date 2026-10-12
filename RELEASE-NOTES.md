@@ -1,3 +1,9 @@
+# MCP security source update — 12 October 2026
+
+Source preview.13 updates active MCP client/server/core pins to 2.2.0 and adds real-SDK synthetic issuer-substitution/positive controls. New gateway preview.12 and evidence preview.13 archives are prepared for source installation; npm and MCP Registry are not republished by this update. Core preview.11 and remote preview.6 remain byte-identical. [Scope and installation](docs/MCP-SDK-SECURITY-UPDATE.md).
+
+Previous release notes follow unchanged.
+
 # Message package preview — 10 October 2026
 
 Source preview.12.1 coordinates Core preview.11, remote preview.6, gateway preview.11 and evidence preview.12. All four integrations use one exact Core. Earlier package versions, archives and stable/latest tags stay available.

@@ -1,6 +1,6 @@
 # Use the protected tool from a LangChain agent
 
-This example uses the actual **LangChain1.5.12** agent loop, **@langchain/core1.2.12**, and the official MCP client2.0.0. Only the model response is scripted. You can see the complete tool path without a model account, payment or tracing service.
+This example uses the actual **LangChain1.5.12** agent loop, **@langchain/core1.2.12**, and the official MCP client2.2.0. Only the model response is scripted. You can see the complete tool path without a model account, payment or tracing service.
 
 From the distribution root:
 

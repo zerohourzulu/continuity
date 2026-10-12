@@ -1,0 +1,779 @@
+{
+  "rows": [
+    {
+      "id": "extra-001",
+      "surface": "workflow",
+      "code": "NEEDS_PREPARE",
+      "message": "The next workflow stage has not yet been prepared. This status observation does not launch it.",
+      "action": "Use workflow.py prepare-next <selection> <selectionPin> to prepare it under the existing selection. Starting still requires approval for the exact request pin. Do not infer a new attempt or budget from this message.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/producer/workflow.py",
+        "line": 302,
+        "codeSites": [
+          302,
+          332,
+          334
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-002",
+      "surface": "controller",
+      "code": "INITIALIZED",
+      "message": "The controller reports that its initial budget and state records were created. No proof verification is claimed.",
+      "action": "Keep the reported head and configuration pin. Observe controller.py status <config> <config-sha> before preparing a stage.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/producer/controller/engine.py",
+        "line": 144,
+        "codeSites": [
+          144
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-003",
+      "surface": "controller",
+      "code": "PREPARED",
+      "message": "The controller reports that it prepared a request and returned its fingerprint. Preparation is separate from starting.",
+      "action": "Keep requestPin. A later start must use the exact approved request; do not change it or infer launch approval.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/producer/controller/engine.py",
+        "line": 177,
+        "codeSites": [
+          177
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-004",
+      "surface": "controller",
+      "code": "RESERVED",
+      "message": "The controller reports that an attempt was reserved and budget was charged. The result is still UNPROVED.",
+      "action": "Keep the attempt/head and charges. Observe controller.py status <config> <config-sha>; inspect its original closure and terminal records before any subsequent attempt.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/producer/controller/engine.py",
+        "line": 222,
+        "codeSites": [
+          222
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-005",
+      "surface": "controller",
+      "code": "CANCEL_REQUESTED_NOT_QUIESCENCE",
+      "message": "Cancellation was requested. This does not confirm the process has stopped, close its fence (the record that a stage is still open) or refund its budget.",
+      "action": "Keep the original attempt and observe controller.py status <config> <config-sha>. The operator must establish closure and process quiescence before another attempt.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/producer/controller/engine.py",
+        "line": 381,
+        "codeSites": [
+          381
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-006",
+      "surface": "controller",
+      "code": "PENDING",
+      "message": "The controller reports a pending fence (the record that a stage is still open) or attempt. This can include a running process or an incomplete recorded finish.",
+      "action": "Observe the existing attempt and its fence (the record that a stage is still open)/closure records. Do not reset budget, delete state or start a duplicate attempt.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/producer/controller/engine.py",
+        "line": 386,
+        "codeSites": [
+          386
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-007",
+      "surface": "controller",
+      "code": "IDLE",
+      "message": "The controller reports no pending attempts in its current record view. This is not a proof verdict or new execution approval.",
+      "action": "Keep the reported head and attempt charges. A new stage still needs its own exact request and approval; do not interpret idle as a retry authorization.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/producer/controller/engine.py",
+        "line": 386,
+        "codeSites": [
+          386
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-008",
+      "surface": "controller",
+      "code": "QUIESCENT_RETAINED_NO_RETRY",
+      "message": "Recovery retained a stopped attempt. Its reserved budget is not refunded; recovery does not retry it or establish proof validity.",
+      "action": "Preserve the original evidence and review its terminal/closure and updated head. Any later correction or attempt needs a separate explicit decision.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/producer/controller/engine.py",
+        "line": 411,
+        "codeSites": [
+          411
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-009",
+      "surface": "reviewer",
+      "code": "KIT_OPTION",
+      "message": "A reviewer option is unsupported, repeated or missing the required -- prefix.",
+      "action": "Use reviewer help. Each supported --name needs one value and may appear only once.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 38,
+        "codeSites": [
+          38
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-010",
+      "surface": "reviewer",
+      "code": "KIT_MISSING_OPTION",
+      "message": "A required option was not supplied for this reviewer command.",
+      "action": "Use reviewer help and supply every listed option. Missing acknowledgment is different from an acknowledgment value other than exactly yes.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 39,
+        "codeSites": [
+          39
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-011",
+      "surface": "reviewer",
+      "code": "KIT_ADMIN_PERMISSIONS",
+      "message": "An administration file did not meet the required private-file checks.",
+      "action": "Keep the file; ask the operator to check that it is a regular file with one link, mode 0600 and operator ownership. Do not replace its contents or the expected floor on this message alone.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 16,
+        "codeSites": [
+          16
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-012",
+      "surface": "reviewer",
+      "code": "KIT_SOFTWARE_PIN",
+      "message": "The reviewer software inventory did not match the independently supplied fingerprint.",
+      "action": "Ask the administrator to authenticate this exact package and its software SHA-256. Do not automatically replace the trusted value with the observed one.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 19,
+        "codeSites": [
+          19
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-013",
+      "surface": "reviewer",
+      "code": "KIT_PLATFORM",
+      "message": "The package and running operating system/processor do not match the supported darwin-arm64 profile.",
+      "action": "Use the package’s supported environment after operator diagnosis. This refusal does not qualify another platform or authorize installation.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 20,
+        "codeSites": [
+          20
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-014",
+      "surface": "reviewer",
+      "code": "KIT_SYMLINK",
+      "message": "A symbolic link was found where the software inventory requires ordinary entries.",
+      "action": "Preserve the package and ask the administrator to check the authenticated software inventory. Do not edit or repin it automatically.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 21,
+        "codeSites": [
+          21
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-015",
+      "surface": "reviewer",
+      "code": "KIT_FILE",
+      "message": "A software inventory entry failed regular-file, single-link or write-permission checks.",
+      "action": "Ask the administrator to check the exact authenticated package and its file permissions. Preserve its identity and do not change expected values automatically.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 21,
+        "codeSites": [
+          21,
+          22,
+          23
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-016",
+      "surface": "reviewer",
+      "code": "KIT_FILE_SET",
+      "message": "The installed software file set differs from its inventory.",
+      "action": "Have the administrator reconcile this package with its authenticated inventory. Keep the evidence; do not add, delete or repin files automatically.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 22,
+        "codeSites": [
+          22
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-017",
+      "surface": "reviewer",
+      "code": "KIT_FILE_CHANGED",
+      "message": "An installed software file’s bytes or size differ from its inventory.",
+      "action": "Ask the administrator to inspect the authenticated installation. Do not replace expected hashes with values from this failed check.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 23,
+        "codeSites": [
+          23
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-018",
+      "surface": "reviewer",
+      "code": "KIT_NODE_LOCATION",
+      "message": "The command is running from a different Node executable than the package requires.",
+      "action": "Use the enrolled package’s pinned bin/node route after administrator diagnosis; do not infer trust from a matching version number.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 24,
+        "codeSites": [
+          24
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-019",
+      "surface": "reviewer",
+      "code": "KIT_PYTHON",
+      "message": "The selected Python file failed regular-file, single-link, executable or write-permission checks.",
+      "action": "Ask the administrator to check the independently pinned Python executable and its permissions; this message does not install or replace Python.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 44,
+        "codeSites": [
+          44
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-020",
+      "surface": "reviewer",
+      "code": "KIT_ADMIN_OUTSIDE_SOFTWARE",
+      "message": "Administration output or reviewer state was directed into the authenticated software tree.",
+      "action": "Keep the software tree intact. Choose an approved administration path outside it; creation needs a fresh output path or directory.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 47,
+        "codeSites": [
+          47,
+          52
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-021",
+      "surface": "reviewer",
+      "code": "KIT_CONFIG_ENCODING",
+      "message": "The configuration bytes do not match the required canonical encoding.",
+      "action": "Ask the administrator to compare the retained configuration with its expected fingerprint and canonical source. Do not edit the file or repin it automatically.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 50,
+        "codeSites": [
+          50
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-022",
+      "surface": "reviewer",
+      "code": "KIT_CONFIG",
+      "message": "The configuration does not match this package’s required schema, directory or qualifications.",
+      "action": "Ask the administrator to reconcile the exact configuration with this authenticated package. Keep its original bytes and identity.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 50,
+        "codeSites": [
+          50
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-023",
+      "surface": "reviewer",
+      "code": "KIT_TRANSPORT_ADMIN_CHANGED",
+      "message": "The configured transport profile differs from the package profile.",
+      "action": "Ask the administrator to reconcile configuration and authenticated package identity. Do not broaden trust or change expected profiles automatically.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 51,
+        "codeSites": [
+          51
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-024",
+      "surface": "reviewer",
+      "code": "KIT_TRANSPORT_IDENTITY_MISMATCH",
+      "message": "The supplied archive transport identity does not match the independently configured profile.",
+      "action": "Ask the input owner and administrator to inspect the selected archive/profile pairing. Do not adopt the archive’s values as trusted replacements.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 71,
+        "codeSites": [
+          71
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-025",
+      "surface": "reviewer",
+      "code": "KIT_TRANSPORT_PIN",
+      "message": "The supplied proof or result bytes do not match the transport’s declared fingerprint.",
+      "action": "Preserve the archive and its inventory. Have the input owner compare the exact bytes and expected hashes before any new submission.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 73,
+        "codeSites": [
+          73
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-026",
+      "surface": "reviewer",
+      "code": "KIT_Q_DERIVED_RESULT_MISMATCH",
+      "message": "The result bytes do not match the Q-derived expected output after the reviewer’s reported verification route.",
+      "action": "Preserve the report, reviewer floors and archive. Ask the administrator to reconcile the exact result and recorded state before another verification. This error does not prove nothing was checked or that no state advanced.",
+      "source": {
+        "path": "deliverables/continuity-openvm-private-workflow-2026-10-01-r2.2/overlay/software/reviewer-patch/driver.mjs",
+        "line": 75,
+        "codeSites": [
+          75
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-027",
+      "surface": "reader",
+      "code": "SOURCE_CHANGED",
+      "message": "The file changed or stopped providing the expected bytes while it was being read. This is not a verdict on the history.",
+      "action": "Keep the original file and ask its owner for a stable snapshot. Do not edit historical events or automatically replace trusted fingerprints.",
+      "source": {
+        "path": "deliverables/continuity-investigation-publication-2026-09-25-r3/lib/history-source.mjs",
+        "line": 23,
+        "codeSites": [
+          23,
+          27
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-028",
+      "surface": "reader",
+      "code": "SOURCE_NOT_REGULAR",
+      "message": "The history source is not a regular file with one link under this reader’s file checks.",
+      "action": "Choose the original regular history file. Symbolic links, special files and hard-linked files are refused by this reader.",
+      "source": {
+        "path": "deliverables/continuity-investigation-publication-2026-09-25-r3/lib/history-source.mjs",
+        "line": 17,
+        "codeSites": [
+          17
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-029",
+      "surface": "reader",
+      "code": "SOURCE_BYTES_EXCEEDED",
+      "message": "The selected history exceeds this reader’s two-MiB input limit.",
+      "action": "Use a supported bounded history observation after discussing scope with the owner. A smaller prefix is a different observation and does not answer the original full-history question.",
+      "source": {
+        "path": "deliverables/continuity-investigation-publication-2026-09-25-r3/lib/history-source.mjs",
+        "line": 18,
+        "codeSites": [
+          18,
+          78
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-030",
+      "surface": "reader",
+      "code": "HISTORY_MALFORMED",
+      "message": "The source could not be decoded as this reader’s supported history representation.",
+      "action": "Compare its encoding with canonical history.jsonl or a JSON event array. Keep the original bytes; do not repair the journal by editing it. node bin/continuity.mjs --help lists the reader interface.",
+      "source": {
+        "path": "deliverables/continuity-investigation-publication-2026-09-25-r3/lib/history-source.mjs",
+        "line": 109,
+        "codeSites": [
+          44,
+          47,
+          56,
+          61,
+          68,
+          70,
+          88,
+          97,
+          109
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-031",
+      "surface": "reader",
+      "code": "HISTORY_INTEGRITY",
+      "message": "The retained file-store record shape, chain or record digest failed this reader’s integrity checks.",
+      "action": "Preserve the original file and expected record hashes. Ask the history owner to reconcile the records; do not rewrite the journal or declare the entire external history false.",
+      "source": {
+        "path": "deliverables/continuity-investigation-publication-2026-09-25-r3/lib/history-source.mjs",
+        "line": 95,
+        "codeSites": [
+          95,
+          99
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-032",
+      "surface": "reader",
+      "code": "HISTORY_EMPTY",
+      "message": "No nonempty event array was decoded from the supplied history.",
+      "action": "Supply the intended supported history source. node examples/recorded.mjs observes a bundled public example without creating a tutorial case.",
+      "source": {
+        "path": "deliverables/continuity-investigation-publication-2026-09-25-r3/lib/history-source.mjs",
+        "line": 104,
+        "codeSites": [
+          104
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-033",
+      "surface": "reader",
+      "code": "EVENT_LIMIT_EXCEEDED",
+      "message": "The supplied history has more than the reader’s 256-event limit.",
+      "action": "Keep the full source. Agree a supported bounded observation with the owner; a shorter history is a different scope, not a successful full-history check.",
+      "source": {
+        "path": "deliverables/continuity-investigation-publication-2026-09-25-r3/lib/history-source.mjs",
+        "line": 90,
+        "codeSites": [
+          90,
+          105
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-034",
+      "surface": "reader",
+      "code": "UNSUPPORTED_HISTORY_PROFILE",
+      "message": "The history identifies a source, binding, manifest or migration format this reader does not support.",
+      "action": "Use a reader that explicitly supports that profile after source-owner diagnosis. Do not strip evidence fields or reinterpret the bytes as this reader’s supported history.",
+      "source": {
+        "path": "deliverables/continuity-investigation-publication-2026-09-25-r3/lib/history-source.mjs",
+        "line": 83,
+        "codeSites": [
+          83,
+          94,
+          133,
+          140
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-035",
+      "surface": "reader",
+      "code": "INVALID_EVALUATION_TIME",
+      "message": "The requested evaluation time is not a nonnegative safe-integer decimal.",
+      "action": "Use a decimal --at value within Number.MAX_SAFE_INTEGER; omitting --at selects the observed head time. This only requests an observation, not current external authority.",
+      "source": {
+        "path": "deliverables/continuity-investigation-publication-2026-09-25-r3/lib/reader-contract.mjs",
+        "line": 29,
+        "codeSites": [
+          29
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-036",
+      "surface": "reader",
+      "code": "INVALID_AMOUNT",
+      "message": "The requested amount is not a supported nonnegative decimal within the uint256 range.",
+      "action": "Use a decimal --amount value within the documented request bounds. This reader never signs or sends a payment.",
+      "source": {
+        "path": "deliverables/continuity-investigation-publication-2026-09-25-r3/lib/reader-contract.mjs",
+        "line": 30,
+        "codeSites": [
+          30
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-037",
+      "surface": "reader",
+      "code": "REQUEST_LIMIT_EXCEEDED",
+      "message": "The encoded observation request exceeds the reader’s configured input limit of 65,536 bytes. The observed encoded size is not included in this record.",
+      "action": "Reduce only unintended request text and use the documented operation fields. Changing the request changes what is observed; keep the original request for diagnosis.",
+      "source": {
+        "path": "deliverables/continuity-investigation-publication-2026-09-25-r3/lib/reader-runner.mjs",
+        "line": 11,
+        "codeSites": [
+          11
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-038",
+      "surface": "reader",
+      "code": "READER_TIMEOUT",
+      "message": "The reader helper reached its configured default local time limit of 15 seconds. No completed observation was returned; this does not judge the history invalid. A trusted internal test can select a different timeout; this saved code alone does not report that selection.",
+      "action": "Keep the source and ask the maintainer to diagnose the bounded reader command. This read-only reader executes no consequential action; do not treat a smaller history as verification of the original one.",
+      "source": {
+        "path": "deliverables/continuity-investigation-publication-2026-09-25-r3/lib/reader-runner.mjs",
+        "line": 22,
+        "codeSites": [
+          22
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "extra-039",
+      "surface": "reader",
+      "code": "OUTPUT_LIMIT_EXCEEDED",
+      "message": "The observation output exceeded the reader’s configured 262,144-byte result limit or its 266,240-byte child-output capture bound. The observed size and which bound was reached are not included in this record. No complete result was returned.",
+      "action": "Keep the request and source; ask the maintainer to select a supported observation scope. The reader does not truncate required evidence into a successful answer.",
+      "source": {
+        "path": "deliverables/continuity-investigation-publication-2026-09-25-r3/lib/reader-runner.mjs",
+        "line": 23,
+        "codeSites": [
+          23
+        ]
+      },
+      "exposure": "explicit untrusted saved-record renderer; original machine defaults unchanged"
+    },
+    {
+      "id": "proposal-invalid_operator_arguments",
+      "surface": "proposal",
+      "code": "INVALID_OPERATOR_ARGUMENTS",
+      "message": "The operator command arguments were not accepted.",
+      "action": "Keep the exact proposal and selected snapshot. Use the existing inspect mode with the original --case, --actor, --snapshot and --proposal selection to review it. Approval requires the exact independently reviewed --approve fingerprint and separately checked current authority. Inspect retained case state before considering another note attempt; never treat this error as a safe-retry instruction.",
+      "source": {
+        "path": "integrations/agent-work-proposal/src/operator-cli.mjs",
+        "line": 69,
+        "codeSites": [
+          35,
+          40,
+          43,
+          44,
+          69
+        ]
+      },
+      "exposure": "explicit saved-record renderer only; original operator output unchanged"
+    },
+    {
+      "id": "proposal-proposal_file_unavailable",
+      "surface": "proposal",
+      "code": "PROPOSAL_FILE_UNAVAILABLE",
+      "message": "The proposal file could not be read as a stable bounded regular file. The exact local cause is not identified by this code.",
+      "action": "Keep the exact proposal and selected snapshot. Use the existing inspect mode with the original --case, --actor, --snapshot and --proposal selection to review it. Approval requires the exact independently reviewed --approve fingerprint and separately checked current authority. Inspect retained case state before considering another note attempt; never treat this error as a safe-retry instruction.",
+      "source": {
+        "path": "integrations/agent-work-proposal/src/operator-cli.mjs",
+        "line": 69,
+        "codeSites": [
+          26,
+          69
+        ]
+      },
+      "exposure": "explicit saved-record renderer only; original operator output unchanged"
+    },
+    {
+      "id": "proposal-proposal_invalid",
+      "surface": "proposal",
+      "code": "PROPOSAL_INVALID",
+      "message": "The proposal input did not satisfy the bridge’s required proposal form.",
+      "action": "Keep the exact proposal and selected snapshot. Use the existing inspect mode with the original --case, --actor, --snapshot and --proposal selection to review it. Approval requires the exact independently reviewed --approve fingerprint and separately checked current authority. Inspect retained case state before considering another note attempt; never treat this error as a safe-retry instruction.",
+      "source": {
+        "path": "integrations/agent-work-proposal/src/operator-cli.mjs",
+        "line": 69,
+        "codeSites": [
+          69
+        ]
+      },
+      "exposure": "explicit saved-record renderer only; original operator output unchanged"
+    },
+    {
+      "id": "proposal-proposal_source_mismatch",
+      "surface": "proposal",
+      "code": "PROPOSAL_SOURCE_MISMATCH",
+      "message": "The proposal references do not match the selected snapshot evidence.",
+      "action": "Keep the exact proposal and selected snapshot. Use the existing inspect mode with the original --case, --actor, --snapshot and --proposal selection to review it. Approval requires the exact independently reviewed --approve fingerprint and separately checked current authority. Inspect retained case state before considering another note attempt; never treat this error as a safe-retry instruction.",
+      "source": {
+        "path": "integrations/agent-work-proposal/src/operator-cli.mjs",
+        "line": 69,
+        "codeSites": [
+          69
+        ]
+      },
+      "exposure": "explicit saved-record renderer only; original operator output unchanged"
+    },
+    {
+      "id": "proposal-proposal_snapshot_unavailable",
+      "surface": "proposal",
+      "code": "PROPOSAL_SNAPSHOT_UNAVAILABLE",
+      "message": "The bridge could not obtain the required case summary for this preparation.",
+      "action": "Keep the exact proposal and selected snapshot. Use the existing inspect mode with the original --case, --actor, --snapshot and --proposal selection to review it. Approval requires the exact independently reviewed --approve fingerprint and separately checked current authority. Inspect retained case state before considering another note attempt; never treat this error as a safe-retry instruction.",
+      "source": {
+        "path": "integrations/agent-work-proposal/src/operator-cli.mjs",
+        "line": 70,
+        "codeSites": [
+          70
+        ]
+      },
+      "exposure": "explicit saved-record renderer only; original operator output unchanged"
+    },
+    {
+      "id": "proposal-work_proposal_configuration",
+      "surface": "proposal",
+      "code": "WORK_PROPOSAL_CONFIGURATION",
+      "message": "The bridge’s supplied configuration did not satisfy its required shape or context selection.",
+      "action": "Keep the exact proposal and selected snapshot. Use the existing inspect mode with the original --case, --actor, --snapshot and --proposal selection to review it. Approval requires the exact independently reviewed --approve fingerprint and separately checked current authority. Inspect retained case state before considering another note attempt; never treat this error as a safe-retry instruction.",
+      "source": {
+        "path": "integrations/agent-work-proposal/src/operator-cli.mjs",
+        "line": 70,
+        "codeSites": [
+          70
+        ]
+      },
+      "exposure": "explicit saved-record renderer only; original operator output unchanged"
+    },
+    {
+      "id": "proposal-proposal_not_prepared",
+      "surface": "proposal",
+      "code": "PROPOSAL_NOT_PREPARED",
+      "message": "The bridge did not recognize an actual prepared proposal object for this attempt.",
+      "action": "Keep the exact proposal and selected snapshot. Use the existing inspect mode with the original --case, --actor, --snapshot and --proposal selection to review it. Approval requires the exact independently reviewed --approve fingerprint and separately checked current authority. Inspect retained case state before considering another note attempt; never treat this error as a safe-retry instruction.",
+      "source": {
+        "path": "integrations/agent-work-proposal/src/operator-cli.mjs",
+        "line": 70,
+        "codeSites": [
+          70
+        ]
+      },
+      "exposure": "explicit saved-record renderer only; original operator output unchanged"
+    },
+    {
+      "id": "proposal-approval_mismatch",
+      "surface": "proposal",
+      "code": "APPROVAL_MISMATCH",
+      "message": "The supplied approval fingerprint does not identify the exact prepared proposal.",
+      "action": "Keep the exact proposal and selected snapshot. Use the existing inspect mode with the original --case, --actor, --snapshot and --proposal selection to review it. Approval requires the exact independently reviewed --approve fingerprint and separately checked current authority. Inspect retained case state before considering another note attempt; never treat this error as a safe-retry instruction.",
+      "source": {
+        "path": "integrations/agent-work-proposal/src/operator-cli.mjs",
+        "line": 70,
+        "codeSites": [
+          70
+        ]
+      },
+      "exposure": "explicit saved-record renderer only; original operator output unchanged"
+    },
+    {
+      "id": "proposal-proposal_already_attempted",
+      "surface": "proposal",
+      "code": "PROPOSAL_ALREADY_ATTEMPTED",
+      "message": "This prepared proposal’s operator attempt has already been consumed. It is not eligible for another automatic submission.",
+      "action": "Keep the exact proposal and selected snapshot. Use the existing inspect mode with the original --case, --actor, --snapshot and --proposal selection to review it. Approval requires the exact independently reviewed --approve fingerprint and separately checked current authority. Inspect retained case state before considering another note attempt; never treat this error as a safe-retry instruction.",
+      "source": {
+        "path": "integrations/agent-work-proposal/src/operator-cli.mjs",
+        "line": 70,
+        "codeSites": [
+          70
+        ]
+      },
+      "exposure": "explicit saved-record renderer only; original operator output unchanged"
+    },
+    {
+      "id": "proposal-proposal_frame_limit",
+      "surface": "proposal",
+      "code": "PROPOSAL_FRAME_LIMIT",
+      "message": "The encoded request exceeds the bridge’s 16-KiB frame limit.",
+      "action": "Keep the exact proposal and selected snapshot. Use the existing inspect mode with the original --case, --actor, --snapshot and --proposal selection to review it. Approval requires the exact independently reviewed --approve fingerprint and separately checked current authority. Inspect retained case state before considering another note attempt; never treat this error as a safe-retry instruction.",
+      "source": {
+        "path": "integrations/agent-work-proposal/src/operator-cli.mjs",
+        "line": 69,
+        "codeSites": [
+          69
+        ]
+      },
+      "exposure": "explicit saved-record renderer only; original operator output unchanged"
+    },
+    {
+      "id": "proposal-operator_result_unavailable",
+      "surface": "proposal",
+      "code": "OPERATOR_RESULT_UNAVAILABLE",
+      "message": "The operator wrapper could not report a result. The software could not track the cause; possible causes include a crash, timeout or unexpected error. This does not judge the retained proposal or case bad.",
+      "action": "Keep the exact proposal and selected snapshot. Use the existing inspect mode with the original --case, --actor, --snapshot and --proposal selection to review it. Approval requires the exact independently reviewed --approve fingerprint and separately checked current authority. Inspect retained case state before considering another note attempt; never treat this error as a safe-retry instruction.",
+      "source": {
+        "path": "integrations/agent-work-proposal/src/operator-cli.mjs",
+        "line": 72,
+        "codeSites": [
+          72
+        ]
+      },
+      "exposure": "explicit saved-record renderer only; original operator output unchanged"
+    }
+  ]
+}

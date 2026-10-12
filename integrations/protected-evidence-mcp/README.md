@@ -2,7 +2,7 @@
 
 This server lets a client ask for one useful action: copy the operator-selected files into a recorded evidence packet. Continuity checks the agent's current permission and runtime before that copy. Retire the runtime while its server is still running, and the next new operation is refused.
 
-The server uses the official TypeScript MCP server/client **2.0.0**. Tests exercise the **2026-07-28** protocol with a pinned client and the SDK's legacy negotiation. It is local stdio only. It is not an arbitrary remote-server proxy, an HTTP service or a sandbox by itself.
+The server uses the official TypeScript MCP server/client **2.2.0**. Tests exercise the **2026-07-28** protocol with a pinned client and the SDK's legacy negotiation. It is local stdio only. It is not an arbitrary remote-server proxy, an HTTP service or a sandbox by itself.
 
 ## Try it without a model account
 

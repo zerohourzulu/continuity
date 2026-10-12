@@ -1,0 +1,325 @@
+{
+  "schema": "continuity.human-messages.v1",
+  "rows": {
+    "1": {
+      "row": 1,
+      "surface": "reviewer",
+      "code": "HELP",
+      "message": "Here are the reviewer commands and the options each one needs.",
+      "action": "Pick a command from commands. Every option listed for that command is required.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "2": {
+      "row": 2,
+      "surface": "reviewer",
+      "code": "HELP_NOTICE",
+      "message": "Before you use this reviewer, check its fingerprints against values you got from a trusted source, not from this package. This package cannot set up trust by itself. It needs a separately checked copy of Python. Its guest program has not yet been confirmed to match its source code.",
+      "action": "Get the software, binding and Python SHA-256 values from the reviewer administrator. reviewer configure takes --software-sha, --binding-sha and --python-sha; this renderer does not authenticate them.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "3": {
+      "row": 3,
+      "surface": "reviewer",
+      "code": "CONFIGURED_NOT_ENROLLED",
+      "message": "The reviewer is set up, but it does not yet trust any case. Next, enroll the summary (Q) reviewer and then the policy (P) reviewer.",
+      "action": "Next use reviewer enroll-q, then reviewer enroll; reviewer help lists the required options. configure only accepts a new --out path.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "4": {
+      "row": 4,
+      "surface": "reviewer",
+      "code": "Q_REVIEWER_ENROLLED_NOT_VERIFIED",
+      "message": "The summary (Q) reviewer now trusts this case's expected record. Nothing has been verified yet.",
+      "action": "Keep the reported floor (the saved minimum-state file) in a private file: mode 0600, one link, owned by the operator. verify needs --q-floor. Then enroll P. If recovery is reported, ask the administrator to reconcile before continuing. Enrollment needs a new directory.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "5": {
+      "row": 5,
+      "surface": "reviewer",
+      "code": "P_OPENVM_REVIEWER_ENROLLED_NOT_VERIFIED",
+      "message": "The policy (P) reviewer now trusts this case's enrollment. Nothing has been verified yet.",
+      "action": "Keep the reported floor (the saved minimum-state file) in a private file: mode 0600, one link, owned by the operator. reviewer verify needs --floor and its other options; reviewer help lists them. Enrollment needs a new directory.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "6": {
+      "row": 6,
+      "surface": "reviewer",
+      "code": "P_OPENVM_REVIEWER_DISABLED",
+      "message": "This policy reviewer is now permanently turned off. It will refuse every future check, even with an older saved state.",
+      "action": "Keep the new private floor file. Future review requires a newly enrolled P reviewer in a new directory; this one cannot be re-enabled.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "7": {
+      "row": 7,
+      "surface": "workflow",
+      "code": "WORKFLOW_REFUSED",
+      "message": "The workflow command did not finish. This does not judge the proof bad. The software could not track the cause; possible causes include a crash, timeout or unexpected error. Nothing was proved (UNPROVED); this error alone does not establish what had already been reserved or started.",
+      "action": "Use python3 -I -B workflow.py status <selection> <selection-sha> to observe the existing case. Check absolute paths and the expected file fingerprints. Before any charged attempt, have the operator reconcile status and retained records. Give the command to the Root maintainer without private file contents.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "8": {
+      "row": 8,
+      "surface": "workflow",
+      "code": "PREFLIGHT_NO_EXECUTION",
+      "message": "The plan checks out. Nothing was run, and no budget was used.",
+      "action": "Review maximumNewCharges. If approved, save that acknowledgment to a file and use select-budget <recipe> <recipe-sha> <selection-out> <charges-file>.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "9": {
+      "row": 9,
+      "surface": "workflow",
+      "code": "RECIPE_CREATED_NO_EXECUTION",
+      "message": "The run plan (recipe) was written. Nothing was run, and no budget was used.",
+      "action": "Use preflight <recipe> <recipePin>, then select-budget after budget approval. Another make-recipe needs a new output path; existing files are not overwritten.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "10": {
+      "row": 10,
+      "surface": "workflow",
+      "code": "SELECTED_NO_EXECUTION",
+      "message": "The budget for this case is selected and recorded. Nothing has run yet. Each stage must still be started by hand.",
+      "action": "Observe workflow.py status <selection> <selectionPin>, then prepare-next. start-next needs the exact request pin and separate approval for each stage. A new selection needs a new output path.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "11": {
+      "row": 11,
+      "surface": "workflow",
+      "code": "NEEDS_CARRY_PLAN_ASSEMBLY",
+      "message": "The first (application) stage is done. The next step builds the hand-off plan for the root stage.",
+      "action": "workflow.py prepare-next <selection> <selectionPin> builds the root carry plan and prepares the stage. start-next still needs the exact printed request pin; do not infer launch approval from preparation.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "12": {
+      "row": 12,
+      "surface": "workflow",
+      "code": "FENCED_OR_RUNNING",
+      "message": "A stage is still running, or its finish has not been recorded yet. Wait. Do not start anything else.",
+      "action": "Observe workflow.py status <selection> <selectionPin> and controller.py status <config> <config-sha>. Do not start another stage or reset the budget while a fence (the record that a stage is still open) remains.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "13": {
+      "row": 13,
+      "surface": "workflow",
+      "code": "STOPPED_FAILED_OR_CANCELED",
+      "message": "This stage stopped without a usable result. It failed, hit a limit, or was cancelled. Its budget is still counted.",
+      "action": "Inspect the existing attempt terminal.json reason and peakSampledRssKiB. Keep the failed output and charges. Ask the operator to reconcile before considering a new charged attempt; this is not a verdict that a proof is bad.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "14": {
+      "row": 14,
+      "surface": "workflow",
+      "code": "ALL_STAGES_RETAINED_UNVERIFIED",
+      "message": "All four stages finished and their outputs are saved, but nothing is proven yet (UNVERIFIED). An independent reviewer must check the final proof.",
+      "action": "export-final <selection> <selectionPin> <result-pin.json> <binding-pin.json> <out.zip> creates a new export. Verification still requires independent reviewer trust and Q-first/P verification; retained output is not verification.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "15": {
+      "row": 15,
+      "surface": "workflow",
+      "code": "FENCED_REQUIRES_INSPECTION",
+      "message": "The workflow could not read this case’s records consistently. This status check started nothing; it does not establish that no earlier attempt ran.",
+      "action": "Keep the records and ask the Root maintainer to inspect the floor, ledger and attempt closure. Do not edit the journal, reset charges or start again on this message alone.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "16": {
+      "row": 16,
+      "surface": "workflow",
+      "code": "PREPARED_REQUIRES_EXACT_START",
+      "message": "The next stage is ready. Start it with the exact request pin shown. Nothing has started yet.",
+      "action": "Use start-next <selection> <selectionPin> <requestPin> only with approval for that exact request. Preparing does not authorize another stage or a retry.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "17": {
+      "row": 17,
+      "surface": "reviewer",
+      "code": "KIT_USAGE",
+      "message": "That reviewer command was not recognised, or an option is missing its value. Run `reviewer help` to see the valid commands.",
+      "action": "Use reviewer help, then supply each required option as --name value.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "18": {
+      "row": 18,
+      "surface": "reviewer",
+      "code": "KIT_INPUT_PIN",
+      "message": "A file you supplied does not match the fingerprint you gave for it, so it was not used.",
+      "action": "Compare shasum -a 256 <file> with the expected value supplied by the file owner. Do not replace the expected fingerprint with the observed one without that owner’s confirmation. The code does not identify which file failed.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "19": {
+      "row": 19,
+      "surface": "reviewer",
+      "code": "KIT_BINDING_PIN",
+      "message": "The binding fingerprint you gave does not match this reviewer package, so setup stopped.",
+      "action": "Ask the reviewer administrator for the binding fingerprint for this exact package before reviewer configure.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "20": {
+      "row": 20,
+      "surface": "reviewer",
+      "code": "KIT_UNQUALIFIED_IMAGE_ACK_REQUIRED",
+      "message": "Setup needs you to confirm that you understand the guest program has not been confirmed against its source code. Set `--accept-unqualified-guest-image yes` (exactly `yes`) if you accept this.",
+      "action": "Decide whether this limitation is acceptable. configure requires --accept-unqualified-guest-image yes, exactly yes. A missing option is KIT_MISSING_OPTION, a separate refusal.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "21": {
+      "row": 21,
+      "surface": "recipient",
+      "code": "ACKNOWLEDGED",
+      "message": "The recipient’s supplied response reports that it stored a receipt record with the attempt ID, payload digest and amount.",
+      "action": "Keep the receipt and authenticated transport evidence separately. The stored receipt has no signature field; signing is at the RPC transport boundary. This saved JSON does not show human receipt or current external completion.",
+      "review": "CHECKED_WITH_ROOT_CORRECTION"
+    },
+    "22": {
+      "row": 22,
+      "surface": "recipient",
+      "code": "SERVICE_SCHEMA",
+      "message": "The request was not in the expected form, so the service did not record it.",
+      "action": "Check the publish request shape and encoded payload against the recipient interface. Only after correction and diagnosis should an authorized caller send again; keep the original record.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "23": {
+      "row": 23,
+      "surface": "recipient",
+      "code": "SERVICE_CONFLICT",
+      "message": "This request reuses an ID that already has different content recorded, so it was refused. The original record is kept.",
+      "action": "Inspect the original attempt and its recorded content. An identical idempotent request differs from a new attempt. Do not reuse the old ID for different content or edit the journal.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "24": {
+      "row": 24,
+      "surface": "recipient",
+      "code": "SERVICE_FORBIDDEN",
+      "message": "Your access token is not allowed to run this command, or this command type is not accepted here.",
+      "action": "Ask the service administrator to check the caller’s configured capability for this command. A service token does not grant Core, policy or reviewer authority.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "25": {
+      "row": 25,
+      "surface": "service",
+      "code": "REFUSED",
+      "message": "The service’s operator diagnostic reports a refused request. Its bounded code may be more specific than the code returned to the caller.",
+      "action": "For SERVICE_SCHEMA, SERVICE_CONFLICT and SERVICE_FORBIDDEN, inspect the corresponding request, existing identity/content or capability. For other codes, get an operator diagnosis before sending again. History/internal failures require maintainer inspection; never edit the journal. This diagnostic does not establish that no earlier work or charge occurred.",
+      "review": "CHECKED_WITH_ROOT_CORRECTION"
+    },
+    "26": {
+      "row": 26,
+      "surface": "reader",
+      "code": "FILE_REQUIRED",
+      "message": "A usable history path was not supplied: --file is missing, or its path is longer than 4,096 characters. Nothing was read. Supply a shorter valid path. To observe a bundled public example, run node examples/recorded.mjs.",
+      "action": "",
+      "review": "CHECKED_WITH_ROOT_CORRECTION"
+    },
+    "27": {
+      "row": 27,
+      "surface": "reader",
+      "code": "SOURCE_UNAVAILABLE",
+      "message": "The reader could not open or read the history file. Check the path and read permission. For a tutorial case, the history is integrations/core-0.2-reference/cases/<case name>/history.jsonl. You can also observe it by name with node tools/case.mjs status <case name>.",
+      "action": "",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "28": {
+      "row": 28,
+      "surface": "reader",
+      "code": "UNKNOWN_OPERATION",
+      "message": "That is not a reader operation. Put the operation first: verify, status, check, why, responsible, survives or handover_report. Full usage: node bin/continuity.mjs --help.",
+      "action": "",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "29": {
+      "row": 29,
+      "surface": "reader",
+      "code": "INVALID_ARGUMENTS",
+      "message": "One of the options was not accepted. Each option may appear only once. Every option except --json needs a value that does not start with --. Check the required options: node bin/continuity.mjs --help.",
+      "action": "",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "30": {
+      "row": 30,
+      "surface": "reader",
+      "code": "READER_FAILED",
+      "message": "The reader could not finish. This does not judge the history invalid. No consequential action was executed. Check node tools/doctor.mjs --for reader. If it reports ready, the original cause is still unknown; possible causes include a helper failure, unreadable helper output or another unexpected local error. Give the command and error code to the maintainer without private history contents.",
+      "action": "",
+      "review": "CHECKED_WITH_ROOT_CORRECTION"
+    },
+    "31": {
+      "row": 31,
+      "surface": "website",
+      "code": "COPY_SUCCESS",
+      "message": "Copied",
+      "action": "",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "32": {
+      "row": 32,
+      "surface": "website",
+      "code": "COPY_FAILED",
+      "message": "Couldn’t copy. Select the commands and copy them yourself.",
+      "action": "",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "33": {
+      "row": 33,
+      "surface": "website",
+      "code": "COPY_IDLE",
+      "message": "Copy commands",
+      "action": "",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "34": {
+      "row": 34,
+      "surface": "playground",
+      "code": "CHECK_TIMEOUT",
+      "message": "This check did not finish within 20 seconds, so it was stopped. No result has been accepted, and the previous result was cleared. You can press “Check this request” to try the same scenario again. It may stop again. A smaller team or fewer permissions would be a different scenario, and its result would not answer the question for this one.",
+      "action": "",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "35": {
+      "row": 35,
+      "surface": "playground",
+      "code": "WORKER_ERROR",
+      "message": "The checking engine on this page stopped with an error, so there is no result. Part of the page may not have loaded, for example after a dropped connection, or the engine may have hit a problem while running. To keep your scenario, use “Download scenario”, then reload the page and press “Check this request”. If it fails the same way again, report the problem to the site maintainer.",
+      "action": "",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "36": {
+      "row": 36,
+      "surface": "playground",
+      "code": "IMPORT_BYTES_EXCEEDED",
+      "message": "This file is too large to open here. A scenario file can be at most 32 KiB (32,768 bytes). Choose a scenario saved from this playground with “Download scenario”.",
+      "action": "",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "37": {
+      "row": 37,
+      "surface": "case",
+      "code": "LOCAL_ERROR",
+      "message": "The case command did not finish. This does not judge the existing case bad. The software could not track the cause; possible causes include a crash, timeout or unexpected error.",
+      "action": "Use status/check to observe existing cases. mcp-config creates configuration files and can leave a partial pair; inspect before an authorized repeat. A new tutorial/start case uses demo- plus 12 hex characters and does not recover an old case.",
+      "review": "CHECKED_WITH_ROOT_CORRECTION"
+    },
+    "38": {
+      "row": 38,
+      "surface": "tutorial",
+      "code": "LOCAL_ERROR",
+      "message": "The tutorial command did not finish. This does not judge the retained case bad. The software could not track the cause; possible causes include a crash, timeout or unexpected error. This does not establish how far a run got.",
+      "action": "Keep the existing case and any partial evidence; diagnose before a fresh run with a new name. tutorial/cli.mjs run without --case chooses demo- plus 10 hex characters; tutorial/start.mjs chooses 12. Neither recovers an old case.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "39": {
+      "row": 39,
+      "surface": "mcp",
+      "code": "INVALID_PARAMS",
+      "message": "The server could not use this request’s parameters. params must be an object. initialize requires protocolVersion, capabilities and clientInfo with name and version. tools/call needs name and an arguments object with only that tool’s fields and every required field.",
+      "action": "Inspect tools/list for each inputSchema and correct the client request. These tools only observe; the connection stays open for this refusal. Numeric code remains -32602 and machine message remains INVALID_PARAMS.",
+      "review": "CHECKED_SOURCE_BOUND"
+    },
+    "40": {
+      "row": 40,
+      "surface": "mcp",
+      "code": "PARSE_ERROR",
+      "message": "The server could not parse this line or finish handling it. Check strict UTF-8 JSON framing: one value per line, no duplicate keys, depth at most 16 and at most 2,048 values. Protocol requests must be objects; valid non-object JSON produces INVALID_REQUEST.",
+      "action": "This catch reports id:null and code -32700; that does not prove the ID was unreadable or that no observation began. A line over 16,384 bytes is REQUEST_LIMIT_EXCEEDED and closes the server. No consequential action is offered by these read-only tools. If correctly encoded input repeats this error, report it to the maintainer.",
+      "review": "CHECKED_WITH_ROOT_CORRECTION"
+    }
+  }
+}

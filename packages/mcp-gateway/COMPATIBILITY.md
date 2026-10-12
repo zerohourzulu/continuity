@@ -6,7 +6,7 @@ Start with `npm run demo`, `npm run demo:http`, or `npm run demo:tasks`. They us
 
 | Component | Selected path | Demonstrated behavior |
 | --- | --- | --- |
-| Official TypeScript SDK client 2.0.0 | Modern and legacy stdio; modern authenticated HTTP | Catalog, allow/deny, repeated jobs, caller isolation, expiry/revocation and recovery. |
+| Official TypeScript SDK client 2.0.0 (historical checks) | Modern and legacy stdio; modern authenticated HTTP | Catalog, allow/deny, repeated jobs, caller isolation, expiry/revocation and recovery. |
 | MCP Inspector 2.7.0 CLI | Modern authenticated HTTP | Catalog, reading a synthetic file through the approved upstream, and retrieving the original result. Use `--protocol-era modern`. Inspector itself requires Node22.19+; the gateway supports Node22.18 on the22 line and Node24. |
 | Apify mcpc 0.6.0 CLI | Modern stdio | Catalog and retrieval of the same business job. Use a dedicated config and `--protocol-version 2026-07-28`. No cloud account or model call is needed. |
 | Official filesystem MCP server 2026.8.31 | Explicit legacy stdio upstream | Only its approved `read_text_file` tool is exposed. The test server's allowed directory contains one synthetic file. |
@@ -45,3 +45,5 @@ The optional `examples/linux-isolation.mjs` checks a prepared Linux lab fixture:
 ## Real browser login
 
 A separate [Keycloak/openid-client/Chrome test](IDENTITY.md) exercises real login, renewal, key changes and persistent binding revocation. It does not extend the Inspector/mcpc results to those applications' interactive OAuth support. The fixed-audience provider limitation remains explicit.
+
+The current source pins the client/server/core to 2.2.0. Its stdio/HTTP, gateway and Tasks regression suites are rerun for this edition; earlier named third-party host checks above retain their original 2.0.0 scope. See [security update](https://github.com/zerohourzulu/continuity/blob/main/docs/MCP-SDK-SECURITY-UPDATE.md).

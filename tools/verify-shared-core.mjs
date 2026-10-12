@@ -10,7 +10,7 @@ const run=(command,args)=>{const r=spawnSync(command,args,{cwd:dir,encoding:'utf
 try {
  writeFileSync(join(dir,'package.json'),JSON.stringify({private:true,type:'module'}));
  run('npm',['install','--prefer-offline','--ignore-scripts','--no-audit','--no-fund',
- join(root,'sdk/message-release/ramex-labs-continuity-0.3.0-preview.11.tgz'),join(root,'sdk/message-release/ramex-labs-continuity-remote-0.3.0-preview.6.tgz'),join(root,'sdk/message-release/ramex-labs-continuity-mcp-0.3.0-preview.12.tgz')]);
+ join(root,'sdk/security-release/ramex-labs-continuity-0.3.0-preview.11.tgz'),join(root,'sdk/security-release/ramex-labs-continuity-remote-0.3.0-preview.6.tgz'),join(root,'sdk/security-release/ramex-labs-continuity-mcp-0.3.0-preview.13.tgz')]);
  const paths=run('npm',['ls','--all','--parseable','@ramex-labs/continuity']).trim().split('\n').filter(Boolean);
  assert.equal(paths.length,1,'The supported combination must resolve exactly one Core installation');
  const remote=join(dir,'node_modules/@ramex-labs/continuity-remote'),mcp=join(dir,'node_modules/@ramex-labs/continuity-mcp');
